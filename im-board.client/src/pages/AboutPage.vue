@@ -1,8 +1,8 @@
 <template>
-  <div class="about container">
+  <div class="about container-fluid bg-secondary">
     <div class="row">
-      <div class="col-md-12 bg-dark text-light">
- 
+      <div class="col-md-4 " v-for="i in 5">
+ <AuthorCard />
 
       </div>
     </div>
@@ -10,11 +10,11 @@
 </template>
 
 <script>
+import AuthorCard from "../components/AuthorCard.vue";
 export default {
-  setup() {
-    return {
-
-    }
-  }
+    setup() {
+        return {};
+    },
+    components: { AuthorCard }
 }
 </script>
