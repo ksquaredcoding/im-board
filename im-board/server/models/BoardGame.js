@@ -16,5 +16,5 @@ BoardGameSchema.virtual('account', {
   localField: 'accountId',
   foreignField: '_id',
   justOne: true,
-  ref: 'Profile'
+  ref: 'Account'
 })

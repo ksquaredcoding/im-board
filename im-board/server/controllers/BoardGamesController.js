@@ -34,7 +34,7 @@ export class BoardGamesController extends BaseController {
   async removeBoardGameFromList(req, res, next) {
     try {
       const boardGame = await boardGamesService.removeBoardGameFromList(
-        req.params.boardGameId
+        req.params.boardGameId, req.userInfo.id
       );
       res.send(boardGame);
     } catch (error) {

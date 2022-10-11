@@ -1,9 +1,9 @@
 import { dbContext } from '../db/DbContext'
-import { BadRequest } from '../utils/Errors'
+import { BadRequest, Forbidden } from '../utils/Errors'
 
 class BoardGamesService {
   async getBoardGamesByAccountId(accountId) {
-    const games = await dbContext.BoardGames.find({ accountId }).populate('Account', 'name picture')
+    const games = await dbContext.BoardGames.find({ accountId }).populate('account', 'name picture')
     return games
   }
 
@@ -16,13 +16,22 @@ class BoardGamesService {
   }
 
   async addBoardGameToList(boardGameData) {
+    const accountGames = await this.getBoardGamesByAccountId(boardGameData.accountId)
+    const newGame = accountGames.find(g => g.gameId == boardGameData.gameId && g.type == boardGameData.type)
+    if (newGame) {
+      throw new BadRequest('You can only add 1 of each game to each type of list.')
+    }
     const game = await dbContext.BoardGames.create(boardGameData)
-    await game.populate('Account', 'name picture')
+    await game.populate('account', 'name picture')
     return game
   }
 
-  async removeBoardGameFromList(boardGameId) {
-    const game = await dbContext.BoardGames.findById(boardGameId)
+  async removeBoardGameFromList(boardGameId, accountId) {
+    const game = await this.getBoardGameById(boardGameId)
+    // @ts-ignore
+    if (accountId !== game.accountId.toString()) {
+      throw new Forbidden('You can only delete games from your own account.')
+    }
     await game.remove()
     return game
   }
