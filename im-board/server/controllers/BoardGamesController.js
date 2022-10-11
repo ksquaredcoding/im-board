@@ -15,7 +15,7 @@ export class BoardGamesController extends BaseController {
   async getBoardGamesByAccountId(req, res, next) {
     try {
       const boardGames = await boardGamesService.getBoardGamesByAccountId(
-        req.UserInfo
+        req.UserInfo.id
       );
       res.send(boardGames);
     } catch (error) {
