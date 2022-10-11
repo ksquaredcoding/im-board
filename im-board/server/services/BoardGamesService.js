@@ -21,7 +21,7 @@ class BoardGamesService {
     return game
   }
 
-  async deleteBoardGameFromList(boardGameId) {
+  async removeBoardGameFromList(boardGameId) {
     const game = await dbContext.BoardGames.findById(boardGameId)
     await game.remove()
     return game

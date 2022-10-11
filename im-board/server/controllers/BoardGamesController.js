@@ -25,7 +25,7 @@ export class BoardGamesController extends BaseController {
   async addBoardGameToList(req, res, next) {
     try {
       req.body.accountId = req.userInfo.id;
-      const boardGame = await boardGamesService.addBoardGameTolist(req.body);
+      const boardGame = await boardGamesService.addBoardGameToList(req.body);
       res.send(boardGame);
     } catch (error) {
       next(error);
