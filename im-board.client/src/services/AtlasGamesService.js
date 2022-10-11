@@ -3,7 +3,7 @@ import { atlasApi } from './AxiosService.js';
 import {BoardGame} from '../models/BoardGame.js'
       //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
-  //        client_id:'2I6DeypMLL'
+ //fuzzy_match
   async getBoardGames() {
     const res = await atlasApi.get('/api/search', {
       params: {
@@ -15,6 +15,14 @@ class AtlasGamesService {
     console.log(res.data);
     console.log(AppState.boardgames);
   }
+
+
+async getBoardGamesByCategory(){
+
+}
+
+
+
 
   //REVIEW https://api.boardgameatlas.com/api/search?client_id=2I6DeypMLL&ids=TAAifFP590
   async getBoardGameDetailsById(id) {
