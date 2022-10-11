@@ -2,7 +2,7 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class BoardGamesService {
-  async getBoardGamesByAccount(accountId) {
+  async getBoardGamesByAccountId(accountId) {
     const games = await dbContext.BoardGames.find({ accountId }).populate('Account', 'name picture')
     return games
   }
