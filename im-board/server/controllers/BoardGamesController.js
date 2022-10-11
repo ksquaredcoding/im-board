@@ -11,7 +11,10 @@ export class BoardGamesController extends BaseController {
   // TODO
   async getBoardGamesByAccountId(req, res, next) {
     try {
-      const example = await res.send();
+      const boardGames = await boardGamesService.getBoardGamesByAccountId(
+        req.UserInfo
+      );
+      res.send(boardGames);
     } catch (error) {
       next(error);
     }
