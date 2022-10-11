@@ -1,14 +1,20 @@
 <template>
-  <div class="aboutPage container-fluid bg-secondary">
-    <div class="row">
-      <div class="col-md-4 d-flex " >
-        <AuthorCard />
-        <AuthorCard />
-        <AuthorCard />
-        <AuthorCard />
+  <!-- <div class="aboutPage container-fluid bg-secondary">
+    <div class="row justify-content-center">
+      <div class="col-md-6 justify-content-center d-flex ">
+        <p class="teamText rounded mt-2 px-4">Meet Our Team</p>
       </div>
     </div>
-  </div>
+    <div class="row justify-content-center">
+      <div class="col-md-2 cardSection  d-flex  p-0 " v-for="i in 5" >
+        <AuthorCard />
+     
+      </div>
+    </div>
+  </div> -->
+ <div class="aboutPage">
+
+ </div> 
 </template>
 
 <script>
@@ -22,12 +28,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.cardSection {
+  max-height: 50vh;
+}
+.teamText {
+  font-size: 50pt;
+  font-weight: 700;
+  font-family: Helvetica;
+  color: #2c2c2c;
+  background-color: #d5d5d5;
+  letter-spacing: 0.05em;
+  text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
 .banner {
   height: 600px;
   object-fit: cover;
 }
 .aboutPage {
-  background-image: url(https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80);
+  height: 100vh;
+  background-image: url(https://mj-gallery.com/c8886f1a-3612-4f2e-a100-764330c494be/grid_0.png);
   background-position: center;
   background-size: cover;
 }
