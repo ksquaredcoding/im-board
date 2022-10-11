@@ -1,22 +1,23 @@
 <template>
 
- <div class="card profileCard  elevation-3 mx-4 my-2 " >
+ <div class="card profileCard  box-shadow mx-4 my-2 " >
           
               <img src="https://grottonetwork.com/wp-content/uploads/2017/11/iStock-611620630.jpg" alt=""
                 class="forcedImg  elevation-2">
            
             <div class="card-body position-relative">
               <span> <img src="../assets/img/TungPicture.jpeg" alt="" class="profileImg"></span>
-              <div class="border-bottom border-dark border-3">
-                <h5>Title</h5>
+              <div class="d-flex justify-content-center mt-3 nameText text-shadow2">
+                <h4>Tung Le</h4>
+               
               </div>
-              <div class="d-flex justify-content-end text-shadow mt-2">
-                <h6>PlaceHolder Text</h6>
-              </div>
-              <div>
-                <small>Description Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum blanditiis atque
-                  quaerat qui architecto!</small>
-              </div>
+           <div>
+             <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione odio similique vero expedita ipsum rem.</p>
+           </div>
+           <div class="d-flex justify-content-around">
+            <i class="mdi mdi-github fs-1"></i>
+            <i class="mdi mdi-linkedin  fs-1"></i>
+           </div>
             </div>
           </div>
 
@@ -40,26 +41,30 @@ export default {
 
 <style lang="scss" scoped>
 
+
+.nameText{
+  font-weight: 700;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+letter-spacing: 0.06em;
+}
+
 .profileCard{
-  border-top-left-radius: 25%;
-  border-top-right-radius: 25%;
 
 }
 .forcedImg{
   height: 300px;
   width: auto;
   object-fit: cover;
-    border-top-left-radius: 25%;
-  border-top-right-radius: 25%;
+
 }
 
 .profileImg{
-  height: 275px;
+  height: 200px;
 border-radius: 50%;
 border: 8px solid rgb(255, 255, 255);
 position: absolute;
-top: -225px;
-left: 60px;
-
+top: -175px;
+left: 100px;
+box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 </style>
