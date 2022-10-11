@@ -8,7 +8,7 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
-      .get("/boardGame", this.getAccountBoardGames);
+      // .get("/boardGame", this.getAccountBoardGames);
   }
 
   async getUserAccount(req, res, next) {
@@ -21,11 +21,11 @@ export class AccountController extends BaseController {
   }
 
   // TODO account boardGame
-  async getAccountBoardGames(req, res, next) {
-    try {
-      const example = await res.send();
-    } catch (error) {
-      next(error);
-    }
-  }
+  // async getAccountBoardGames(req, res, next) {
+  //   try {
+  //     const example = await res.send();
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // }
 }
