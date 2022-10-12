@@ -40,7 +40,7 @@
 
     <div class="col d-flex">
 
-      <!-- TODO make into component -->
+      <!-- TODO make into component. -->
       <div class="ps-3 mt-4">
         <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button">Groups</a>
         <a name="" id="" class="btn bg-c2" href="#" role="button">Lists</a>
