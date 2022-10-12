@@ -42,14 +42,14 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 
 
  .profile-img {
-transition: 0.75s ease;
+transition: 0.50s ease;
 
  }
  .profile-img:hover{
   transform: scale(1.09);
   filter: brightness(110%);
-  filter: contrast(110%);
-  transition: 0.75s ease;
+
+  transition: 0.50s ease;
  } 
 
 .game-card{

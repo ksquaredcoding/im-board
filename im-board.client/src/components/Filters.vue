@@ -35,7 +35,7 @@
       </div>
     </div>
     <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
-  
+  //gt_min_playtime
     <div></div>
   </div>
 </template>
@@ -66,14 +66,14 @@ export default {
 
       async checkBoxMethod(event) {
         try {
-          // console.log(event.target);
+      
           if (event.target.checked) {
             this.filter.push(event.target.value);
-            // console.log(this.filter.toString());
+       
           } else if (!event.target.checked) {
             const index = this.filter.indexOf(event.target.value);
             this.filter.splice(index, 1);
-            // console.log(this.filter.toString());
+        
           }
 
           await atlasGamesService.getBoardGamesByCategories(
