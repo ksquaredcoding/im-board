@@ -26,45 +26,49 @@
           <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
           </router-link>
+          <router-link :to="{ name: 'BoardGameDetails', params: {id: 'TAAifFP590' } }"
+            class="btn text-success lighten-30 selectable text-uppercase">
+            game details
+          </router-link>
         </li>
       </ul>
       <Login />
     </div>
   </nav> -->
 
-<nav class="navbar navbar-dark bg-dark px-3">
-  
-  <div class="col d-flex">
+  <nav class="navbar navbar-dark bg-dark px-3">
 
-    <!-- TODO make into component -->
-    <div class="ps-3 mt-4">
-    <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button">Groups</a>
-    <a name="" id="" class="btn bg-c2" href="#" role="button">Lists</a>
-    </div>
- <!-- TODO END -->
+    <div class="col d-flex">
 
-  </div>
-  <div class="col">
-    
-  <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex align-items-center">
-        <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-       <h3 class="ms-3 navbar-title">I'm Game</h3>
+      <!-- TODO make into component -->
+      <div class="ps-3 mt-4">
+        <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button">Groups</a>
+        <a name="" id="" class="btn bg-c2" href="#" role="button">Lists</a>
       </div>
-    </router-link>
+      <!-- TODO END -->
 
-  </div>
+    </div>
+    <div class="col">
 
-  <div class="col d-flex flex-row-reverse">
+      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+        <div class="d-flex align-items-center">
+          <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
+          <h3 class="ms-3 navbar-title">I'm Game</h3>
+        </div>
+      </router-link>
 
-    <div class="pe-3 mt-4">
-    <a name="" id="" class="btn bg-c5 me-2 px-2" href="#" role="button">Groups</a>
-    <a name="" id="" class="btn bg-c5" href="#" role="button">Lists</a>
     </div>
 
-  </div>
+    <div class="col d-flex flex-row-reverse">
 
-</nav>
+      <div class="pe-3 mt-4">
+        <a name="" id="" class="btn bg-c5 me-2 px-2" href="#" role="button">Groups</a>
+        <a name="" id="" class="btn bg-c5" href="#" role="button">Lists</a>
+      </div>
+
+    </div>
+
+  </nav>
 </template>
 
 <script>
@@ -92,16 +96,16 @@ a:hover {
   border-bottom-right-radius: 0;
 }
 
-nav{
+nav {
   font-family: 'Baloo 2', cursive;
 }
 
-.navbar-title{
+.navbar-title {
   font-size: 65px;
 }
 
-.btn{
+.btn {
   width: 70px;
-  font-weight:600;
+  font-weight: 600;
 }
 </style>
