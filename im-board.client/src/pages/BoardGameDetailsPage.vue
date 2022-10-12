@@ -6,10 +6,10 @@
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div class="col-md-6">
-        <img :src="boardGame.coverImg" alt="" class="image-fluid">
+      <div class="col-md-6 d-flex justify-content-center">
+        <img :src="boardGame.large" alt="" class="image-fluid">
       </div>
-      <div class="col-6">
+      <div class="col-6 p-3">
         <div class="d-flex">
           <b>Number of players : </b>
           <p>{{boardGame.players}}</p>
@@ -34,6 +34,10 @@
           <b>Average User Rating:</b>
           <p>{{boardGame.average_user_rating}}</p>
         </div>
+        <div class="text-center mt-1">
+          <b>Ranking:</b>
+          <p>{{boardGame.rank}}</p>
+        </div>
         <div class="text-center">
           <b>Add to list</b>
         </div>
@@ -43,8 +47,10 @@
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Wishlist</button>
         </div>
       </div>
-      <div v-for="i in images" :key="i.id">
-        <ActiveBoardGameImages :images="i" />
+      <div class="row game-images my-3">
+        <div v-for="i in images" :key="i.id" class="col-md-2 m-1">
+          <ActiveBoardGameImages :images="i" />
+        </div>
       </div>
     </div>
   </section>
@@ -124,5 +130,10 @@ export default {
 
 .list-button {
   background-color: #79bd9a;
+}
+
+.game-images {
+  height: 300px;
+  overflow: auto;
 }
 </style>

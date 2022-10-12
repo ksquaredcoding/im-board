@@ -5,6 +5,8 @@ export class BoardGame {
 
     this.id = data.id
     this.rating = data.average_user_rating
+    this.rank = data.rank
+    this.large = data.images.large
     // this.coverImg = data.images.original;
     this.name = data.name
     this.coverImg = data.images.original
