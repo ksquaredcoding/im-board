@@ -61,10 +61,14 @@
 
     <div class="col d-flex flex-row-reverse">
 
+      <!-- TODO make into component -->
       <div class="pe-3 mt-4">
-        <a name="" id="" class="btn bg-c5 me-2 px-2" href="#" role="button">Groups</a>
-        <a name="" id="" class="btn bg-c5" href="#" role="button">Lists</a>
+        <a name="" id="" class="btn bg-c5 me-2 px-2" href="#" role="button">Profile</a>
+        <a name="" id="" class="btn bg-c5" href="#" role="button">Logout</a>
+        <Login />
       </div>
+      <!-- TODO END -->
+
 
     </div>
 
