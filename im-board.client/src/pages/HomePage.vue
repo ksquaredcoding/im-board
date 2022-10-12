@@ -1,11 +1,12 @@
 <template>
-  <div class="homePage container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <Filters />
+<div class="container-fluid px-0">
+
+    <div class="col-3 bg-c4 searchcol"> 
+<Searchbar/>
+<Filters/>
     </div>
-  </div>
-  </div>
+
+</div>
 </template>
 
 <script>
@@ -13,6 +14,7 @@ import { onMounted, ref } from "vue";
 import { atlasGamesService } from "../services/AtlasGamesService.js";
 import Pop from '../utils/Pop.js';
 import Filters from "../components/Filters.vue";
+import Searchbar from "../components/Searchbar.vue";
 
 export default {
     setup() {
@@ -50,8 +52,12 @@ export default {
             },
         };
     },
-    components: { Filters }
+    components: { Filters, Searchbar }
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.searchcol{
+   height: 600px;
+}
+</style>
