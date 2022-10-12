@@ -1,11 +1,13 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex align-items-center">
         <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
        <h3 class="ms-3">I'm Game</h3>
       </div>
     </router-link>
+   
     <button
       class="navbar-toggler"
       type="button"
@@ -17,6 +19,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
@@ -25,10 +28,36 @@
           </router-link>
         </li>
       </ul>
-      <!-- LOGIN COMPONENT HERE -->
       <Login />
     </div>
-  </nav>
+  </nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  
+  <div class="col d-flex">
+    
+    <!-- TODO make into component -->
+    <div class="ps-3">
+    <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button"><strong>Groups</strong></a>
+    <a name="" id="" class="btn bg-c2" href="#" role="button"><strong>Lists</strong></a>
+    </div>
+ <!-- TODO END -->
+
+  </div>
+  <div class="col">
+    
+  <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+      <div class="d-flex align-items-center">
+        <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
+       <h3 class="ms-3 navbar-title">I'm Game</h3>
+      </div>
+    </router-link>
+
+  </div>
+
+  <div class="col"></div>
+
+</nav>
 </template>
 
 <script>
@@ -54,5 +83,17 @@ a:hover {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+nav{
+  font-family: 'Baloo 2', cursive;
+}
+
+.navbar-title{
+  font-size: 75px;
+}
+
+.btn{
+  width: 70px;
 }
 </style>
