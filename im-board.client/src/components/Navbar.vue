@@ -38,17 +38,17 @@
 
   <nav class="navbar navbar-dark bg-dark px-3">
 
-    <div class="col d-flex">
+    <div class="col-md-5 d-flex">
 
       <!-- TODO make into component. -->
-      <div class="ps-3 mt-4">
-        <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button">Groups</a>
-        <a name="" id="" class="btn bg-c2" href="#" role="button">Lists</a>
+      <div class="ps-3 mt-4 d-none">
+        <a name="" id="" class="btn bg-c2 me-2 px-2 box-shadow" href="#" role="button">Groups</a>
+        <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button">Lists</a>
       </div>
       <!-- TODO END -->
 
     </div>
-    <div class="col">
+    <div class="col-md">
 
       <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center">
@@ -59,12 +59,11 @@
 
     </div>
 
-    <div class="col d-flex flex-row-reverse">
+    <div class="col-md d-flex flex-row-reverse d-none">
 
       <!-- TODO make into component -->
-      <div class="pe-3 mt-4">
-        <a name="" id="" class="btn bg-c4 me-2 px-2" href="#" role="button">Profile</a>
-        <a name="" id="" class="btn bg-c4 px-2" href="#" role="button">Logout</a>
+      <div class="pe-3 mt-4 d-flex box-shadow">
+        <a name="" id="" class="btn bg-c4 me-2 px-2 box-shadow" href="#" role="button">Profile</a>
         <Login />
       </div>
       <!-- TODO END -->
@@ -111,5 +110,9 @@ nav {
 .btn {
   width: 70px;
   font-weight: 600;
+}
+
+@media screen AND (max-width: 768px){
+
 }
 </style>

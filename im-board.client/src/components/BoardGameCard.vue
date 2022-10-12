@@ -1,6 +1,6 @@
 <template>
   <div class="col boardgamecard  py-4 px-4 ">
-  <div class="text-dark">
+  <div class="box-shadow">
     <div class="text-start ">
       <img class="card-img-top forcedImage rounded-top" src="https://thiscatdoesnotexist.com/" alt="Title">
       <div class="card-body p-1 bg-dark">

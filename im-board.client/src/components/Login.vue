@@ -1,43 +1,19 @@
 <template>
-  <span class="navbar-text">
+
+  <!-- <a name="" id="" class="btn bg-c4 px-2" href="#" role="button">Logout</a> -->
     <button
-      class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
+      class="btn selectable bg-c4 px-2"
       @click="login"
       v-if="!user.isAuthenticated"
     >
       Login
     </button>
 
-    <div class="dropdown my-2 my-lg-0" v-else>
-      <div
-        class="dropdown-toggle selectable"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        id="authDropdown"
-      >
-        <div v-if="account.picture || user.picture">
-          <img
-            :src="account.picture || user.picture"
-            alt="account photo"
-            height="40"
-            class="rounded"
-          />
-          <span class="mx-3 text-success lighten-30">{{ account.name || user.name }}</span>
+    <div class="btn bg-c4 px-2" v-else>
+        <div class="hoverable" @click="logout">
+          Logout
         </div>
       </div>
-      <div class="dropdown-menu p-0 list-group w-100" aria-labelledby="authDropdown">
-        <router-link :to="{ name: 'Account' }">
-          <div class="list-group-item list-group-item-action hoverable">
-            Manage Account
-          </div>
-        </router-link>
-        <div class="list-group-item list-group-item-action hoverable text-danger" @click="logout">
-          <i class="mdi mdi-logout"></i>
-          logout
-        </div>
-      </div>
-    </div>
-  </span>
 </template>
 
 <script>
@@ -74,5 +50,10 @@ export default {
 
 .hoverable {
   cursor: pointer;
+}
+
+.btn {
+  width: 70px;
+  font-weight: 600;
 }
 </style>

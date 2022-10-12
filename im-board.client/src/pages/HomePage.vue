@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid">
+<div class="container-fluid homepage" >
 <div class="row ">
 
        <div class="col-md-2 bg-c4 p-0 searchcol"> 
@@ -8,12 +8,12 @@
     </div>
 
     <div class="col-md-10 ">
-        <div class="row bg-grey p-3">
+        <div class="row p-3 presetfilters d-none">
             <div class="col-md-12 d-flex justify-content-around align-items-center ">
-                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">All</a>
-                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">Popular</a>
-                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">Highest Rated</a>
-                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">Wishlist</a>
+                <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">All</a>
+                <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">Popular</a>
+                <a name="" id="" class="btn bg-c3 text-dark box-shadow " href="#" role="button">Highest Rated</a>
+                <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">Wishlist</a>
             </div>
         </div>
 
@@ -81,14 +81,34 @@ export default {
 
 <style scoped lang="scss">
 .searchcol{
-   height: 600px;
+   height: 100vh;;
 }
 
 .btn {
   width: 175px;
+  height: 50px;
+  overflow: auto;
   font-size: larger;
   font-weight: bold;
   padding: 10px;
   font-family: 'Baloo 2', cursive;
+}
+
+.homepage{
+    height:100vh;
+    background-image: url(../assets/img/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg);
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.presetfilters{
+    background-color: #2c2c2fe7;
+}
+
+@media screen AND (max-width: 768px){
+.searchcol{
+   height: auto;
+}
+
 }
 </style>
