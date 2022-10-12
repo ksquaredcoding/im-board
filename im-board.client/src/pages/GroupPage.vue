@@ -4,10 +4,17 @@
   <GroupBanner />
   <div class="col-md-3">
 <div class="bg-dark rounded px-2 py-2 my-2 text-center"> <h4>Group Chat</h4></div>
+<div class="scrollableY rounded ">
+ 
 <GroupChatCard/>
 <GroupChatCard/>
 <GroupChatCard/>
 <GroupChatCard/>
+<GroupChatCard/>
+<GroupChatCard/>
+<GroupChatCard/>
+</div>
+
 <div>
 
 </div>
@@ -37,4 +44,9 @@ export default {
 
 
 <style lang="scss" scoped>
+.scrollableY{
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 </style>

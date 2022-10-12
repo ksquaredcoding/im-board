@@ -6,7 +6,7 @@
       
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5">
+          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 mb-2 rounded-5">
             <i class="mdi mdi-arrow-left-bold fs-1"></i>
             <img
               src="//thiscatdoesnotexist.com"
@@ -38,7 +38,8 @@ export default {
 
 <style lang="scss" scoped>
 .bannerBg{
-background-color: rgba(0, 0, 0, 0.517);
+
+background-color: rgba(0, 0, 0, 0.553);
 }
 .banner {
 
