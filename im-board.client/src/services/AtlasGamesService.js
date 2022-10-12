@@ -25,7 +25,7 @@ class AtlasGamesService {
       },
     });
     console.log(res.data);
-    // console.log(categories);
+ 
   }
 
   //REVIEW https://api.boardgameatlas.com/api/search?client_id=2I6DeypMLL&ids=TAAifFP590
@@ -37,12 +37,6 @@ class AtlasGamesService {
       },
     });
   }
-  // async getCategories() {
-  //   const res = await atlasApi.get(
-  //     "/api/game/categories?pretty=true&client_id=JLBr5npPhV"
-  //   );
-
-  //   console.log(res.data);
-  // }
+ 
 }
 export const atlasGamesService = new AtlasGamesService();
