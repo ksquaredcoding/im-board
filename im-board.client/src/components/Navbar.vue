@@ -3,7 +3,7 @@
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex align-items-center">
         <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-       <h3 class="ms-3">I'm Board</h3>
+       <h3 class="ms-3">I'm Game</h3>
       </div>
     </router-link>
     <button
