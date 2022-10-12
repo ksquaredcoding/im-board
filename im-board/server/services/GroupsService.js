@@ -2,6 +2,17 @@ import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 class GroupsService {
   async removeGroup(groupId, accountId) {
+    const group = await this.getGroupById(groupId);
+    // @ts-ignore
+    if (group.creatorId.toString() !== accountId) {
+      throw new Forbidden("only the creator delete this group");
+    }
+
+    if (group.groupMemberIds.length > 1) {
+      throw new Forbidden("this group still has members!");
+    }
+    await group.remove();
+    return group;
   }
   async editGroup(groupData, accountId, groupId) {
     const group = await this.getGroupById(groupId);
