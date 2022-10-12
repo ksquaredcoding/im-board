@@ -2,10 +2,8 @@ import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 class GroupsService {
   async getMyGroups(accountId) {
-    const groups = await dbContext.Groups.find((g) => {
-      // @ts-ignore
-      g.groupMemberIds.includes(accountId);
-    });
+
+    const groups = await dbContext.GroupMembers.find({ accountId }).populate('group', 'name picture')
     // FIXME does this work??
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");

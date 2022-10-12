@@ -6,14 +6,14 @@ import BaseController from "../utils/BaseController";
 
 export class AccountController extends BaseController {
   constructor() {
-    super("account");
+    super("/account");
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
-      .get("/boardGames", this.getAccountBoardGames)
+      .get("/boardgames", this.getAccountBoardGames)
       .get("/groups", this.getMyGroups)
-      .get('/gamenights', this.getMyGameNights)
-      
+    // .get('/gamenights', this.getMyGameNights)
+
   }
 
   async getUserAccount(req, res, next) {
