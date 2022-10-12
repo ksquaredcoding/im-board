@@ -9,8 +9,9 @@
       <input
         type="checkbox"
         :value="category.id"
-        id="cardGame"
-        @change="checkBoxMethod(category.id)"
+        :checked="category.checked"
+        :id="category.name"
+        @change="checkBoxMethod($event)"
       />
       <label for="card-game">{{ category.name }}</label>
     </div>
@@ -20,55 +21,47 @@
 </template>
 
 <script>
-import { onMounted, ref, computed } from "vue";
-import { AppState } from "../AppState.js";
-import { atlasGamesService } from "../services/AtlasGamesService.js";
-import Pop from "../utils/Pop.js";
+import { onMounted, ref, computed } from 'vue';
+import { AppState } from '../AppState.js';
+import { atlasGamesService } from '../services/AtlasGamesService.js';
+import Pop from '../utils/Pop.js';
 
 export default {
   props: {},
 
   setup(props) {
-    // async function getCategories() {
-    //   try {
-    //     await atlasGamesService.getCategories();
-    //   } catch (error) {
-    //     Pop.error(error);
-    //   }
-    // }
-    // onMounted(() => {
-    //   getCategories();
-    // });
-    const editable = ref("");
+ 
+    const editable = ref('');
     return {
       categories: computed(() => AppState.categories),
       filter: computed(() => AppState.activeCategoryFilters),
       editable,
 
-      // categories: {
-      //   cardGame: "eX8uuNlQkQ",
-      //   fantasy: "ZTneo8TaIO",
-      //   economic: "N0TkEGfEsF",
-      //   scifi: "3B3QpKvXD3",
-      //   cityBuilding: "ODWOjWAJj3",
-      //   medieval: "QAYkTHK1Dd",
-      //   adventure: "KUBCKBkGxV",
-      // },
       async getBoardGamesByCategories(category) {
         try {
           await atlasGamesService.getBoardGamesByCategories(category);
         } catch (error) {
-          Pop.error(error, "[getBoardGamesByCategories]");
+          Pop.error(error, '[getBoardGamesByCategories]');
         }
       },
 
-      async checkBoxMethod(category) {
+      async checkBoxMethod(event) {
         try {
-          this.filter.push(category);
-          // console.log(this.filter);
-          await atlasGamesService.getBoardGamesByCategories(this.filter.toString());
+          // console.log(event.target.id);
+          if (event.target.checked) {
+            this.filter.push(event.target.value);
+            // console.log(this.filter.toString());
+          } else if (!event.target.checked) {
+            const index = this.filter.indexOf(event.target.value);
+            this.filter.splice(index, 1);
+            // console.log(this.filter.toString());
+          }
+
+          await atlasGamesService.getBoardGamesByCategories(
+            this.filter.toString()
+          );
         } catch (error) {
-          Pop.error(error, "[]");
+          Pop.error(error, '[checkBoxMethod]');
         }
       },
     };
