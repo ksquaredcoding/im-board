@@ -16,13 +16,14 @@ class AtlasGamesService {
     console.log(AppState.boardgames);
   }
 
-  async getBoardGamesByCategories(categories = "") {
-    // const res = await atlasApi.get('/api/search', {
-    //   params: {
-    //     client_id: '2I6DeypMLL',
-    //     categories:categories
-    //   },
-    // });
+  async getBoardGamesByCategories(categories ) {
+    const res = await atlasApi.get("/api/search", {
+      params: {
+        client_id: "2I6DeypMLL",
+        categories: categories ,
+      },
+    });
+    console.log(res.data);
     console.log(categories);
   }
 
@@ -35,12 +36,12 @@ class AtlasGamesService {
       },
     });
   }
-  async getCategories() {
-    const res = await atlasApi.get(
-      "/api/game/categories?pretty=true&client_id=JLBr5npPhV"
-    );
+  // async getCategories() {
+  //   const res = await atlasApi.get(
+  //     "/api/game/categories?pretty=true&client_id=JLBr5npPhV"
+  //   );
 
-    console.log(res.data);
-  }
+  //   console.log(res.data);
+  // }
 }
 export const atlasGamesService = new AtlasGamesService();
