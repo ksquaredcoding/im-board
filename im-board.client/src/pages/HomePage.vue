@@ -8,7 +8,7 @@
     </div>
 
     <div class="col-md-10 ">
-        <div class="row p-3 presetfilters d-none">
+        <div class="row p-3 presetfilters ">
             <div class="col-md-12 d-flex justify-content-around align-items-center ">
                 <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">All</a>
                 <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">Popular</a>
@@ -87,7 +87,7 @@ export default {
 .btn {
   width: 175px;
   height: 50px;
-  overflow: auto;
+  overflow: hidden;
   font-size: larger;
   font-weight: bold;
   padding: 10px;
@@ -106,9 +106,6 @@ export default {
 }
 
 @media screen AND (max-width: 768px){
-.searchcol{
-   height: auto;
-}
 
 }
 </style>

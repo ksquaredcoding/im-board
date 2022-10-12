@@ -38,10 +38,10 @@
 
   <nav class="navbar navbar-dark bg-dark px-3">
 
-    <div class="col-md-5 d-flex">
+    <div class="col-md d-flex">
 
       <!-- TODO make into component. -->
-      <div class="ps-3 mt-4 d-none">
+      <div class="ps-3 mt-4 ">
         <a name="" id="" class="btn bg-c2 me-2 px-2 box-shadow" href="#" role="button">Groups</a>
         <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button">Lists</a>
       </div>
@@ -59,7 +59,7 @@
 
     </div>
 
-    <div class="col-md d-flex flex-row-reverse d-none">
+    <div class="col-md d-flex flex-row-reverse ">
 
       <!-- TODO make into component -->
       <div class="pe-3 mt-4 d-flex box-shadow">
