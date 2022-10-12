@@ -13,10 +13,11 @@ class AtlasGamesService {
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);
-    console.log(AppState.boardgames);
+    // console.log(AppState.boardgames);
   }
 
-  async getBoardGamesByCategories(categories ) {
+  async getBoardGamesByCategories(categories='' ) {
+    console.log(categories);
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
@@ -24,7 +25,7 @@ class AtlasGamesService {
       },
     });
     console.log(res.data);
-    console.log(categories);
+    // console.log(categories);
   }
 
   //REVIEW https://api.boardgameatlas.com/api/search?client_id=2I6DeypMLL&ids=TAAifFP590

@@ -65,8 +65,8 @@ export default {
       async checkBoxMethod(category) {
         try {
           this.filter.push(category);
-          console.log(this.filter);
-          await atlasGamesService.getBoardGamesByCategories(this.filter);
+          // console.log(this.filter);
+          await atlasGamesService.getBoardGamesByCategories(this.filter.toString());
         } catch (error) {
           Pop.error(error, "[]");
         }
