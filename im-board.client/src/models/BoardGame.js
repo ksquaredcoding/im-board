@@ -5,9 +5,11 @@ export class BoardGame {
 
     this.id = data.id
     this.rating = data.average_user_rating
+    this.rank = data.rank
     // this.coverImg = data.images.original;
     this.name = data.name
     this.coverImg = data.images.original
+    this.largeImg = data.images.large
     this.description_preview = data.description_preview//not text but HTML
     this.description = data.description
     this.categories = data.categories //is array
