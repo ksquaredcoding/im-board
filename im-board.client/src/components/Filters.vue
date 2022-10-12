@@ -1,24 +1,15 @@
 <template>
   <div class="filters">
       <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button>
-    <div class="box">
-      <input type="checkbox" value="eX8uuNlQkQ" id="cardGame" v-model="categories.cardGame">
-      <label for="card-game"></label>
+    <div class="list-group-item" v-for="category in categories" :key="category.id">
+      <input type="checkbox" value="eX8uuNlQkQ" id="cardGame"  @change="checkBoxMethod()" >
+      <label for="card-game">{{category}}</label>
     </div>
-    <div class="box">
-      <input type="checkbox" value="ZTneo8TaIO" id="fantasy" @click="checkBoxMethod('ZTneo8TaIO')">
-      <label for="card-game"></label>
-    </div>
-    <div class="box">
-      <input type="checkbox" value="eX8uuNlQkQ" id="cardGame" v-model="categories.cardGame">
-      <label for="card-game"></label>
-    </div>
+   
     <div>
-      {{categories.cardGame}}
+  
     
-      <!-- <ul>
-        <li v-for="category in categories.cardGame"></li>
-      </ul> -->
+      
     </div>
   </div>
 </template>
@@ -37,8 +28,16 @@ export default {
 const editable = ref('')
     return {
       editable,
+
       categories:{
-cardGame:[]
+cardGame:'eX8uuNlQkQ',
+fantasy:'ZTneo8TaIO',
+economic:'N0TkEGfEsF',
+scifi:'3B3QpKvXD3',
+cityBuilding:'ODWOjWAJj3',
+medieval:'QAYkTHK1Dd',
+adventure:'KUBCKBkGxV'
+
       },
 async getBoardGamesByCategories(category){
   try {
@@ -50,10 +49,10 @@ async getBoardGamesByCategories(category){
 
 
 
-async checkBoxMethod(category){
+async checkBoxMethod(){
   try {
   console.log(category);
-      await atlasGamesService.getBoardGamesByCategories(category)
+      await atlasGamesService.getBoardGamesByCategories()
     } catch (error) {
       Pop.error(error,'[]')
     }
