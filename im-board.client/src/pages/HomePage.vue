@@ -1,25 +1,31 @@
 <template>
-<div class="container p-0">
+<div class="container-fluid">
 <div class="row ">
 
-       <div class="col-md-2 bg-c4 searchcol"> 
+       <div class="col-md-2 bg-c4 p-0 searchcol"> 
 <Searchbar/>
 <Filters/>
-<BoardGameCard/>
     </div>
 
     <div class="col-md-10 ">
-        <div class="row bg-c5">
+        <div class="row bg-grey p-3">
             <div class="col-md-12 d-flex justify-content-around align-items-center ">
-                <a name="" id="" class="btn bg-c4" href="#" role="button">All</a>
-                <a name="" id="" class="btn bg-c3" href="#" role="button">Popular</a>
-                <a name="" id="" class="btn bg-c2" href="#" role="button">Highest Rated</a>
-                <a name="" id="" class="btn bg-c1" href="#" role="button">Wishlist</a>
+                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">All</a>
+                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">Popular</a>
+                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">Highest Rated</a>
+                <a name="" id="" class="btn bg-c3 text-dark" href="#" role="button">Wishlist</a>
             </div>
         </div>
+
+          <div class="row justify-content-center">
+        <BoardGameCard/>
+        <BoardGameCard/>
+        <BoardGameCard/>
+    </div> 
+
     </div>
 
-    
+ 
 
 </div>
 </div>
