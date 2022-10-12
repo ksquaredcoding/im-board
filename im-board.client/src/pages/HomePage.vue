@@ -1,11 +1,27 @@
 <template>
-<div class="container-fluid px-0">
+<div class="container p-0">
+<div class="row ">
 
-    <div class="col-3 bg-c4 searchcol"> 
+       <div class="col-md-2 bg-c4 searchcol"> 
 <Searchbar/>
 <Filters/>
+<BoardGameCard/>
     </div>
 
+    <div class="col-md-10 ">
+        <div class="row bg-c5">
+            <div class="col-md-12 d-flex justify-content-around align-items-center ">
+                <a name="" id="" class="btn bg-c4" href="#" role="button">All</a>
+                <a name="" id="" class="btn bg-c3" href="#" role="button">Popular</a>
+                <a name="" id="" class="btn bg-c2" href="#" role="button">Highest Rated</a>
+                <a name="" id="" class="btn bg-c1" href="#" role="button">Wishlist</a>
+            </div>
+        </div>
+    </div>
+
+    
+
+</div>
 </div>
 </template>
 
@@ -15,6 +31,7 @@ import { atlasGamesService } from "../services/AtlasGamesService.js";
 import Pop from '../utils/Pop.js';
 import Filters from "../components/Filters.vue";
 import Searchbar from "../components/Searchbar.vue";
+import BoardGameCard from "../components/BoardGameCard.vue";
 
 export default {
     setup() {
@@ -52,12 +69,20 @@ export default {
             },
         };
     },
-    components: { Filters, Searchbar }
+    components: { Filters, Searchbar, BoardGameCard }
 };
 </script>
 
 <style scoped lang="scss">
 .searchcol{
    height: 600px;
+}
+
+.btn {
+  width: 175px;
+  font-size: larger;
+  font-weight: bold;
+  padding: 10px;
+  font-family: 'Baloo 2', cursive;
 }
 </style>
