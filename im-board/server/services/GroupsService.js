@@ -1,5 +1,6 @@
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
+import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
 
@@ -36,6 +37,10 @@ class GroupsService {
   }
   async createGroup(groupData) {
     const group = await dbContext.Groups.create(groupData);
+    await group.populate('creator', 'name picture')
+    await groupMembersService.addGroupMember(group.id.toString(), groupData.creatorId)
+    group.groupMemberIds.push(group.creatorId)
+    await group.save()
     return group;
   }
   async getGroupById(id) {

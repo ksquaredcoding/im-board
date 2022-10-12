@@ -30,21 +30,20 @@ class GroupMembersService {
     return member;
     // TODO finish remove member
   }
-  async addGroupMember(groupMemberData) {
-    const group = await groupsService.getGroupById(groupMemberData.groupId);
-    const groupMembers = await this.getGroupMembersByGroupId(
-      groupMemberData.groupId
-    );
+  async addGroupMember(groupId, accountId) {
+    const group = await groupsService.getGroupById(groupId);
+    const groupMembers = await this.getGroupMembersByGroupId(groupId);
     const alreadyMember = groupMembers.find(
-      (g) => g.accountId == groupMemberData.accountId.toString()
-    );
+      (g) => g.accountId == accountId);
     if (alreadyMember) {
       throw new Forbidden("you are already apart of this group");
     }
-    const newGroupMember = await dbContext.GroupMembers.create(groupMemberData);
-    group.groupMemberIds.push(newGroupMember.accountId);
+    const newGroupMember = await dbContext.GroupMembers.create(groupId, accountId);
+    group.groupMemberIds.push(accountId);
     await group.save();
+    // @ts-ignore
     await newGroupMember.populate("account", "name picture");
+    // @ts-ignore
     await newGroupMember.populate("group", "name");
     return newGroupMember;
   }

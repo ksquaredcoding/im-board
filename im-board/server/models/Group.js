@@ -16,3 +16,10 @@ export const GroupSchema = new Schema(
   },
   SCHEMA_OPTIONS
 );
+
+GroupSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Account'
+})
