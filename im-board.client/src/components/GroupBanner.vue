@@ -1,12 +1,12 @@
 <template>
-  <div class="col-md-12 banner ">
+  <div class="col-md-12 banner elevation-3 ">
     <div class="row justify-content-center">
-      <div class="col-md-6 text-center bannerBg my-2 rounded text-light">
+      <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
         <span> <h1>GROUP NAME</h1></span>
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5">
-            <i class="mdi mdi-arrow-left-bold fs-1"></i>
+          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 mx-5 elevation-5 groupMemberBar">
+         
             <img
               src="//thiscatdoesnotexist.com"
               alt="groupMember.name"
@@ -16,7 +16,7 @@
               class="rounded-circle box-shadow mx-1 profile-img"
               v-for="i in 6"
             />
-            <i class="mdi mdi-arrow-right-bold fs-1"></i>
+       
           </div>
         </div>
       </div>
@@ -32,6 +32,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.groupMemberBar{
+  box-shadow: inset 0 2px 8px 0 black
+}
 .bannerBg{
 background-color: rgba(0, 0, 0, 0.517);
 }

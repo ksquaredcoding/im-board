@@ -1,6 +1,6 @@
 <template>
-  <div class="groupChatCard card bg-c2 my-2 elevation-5" >
-    <div class="d-flex p-1 align-items-end justify-content-around">
+  <div class="groupChatCard card bg-c2 my-2 elevation-5 " >
+    <div class="d-flex p-1 align-items-end ">
       <img src="//thiscatdoesnotexist.com" alt="" height="45" width="45" class="rounded-circle box-shadow profile-img">
       <p class="ms-1">Member Name</p>
     </div>
@@ -20,6 +20,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.groupChatCard{
+  transition:  0.5s ease;
+
+}
+
+.groupChatCard:hover{
+  background-color: #3b8686 !important;
+  transition:  0.75s ease;
+  transform: scale(1.04);
+}
 .text-shadow{
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;

@@ -11,7 +11,9 @@
     <GroupChatCard />
     <GroupChatCard />
     <GroupChatCard />
- 
+ <div>
+  
+ </div>
 <div>
 </div>
   </div>
