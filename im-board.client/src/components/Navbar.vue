@@ -32,14 +32,14 @@
     </div>
   </nav> -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+<nav class="navbar navbar-dark bg-dark px-3">
   
   <div class="col d-flex">
-    
+
     <!-- TODO make into component -->
-    <div class="ps-3">
-    <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button"><strong>Groups</strong></a>
-    <a name="" id="" class="btn bg-c2" href="#" role="button"><strong>Lists</strong></a>
+    <div class="ps-3 mt-4">
+    <a name="" id="" class="btn bg-c2 me-2 px-2" href="#" role="button">Groups</a>
+    <a name="" id="" class="btn bg-c2" href="#" role="button">Lists</a>
     </div>
  <!-- TODO END -->
 
@@ -55,7 +55,14 @@
 
   </div>
 
-  <div class="col"></div>
+  <div class="col d-flex flex-row-reverse">
+
+    <div class="pe-3 mt-4">
+    <a name="" id="" class="btn bg-c5 me-2 px-2" href="#" role="button">Groups</a>
+    <a name="" id="" class="btn bg-c5" href="#" role="button">Lists</a>
+    </div>
+
+  </div>
 
 </nav>
 </template>
@@ -90,10 +97,11 @@ nav{
 }
 
 .navbar-title{
-  font-size: 75px;
+  font-size: 65px;
 }
 
 .btn{
   width: 70px;
+  font-weight:600;
 }
 </style>
