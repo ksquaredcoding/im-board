@@ -12,6 +12,16 @@ export const AppState = reactive({
   /** @type {import('./models/BoardGame.js').BoardGame | null} */
   activeBoardGame: null,
 
+  /** @type {import('./models/ActiveBoardGameImage.js').ActiveBoardGameImage[]} */
+  activeBoardGameImages: [],
+
+  /** @type {import('./models/ActiveBoardGameVideo.js').ActiveBoardGameVideo[]} */
+  activeBoardGameVideos: [],
+
+  /** @type {import('./models/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
+
+  activeBoardGamePrices: [],
+
   activeCategoryFilters: [],
   categories: [
     { name: 'cardGame', id: 'eX8uuNlQkQ' },

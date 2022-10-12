@@ -4,7 +4,10 @@
       <div class="col-12 bg-c4 text-center my-3 py-3 rounded">
         <h1>{{boardGame.name}}</h1>
       </div>
-      <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
+      <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
+      </div> -->
+      <div class="col-md-6">
+        <img :src="boardGame.coverImg" alt="" class="image-fluid">
       </div>
       <div class="col-6">
         <div class="d-flex">
@@ -40,6 +43,9 @@
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Wishlist</button>
         </div>
       </div>
+      <div v-for="i in images" :key="i.id">
+        <ActiveBoardGameImages :images="i" />
+      </div>
     </div>
   </section>
 </template>
@@ -52,27 +58,61 @@ import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { atlasGamesService } from "../services/AtlasGamesService.js";
 import Pop from "../utils/Pop.js";
+import ActiveBoardGameImages from "../components/ActiveBoardGameImages.vue";
 
 export default {
   setup() {
     // const route = useRoute();
-
     async function getBoardGameDetailsById() {
       try {
-        await atlasGamesService.getBoardGameDetailsById('TAAifFP590')
-      } catch (error) {
-        console.error('[]', error)
-        Pop.error(error)
+        await atlasGamesService.getBoardGameDetailsById("TAAifFP590");
+      }
+      catch (error) {
+        console.error("[]", error);
+        Pop.error(error);
       }
     }
 
-    onMounted(() => {
-      getBoardGameDetailsById()
-    })
-    return {
-      boardGame: computed(() => AppState.activeBoardGame)
+    async function getBoardGameImagesByGameId() {
+      try {
+        await atlasGamesService.getBoardGameImagesByGameId("TAAifFP590");
+      }
+      catch (error) {
+        console.error("[]", error);
+        Pop.error(error);
+      }
     }
-  }
+
+    async function getBoardGamePricesByGameId() {
+      try {
+        await atlasGamesService.getBoardGamePricesByGameId("TAAifFP590");
+      }
+      catch (error) {
+        console.error("[]", error);
+        Pop.error(error);
+      }
+    }
+    async function getBoardGameVideosByGameId() {
+      try {
+        await atlasGamesService.getBoardGameVideosByGameId("TAAifFP590");
+      }
+      catch (error) {
+        console.error("[]", error);
+        Pop.error(error);
+      }
+    }
+    onMounted(() => {
+      getBoardGameDetailsById();
+      getBoardGamePricesByGameId();
+      getBoardGameVideosByGameId();
+      getBoardGameImagesByGameId()
+    });
+    return {
+      boardGame: computed(() => AppState.activeBoardGame),
+      images: computed(() => AppState.activeBoardGameImages)
+    };
+  },
+  components: { ActiveBoardGameImages }
 }
 </script>
 
