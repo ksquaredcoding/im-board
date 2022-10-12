@@ -2,7 +2,7 @@
   <div class="col boardgamecard  py-4 px-4 ">
   <div class="text-dark">
     <div class="text-start ">
-      <img class="card-img-top img-fluid rounded-top" src="https://thiscatdoesnotexist.com/" alt="Title">
+      <img class="card-img-top forcedImage rounded-top" src="https://thiscatdoesnotexist.com/" alt="Title">
       <div class="card-body p-1 bg-dark">
         <p class="card-title d-flex justify-content-center">Name: Cool Name</p>
         <p class="card-text d-flex justify-content-center">Rating: 5/5</p>
@@ -46,7 +46,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.forcedImage{
+  height: 200px;
 
+  object-fit: cover;
+}
 .text-shadow{
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
