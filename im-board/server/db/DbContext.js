@@ -13,7 +13,7 @@ class DbContext {
   BoardGames = mongoose.model("BoardGame", BoardGameSchema);
   Groups = mongoose.model("Group", GroupSchema);
   GroupMembers = mongoose.model("GroupMember", GroupMemberSchema);
-  GameNight = mongoose.model("GameNight", GameNightSchema);
+  GameNights = mongoose.model("GameNight", GameNightSchema);
   GroupChat = mongoose.model("GroupChat", GroupChatSchema);
 }
 // TODO add schemas to DbContext

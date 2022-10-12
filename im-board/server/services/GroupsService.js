@@ -1,6 +1,17 @@
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 class GroupsService {
+  async getMyGroups(accountId) {
+    const groups = await dbContext.Groups.find((g) => {
+      // @ts-ignore
+      g.groupMemberIds.includes(accountId);
+    });
+    // FIXME does this work??
+    if (!groups) {
+      throw new BadRequest("bad or invalid accountId");
+    }
+    return groups;
+  }
   async removeGroup(groupId, accountId) {
     const group = await this.getGroupById(groupId);
     // @ts-ignore

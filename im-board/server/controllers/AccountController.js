@@ -1,5 +1,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { accountService } from "../services/AccountService";
+import { boardGamesService } from "../services/BoardGamesService.js";
+import { groupsService } from "../services/GroupsService.js";
 import BaseController from "../utils/BaseController";
 
 export class AccountController extends BaseController {
@@ -8,7 +10,10 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
-      // .get("/boardGame", this.getAccountBoardGames);
+      .get("/boardGames", this.getAccountBoardGames)
+      .get("/groups", this.getMyGroups)
+      .get('/gamenights', this.getMyGameNights)
+      
   }
 
   async getUserAccount(req, res, next) {
@@ -21,11 +26,22 @@ export class AccountController extends BaseController {
   }
 
   // TODO account boardGame
-  // async getAccountBoardGames(req, res, next) {
-  //   try {
-  //     const example = await res.send();
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // }
+  async getAccountBoardGames(req, res, next) {
+    try {
+      const boardGames = await boardGamesService.getBoardGamesByAccountId(
+        req.userInfo.id
+      );
+      res.send(boardGames);
+    } catch (error) {
+      next(error);
+    }
+  }
+  async getMyGroups(req, res, next) {
+    try {
+      const groups = await groupsService.getMyGroups(req.userInfo.id);
+      res.send(groups);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

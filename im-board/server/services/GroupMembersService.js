@@ -20,6 +20,14 @@ class GroupMembersService {
       // @ts-ignore
       await member.remove();
     }
+    // if (!isMember) {
+    //   throw new Forbidden(
+    //     "you need to be apart of a group to remove yourself from it"
+    //   );
+    // }
+    // @ts-ignore
+    await member.remove();
+    return member;
     // TODO finish remove member
   }
   async addGroupMember(groupMemberData) {
@@ -34,7 +42,7 @@ class GroupMembersService {
       throw new Forbidden("you are already apart of this group");
     }
     const newGroupMember = await dbContext.GroupMembers.create(groupMemberData);
-    group.groupMemberIds.push(newGroupMember.id);
+    group.groupMemberIds.push(newGroupMember.accountId);
     await group.save();
     await newGroupMember.populate("account", "name picture");
     await newGroupMember.populate("group", "name");
