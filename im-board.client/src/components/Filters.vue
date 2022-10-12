@@ -1,12 +1,22 @@
 <template>
-  <div class="filters">
-    <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button>
-    <div
-      class="list-group-item"
+  <div class="filters container-fluid">
+    <div class="row">
+      <div class="col-md-2 ">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+       Categories
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div
+      class="list-group-item inputBox"
       v-for="category in categories"
       :key="category.id"
     >
       <input
+        class="checkBox"
         type="checkbox"
         :value="category.id"
         :checked="category.checked"
@@ -16,6 +26,16 @@
       <label for="card-game">{{ category.name }}</label>
     </div>
 
+    </div>
+  </div>
+
+
+</div>
+ 
+      </div>
+    </div>
+    <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
+  
     <div></div>
   </div>
 </template>
@@ -30,7 +50,6 @@ export default {
   props: {},
 
   setup(props) {
- 
     const editable = ref('');
     return {
       categories: computed(() => AppState.categories),
@@ -47,7 +66,7 @@ export default {
 
       async checkBoxMethod(event) {
         try {
-          // console.log(event.target.id);
+          // console.log(event.target);
           if (event.target.checked) {
             this.filter.push(event.target.value);
             // console.log(this.filter.toString());
@@ -70,6 +89,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input.checkBox {
+}
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
