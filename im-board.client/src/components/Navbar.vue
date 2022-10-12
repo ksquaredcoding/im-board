@@ -36,39 +36,42 @@
     </div>
   </nav> -->
 
-  <nav class="navbar navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-dark bg-dark px-3 ">
 
-    <div class="col-md d-flex">
-
+    <div class="col-md d-flex ">
       <!-- TODO make into component. -->
-      <div class="ps-3 mt-4 ">
+      <div class="ps-3 mt-4 d-none d-sm-block">
         <a name="" id="" class="btn bg-c2 me-2 px-2 box-shadow" href="#" role="button">Groups</a>
         <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button">Lists</a>
       </div>
       <!-- TODO END -->
 
     </div>
-    <div class="col-md">
-
-      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-        <div class="d-flex align-items-center">
+    <div class="col-md d-flex justify-content-center">
+      <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
+        <div class="d-flex align-items-center justify-content-center">
           <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-          <h3 class="ms-3 navbar-title">I'm Game</h3>
+          <h3 class="ms-3 navbar-title justify-content-center">I'm Game</h3>
         </div>
       </router-link>
-
     </div>
-
+    
+  
+    
     <div class="col-md d-flex flex-row-reverse ">
 
       <!-- TODO make into component -->
-      <div class="pe-3 mt-4 d-flex box-shadow">
+      <div class="pe-3 mt-4 d-flex box-shadow d-none d-sm-block">
         <a name="" id="" class="btn bg-c4 me-2 px-2 box-shadow" href="#" role="button">Profile</a>
         <Login />
       </div>
       <!-- TODO END -->
 
+    </div>
 
+  <div class="col-12 d-flex justify-content-between  g-2 d-md-none">
+      <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
+      <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i> 
     </div>
 
   </nav>

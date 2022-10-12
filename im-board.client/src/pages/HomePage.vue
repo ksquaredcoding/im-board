@@ -2,13 +2,13 @@
 <div class="container-fluid homepage" >
 <div class="row ">
 
-       <div class="col-md-2 bg-c4 p-0 searchcol"> 
+       <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block"> 
 <Searchbar/>
 <Filters/>
     </div>
 
-    <div class="col-md-10 ">
-        <div class="row p-3 presetfilters ">
+    <div class="col-md-10">
+        <div class="row p-3 presetfilters d-none d-sm-block">
             <div class="col-md-12 d-flex justify-content-around align-items-center ">
                 <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">All</a>
                 <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">Popular</a>
@@ -105,7 +105,7 @@ export default {
     background-color: #2c2c2fe7;
 }
 
-@media screen AND (max-width: 768px){
+// @media screen AND (max-width: 768px){
 
-}
+// }
 </style>
