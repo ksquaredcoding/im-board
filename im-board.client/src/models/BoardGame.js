@@ -19,7 +19,7 @@ export class BoardGame {
     this.playtime = data.playtime
     this.players = data.players
     this.price = data.price
-    this.primary_publisher = data.primary_publisher
+    this.primary_publisher = data.primary_publisher.name
     this.year_published = data.year_published
     this.average_user_rating = data.average_user_rating
     this.average_learning_complexity = data.average_learning_complexity
