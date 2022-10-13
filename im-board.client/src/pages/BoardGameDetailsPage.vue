@@ -1,15 +1,15 @@
 <template>
   <section class="container-fluid px-5" v-if="boardGame">
     <div class="row">
-      <div class="col-12 bg-c4 text-center my-3 py-3 rounded">
+      <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown">
         <h1>{{boardGame.name}}</h1>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div class="col-md-6 d-flex justify-content-center">
-        <img :src="boardGame.large" alt="" class="image-fluid">
+      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
+        <img :src="boardGame.large" alt="" class="img-fluid rounded elevation-2">
       </div>
-      <div class="col-6 p-3">
+      <div class="col-6 p-3 animate__animated animate__fadeInRight">
         <div class="d-flex">
           <b>Number of players : </b>
           <p>{{boardGame.players}}</p>

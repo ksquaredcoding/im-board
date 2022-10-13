@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <Navbar />
+  <header class="bg-dark">
+    <Navbar class="animate__animated animate__fadeInDown" />
   </header>
   <main>
     <router-view />

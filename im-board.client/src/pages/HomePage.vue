@@ -1,15 +1,15 @@
 <template>
   <div class="container-fluid homepage">
     <div class="row">
-      <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block inset-shadow">
-        <Searchbar />
-        <Filters />
+      <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block inset-shadow animate__animated animate__fadeInLeft ">
+        <Searchbar  />
+        <Filters class="" />
       </div>
 
       <div class="col-md-10">
         <div class="row p-3 presetfilters d-none d-sm-block">
           <div
-            class="col-md-12 d-flex justify-content-around align-items-center"
+            class="col-md-12 d-flex justify-content-around align-items-center animate__animated animate__fadeInRight"
           >
             <button class="btn bg-c3 text-dark box-shadow">All</button>
             <button class="btn bg-c3 text-dark box-shadow">Popular</button>
@@ -26,9 +26,10 @@
             enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__bounceOutRight animate__animated"
           >
-            <div class="col-md-3" v-for="b in boardGames" :key="b.id">
+            <div class="col-md-3" v-for="b in boardGames" :key="b.id" v-if="boardGames">
               <BoardGameCard :boardGame="b" />
             </div>
+          
           </TransitionGroup>
         </div>
       </div>
@@ -47,9 +48,11 @@ import { AppState } from '../AppState.js';
 
 export default {
   setup() {
+    
     const editable = ref('');
     async function getBoardGames() {
       try {
+        
         await atlasGamesService.getBoardGames();
       } catch (error) {
         Pop.error(error, '[getBoardGames]');

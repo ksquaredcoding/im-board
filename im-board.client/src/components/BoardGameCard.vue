@@ -1,9 +1,9 @@
 <template>
   <router-link
     :to="{ name: 'BoardGameDetails', params: { id: boardGame.id } }"
-    v-if="boardGame"
+   
   >
-    <div class="card elevation-4 my-2">
+    <div class="card elevation-4 my-2"  v-if="boardGame">
       <img :src="boardGame.coverImg" alt="" class="forcedImg rounded" />
       <div class="card-body p-1 bg-dark rounded-bottom">
         <p class="card-title d-flex justify-content-center">
@@ -18,7 +18,9 @@
         </p>
       </div>
     </div>
+    <div v-else>jkghjmgnfbdvscx</div>
   </router-link>
+  
 </template>
 
 <script>

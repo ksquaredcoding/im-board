@@ -1,5 +1,5 @@
 <template>
-  <div class="ActiveBoardGameImage">
+  <div class="ActiveBoardGameImage animate__animated animate__fadeInLeft">
     <img :src="images.original" alt="" class="forced-image">
   </div>
 </template>
