@@ -1,7 +1,7 @@
 export class Group {
   constructor(data) {
     this.id = data.id;
-    this.groupId=data.groupId 
+    this.groupId = data.groupId;
     this.creatorId = data.group.creatorId;
     this.coverImg = data.group.coverImg;
     this.name = data.group.name;

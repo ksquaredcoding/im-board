@@ -34,7 +34,7 @@
             </div>
 
             <div class="my-3">
-              <button class="btn btn-success selectable" type="submit">
+              <button class="btn btn-success selectable" type="submit" data-bs-dismiss="modal" >
                 CreateGroup
               </button>
             </div>
