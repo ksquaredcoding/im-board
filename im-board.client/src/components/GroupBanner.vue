@@ -2,10 +2,10 @@
   <div class="col-md-12 banner elevation-3 ">
     <div class="row justify-content-center">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
-        <span> <h1>GROUP NAME</h1></span>
+        <span class="name">Group Name</span>
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 mx-5 elevation-5 groupMemberBar">
+          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2  elevation- groupMemberBar">
          
             <img
               src="//thiscatdoesnotexist.com"
@@ -14,7 +14,7 @@
               height="45"
               width="45"
               class="rounded-circle box-shadow mx-1 profile-img"
-              v-for="i in 4"
+              v-for="i in 6"
             />
        
           </div>
@@ -33,8 +33,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .groupMemberBar{
-  box-shadow: inset 0 2px 8px 0 black;
+  // box-shadow: inset 0 2px 5px 0 #082f46e8;;
 transition: 1s ease;
+margin-inline: 7rem;
 }
 .groupMemberBar:hover{
   transition: 1s ease;
@@ -49,10 +50,13 @@ background-color: rgba(0, 0, 0, 0.517);
 }
 .text-shadow {
   color: aliceblue;
-  text-shadow: 1px 1px black, 0px 0px 5px salmon;
+  text-shadow: 1px 1px #2c2c2f, 0px 0px 5px #79bd9a;;
   font-weight: bold;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.09rem;
   /* Second Color  in text-shadow is the blur */
 }
 
+.name{
+  font-size: 55px;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="group-page container-fluid">
 <div class="row">
-
+ <GroupBanner  class=" mt-2 rounded "/>
   <div class="col-md-3">
     <div class="">
 
@@ -15,13 +15,13 @@
 
   
  <div>
-  
+  <GroupChatInput/>
  </div>
 <div>
 </div>
   </div>
-  <div class="col-md-7">
-      <GroupBanner  class=" mt-2 rounded "/>
+  <div class="col-md-6">
+     
       <GameNightCard />
   </div>
   <div class="col-md-2">
@@ -33,12 +33,13 @@
 import GroupChatCard from "../components/GroupChatCard.vue";
 import GroupBanner from "../components/GroupBanner.vue";
 import GameNightCard from "../components/GameNightCard.vue";
+import GroupChatInput from "../components/GroupChatInput.vue";
 
 export default {
     setup() {
         return {};
     },
-    components: { GroupChatCard, GroupBanner, GameNightCard }
+    components: { GroupChatCard, GroupBanner, GameNightCard, GroupChatInput }
 }
 </script>
 <style lang="scss" scoped>

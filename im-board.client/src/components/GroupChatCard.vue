@@ -2,15 +2,17 @@
       <Transition name="custom-class"
    enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__bounceOutRight animate__animated">
-  <div class="groupChatCard card bg-c2 my-2 elevation-5 " >
-    <div class="d-flex p-1 align-items-end ">
+            <div class="p-2">
+  <div class="groupChatCard card bg-c2 elevation-5 " >
+    <div class="d-flex p-1 align-items-end ps-2">
       <img src="//thiscatdoesnotexist.com" alt="" height="45" width="45" class="rounded-circle box-shadow profile-img">
       <p class="ms-1">Member Name</p>
     </div>
-    <div class="bg-dark m-1 rounded ps-2 py-1">
-Wow, this group feature rocks!When are we playing next?
-    </div>
-  </div>
+    <div class="p-1">
+    <div class="bg-dark m-1 rounded ps-2 py-1 ">
+Wow, this group feature rocks! When are we playing next?
+    </div></div>
+  </div></div>
       </Transition>
 </template>
 <script>
