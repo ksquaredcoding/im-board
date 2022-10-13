@@ -10,15 +10,20 @@ class GameNightsService {
       throw new BadRequest("bad GameNightId");
     }
 
-    let attending = gameNight.groupMemberIdsAttending.includes(userId);
+    const groupMembers = await dbContext.GroupMembers.find().populate('profile', 'name picture')
+    const groupMember = groupMembers.filter(g => g.accountId.toString() == userId)
+
+    // @ts-ignore
+    let attending = gameNight.groupMemberIdsAttending.includes(groupMember);
 
     if (!attending) {
-      gameNight.groupMemberIdsAttending.push(userId);
+      // @ts-ignore
+      gameNight.groupMemberIdsAttending.push(groupMember);
       await gameNight.save();
       return gameNight;
     }
     gameNight.groupMemberIdsAttending =
-      gameNight.groupMemberIdsAttending.filter((m) => m.toString() !== userId);
+      gameNight.groupMemberIdsAttending.filter((m) => m !== groupMember);
     await gameNight.save();
     return gameNight;
   }

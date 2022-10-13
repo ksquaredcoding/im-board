@@ -8,7 +8,7 @@ export const GameNightSchema = new Schema(
     location: { type: String, required: true, minlength: 1, maxlength: 50 },
     gameId: { type: String, required: true, ref: "Game" },
     groupMemberIdsAttending: [
-      { type: ObjectId, ref: "Account", required: false },
+      { type: Object, ref: "GroupMember", required: false },
     ],
     startDate: { type: Date, required: true },
   },
@@ -22,9 +22,9 @@ GameNightSchema.virtual("group", {
   ref: "Group",
 });
 
-GameNightSchema.virtual("profile", {
-  localField: "groupMemberIdsAttending",
-  foreignField: "_id",
-  justOne: true,
-  ref: "Account",
-});
+// GameNightSchema.virtual("profile", {
+//   localField: "groupMemberIdsAttending",
+//   foreignField: "_id",
+//   justOne: true,
+//   ref: "Account",
+// });
