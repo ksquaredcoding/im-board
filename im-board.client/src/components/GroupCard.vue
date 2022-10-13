@@ -1,18 +1,17 @@
 <template>
-<router-link :to="{name: 'Group', params:{id: group.id }}"> 
- <div class="card text-bg-dark my-2 elevation-3" >
-  <img :src="group.coverImg" class="card-img" alt="...">
-  <div class="card-img-overlay text-shadow">
-    <h3 class="card-title ">{{group.name}}</h3>
-     <h1 class="text-c6">
-        {{ group.groupMemberIds.length }}
-      </h1>
+  <router-link :to="{name: 'Group', params:{id: group?.groupId }}">
+    <div class="card text-bg-dark my-2 elevation-3">
+      <img :src="group?.coverImg" class="card-img" alt="...">
+      <div class="card-img-overlay text-shadow">
+        <h3 class="card-title ">{{group?.name}}</h3>
+        <h1 class="text-c6">
+          {{ group?.groupMemberIds.length }}
+        </h1>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </router-link>
 
-    <p class="card-text"></p>
-  </div>
-</div>
-</router-link>
- 
 </template>
 
 <script>
@@ -21,7 +20,7 @@ import { Group } from '../models/Group.js';
 
 export default {
   props: {
-    group: { type: Group, required: true },
+    group: { type: Object, required: true },
   },
 
   setup(props) {
@@ -40,6 +39,7 @@ export default {
   letter-spacing: 0.08rem;
   /* Second Color  in text-shadow is the blur */
 }
+
 .forcedImg {
   height: 300px;
   width: 300px;

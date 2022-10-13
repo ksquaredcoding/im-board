@@ -21,3 +21,10 @@ GameNightSchema.virtual("group", {
   justOne: true,
   ref: "Group",
 });
+
+GameNightSchema.virtual("profile", {
+  localField: "accountId",
+  foreignField: "_id",
+  justOne: true,
+  ref: "Account",
+});
