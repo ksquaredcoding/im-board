@@ -4,8 +4,9 @@ import { api } from "./AxiosService.js"
 
 class GroupsService{
 
-async getGroupById(id){
-  const res = await api.get(`/api/groups/${id}`)
+async getGroupById(groupId){
+  const res = await api.get(`/api/groups/${groupId}`)
+  console.log(res.data);
   AppState.activeGroup = new Group(res.data)
   console.log(AppState.activeGroup);
 
