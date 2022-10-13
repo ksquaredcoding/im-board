@@ -4,6 +4,7 @@ import { BoardGame } from "../models/BoardGame.js";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
 import { ActiveBoardGameVideo } from "../models/ActiveBoardGameVideo.js";
 import { AppState } from "../AppState.js";
+import { ABGReviews } from "../models/ABGReviews.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
@@ -85,10 +86,15 @@ class AtlasGamesService {
         client_id: "2I6DeypMLL",
         game_id: id,
         include_summary: true,
+        description_required: true,
 
       }
     })
-    console.log(res.data);
+
+    console.log(res.data.critics.reviews);
+
+    AppState.activeBoardGameReviews = res.data.critics.reviews.map(r => new ABGReviews(r))
+    console.log(AppState.activeBoardGameReviews);
   }
 
 }

@@ -1,4 +1,4 @@
-<template>
+<template  >
   <section class="container " v-if="boardGame">
     <div class="row">
       <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
@@ -50,6 +50,9 @@
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Owned</button>
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Wishlist</button>
         </div>
+        <div>
+          <p class="p-3">{{boardGame.description_preview}}</p>
+        </div>
       </div>
       <div class="row game-images my-3 ms-1">
         <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
@@ -63,12 +66,14 @@
 
         </swiper>
       </div>
-      <div class="col-12">
+      <!-- <div class="col-12">
         <h3 class="text-center">Description</h3>
         <p class="p-3">{{boardGame.description_preview}}</p>
-      </div>
+      </div> -->
       <div class="row">
-
+        <div class="col-md-6" v-for="r in reviews" :key="r">
+          <ABGReviews :review="r" />
+        </div>
 
 
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
@@ -78,6 +83,19 @@
       </div>
     </div>
   </section>
+  <!-- MODAL -->
+  <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+
+
+        <img :src="modalImage" alt="" class="rounded elevation-2 customSize">
+
+
+      </div>
+    </div>
+  </div>
+
 </template>
 
 
@@ -103,6 +121,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
 import ActiveBoardGameVideos from "../components/ActiveBoardGameVideos.vue";
+import ABGReviews from "../components/ABGReviews.vue";
 
 
 export default {
@@ -166,14 +185,17 @@ export default {
       modules: [Pagination, Navigation],
       boardGame: computed(() => AppState.activeBoardGame),
       images: computed(() => AppState.activeBoardGameImages),
-      videos: computed(() => AppState.activeBoardGameVideos)
+      videos: computed(() => AppState.activeBoardGameVideos),
+      reviews: computed(() => AppState.activeBoardGameReviews),
+      modalImage: computed(() => AppState.activeImage)
     };
   },
   components: {
     ActiveBoardGameImages,
     Swiper,
     SwiperSlide,
-    ActiveBoardGameVideos
+    ActiveBoardGameVideos,
+    ABGReviews
   }
 }
 </script>
@@ -186,6 +208,12 @@ $c5: #0B486B;
 $c6: #ffa216;
 
 <style lang="scss" scoped>
+.customSize {
+  height: 700px;
+
+  object-fit: contain;
+}
+
 b {
   font-size: 14pt;
 }
