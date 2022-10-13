@@ -17,7 +17,7 @@ class GroupMembersService {
     if (isCreator && isMember) {
       group.creatorId = newAccountId;
       // @ts-ignore
-      const members = group.groupMemberIds.filter((g) => g.id !== accountId);
+      const members = group.groupMemberIds.filter((g) => g.toString() !== accountId);
       group.groupMemberIds = members;
       // const memberIndex = group.groupMemberIds.findIndex(accountId);
       // group.groupMemberIds.splice(memberIndex, 1);
@@ -28,9 +28,11 @@ class GroupMembersService {
     }
 
     // @ts-ignore
+    // const memberIndex = group.groupMemberIds.findIndex(accountId);
+    // group.groupMemberIds.splice(memberIndex, 1);
+    const members = group.groupMemberIds.filter((g) => g.toString() !== member.accountId.toString());
+    group.groupMemberIds = members;
     await member.remove();
-    const memberIndex = group.groupMemberIds.findIndex(accountId);
-    group.groupMemberIds.splice(memberIndex, 1);
     await group.save();
     // TODO finish remove member
     return member;
