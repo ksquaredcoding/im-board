@@ -1,5 +1,5 @@
 <template>
-  <div class="GameNightCard card">
+  <div class="GameNightCard bg-dark card my-2">
     <div  class="row justify-content-center">
 <div class="col-md-8 bg-dark rounded ">
 <div class="d-flex justify-content-around mt-2">
@@ -13,7 +13,7 @@
 </div>
 </div>
 <div class="col-md-6">
-<div class="card m-2">
+<div class="card m-2 ">
   <div class="bg-info text-center p-1">
 <h5>Attending</h5>
   </div>
