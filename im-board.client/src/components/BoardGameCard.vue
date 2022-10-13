@@ -6,8 +6,17 @@
       
       <div class="card-body p-1 bg-dark rounded-bottom">
         <p class="card-title d-flex justify-content-center">
-          {{ boardGame?.name }}
+           {{ boardGame.name }}
         </p>
+        <div class="card-text d-flex justify-content-center">
+          Categories: {{ boardGame.categories.toString()}} 
+        </div>
+        <div class="card-text d-flex justify-content-center">
+          Rating: {{ boardGame.average_user_rating.toFixed(2) }} of 5
+        </div>
+        <div class="card-text d-flex justify-content-center">
+          {{ boardGame.players}} players
+        </div>
         <p class="card-text d-flex justify-content-center">
           {{ boardGame.average_user_rating?.toFixed(2) }} of 5
         </p>
