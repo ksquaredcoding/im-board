@@ -1,7 +1,7 @@
 <template>
   <div class="filters container-fluid">
     <div class="row">
-      <div class="col-md-12 ">
+      <div class="col-md- ">
  <h4 >Categories</h4>
       <div
       class="list-group-item inputBox d-flex"
@@ -17,11 +17,10 @@
         @change="checkBoxMethod($event)"
       />
       <label for="card-game" class="ms-2">{{ category.name }}</label>
-   
-
 </div>
- 
-      </div>
+  <h4 class="mt-3">Players</h4>
+      
+    </div>
     </div>
     <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
   
