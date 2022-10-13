@@ -64,7 +64,7 @@
 
         </swiper>
       </div>
-      <div class="px-5 ">
+      <div class="px-5 mt-5">
         <div class="col-12 bg-c2 p-5 my-5 rounded-4">
           <h3 class="text-center">Description</h3>
           <p class="p-3 bg-grey rounded-5">{{boardGame.description_preview}}</p>

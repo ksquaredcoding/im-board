@@ -37,8 +37,8 @@ export default {
           }
           await listsService.addGameToList(formData)
         } catch (error) {
-          console.error('[]', error)
-          Pop.error(error)
+
+          Pop.error('You Already Have It Part OF this List')
         }
       }
     }
