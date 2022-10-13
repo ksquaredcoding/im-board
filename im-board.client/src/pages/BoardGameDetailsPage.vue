@@ -45,8 +45,9 @@
         <div class="text-center">
           <b>Add to list</b>
         </div>
-        <div class="justify-content-center ">
-          <AddToList />
+        <div class="d-flex justify-content-center ">
+          <div class="col-3 text-center">
+          <AddToList /></div>
         </div>
         <!-- <div>
           <p class="p-3">{{boardGame.description_preview}}</p>
