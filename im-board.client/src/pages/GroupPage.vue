@@ -22,6 +22,7 @@
   </div>
   <div class="col-md-7">
       <GroupBanner  class=" mt-2 rounded "/>
+      <GameNightCard />
   </div>
   <div class="col-md-2">
   </div>
@@ -31,12 +32,13 @@
 <script>
 import GroupChatCard from "../components/GroupChatCard.vue";
 import GroupBanner from "../components/GroupBanner.vue";
+import GameNightCard from "../components/GameNightCard.vue";
 
 export default {
     setup() {
         return {};
     },
-    components: { GroupChatCard, GroupBanner }
+    components: { GroupChatCard, GroupBanner, GameNightCard }
 }
 </script>
 <style lang="scss" scoped>
