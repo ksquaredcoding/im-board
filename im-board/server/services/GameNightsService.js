@@ -10,13 +10,13 @@ class GameNightsService {
       throw new BadRequest("bad GameNightId");
     }
 
-    const groupMembers = await dbContext.GroupMembers.find().populate('profile', 'name picture')
+    const groupMembers = await groupMembersService.getGroupMembersByGroupId(gameNight.groupId)
     const groupMember = groupMembers.filter(g => g.accountId.toString() == userId)
 
     // @ts-ignore
-    let attending = gameNight.groupMemberIdsAttending.includes(groupMember);
-
-    if (!attending) {
+    let attending = gameNight.groupMemberIdsAttending.filter(m => m.id == groupMember.id);
+    // TODO why is this an array within an array?!
+    if (attending.length == 0) {
       // @ts-ignore
       gameNight.groupMemberIdsAttending.push(groupMember);
       await gameNight.save();
