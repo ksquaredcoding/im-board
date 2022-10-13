@@ -37,7 +37,7 @@ class GroupMembersService {
     return member;
   }
   async addGroupMember(groupId, accountId) {
-    const group = await groupsService.getGroupById(groupId);
+    await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (!isMember) {
       return isMember;
@@ -51,8 +51,8 @@ class GroupMembersService {
       groupId,
       accountId,
     });
-    group.groupMemberIds.push(accountId);
-    await group.save();
+    // group.groupMemberIds.push(accountId);
+    // await group.save();
     // @ts-ignore
     await groupMember.populate("profile", "name picture");
     // @ts-ignore

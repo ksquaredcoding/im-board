@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { ObjectId, SCHEMA_OPTIONS } from "../db/DbUtils.js";
-const Schema = mongoose.Schema;
 
+const Schema = mongoose.Schema;
+const ObjectId = mongoose.Types.ObjectId;
 export const GroupSchema = new Schema(
   {
     name: { type: String, required: true, maxlength: 50, minlength: 1 },
@@ -14,7 +14,7 @@ export const GroupSchema = new Schema(
     },
     creatorId: { type: ObjectId, ref: "Account", required: true },
   },
-  SCHEMA_OPTIONS
+  { timestamps: true, toJSON: { virtuals: true } }
 );
 
 GroupSchema.virtual("creator", {

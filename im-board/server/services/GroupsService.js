@@ -3,8 +3,10 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
-
-    const groups = await dbContext.GroupMembers.find({ accountId }).populate('group', 'name picture')
+    const groups = await dbContext.GroupMembers.find({ accountId }).populate(
+      "group",
+      "name picture"
+    );
     // FIXME does this work??
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
@@ -36,12 +38,16 @@ class GroupsService {
     return group;
   }
   async createGroup(groupData) {
-    const group = await dbContext.Groups.create(groupData);
-    await group.populate('creator', 'name picture')
-    await groupMembersService.addGroupMember(group.id, groupData.creatorId)
-    group.groupMemberIds.push(group.creatorId)
-    await group.save()
-    return group;
+    debugger;
+    const groupTest = await dbContext.Groups.create(groupData);
+    await groupTest.populate("creator", "name picture");
+    await groupMembersService.addGroupMember(
+      groupTest.id, //FIXME - createGroup fails here
+      groupData.creatorId
+    );
+    groupTest.groupMemberIds.push(groupTest.creatorId);
+    await groupTest.save();
+    return groupTest;
   }
   async getGroupById(id) {
     const group = await dbContext.Groups.findById({ id });
