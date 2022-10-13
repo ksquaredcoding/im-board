@@ -38,7 +38,7 @@ class GroupsService {
   async createGroup(groupData) {
     const group = await dbContext.Groups.create(groupData);
     await group.populate('creator', 'name picture')
-    await groupMembersService.addGroupMember(group.id.toString(), groupData.creatorId)
+    await groupMembersService.addGroupMember(group.id, groupData.creatorId)
     group.groupMemberIds.push(group.creatorId)
     await group.save()
     return group;

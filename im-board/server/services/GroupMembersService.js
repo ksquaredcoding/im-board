@@ -30,22 +30,34 @@ class GroupMembersService {
     return member;
     // TODO finish remove member
   }
+  async getMemberForGroup(groupId, accountId) {
+    const member = await dbContext.GroupMembers.findOne({ groupId, accountId })
+      .populate("profile", "name picture")
+      .populate("group", "name coverImg");
+    return member;
+  }
   async addGroupMember(groupId, accountId) {
     const group = await groupsService.getGroupById(groupId);
-    const groupMembers = await this.getGroupMembersByGroupId(groupId);
-    const alreadyMember = groupMembers.find(
-      (g) => g.accountId == accountId);
-    if (alreadyMember) {
-      throw new Forbidden("you are already apart of this group");
+    const isMember = await this.getMemberForGroup(groupId, accountId);
+    if (!isMember) {
+      return isMember;
     }
-    const newGroupMember = await dbContext.GroupMembers.create(groupId, accountId);
+    // const groupMembers = await this.getGroupMembersByGroupId(groupId);
+    // const alreadyMember = groupMembers.find((g) => g.accountId == accountId);
+    // if (alreadyMember) {
+    //   throw new Forbidden("you are already apart of this group");
+    // }
+    const groupMember = await dbContext.GroupMembers.create({
+      groupId,
+      accountId,
+    });
     group.groupMemberIds.push(accountId);
     await group.save();
     // @ts-ignore
-    await newGroupMember.populate("account", "name picture");
+    await groupMember.populate("profile", "name picture");
     // @ts-ignore
-    await newGroupMember.populate("group", "name");
-    return newGroupMember;
+    // await newGroupMember.populate("group", "name");
+    return groupMember;
   }
   async getGroupMembersByGroupId(groupId) {
     const groupMembers = await dbContext.GroupMembers.find({
