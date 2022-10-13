@@ -1,23 +1,30 @@
 <template>
+<router-link :to="{name: 'Group', params:{id: group.id }}"> 
+ <div class="card text-bg-dark my-2 elevation-3" >
+  <img :src="group.coverImg" class="card-img" alt="...">
+  <div class="card-img-overlay text-shadow">
+    <h3 class="card-title ">{{group.name}}</h3>
+     <h1 class="text-c6">
+        {{ group.groupMemberIds.length }}
+      </h1>
 
-  <div class="groupCard card">
-<img :src="group.coverImg" alt="">
-<div class="card-body">
-<h1>  Group Name: {{group.name}} </h1>
-</div>
+    <p class="card-text"></p>
   </div>
+</div>
+</router-link>
+ 
 </template>
 
 <script>
-import { Group } from "../models/Group.js";
+import { AppState } from "../AppState.js";
+import { Group } from '../models/Group.js';
 
 export default {
   props: {
-group:{type: Group, required:true}
+    group: { type: Group, required: true },
   },
 
   setup(props) {
-
     return {
 
     };
@@ -26,19 +33,16 @@ group:{type: Group, required:true}
 </script>
 
 <style lang="scss" scoped>
-
-.text-shadow{
+.text-shadow {
   color: aliceblue;
-  text-shadow: 1px 1px black, 0px 0px 5px salmon;
+  text-shadow: 1px 1px black, 0px 0px 5px #79bd9a;
   font-weight: bold;
-  letter-spacing: 0.08rem
+  letter-spacing: 0.08rem;
   /* Second Color  in text-shadow is the blur */
 }
-.forcedImg{
+.forcedImg {
   height: 300px;
   width: 300px;
   object-fit: cover;
 }
-
-
 </style>

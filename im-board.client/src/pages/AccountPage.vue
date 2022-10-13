@@ -1,29 +1,56 @@
 <template>
-  <div class="account Page">
- 
+  <div class="account Page container">
+    
+    <div class="row">
+      <div class="col-md-12">
+            <div>
+      <button
+        class="btn btn-info btn-lg"
+        data-bs-toggle="modal"
+        data-bs-target="#groupForm"
+      >
+        Create Group
+      </button>
+     <GroupForm />
+    </div>
+      </div>
+      <div class="col-md-6" v-for="g in groups" :key="g.id">
+        <GroupCard :group="g" />
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import { accountService } from "../services/AccountService.js"
 import { groupsService } from "../services/GroupsService.js"
 import Pop from "../utils/Pop.js"
+import GroupCard from "../components/GroupCard.vue"
+import GroupForm from "../components/GroupForm.vue"
 export default {
-  setup() {
+    setup() {
+        async function getMyGroups() {
+            try {
+                await accountService.getMyGroups();
+            }
+            catch (error) {
+                Pop.error(error, "[getMyGroups]");
+            }
+        }
 
-    async function getMyGroups(){
-try {
-    await accountService.getMyGroups()
-  } catch (error) {
-    Pop.error(error,'[getMyGroups]')
-  }
-    }
-    return {
-      account: computed(() => AppState.account)
-    }
-  }
+
+        onMounted(()=>{
+          getMyGroups()
+        })
+        return {
+            account: computed(() => AppState.account),
+            groups: computed(()=> AppState.groups)
+        };
+    },
+    components: { GroupCard, GroupForm }
 }
 </script>
 

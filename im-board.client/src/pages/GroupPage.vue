@@ -1,17 +1,8 @@
 <template>
-  <div class="group-page container-fluid">
-    <div>
-      <button
-        class="btn btn-info btn-lg"
-        data-bs-toggle="modal"
-        data-bs-target="#groupForm"
-      >
-        Create Group
-      </button>
-      <GroupForm />
-    </div>
+  <div class="group-page container-fluid" v-if="group">
+
     <div class="row">
-      <GroupBanner class="mt-2 rounded" />
+      <GroupBanner class="mt-2 rounded"  :group="group"  />
       <div class="col-md-3 p-0">
         <div class=""></div>
         <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
@@ -72,10 +63,21 @@ import GroupForm from '../components/GroupForm.vue';
 import { accountService } from '../services/AccountService.js';
 import { AppState } from '../AppState.js';
 import { AuthService } from '../services/AuthService.js';
+import { useRoute } from "vue-router";
+import { computed } from "@vue/reactivity";
 
 export default {
   setup() {
-  
+    const route = useRoute()
+  async function getGroupById(){
+    try {
+        await groupsService.getGroupById(route.params.id)
+      } catch (error) {
+        Pop.error(error,'[getGroupById]')
+      }
+  }
+
+  //TODO NEED TO FINISH
 async function getGroupMembersByGroupId(){
   try {
       await groupsService.getGroupMembers('634857a3901c93d70bdc7d8c')
@@ -86,10 +88,13 @@ async function getGroupMembersByGroupId(){
 
 
     onMounted(() => {
-      getMyGroups();
-      getGroupMembersByGroupId()
+    getGroupById()
+      // getGroupMembersByGroupId()
     });
     return {
+    
+group : computed(()=> AppState.activeGroup),
+
       async createGroup() {
         try {
           await groupsService.createGroup();

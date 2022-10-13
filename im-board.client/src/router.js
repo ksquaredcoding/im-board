@@ -29,7 +29,7 @@ const routes = [
   
   },
   {
-    path: '/groups',
+    path: '/groups/:id',
     name: 'Group',
     component: loadPage('GroupPage'),
   
