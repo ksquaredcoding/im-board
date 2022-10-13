@@ -6,9 +6,19 @@ export class GroupsController extends BaseController {
     super("/api/groups");
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get("/:groupId", this.getGroupById)
       .post("", this.createGroup)
       .put("/:groupId", this.editGroup)
       .delete("/:groupId", this.removeGroup);
+  }
+
+  async getGroupById(req, res, next) {
+    try {
+      const group = await groupsService.getGroupById(req.params.groupId);
+      res.send(group);
+    } catch (error) {
+      next(error);
+    }
   }
   async createGroup(req, res, next) {
     try {
