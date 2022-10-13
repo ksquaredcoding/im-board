@@ -6,7 +6,8 @@
         <option value="owned">Owned</option>
         <option value="wish">Wish</option>
       </select>
-      <button class="btn bg-c1 mt-1" type="submit">Add!</button>
+       <div class="text-center">
+      <button class="btn bg-c1 mt-1" type="submit">Add!</button></div>
     </form>
   </div>
 </template>
