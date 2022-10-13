@@ -9,10 +9,10 @@ export const AppState = reactive({
 
 
   /** @type {import('./models/Group.js').Group[]} */
-  groups: [],
-
-  /** @type {import('./models/Group.js').Group | null} */
-  activeGroup: null,
+  groups:[],
+  
+  /** @type {import('./models/ActiveGroup.js').ActiveGroup | null} */
+activeGroup:null,
 
 
 

@@ -2,7 +2,7 @@
   <div class="col-md-12 banner elevation-3 ">
     <div class="row justify-content-center">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
-        <span class="name">{{group.name}}</span>
+        <span class="name">{{group?.name}}</span>
         <div>
           <span><small class="text-shadow">Members</small></span>
           <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar">
@@ -24,11 +24,12 @@
   </div>
 </template>
 <script>
+import { ActiveGroup } from "../models/ActiveGroup.js";
 import { Group } from "../models/Group.js";
 
 export default {
   props: {
-    group:{type: Group,required:true }
+    group:{type: ActiveGroup }
   },
   setup(props) {
     return {};
