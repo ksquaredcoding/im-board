@@ -9,7 +9,7 @@
       <p class="ms-2"><b>Member Name</b></p>
     </div>
     <div class="p-1">
-    <div class="bg-dark m-1 rounded ps-2 py-1 ">
+    <div class="bg-dark m-1 rounded px-2 py-1 ">
 Wow, this group feature rocks! When are we playing next?
     </div></div>
   </div></div>

@@ -5,7 +5,7 @@
         <span class="name">Group Name</span>
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2  elevation- groupMemberBar">
+          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar">
          
             <img
               src="//thiscatdoesnotexist.com"
@@ -42,7 +42,7 @@ margin-inline: 7rem;
   filter: brightness(120%);
 }
 .bannerBg{
-background-color: rgba(0, 0, 0, 0.517);
+background-color: #2c2c2fd5;
 }
 .banner {
   background-size: cover;

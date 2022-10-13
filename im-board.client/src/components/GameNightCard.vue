@@ -1,5 +1,6 @@
 <template>
-  <div class="GameNightCard bg-dark card my-2">
+  <div class="pb-2 pt-1">
+  <div class="GameNightCard bg-dark card my-2 ">
     <div  class="row justify-content-center">
 <div class="col-md-8 bg-dark rounded bg-c4 m-2">
 <div class="d-flex justify-content-center mt-2 ">
@@ -16,10 +17,13 @@
 <div class="col-md-6 p-0 ps-3">
 <div class="card m-2 noborder">
   <div class="bg-c4 text-center p-1 ">
-<h5>Attending</h5>
+<h5 class="mt-1">Attending:</h5>
   </div>
-  <div class="p-2">
-    <img src="//thiscatdoesnotexist.com" alt="" height="55" class="rounded-circle">
+  <div class="p-2 bg-c2 text-center">
+    <img src="//thiscatdoesnotexist.com" alt="" height="55" class="rounded-circle me-1 box-shadow">
+    <img src="//thiscatdoesnotexist.com" alt="" height="55" class="rounded-circle me-1 box-shadow">
+  <img src="//thiscatdoesnotexist.com" alt="" height="55" class="rounded-circle me-1 box-shadow">
+  <img src="//thiscatdoesnotexist.com" alt="" height="55" class="rounded-circle me-1 box-shadow">
   </div>
 </div>
 </div>
@@ -27,15 +31,15 @@
   <div class="card m-2 noborder">
   <div class="bg-c4 text-center p-1">
     
-<h5 class="ms-2">Playing</h5>
+<h5 class="mt-1">Playing:</h5>
   </div>
   <div class="gameImg">
     <div class="d-flex justify-content-center">
-<div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1"> Game Name</div></div>
+<div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1"> <b>Game Name</b></div></div>
 <div class="bg-c3 rounded mx-5 p-2 mt-2 text-center"> 
- <div>Genre: Strategy</div>
- <div>Players: 3-7</div>
- <div>Rating: 4/5</div>
+ <div><b>Genre:</b> Strategy</div>
+ <div><b>Players:</b> 3-7</div>
+ <div><b>Rating:</b> 4/5</div>
 </div>
   </div>
 
@@ -44,7 +48,7 @@
 </div>
     </div>
     
-  </div>
+  </div></div>
 </template>
 
 <script>
