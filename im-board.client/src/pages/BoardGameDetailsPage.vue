@@ -79,8 +79,8 @@
 
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
-
         </div> -->
+
       </div>
     </div>
   </section>
