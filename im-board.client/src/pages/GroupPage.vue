@@ -2,23 +2,31 @@
   <div class="group-page container-fluid">
 <div class="row">
  <GroupBanner  class=" mt-2 rounded "/>
-  <div class="col-md-3">
+  <div class="col-md-3 p-0">
     <div class="">
 
     </div>
-    <div class="bg-dark rounded px-2 py-2 my-2 text-center"> <h4>Group Chat</h4></div>
+    <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3"> <h4>Group Chat</h4></div>
 
+    <div class="col-12 p-2 overflow-auto groupchatbox">
         <GroupChatCard />
     <GroupChatCard />
     <GroupChatCard />
     <GroupChatCard />
-
+    <GroupChatCard />
+    <GroupChatCard />
+    <GroupChatCard />
+    <GroupChatCard />
+    <GroupChatCard />
+    <GroupChatCard />
+</div>
   
  <div>
-  <GroupChatInput/>
+  
  </div>
 <div>
 </div>
+<GroupChatInput/>
   </div>
   <div class="col-md-6">
      
@@ -43,4 +51,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.groupchatbox{
+height: 80vh;
+}
 </style>
