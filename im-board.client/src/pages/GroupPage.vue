@@ -1,16 +1,19 @@
 <template>
   <div class="group-page container-fluid">
 <div class="row">
-  <GroupBanner />
+
   <div class="col-md-3">
     <div class="">
 
     </div>
     <div class="bg-dark rounded px-2 py-2 my-2 text-center"> <h4>Group Chat</h4></div>
+
+        <GroupChatCard />
     <GroupChatCard />
     <GroupChatCard />
     <GroupChatCard />
-    <GroupChatCard />
+
+  
  <div>
   
  </div>
@@ -18,6 +21,7 @@
 </div>
   </div>
   <div class="col-md-7">
+      <GroupBanner  class=" mt-2 rounded "/>
   </div>
   <div class="col-md-2">
   </div>

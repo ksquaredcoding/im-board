@@ -40,14 +40,17 @@
     <div class="col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3  d-none d-sm-block">
-        <a
-          name=""
-          id=""
-          class="btn bg-c2 me-2 px-2 box-shadow"
-          href="#"
-          role="button"
-          >Groups</a
-        >
+        <router-link :to="{name: 'Group'}"> 
+          <a
+            name=""
+            id=""
+            class="btn bg-c2 me-2 px-2 box-shadow"
+            href="#"
+            role="button"
+            >Groups</a
+          >
+        
+        </router-link>
         <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button"
           >Lists</a
         >

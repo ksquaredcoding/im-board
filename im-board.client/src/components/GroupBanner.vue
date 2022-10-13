@@ -14,7 +14,7 @@
               height="45"
               width="45"
               class="rounded-circle box-shadow mx-1 profile-img"
-              v-for="i in 6"
+              v-for="i in 4"
             />
        
           </div>
@@ -33,7 +33,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .groupMemberBar{
-  box-shadow: inset 0 2px 8px 0 black
+  box-shadow: inset 0 2px 8px 0 black;
+transition: 1s ease;
+}
+.groupMemberBar:hover{
+  transition: 1s ease;
+  filter: brightness(120%);
 }
 .bannerBg{
 background-color: rgba(0, 0, 0, 0.517);
@@ -49,9 +54,5 @@ background-color: rgba(0, 0, 0, 0.517);
   letter-spacing: 0.08rem;
   /* Second Color  in text-shadow is the blur */
 }
-.forcedImg {
-  height: 300px;
-  width: 300px;
-  object-fit: cover;
-}
+
 </style>
