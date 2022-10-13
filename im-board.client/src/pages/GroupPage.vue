@@ -71,25 +71,23 @@ import { onMounted } from 'vue';
 import GroupForm from '../components/GroupForm.vue';
 import { accountService } from '../services/AccountService.js';
 import { AppState } from '../AppState.js';
+import { AuthService } from '../services/AuthService.js';
 
 export default {
   setup() {
-    async function getMyGroups() {
-      try {
-        await accountService.getMyGroups();
-      } catch (error) {
-        Pop.error(error, '[getMyGroups]');
-      }
+  
+async function getGroupMembersByGroupId(){
+  try {
+      await groupsService.getGroupMembers('634857a3901c93d70bdc7d8c')
+    } catch (error) {
+      Pop.error(error,'[getGroupMemberByGroupId]')
     }
-async  function addGroupMember(){
-
 }
-
-
 
 
     onMounted(() => {
       getMyGroups();
+      getGroupMembersByGroupId()
     });
     return {
       async createGroup() {
@@ -97,6 +95,33 @@ async  function addGroupMember(){
           await groupsService.createGroup();
         } catch (error) {
           Pop.error(error, '[createGroup]');
+        }
+      },
+
+      async addGroupMember() {
+        try {
+          if (!AppState.account.id) {
+            return AuthService.loginWithPopup();
+          } else {
+            await groupsService.addMember({});
+            Pop.success('Thanks for Joining!');
+          }
+        } catch (error) {
+          Pop.error(error, '[addGroupMember]');
+        }
+      },
+      //TODO FINISH
+      async removeGroup() {
+        try {
+          const yes = await Pop.confirm();
+          if (!yes) {
+            return;
+          }
+
+          await groupsService.removeGroup();
+          Pop.confirm('Group Removed')
+        } catch (error) {
+          Pop.error(error, '[removeGroupMember]');
         }
       },
     };

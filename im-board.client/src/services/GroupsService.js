@@ -18,6 +18,10 @@ async addMember(groupData){
   console.log(res.data);
 }
 
+async getGroupMembers(groupId){
+  const res = await api.get(`api/groupmembers/${groupId}`)
+  console.log(res.data);
+}
 
 
 

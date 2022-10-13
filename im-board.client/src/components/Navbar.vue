@@ -77,7 +77,8 @@
       <!-- TODO make into component -->
       <div class="pe-3  d-flex box-shadow d-none d-sm-block">
         <img :src="user.picture" alt="" height="60" class="me-4 rounded-circle">
-        <a
+        <router-link :to="{name: 'Profile'}"> 
+          <a
           name=""
           id=""
           class="btn bg-c4 me-2 px-2 box-shadow"
@@ -85,6 +86,8 @@
           role="button"
           >Profile</a
         >
+        </router-link>
+      
         <Login />
       </div>
       <!-- TODO END -->

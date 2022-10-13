@@ -8,9 +8,11 @@ export const AppState = reactive({
   
   
   
-  /** @type {import('./models/Account.js').Account} */
-groups:[],
-
+  /** @type {import('./models/Group.js').Group[]} */
+  groups:[],
+  
+  /** @type {import('./models/Group.js').Group | null} */
+activeGroup:null,
 
 
 
