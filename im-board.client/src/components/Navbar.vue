@@ -36,55 +36,71 @@
     </div>
   </nav> -->
 
-  <nav class="navbar navbar-dark bg-dark px-3 ">
-
-    <div class="col-md d-flex ">
+  <nav class="navbar navbar-dark bg-dark px-3  ">
+    <div class="col-md d-flex">
       <!-- TODO make into component. -->
-      <div class="ps-3 mt-4 d-none d-sm-block">
-        <a name="" id="" class="btn bg-c2 me-2 px-2 box-shadow" href="#" role="button">Groups</a>
-        <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button">Lists</a>
+      <div class="ps-3  d-none d-sm-block">
+        <a
+          name=""
+          id=""
+          class="btn bg-c2 me-2 px-2 box-shadow"
+          href="#"
+          role="button"
+          >Groups</a
+        >
+        <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button"
+          >Lists</a
+        >
       </div>
       <!-- TODO END -->
-
     </div>
     <div class="col-md d-flex justify-content-center">
-      <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
+      <router-link
+        class="navbar-brand d-flex justify-content-center"
+        :to="{ name: 'Home' }"
+      >
         <div class="d-flex align-items-center justify-content-center">
-          <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-          <h3 class="ms-3 navbar-title justify-content-center">I'm Game</h3>
+          <img
+            alt="logo"
+            src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png"
+            height="45"
+          />
+          <p class=" mb-0 ms-2 navbar-title justify-content-center">I'm Game</p>
         </div>
       </router-link>
     </div>
-    
-  
-    
-    <div class="col-md d-flex flex-row-reverse ">
 
+    <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
-      <div class="pe-3 mt-4 d-flex box-shadow d-none d-sm-block">
-        <a name="" id="" class="btn bg-c4 me-2 px-2 box-shadow" href="#" role="button">Profile</a>
+      <div class="pe-3  d-flex box-shadow d-none d-sm-block">
+        <a
+          name=""
+          id=""
+          class="btn bg-c4 me-2 px-2 box-shadow"
+          href="#"
+          role="button"
+          >Profile</a
+        >
         <Login />
       </div>
       <!-- TODO END -->
-
     </div>
 
-  <div class="col-12 d-flex justify-content-between  g-2 d-md-none">
+    <div class="col-12 d-flex justify-content-between g-2 d-md-none">
       <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
-      <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i> 
+      <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
     </div>
-
   </nav>
 </template>
 
 <script>
-import Login from './Login.vue'
+import Login from './Login.vue';
 export default {
   setup() {
-    return {}
+    return {};
   },
-  components: { Login }
-}
+  components: { Login },
+};
 </script>
 
 <style scoped>
@@ -107,7 +123,7 @@ nav {
 }
 
 .navbar-title {
-  font-size: 65px;
+  font-size: 40px;
 }
 
 .btn {
@@ -115,7 +131,6 @@ nav {
   font-weight: 600;
 }
 
-@media screen AND (max-width: 768px){
-
+@media screen AND (max-width: 768px) {
 }
 </style>

@@ -1,87 +1,108 @@
 <template>
-<div class="container-fluid homepage" >
-<div class="row ">
+  <div class="container-fluid homepage">
+    <div class="row">
+      <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block inset-shadow">
+        <Searchbar />
+        <Filters />
+      </div>
 
-       <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block"> 
-<Searchbar/>
-<Filters/>
-    </div>
-
-    <div class="col-md-10">
+      <div class="col-md-10">
         <div class="row p-3 presetfilters d-none d-sm-block">
-            <div class="col-md-12 d-flex justify-content-around align-items-center ">
-                <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">All</a>
-                <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">Popular</a>
-                <a name="" id="" class="btn bg-c3 text-dark box-shadow " href="#" role="button">Highest Rated</a>
-                <a name="" id="" class="btn bg-c3 text-dark box-shadow" href="#" role="button">Wishlist</a>
-            </div>
+          <div
+            class="col-md-12 d-flex justify-content-around align-items-center"
+          >
+            <button class="btn bg-c3 text-dark box-shadow">All</button>
+            <button class="btn bg-c3 text-dark box-shadow">Popular</button>
+            <button class="btn bg-c3 text-dark box-shadow">
+              Highest Rated
+            </button>
+            <button class="btn bg-c3 text-dark box-shadow">Wishlist</button>
+          </div>
         </div>
 
-          <div class="row justify-content-center">
-        <BoardGameCard/>
-        <BoardGameCard/>
-        <BoardGameCard/>
-    </div> 
-
+        <div class="row scrollableY">
+          <TransitionGroup
+            name="custom-classes"
+            enterActiveClass="animate__zoomIn animate__animated"
+            leaveActiveClass="animate__bounceOutRight animate__animated"
+          >
+            <div class="col-md-3" v-for="b in boardGames" :key="b.id">
+              <BoardGameCard :boardGame="b" />
+            </div>
+          </TransitionGroup>
+        </div>
+      </div>
     </div>
-
- 
-
-</div>
-</div>
+  </div>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
-import { atlasGamesService } from "../services/AtlasGamesService.js";
+import { onMounted, ref, computed } from 'vue';
+import { atlasGamesService } from '../services/AtlasGamesService.js';
 import Pop from '../utils/Pop.js';
-import Filters from "../components/Filters.vue";
-import Searchbar from "../components/Searchbar.vue";
-import BoardGameCard from "../components/BoardGameCard.vue";
+import Filters from '../components/Filters.vue';
+import Searchbar from '../components/Searchbar.vue';
+import BoardGameCard from '../components/BoardGameCard.vue';
+import { AppState } from '../AppState.js';
 
 export default {
-    setup() {
-        const editable = ref("");
-        async function getBoardGames() {
-            try {
-                await atlasGamesService.getBoardGames();
-            }
-            catch (error) {
-                Pop.error(error, "[getBoardGames]");
-            }
+  setup() {
+    const editable = ref('');
+    async function getBoardGames() {
+      try {
+        await atlasGamesService.getBoardGames();
+      } catch (error) {
+        Pop.error(error, '[getBoardGames]');
+      }
+    }
+    onMounted(() => {
+      getBoardGames();
+    });
+    return {
+      editable,
+      boardGames: computed(() => AppState.boardgames),
+
+      async getBoardGamesByCategories(category) {
+        try {
+          await atlasGamesService.getBoardGamesByCategories(category);
+        } catch (error) {
+          Pop.error(error, '[getBoardGamesByCategories]');
         }
-        onMounted(() => {
-            getBoardGames();
+      },
+      //Infinite Scroll need to add to it and test
+      getNextSetOfBoardGames() {
+        window.onscroll(() => {
+          let bottomOfWindow =
+            document.documentElement.scrollTop + window.innerHeight ===
+            document.documentElement.offsetHeight;
+          
+          if (bottomOfWindow) {
+           atlasGamesService.getBoardGames()
+          }
         });
-        return {
-            editable,
-            async getBoardGamesByCategories(category) {
-                try {
-                    await atlasGamesService.getBoardGamesByCategories(category);
-                }
-                catch (error) {
-                    Pop.error(error, "[getBoardGamesByCategories]");
-                }
-            },
-            //Infinite Scroll need to add to it and test
-            getNextSetOfBoardGames() {
-                window.onscroll(() => {
-                    let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight ===
-                        document.documentElement.offsetHeight;
-                    if (bottomOfWindow) {
-                        //await service.getNextPage or something()
-                    }
-                });
-            },
-        };
-    },
-    components: { Filters, Searchbar, BoardGameCard }
+      },
+    };
+  },
+  components: { Filters, Searchbar, BoardGameCard },
 };
 </script>
 
 <style scoped lang="scss">
-.searchcol{
-   height: 100vh;;
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.searchcol {
+  height: 100vh;
 }
 
 .btn {
@@ -94,15 +115,21 @@ export default {
   font-family: 'Baloo 2', cursive;
 }
 
-.homepage{
-    height:100vh;
-    background-image: url(../assets/img/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg);
+.homepage {
+  height: 100vh;
+  background-image: url(../assets/img/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg);
   background-attachment: fixed;
   background-position: center;
 }
 
-.presetfilters{
-    background-color: #2c2c2fe7;
+
+.scrollableY{
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.presetfilters {
+  background-color: #2c2c2fe7;
 }
 
 // @media screen AND (max-width: 768px){

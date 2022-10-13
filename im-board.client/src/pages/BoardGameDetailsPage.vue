@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="row game-images my-3">
-        <div v-for="i in images" :key="i.id" class="col-md-2 m-1">
+        <div v-for="i in images" :key="i.id" >
           <ActiveBoardGameImages :images="i" />
         </div>
       </div>
@@ -68,42 +68,42 @@ import ActiveBoardGameImages from "../components/ActiveBoardGameImages.vue";
 
 export default {
   setup() {
-    // const route = useRoute();
+    const route = useRoute();
     async function getBoardGameDetailsById() {
       try {
-        await atlasGamesService.getBoardGameDetailsById("TAAifFP590");
+        await atlasGamesService.getBoardGameDetailsById(route.params.id);
       }
       catch (error) {
-        console.error("[]", error);
+        console.error("[getBoardGameDetailsById]", error);
         Pop.error(error);
       }
     }
 
     async function getBoardGameImagesByGameId() {
       try {
-        await atlasGamesService.getBoardGameImagesByGameId("TAAifFP590");
+        await atlasGamesService.getBoardGameImagesByGameId(route.params.id);
       }
       catch (error) {
-        console.error("[]", error);
+        console.error("[getBoardGameImagesByGameId]", error);
         Pop.error(error);
       }
     }
 
     async function getBoardGamePricesByGameId() {
       try {
-        await atlasGamesService.getBoardGamePricesByGameId("TAAifFP590");
+        await atlasGamesService.getBoardGamePricesByGameId(route.params.id);
       }
       catch (error) {
-        console.error("[]", error);
+        console.error("[getBoardGamePricedByGameId]", error);
         Pop.error(error);
       }
     }
     async function getBoardGameVideosByGameId() {
       try {
-        await atlasGamesService.getBoardGameVideosByGameId("TAAifFP590");
+        await atlasGamesService.getBoardGameVideosByGameId(route.params.id);
       }
       catch (error) {
-        console.error("[]", error);
+        console.error("[getBoardGameVideosByGameId]", error);
         Pop.error(error);
       }
     }
