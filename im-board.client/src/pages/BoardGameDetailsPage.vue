@@ -1,7 +1,7 @@
 <template>
-  <section class="container" v-if="boardGame">
+  <section class="container " v-if="boardGame">
     <div class="row">
-      <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown">
+      <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
         <h1>{{boardGame.name}}</h1>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
@@ -12,15 +12,15 @@
       <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="d-flex">
           <b>Number of players : </b>
-          <p>{{boardGame.players}}</p>
+          <p class="ms-3">{{boardGame.players}}</p>
         </div>
         <div class="d-flex">
           <b> Playtime:</b>
-          <p>{{boardGame.playtime}}</p>
+          <p class="ms-3">{{boardGame.playtime}}</p>
         </div>
         <div class="d-flex">
           <b>Ages:</b>
-          <p>{{boardGame.min_age}}+</p>
+          <p class="ms-3">{{boardGame.min_age}}+</p>
         </div>
         <div class="d-flex">
           <b>Categories:</b>
@@ -28,11 +28,11 @@
         </div>
         <div class="d-flex">
           <b>Primary Publisher:</b>
-          <p>{{boardGame.primary_publisher}}</p>
+          <p class="ms-3">{{boardGame.primary_publisher}}</p>
         </div>
         <div class="text-center mt-1">
           <b>Average User Rating:</b>
-          <p>{{boardGame.average_user_rating.toFixed(2)}}</p>
+          <p class="">{{boardGame.average_user_rating.toFixed(2)}}</p>
         </div>
         <div class="text-center mt-1">
           <b>Average Learning Complexity:</b>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="row game-images my-3 ms-1">
-        <swiper :slidesPerView="4" :spaceBetween="10" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
+        <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
           :pagination="{
             clickable: true,
           }" :navigation="true" :modules="modules" class="mySwiper">
@@ -66,6 +66,15 @@
       <div class="col-12">
         <h3 class="text-center">Description</h3>
         <p class="p-3">{{boardGame.description_preview}}</p>
+      </div>
+      <div class="row">
+
+
+
+        <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
+          <ActiveBoardGameVideos :video="v" />
+
+        </div> -->
       </div>
     </div>
   </section>
@@ -93,6 +102,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
+import ActiveBoardGameVideos from "../components/ActiveBoardGameVideos.vue";
 
 
 export default {
@@ -136,25 +146,44 @@ export default {
         Pop.error(error);
       }
     }
+
+    async function getBoardGameReviewsByGameId() {
+      try {
+        await atlasGamesService.getBoardGameReviewsByGameId(route.params.id)
+      } catch (error) {
+        console.error('[getBoardGameReviewsByGameId]', error)
+        Pop.error(error)
+      }
+    }
     onMounted(() => {
       getBoardGameDetailsById();
       getBoardGamePricesByGameId();
       getBoardGameVideosByGameId();
       getBoardGameImagesByGameId()
+      getBoardGameReviewsByGameId()
     });
     return {
       modules: [Pagination, Navigation],
       boardGame: computed(() => AppState.activeBoardGame),
-      images: computed(() => AppState.activeBoardGameImages)
+      images: computed(() => AppState.activeBoardGameImages),
+      videos: computed(() => AppState.activeBoardGameVideos)
     };
   },
   components: {
-    ActiveBoardGameImages, Swiper,
+    ActiveBoardGameImages,
+    Swiper,
     SwiperSlide,
+    ActiveBoardGameVideos
   }
 }
 </script>
 
+$c1: #cff09e;
+$c2: #a8dba8;
+$c3: #79bd9a;
+$c4: #3b8686;
+$c5: #0B486B;
+$c6: #ffa216;
 
 <style lang="scss" scoped>
 b {
@@ -162,8 +191,12 @@ b {
 }
 
 p {
-  font-weight: 600;
 
+  padding-top: 2.5px;
+  margin-bottom: 0;
+
+  font-weight: 600;
+  color: #0B486B;
 }
 
 .game-images {

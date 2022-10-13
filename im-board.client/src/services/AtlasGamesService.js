@@ -40,9 +40,9 @@ class AtlasGamesService {
         ids: id,
       },
     });
-    console.log(res.data.games);
+    // console.log(res.data.games);
     AppState.activeBoardGame = new BoardGame(res.data.games[0])
-    console.log(AppState.activeBoardGame);
+    // console.log(AppState.activeBoardGame);
   }
 
   async getBoardGameImagesByGameId(id) {
@@ -75,7 +75,20 @@ class AtlasGamesService {
     })
     // console.log(res.data.videos);
     AppState.activeBoardGameVideos = res.data.videos.map(a => new ActiveBoardGameVideo(a))
-    console.log(AppState.activeBoardGameVideos);
+    // console.log(AppState.activeBoardGameVideos);
+  }
+
+
+  async getBoardGameReviewsByGameId(id) {
+    const res = await atlasApi.get('api/reviews', {
+      params: {
+        client_id: "2I6DeypMLL",
+        game_id: id,
+        include_summary: true,
+
+      }
+    })
+    console.log(res.data);
   }
 
 }
