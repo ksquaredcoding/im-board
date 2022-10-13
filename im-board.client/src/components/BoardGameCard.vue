@@ -1,7 +1,9 @@
 <template>
-  <router-link :to="{ name: 'BoardGameDetails', params: { id: boardGame.id } }">
     <div class="card elevation-4 my-2" v-if="boardGame">
+     <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame.id } }"> 
       <img :src="boardGame.coverImg" alt="" class="forcedImg rounded" />
+</router-link>
+      
       <div class="card-body p-1 bg-dark rounded-bottom">
         <p class="card-title d-flex justify-content-center">
           {{ boardGame.name }}
@@ -11,26 +13,28 @@
         </p>
         <p class="d-flex justify-content-center">
           <!-- TODO MAKE IT ITS OWN -->
-          <button class="btn bg-c1 text-dark"><b>+ List</b></button>
+          <AddToList/>
+          <!-- <button class="btn bg-c1 text-dark"><b>+ List</b></button> -->
         </p>
       </div>
     </div>
-    <div v-else>jkghjmgnfbdvscx</div>
-  </router-link>
+    <div v-else>🦆</div>
+  
 
 </template>
 
 <script>
 import { BoardGame } from '../models/BoardGame.js';
+import AddToList from "./AddToList.vue";
 
 export default {
-  props: {
-    boardGame: { type: BoardGame, required: true },
-  },
-
-  setup(props) {
-    return {};
-  },
+    props: {
+        boardGame: { type: BoardGame, required: true },
+    },
+    setup(props) {
+        return {};
+    },
+    components: { AddToList }
 };
 </script>
 
