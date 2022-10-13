@@ -1,15 +1,15 @@
 <template>
-  <section class="container-fluid px-5" v-if="boardGame">
+  <section class="container" v-if="boardGame">
     <div class="row">
       <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown">
         <h1>{{boardGame.name}}</h1>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
-        <img :src="boardGame.large" alt="" class="img-fluid rounded elevation-2">
+      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft ">
+        <img :src="boardGame.large" alt="" class="img-fluid rounded elevation-3">
       </div>
-      <div class="col-6 p-3 animate__animated animate__fadeInRight">
+      <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="d-flex">
           <b>Number of players : </b>
           <p>{{boardGame.players}}</p>
@@ -32,7 +32,11 @@
         </div>
         <div class="text-center mt-1">
           <b>Average User Rating:</b>
-          <p>{{boardGame.average_user_rating}}</p>
+          <p>{{boardGame.average_user_rating.toFixed(2)}}</p>
+        </div>
+        <div class="text-center mt-1">
+          <b>Average Learning Complexity:</b>
+          <p>{{boardGame.average_learning_complexity.toFixed(2)}}</p>
         </div>
         <div class="text-center mt-1">
           <b>Ranking:</b>
@@ -47,10 +51,21 @@
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Wishlist</button>
         </div>
       </div>
-      <div class="row game-images my-3">
-        <div v-for="i in images" :key="i.id" >
-          <ActiveBoardGameImages :images="i" />
-        </div>
+      <div class="row game-images my-3 ms-1">
+        <swiper :slidesPerView="4" :spaceBetween="10" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
+          :pagination="{
+            clickable: true,
+          }" :navigation="true" :modules="modules" class="mySwiper">
+          <swiper-slide class="my-2" v-for="i in images">
+            <ActiveBoardGameImages :images="i" />
+          </swiper-slide>
+
+
+        </swiper>
+      </div>
+      <div class="col-12">
+        <h3 class="text-center">Description</h3>
+        <p class="p-3">{{boardGame.description_preview}}</p>
       </div>
     </div>
   </section>
@@ -65,6 +80,20 @@ import { AppState } from "../AppState.js";
 import { atlasGamesService } from "../services/AtlasGamesService.js";
 import Pop from "../utils/Pop.js";
 import ActiveBoardGameImages from "../components/ActiveBoardGameImages.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+
+
+// import required modules
+import { Pagination, Navigation } from "swiper";
+import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
+
 
 export default {
   setup() {
@@ -114,16 +143,33 @@ export default {
       getBoardGameImagesByGameId()
     });
     return {
+      modules: [Pagination, Navigation],
       boardGame: computed(() => AppState.activeBoardGame),
       images: computed(() => AppState.activeBoardGameImages)
     };
   },
-  components: { ActiveBoardGameImages }
+  components: {
+    ActiveBoardGameImages, Swiper,
+    SwiperSlide,
+  }
 }
 </script>
 
 
 <style lang="scss" scoped>
+b {
+  font-size: 14pt;
+}
+
+p {
+  font-weight: 600;
+
+}
+
+.game-images {
+  height: 25vh;
+}
+
 .game-img {
   background-size: cover;
 }
@@ -132,8 +178,7 @@ export default {
   background-color: #79bd9a;
 }
 
-.game-images {
-  height: 300px;
-  overflow: auto;
+.info {
+  background-color: #79bd9a70;
 }
 </style>
