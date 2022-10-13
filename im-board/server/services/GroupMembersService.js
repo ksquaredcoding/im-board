@@ -40,7 +40,7 @@ class GroupMembersService {
   async getMemberForGroup(groupId, accountId) {
     const member = await dbContext.GroupMembers.findOne({ groupId, accountId })
       .populate("profile", "name picture")
-      .populate("group", "name coverImg");
+      .populate("group");
     return member;
   }
   async addGroupMember(groupId, accountId) {
