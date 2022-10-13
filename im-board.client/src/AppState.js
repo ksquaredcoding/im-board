@@ -12,6 +12,8 @@ export const AppState = reactive({
   /** @type {import('./models/BoardGame.js').BoardGame | null} */
   activeBoardGame: null,
 
+  activeImage: null,
+
   /** @type {import('./models/ActiveBoardGameImage.js').ActiveBoardGameImage[]} */
   activeBoardGameImages: [],
 
@@ -21,6 +23,9 @@ export const AppState = reactive({
   /** @type {import('./models/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
 
   activeBoardGamePrices: [],
+  /** @type {import('./models/ABGReviews.js').ABGReviews[]} */
+
+  activeBoardGameReviews: [],
 
   activeCategoryFilters: [],
   categories: [

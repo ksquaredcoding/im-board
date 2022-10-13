@@ -1,7 +1,7 @@
 <template>
 
-  <img :src="images.original" alt="" class="forcedImg rounded elevation-2">
-
+  <img :src="images.original" alt="" data-bs-toggle="modal" data-bs-target="#activeImage" @click="setActiveImage()"
+    class="forcedImg rounded elevation-2">
 
 </template>
 <script>
@@ -19,6 +19,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
+import { AppState } from "../AppState.js";
 
 export default {
   props: {
@@ -31,8 +32,15 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  setup() {
+  setup(props) {
     return {
+      setActiveImage() {
+        AppState.activeImage = props.images.original
+        console.log(AppState.activeImage);
+      },
+
+
+
       modules: [Pagination, Navigation],
     };
   },
