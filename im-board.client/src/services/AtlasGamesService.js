@@ -92,10 +92,10 @@ class AtlasGamesService {
       }
     })
 
-    console.log(res.data.critics.reviews);
+    // console.log(res.data.critics.reviews);
 
     AppState.activeBoardGameReviews = res.data.critics.reviews.map(r => new ABGReviews(r))
-    console.log(AppState.activeBoardGameReviews);
+    // console.log(AppState.activeBoardGameReviews);
   }
 
 }

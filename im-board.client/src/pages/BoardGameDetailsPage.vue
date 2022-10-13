@@ -45,10 +45,8 @@
         <div class="text-center">
           <b>Add to list</b>
         </div>
-        <div class="justify-content-center d-flex gap-4">
-          <button class="btn list-button"><i class="mdi mdi-plus"></i>Favorite</button>
-          <button class="btn list-button"><i class="mdi mdi-plus"></i>Owned</button>
-          <button class="btn list-button"><i class="mdi mdi-plus"></i>Wishlist</button>
+        <div class="justify-content-center ">
+          <AddToList />
         </div>
         <!-- <div>
           <p class="p-3">{{boardGame.description_preview}}</p>
@@ -66,12 +64,12 @@
 
         </swiper>
       </div>
-<div class="px-5 ">
-      <div class="col-12 bg-c2 p-5 my-5 rounded-4">
-        <h3 class="text-center">Description</h3>
-        <p class="p-3 bg-grey rounded-5">{{boardGame.description_preview}}</p>
+      <div class="px-5 ">
+        <div class="col-12 bg-c2 p-5 my-5 rounded-4">
+          <h3 class="text-center">Description</h3>
+          <p class="p-3 bg-grey rounded-5">{{boardGame.description_preview}}</p>
+        </div>
       </div>
-</div>
       <div class="row">
         <div class="col-md-6" v-for="r in reviews" :key="r">
           <ABGReviews :review="r" />
@@ -124,6 +122,7 @@ import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
 import ActiveBoardGameVideos from "../components/ActiveBoardGameVideos.vue";
 import ABGReviews from "../components/ABGReviews.vue";
+import AddToList from "../components/AddToList.vue";
 
 
 export default {
@@ -197,7 +196,8 @@ export default {
     Swiper,
     SwiperSlide,
     ActiveBoardGameVideos,
-    ABGReviews
+    ABGReviews,
+    AddToList
   }
 }
 </script>
