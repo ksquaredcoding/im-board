@@ -5,7 +5,7 @@ const ObjectId = mongoose.Types.ObjectId;
 export const GroupSchema = new Schema(
   {
     name: { type: String, required: true, maxlength: 50, minlength: 1 },
-    groupMemberIds: { type: Array },
+    groupMemberIds: [{ type: ObjectId, ref: "Account", require: false }],
     coverImg: {
       type: String,
       required: true,

@@ -23,7 +23,8 @@ export class GroupMembersController extends BaseController {
   }
   async addGroupMember(req, res, next) {
     try {
-      const groupMember = await groupMembersService.addGroupMember(req.body, req.userInfo.id);
+      req.body.accountId = req.userInfo.id;
+      const groupMember = await groupMembersService.addGroupMember(req.body);
       res.send(groupMember);
     } catch (error) {
       next(error);

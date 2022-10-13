@@ -38,19 +38,19 @@ class GroupsService {
     return group;
   }
   async createGroup(groupData) {
- 
     const groupTest = await dbContext.Groups.create(groupData);
     await groupTest.populate("creator", "name picture");
-    await groupMembersService.addGroupMember(
-      groupTest.id, //FIXME - createGroup fails here
-      groupData.creatorId
-    );
+    await groupMembersService.addGroupMember(groupTest.id, groupData.creatorId);
     // groupTest.groupMemberIds.push(groupTest.creatorId);
+    // debugger
     // await groupTest.save();
     return groupTest;
   }
   async getGroupById(id) {
-    const group = await (await dbContext.Groups.findById({ id })).populate('creator','name picture');
+    const group = await dbContext.Groups.findById(id).populate(
+      "creator",
+      "name picture"
+    );
     if (!group) {
       throw new BadRequest("invalid Group ID");
     }

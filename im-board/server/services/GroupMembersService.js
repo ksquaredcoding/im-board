@@ -39,7 +39,7 @@ class GroupMembersService {
   async addGroupMember(groupId, accountId) {
     await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
-    if (!isMember) {
+    if (isMember) {
       return isMember;
     }
     // const groupMembers = await this.getGroupMembersByGroupId(groupId);
