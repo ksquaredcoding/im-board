@@ -21,7 +21,7 @@ export class GameNightsController extends BaseController {
   }
   async createGameNight(req, res, next) {
     try {
-      const gameNight = await gameNightsService.createGameNight(req.body, req.userInfo.id)
+      const gameNight = await gameNightsService.createGameNight(req.body, req.userInfo.id, req.body.gameId)
       res.send(gameNight)
     } catch (error) {
       next(error)
