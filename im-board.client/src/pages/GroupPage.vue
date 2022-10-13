@@ -71,7 +71,7 @@ export default {
     const route = useRoute()
   async function getGroupById(){
     try {
-        await groupsService.getGroupById()
+        await groupsService.getGroupById(route.params.id)
       } catch (error) {
         Pop.error(error,'[getGroupById]')
       }
@@ -93,7 +93,7 @@ async function getGroupMembersByGroupId(){
     });
     return {
     
-group : computed(()=> AppState.activeGroup),
+group: computed(() => AppState.activeGroup),
 
       async createGroup() {
         try {

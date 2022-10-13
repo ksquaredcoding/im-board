@@ -1,13 +1,14 @@
 import { AppState } from '../AppState.js';
+import { ActiveGroup } from "../models/ActiveGroup.js";
 import { Group } from '../models/Group.js';
 import { api } from './AxiosService.js';
 
 class GroupsService {
   async getGroupById(groupId) {
     const res = await api.get(`/api/groups/${groupId}`);
-    console.log(res.data);
-    AppState.activeGroup = new Group(res.data);
-    console.log(AppState.activeGroup);
+    console.log('resData',res.data);
+   AppState.activeGroup = new ActiveGroup(res.data)
+        console.log('appState',AppState.activeGroup);
   }
   async createGroup(groupData) {
     const res = await api.post('/api/groups', groupData);

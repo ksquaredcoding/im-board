@@ -16,9 +16,10 @@ class AccountService {
   async getMyGroups() {
     //TODO FIRE OFF IN ACCOUNT SERVICE
     const res = await api.get('/account/groups');
-    console.log(res.data);
+
+    console.log('AccountGetMyGroups',res.data);
     AppState.groups = res.data.map(g => new Group(g))
-    console.log(AppState.groups);
+    console.log('AppState.groups:',AppState.groups);
   }
 }
 

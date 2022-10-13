@@ -25,7 +25,11 @@ export default {
 
   setup(props) {
     return {
-
+setActiveGroup(){
+let group = AppState.groups.find(g => g.groupId == props.group.groupId)
+  AppState.activeGroup = group
+  console.log('activeGroup-tung',AppState.activeGroup);
+}
     };
   },
 };
