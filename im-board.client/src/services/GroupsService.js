@@ -3,11 +3,6 @@ import { api } from "./AxiosService.js"
 
 class GroupsService{
 
-async getMyGroups(){
-
-  const res = await api.get('/account/groups')
-  console.log(res.data);
-}
 
 async createGroup(groupData){
  const res = await api.post('/api/groups',groupData)
@@ -20,6 +15,7 @@ async removeGroup(groupId){
 
 async addMember(groupData){
   const res = await api.post('/api/groupmembers',groupData)
+  console.log(res.data);
 }
 
 
