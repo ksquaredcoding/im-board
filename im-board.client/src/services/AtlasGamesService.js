@@ -5,6 +5,7 @@ import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
 import { ActiveBoardGameVideo } from "../models/ActiveBoardGameVideo.js";
 import { AppState } from "../AppState.js";
 import { ABGReviews } from "../models/ABGReviews.js";
+import { ActiveBoardGamePrice } from "../models/ActiveBoardGamePrice.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
@@ -67,6 +68,8 @@ class AtlasGamesService {
       },
     })
     // console.log(res.data.gameWithPrices.us);
+    AppState.activeBoardGamePrices = res.data.gameWithPrices.us.map(p => new ActiveBoardGamePrice(p))
+    console.log(AppState.activeBoardGamePrices);
   }
   async getBoardGameVideosByGameId(id) {
     const res = await atlasApi.get('api/game/videos?', {
@@ -76,9 +79,9 @@ class AtlasGamesService {
 
       },
     })
-    console.log(res.data.videos);
+    // console.log(res.data.videos);
     AppState.activeBoardGameVideos = res.data.videos.map(a => new ActiveBoardGameVideo(a))
-    console.log(AppState.activeBoardGameVideos);
+    // console.log(AppState.activeBoardGameVideos);
   }
 
 

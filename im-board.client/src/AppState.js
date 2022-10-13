@@ -5,14 +5,14 @@ export const AppState = reactive({
   user: {},
   /** @type {import('./models/Account.js').Account} */
   account: {},
-  
-  
-  
+
+
+
   /** @type {import('./models/Group.js').Group[]} */
-  groups:[],
-  
+  groups: [],
+
   /** @type {import('./models/Group.js').Group | null} */
-activeGroup:null,
+  activeGroup: null,
 
 
 
@@ -34,10 +34,9 @@ activeGroup:null,
   activeBoardGameVideos: [],
 
   /** @type {import('./models/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
-
   activeBoardGamePrices: [],
-  /** @type {import('./models/ABGReviews.js').ABGReviews[]} */
 
+  /** @type {import('./models/ABGReviews.js').ABGReviews[]} */
   activeBoardGameReviews: [],
 
   activeCategoryFilters: [],

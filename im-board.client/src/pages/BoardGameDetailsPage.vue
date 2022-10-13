@@ -47,7 +47,8 @@
         </div>
         <div class="d-flex justify-content-center ">
           <div class="col-3 text-center">
-          <AddToList /></div>
+            <AddToList />
+          </div>
         </div>
         <!-- <div>
           <p class="p-3">{{boardGame.description_preview}}</p>
@@ -68,7 +69,7 @@
       <div class="px-5 mt-5">
         <div class="col-12 bg-c2 p-5 my-5 rounded-4">
           <h3 class="text-center">Description</h3>
-          <p class="p-3 bg-grey rounded-5">{{boardGame.description_preview}}</p>
+          <p class="p-3 bg-grey rounded-5 elevation-4">{{boardGame.description_preview}}</p>
         </div>
       </div>
       <div class="row">
@@ -76,7 +77,9 @@
           <ABGReviews :review="r" />
         </div>
 
-
+        <div v-for="p in prices" :key="p.id">
+          <ABGPrices :price="p" />
+        </div>
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
         </div> -->
@@ -84,6 +87,9 @@
       </div>
     </div>
   </section>
+
+
+
   <!-- MODAL -->
   <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -124,6 +130,7 @@ import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
 import ActiveBoardGameVideos from "../components/ActiveBoardGameVideos.vue";
 import ABGReviews from "../components/ABGReviews.vue";
 import AddToList from "../components/AddToList.vue";
+import ABGPrices from "../components/ABGPrices.vue";
 
 
 export default {
@@ -189,6 +196,7 @@ export default {
       images: computed(() => AppState.activeBoardGameImages),
       videos: computed(() => AppState.activeBoardGameVideos),
       reviews: computed(() => AppState.activeBoardGameReviews),
+      prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage)
     };
   },
@@ -198,7 +206,8 @@ export default {
     SwiperSlide,
     ActiveBoardGameVideos,
     ABGReviews,
-    AddToList
+    AddToList,
+    ABGPrices
   }
 }
 </script>

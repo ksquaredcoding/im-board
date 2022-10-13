@@ -36,6 +36,8 @@ export default {
             type: editable.value
           }
           await listsService.addGameToList(formData)
+
+          Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
         } catch (error) {
 
           Pop.error('You Already Have It Part OF this List')
