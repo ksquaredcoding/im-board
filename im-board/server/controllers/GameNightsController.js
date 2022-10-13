@@ -24,7 +24,7 @@ export class GameNightsController extends BaseController {
     try {
       const gameNight = await gameNightsService.createGameNight(
         req.body,
-        req.userInfo.id
+        req.userInfo.id,
       );
       res.send(gameNight);
     } catch (error) {

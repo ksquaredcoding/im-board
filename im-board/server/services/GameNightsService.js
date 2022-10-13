@@ -6,6 +6,7 @@ import { groupsService } from "./GroupsService.js";
 class GameNightsService {
   async createGameNight(gameNightData, accountId) {
     // gameNightData -= gameNightData.gameId;
+    debugger;
     const group = await groupsService.getGroupById(gameNightData.groupId);
     // const members = group.groupMemberIds.filter(g => g.toString() == accountId)
     // if (members.length = 0) {
@@ -20,7 +21,7 @@ class GameNightsService {
       throw new Forbidden("you must be in the group to create a game night!");
     }
     const gameNight = await dbContext.GameNights.create(
-      group.id,
+      // group.id,
       gameNightData
     );
     return gameNight;
