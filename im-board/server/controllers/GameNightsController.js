@@ -8,7 +8,8 @@ export class GameNightsController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("/:groupId", this.getGameNightsByGroupId)
-      .post("", this.createGameNight);
+      .post("", this.createGameNight)
+      .put("/:gameNightId", this.attendGameNight);
   }
   async getGameNightsByGroupId(req, res, next) {
     try {
@@ -24,14 +25,23 @@ export class GameNightsController extends BaseController {
     try {
       const gameNight = await gameNightsService.createGameNight(
         req.body,
-        req.userInfo.id,
+        req.userInfo.id
       );
       res.send(gameNight);
     } catch (error) {
       next(error);
     }
   }
-  async attendGameNight() {
-
+  async attendGameNight(req, res, next) {
+    try {
+      debugger;
+      const gameNight = await gameNightsService.attendGameNight(
+        req.userInfo.id,
+        req.params.gameNightId
+      );
+      res.send(gameNight);
+    } catch (error) {
+      next(error);
+    }
   }
 }

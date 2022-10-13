@@ -1,12 +1,30 @@
 import { dbContext } from "../db/DbContext.js";
-import { Forbidden } from "../utils/Errors.js";
+import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupMembersService } from "./GroupMembersService.js";
 import { groupsService } from "./GroupsService.js";
 
 class GameNightsService {
+  async attendGameNight(userId, gameNightId) {
+    const gameNight = await dbContext.GameNights.findById(gameNightId);
+    if (!gameNight) {
+      throw new BadRequest("bad GameNightId");
+    }
+
+    let attending = gameNight.groupMemberIdsAttending.includes(userId);
+
+    if (!attending) {
+      gameNight.groupMemberIdsAttending.push(userId);
+      await gameNight.save();
+      return gameNight;
+    }
+    gameNight.groupMemberIdsAttending =
+      gameNight.groupMemberIdsAttending.filter((m) => m.toString() !== userId);
+    await gameNight.save();
+    return gameNight;
+  }
   async createGameNight(gameNightData, accountId) {
     // gameNightData -= gameNightData.gameId;
-    debugger;
+    // debugger;
     const group = await groupsService.getGroupById(gameNightData.groupId);
     // const members = group.groupMemberIds.filter(g => g.toString() == accountId)
     // if (members.length = 0) {

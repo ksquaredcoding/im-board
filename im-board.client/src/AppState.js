@@ -41,10 +41,10 @@ export const AppState = reactive({
 
   activeCategoryFilters: [],
   categories: [
-    { name: 'Card Game', id: 'eX8uuNlQkQ' },
+    { name: 'CardGame', id: 'eX8uuNlQkQ' },
     { name: 'Fantasy', id: 'ZTneo8TaIO' },
     { name: 'Economic', id: 'N0TkEGfEsF' },
-    { name: 'Sci-fi', id: '3B3QpKvXD3' },
+    { name: 'Scifi', id: '3B3QpKvXD3' },
     { name: 'City Building', id: 'ODWOjWAJj3' },
     { name: 'Party Game', id: 'X8J7RM6dxX' },
     { name: 'Adventure', id: 'KUBCKBkGxV' },
@@ -54,6 +54,6 @@ export const AppState = reactive({
     { name: 'Puzzle', id: 'WVMOS3s2pb' },
     { name: 'Cooperative', id: 'ge8pIhEUGE' },
     { name: 'Wargame', id: 'jX8asGGR6o' },
-    { name: 'Word Game', id: 'rHvAx4hH2f' },
+    { name: 'Word game', id: 'rHvAx4hH2f' },
   ],
 });
