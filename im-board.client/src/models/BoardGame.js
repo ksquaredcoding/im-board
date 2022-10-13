@@ -6,7 +6,8 @@ export class BoardGame {
     this.large = data.images.large;
     // this.coverImg = data.images.original;
     this.name = data.name;
-    this.coverImg = data.images.original;
+    this.coverImg = data.images.original
+    this.largeImage = data.images.large
     this.description_preview = data.description_preview; //not text but HTML
     this.description = data.description;
     this.categories = data.categories; //is array

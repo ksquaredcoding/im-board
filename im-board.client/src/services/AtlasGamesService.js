@@ -34,7 +34,7 @@ class AtlasGamesService {
 
   //REVIEW https://api.boardgameatlas.com/api/search?client_id=2I6DeypMLL&ids=TAAifFP590
   async getBoardGameDetailsById(id) {
-
+    AppState.activeBoardGame = null
     const res = await atlasApi.get(`/api/search?${id}`, {
       params: {
         client_id: "2I6DeypMLL",
@@ -47,6 +47,7 @@ class AtlasGamesService {
   }
 
   async getBoardGameImagesByGameId(id) {
+
     const res = await atlasApi.get(`api/game/images?`, {
       params: {
         client_id: "2I6DeypMLL",

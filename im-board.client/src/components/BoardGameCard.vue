@@ -1,9 +1,6 @@
 <template>
-  <router-link
-    :to="{ name: 'BoardGameDetails', params: { id: boardGame.id } }"
-   
-  >
-    <div class="card elevation-4 my-2"  v-if="boardGame">
+  <router-link :to="{ name: 'BoardGameDetails', params: { id: boardGame.id } }">
+    <div class="card elevation-4 my-2" v-if="boardGame">
       <img :src="boardGame.coverImg" alt="" class="forcedImg rounded" />
       <div class="card-body p-1 bg-dark rounded-bottom">
         <p class="card-title d-flex justify-content-center">
@@ -20,7 +17,7 @@
     </div>
     <div v-else>jkghjmgnfbdvscx</div>
   </router-link>
-  
+
 </template>
 
 <script>
@@ -45,6 +42,7 @@ export default {
   letter-spacing: 0.08rem;
   /* Second Color  in text-shadow is the blur */
 }
+
 .forcedImg {
   height: 170px;
   width: auto;
