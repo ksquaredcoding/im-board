@@ -16,21 +16,24 @@ class GroupMembersService {
     }
     if (isCreator && isMember) {
       group.creatorId = newAccountId;
-      const memberIndex = group.groupMemberIds.findIndex(accountId)
-      group.groupMemberIds.splice(memberIndex, 1)
+      // @ts-ignore
+      const members = group.groupMemberIds.filter((g) => g.id !== accountId);
+      group.groupMemberIds = members;
+      // const memberIndex = group.groupMemberIds.findIndex(accountId);
+      // group.groupMemberIds.splice(memberIndex, 1);
       await group.save();
       // @ts-ignore
       await member.remove();
-      return
+      return member;
     }
 
     // @ts-ignore
     await member.remove();
-    const memberIndex = group.groupMemberIds.findIndex(accountId)
-    group.groupMemberIds.splice(memberIndex, 1)
-    await group.save()
+    const memberIndex = group.groupMemberIds.findIndex(accountId);
+    group.groupMemberIds.splice(memberIndex, 1);
+    await group.save();
     // TODO finish remove member
-    return
+    return member;
   }
   async getMemberForGroup(groupId, accountId) {
     const member = await dbContext.GroupMembers.findOne({ groupId, accountId })
