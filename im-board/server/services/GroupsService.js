@@ -4,10 +4,8 @@ import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
     const groups = await dbContext.GroupMembers.find({ accountId }).populate(
-      "group",
-      "name picture"
+      "group"
     );
-    // FIXME does this work??
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
     }

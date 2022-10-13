@@ -16,15 +16,21 @@ class GroupMembersService {
     }
     if (isCreator && isMember) {
       group.creatorId = newAccountId;
+      const memberIndex = group.groupMemberIds.findIndex(accountId)
+      group.groupMemberIds.splice(memberIndex, 1)
       await group.save();
       // @ts-ignore
       await member.remove();
+      return
     }
 
     // @ts-ignore
     await member.remove();
-    return member;
+    const memberIndex = group.groupMemberIds.findIndex(accountId)
+    group.groupMemberIds.splice(memberIndex, 1)
+    await group.save()
     // TODO finish remove member
+    return
   }
   async getMemberForGroup(groupId, accountId) {
     const member = await dbContext.GroupMembers.findOne({ groupId, accountId })
@@ -42,7 +48,9 @@ class GroupMembersService {
       groupId,
       accountId,
     });
-    group.groupMemberIds.push(accountId);
+    if (!group.groupMemberIds.includes(accountId)) {
+      group.groupMemberIds.push(accountId);
+    }
     await group.save();
     await groupMember.populate("profile", "name picture");
 

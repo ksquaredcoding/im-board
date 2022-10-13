@@ -36,7 +36,7 @@ export class GroupMembersController extends BaseController {
         req.userInfo.id,
         req.body.accountId
       );
-      res.send(groupMember);
+      res.send('Member has been removed.');
     } catch (error) {
       next(error);
     }
