@@ -1,7 +1,7 @@
 <template>
   <div class="component">
     <form @submit.prevent="handleSubmit()">
-      <select v-model="editable" class="form-select" aria-label="Default select example">
+      <select v-model="editable" class="form-select border-secondary" aria-label="Default select example">
         <option value="favorite">Favorite</option>
         <option value="owned">Owned</option>
         <option value="wish">Wish</option>

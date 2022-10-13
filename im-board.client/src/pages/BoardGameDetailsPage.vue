@@ -42,7 +42,7 @@
           <b>Ranking:</b>
           <p>{{boardGame.rank}}</p>
         </div>
-        <div class="text-center">
+        <div class="text-center mt-3">
           <b>Add to list</b>
         </div>
         <div class="d-flex justify-content-center ">

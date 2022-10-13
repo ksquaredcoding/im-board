@@ -1,7 +1,7 @@
 <template>
   <div class="filters container-fluid">
     <div class="row">
-      <div class="col-md-2 ">
+      <div class="col-md-12 ">
  <h4 >Categories</h4>
       <div
       class="list-group-item inputBox d-flex"
@@ -78,8 +78,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-input.checkBox {
-}
+// input.checkBox {
+// }
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;

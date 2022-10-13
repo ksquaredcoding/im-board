@@ -8,16 +8,7 @@
 
       <div class="col-md-10">
         <div class="row p-3 presetfilters d-none d-sm-block">
-          <div
-            class="col-md-12 d-flex justify-content-around align-items-center animate__animated animate__fadeInRight"
-          >
-            <button class="btn bg-c3 text-dark box-shadow">All</button>
-            <button class="btn bg-c3 text-dark box-shadow">Popular</button>
-            <button class="btn bg-c3 text-dark box-shadow">
-              Highest Rated
-            </button>
-            <button class="btn bg-c3 text-dark box-shadow">Wishlist</button>
-          </div>
+          <PresetFilterBar/>
         </div>
 
         <div class="row scrollableY mx-2">
@@ -45,6 +36,7 @@ import Filters from '../components/Filters.vue';
 import Searchbar from '../components/Searchbar.vue';
 import BoardGameCard from '../components/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
+import PresetFilterBar from "../components/PresetFilterBar.vue";
 
 export default {
   setup() {
@@ -86,7 +78,7 @@ export default {
       },
     };
   },
-  components: { Filters, Searchbar, BoardGameCard },
+  components: { Filters, Searchbar, BoardGameCard, PresetFilterBar },
 };
 </script>
 
