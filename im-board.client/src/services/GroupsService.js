@@ -1,48 +1,37 @@
-import { AppState } from "../AppState.js"
-import { Group } from "../models/Group.js"
-import { api } from "./AxiosService.js"
+import { AppState } from '../AppState.js';
+import { Group } from '../models/Group.js';
+import { api } from './AxiosService.js';
 
-class GroupsService{
+class GroupsService {
+  async getGroupById(groupId) {
+    const res = await api.get(`/api/groups/${groupId}`);
+    console.log(res.data);
+    AppState.activeGroup = new Group(res.data);
+    console.log(AppState.activeGroup);
+  }
+  async createGroup(groupData) {
+    const res = await api.post('/api/groups', groupData);
+    console.log(res.data);
+    // let newGroup = new Group(res.data);
+    console.log(newGroup);
+    // AppState.groups = [...AppState.groups, newGroup];
+    // console.log(res.data);
+  }
+  async removeGroup(groupId) {
+    await api.delete(`api/groups/${groupId}`);
+  }
 
-async getGroupById(groupId){
-  const res = await api.get(`/api/groups/${groupId}`)
-  console.log(res.data);
-  AppState.activeGroup = new Group(res.data)
-  console.log(AppState.activeGroup);
+  async addMember(groupData) {
+    const res = await api.post('/api/groupmembers', groupData);
+    console.log(res.data);
+  }
 
+  async getGroupMembers(groupId) {
+    const res = await api.get(`api/groupmembers/${groupId}`);
+    console.log(res.data);
+  }
 }
-async createGroup(groupData){
- const res = await api.post('/api/groups',groupData)
- console.log(res.data);
-}
-async removeGroup(groupId){
-  await api.delete(`api/groups/${groupId}`)
-
-}
-
-async addMember(groupData){
-  const res = await api.post('/api/groupmembers',groupData)
-  console.log(res.data);
-}
-
-async getGroupMembers(groupId){
-  const res = await api.get(`api/groupmembers/${groupId}`)
-  console.log(res.data);
-}
-
-
-
-
-
-
-
-}
-export const groupsService = new GroupsService()
-
-
-
-
-
+export const groupsService = new GroupsService();
 
 // class GroupsService {
 //   async getMyGroups(accountId) {
