@@ -1,10 +1,9 @@
 <template>
- 
   <router-link
     :to="{ name: 'BoardGameDetails', params: { id: boardGame.id } }"
     v-if="boardGame"
   >
-    <div class="card bg-transparent elevation-4 my-2">
+    <div class="card elevation-4 my-2">
       <img :src="boardGame.coverImg" alt="" class="forcedImg rounded" />
       <div class="card-body p-1 bg-dark rounded-bottom">
         <p class="card-title d-flex justify-content-center">
@@ -14,13 +13,12 @@
           {{ boardGame.average_user_rating.toFixed(2) }} of 5
         </p>
         <p class="d-flex justify-content-center">
-       <!-- TODO MAKE IT ITS OWN -->
+          <!-- TODO MAKE IT ITS OWN -->
           <button class="btn bg-c1 text-dark"><b>+ List</b></button>
         </p>
       </div>
     </div>
   </router-link>
-
 </template>
 
 <script>
@@ -38,7 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
@@ -48,7 +45,7 @@ export default {
 }
 .forcedImg {
   height: 170px;
-width: auto;
+  width: auto;
   object-fit: contain;
 }
 
