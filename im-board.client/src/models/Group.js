@@ -5,8 +5,18 @@ export class Group{
 this.id = data.id
 this.creatorId=data.creatorId
 this.name=data.name
-
-
+this.coverImg = data.coverImg
+this.groupMemberIds = data.groupMemberIds
   }
 
+  
 }
+//  name: { type: String, required: true, maxlength: 50, minlength: 1 },
+//     groupMemberIds: [{ type: ObjectId, ref: "Account", require: false }],
+//     coverImg: {
+//       type: String,
+//       required: true,
+//       default:
+//         "https://roomescapedc.com/wp-content/uploads/2021/01/board-games-background-min-1920x1078.jpg",
+//     },
+//     creatorId: { type: ObjectId, ref: "Account", required: true },
