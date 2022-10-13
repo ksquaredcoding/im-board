@@ -31,5 +31,7 @@ export class GameNightsController extends BaseController {
       next(error);
     }
   }
-  async attendGameNight
+  async attendGameNight() {
+
+  }
 }
