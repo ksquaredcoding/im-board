@@ -38,9 +38,15 @@
   
   <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
     <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5"> 
-      <button class="btn btn-outline-secondary bg-c1" type="button" id="button-addon2"><i class="mdi mdi-magnify mx-2" alt="" title=""></i></button>
-      <h4>Group Games</h4></div>
+      <h4>Group Games</h4>
+    </div>
     <GroupGamesCard/>
+     <GroupGamesCard/>
+      <GroupGamesCard/>
+       <GroupGamesCard/>
+        <GroupGamesCard/>
+         <GroupGamesCard/>
+       <GroupGamesCard/>
   </div>
 </div>
   </div>
