@@ -5,7 +5,7 @@ class GroupsService {
   async getMyGroups(accountId) {
     const groups = await dbContext.GroupMembers.find({ accountId }).populate(
       "group"
-    );
+    ).populate("profile", "name picture")
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
     }
