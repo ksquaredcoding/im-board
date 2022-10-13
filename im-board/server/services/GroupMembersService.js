@@ -3,7 +3,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupsService } from "./GroupsService.js";
 
 class GroupMembersService {
-  async kickMember(groupMemberId, accountId, body) {
+  async kickMember(groupMemberId, accountId, newAccountId) {
     const member = await this.getGroupMemberById(groupMemberId);
     // @ts-ignore
     const group = await groupsService.getGroupById(member.groupId.toString());
@@ -15,7 +15,7 @@ class GroupMembersService {
       throw new Forbidden("you can only remove yourself from a group");
     }
     if (isCreator && isMember) {
-      group.creatorId = body.accountId;
+      group.creatorId = newAccountId;
       await group.save();
       // @ts-ignore
       await member.remove();
@@ -58,7 +58,7 @@ class GroupMembersService {
     return groupMembers;
   }
   async getGroupMemberById(id) {
-    const member = await dbContext.GroupMembers.find({ id });
+    const member = await dbContext.GroupMembers.findById(id);
     if (!member) {
       throw new BadRequest("bad goldMemberId");
     }

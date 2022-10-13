@@ -34,7 +34,7 @@ export class GroupMembersController extends BaseController {
       const groupMember = await groupMembersService.kickMember(
         req.params.groupMemberId,
         req.userInfo.id,
-        req.body
+        req.body.accountId
       );
       res.send(groupMember);
     } catch (error) {
