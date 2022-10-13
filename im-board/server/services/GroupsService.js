@@ -41,10 +41,8 @@ class GroupsService {
     const groupTest = await dbContext.Groups.create(groupData);
     await groupTest.populate("creator", "name picture");
     await groupMembersService.addGroupMember(groupTest.id, groupData.creatorId);
-    // groupTest.groupMemberIds.push(groupTest.creatorId);
-    // debugger
-    // await groupTest.save();
-    return groupTest;
+    const newGroup = await this.getGroupById(groupTest.id);
+    return newGroup;
   }
   async getGroupById(id) {
     const group = await dbContext.Groups.findById(id).populate(
@@ -56,6 +54,5 @@ class GroupsService {
     }
     return group;
   }
-  //
 }
 export const groupsService = new GroupsService();

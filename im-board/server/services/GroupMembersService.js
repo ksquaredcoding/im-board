@@ -20,11 +20,7 @@ class GroupMembersService {
       // @ts-ignore
       await member.remove();
     }
-    // if (!isMember) {
-    //   throw new Forbidden(
-    //     "you need to be apart of a group to remove yourself from it"
-    //   );
-    // }
+
     // @ts-ignore
     await member.remove();
     return member;
@@ -37,26 +33,19 @@ class GroupMembersService {
     return member;
   }
   async addGroupMember(groupId, accountId) {
-    await groupsService.getGroupById(groupId);
+    const group = await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
       return isMember;
     }
-    // const groupMembers = await this.getGroupMembersByGroupId(groupId);
-    // const alreadyMember = groupMembers.find((g) => g.accountId == accountId);
-    // if (alreadyMember) {
-    //   throw new Forbidden("you are already apart of this group");
-    // }
     const groupMember = await dbContext.GroupMembers.create({
       groupId,
       accountId,
     });
-    // group.groupMemberIds.push(accountId);
-    // await group.save();
-    // @ts-ignore
+    group.groupMemberIds.push(accountId);
+    await group.save();
     await groupMember.populate("profile", "name picture");
-    // @ts-ignore
-    // await newGroupMember.populate("group", "name");
+
     return groupMember;
   }
   async getGroupMembersByGroupId(groupId) {
