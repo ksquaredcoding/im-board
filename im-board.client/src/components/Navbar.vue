@@ -76,6 +76,7 @@
     <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
       <div class="pe-3  d-flex box-shadow d-none d-sm-block">
+        <img :src="user.picture" alt="" height="60" class="me-4 rounded-circle">
         <a
           name=""
           id=""
@@ -97,10 +98,19 @@
 </template>
 
 <script>
+import { computed } from "@vue/reactivity";
+import { AppState } from "../AppState.js";
+import { AuthService } from "../services/AuthService.js";
 import Login from './Login.vue';
 export default {
   setup() {
-    return {};
+    return {
+      user: computed(() => AppState.user),
+      account: computed(() => AppState.account),
+      async login() {
+       AuthService.loginWithPopup()
+      },
+    };
   },
   components: { Login },
 };

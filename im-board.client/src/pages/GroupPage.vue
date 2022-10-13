@@ -1,5 +1,9 @@
 <template>
   <div class="group-page container-fluid">
+    <div> 
+      <button class="btn btn-info btn-lg " data-bs-toggle="modal" data-bs-target="#groupForm">Create Group</button>
+      <GroupForm />
+    </div>
 <div class="row">
  <GroupBanner  class=" mt-2 rounded "/>
   <div class="col-md-3 p-0">
@@ -57,12 +61,36 @@ import GroupBanner from "../components/GroupBanner.vue";
 import GameNightCard from "../components/GameNightCard.vue";
 import GroupChatInput from "../components/GroupChatInput.vue";
 import GroupGamesCard from "../components/GroupGamesCard.vue";
+import Pop from "../utils/Pop.js";
+import { groupsService } from "../services/GroupsService.js";
+import { onMounted } from "vue";
+import GroupForm from "../components/GroupForm.vue";
 
 export default {
+
     setup() {
-        return {};
+async function getMyGroups(){
+  try {
+      await groupsService.getMyGroups()
+    } catch (error) {
+      Pop.error(error,'[getMyGroups]')
+    }
+}
+
+onMounted(()=>{
+  getMyGroups()
+})
+        return {
+async createGroup(){
+  try {
+      await groupsService.createGroup()
+    } catch (error) {
+      Pop.error(error,'[createGroup]')
+    }
+}
+        };
     },
-    components: { GroupChatCard, GroupBanner, GameNightCard, GroupChatInput, GroupGamesCard }
+    components: { GroupChatCard, GroupBanner, GameNightCard, GroupChatInput, GroupGamesCard, GroupForm }
 }
 </script>
 <style lang="scss" scoped>

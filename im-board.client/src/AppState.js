@@ -5,6 +5,17 @@ export const AppState = reactive({
   user: {},
   /** @type {import('./models/Account.js').Account} */
   account: {},
+  
+  
+  
+  /** @type {import('./models/Account.js').Account} */
+groups:[],
+
+
+
+
+
+
 
   /** @type {import('./models/BoardGame.js').BoardGame[]} */
   boardgames: [],
