@@ -73,11 +73,12 @@ class AtlasGamesService {
       params: {
         client_id: "2I6DeypMLL",
         game_id: id,
+
       },
     })
-    // console.log(res.data.videos);
+    console.log(res.data.videos);
     AppState.activeBoardGameVideos = res.data.videos.map(a => new ActiveBoardGameVideo(a))
-    // console.log(AppState.activeBoardGameVideos);
+    console.log(AppState.activeBoardGameVideos);
   }
 
 
