@@ -28,4 +28,10 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+
+main{
+  background-image: url(../assets/img/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg);
+  background-attachment: fixed;
+  background-position: center;
+}
 </style>

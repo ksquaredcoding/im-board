@@ -20,11 +20,11 @@
           </div>
         </div>
 
-        <div class="row scrollableY">
+        <div class="row scrollableY mx-2">
           <TransitionGroup
             name="custom-classes"
             enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__bounceOutRight animate__animated"
+            leaveActiveClass="animate__zoomOut animate__animated"
           >
             <div class="col-md-3" v-for="b in boardGames" :key="b.id" v-if="boardGames">
               <BoardGameCard :boardGame="b" />
@@ -105,7 +105,7 @@ export default {
   opacity: 0;
 }
 .searchcol {
-  height: 100vh;
+  height: 90.7vh;
 }
 
 .btn {
@@ -119,7 +119,7 @@ export default {
 }
 
 .homepage {
-  height: 100vh;
+  min-height: 90vh;
   background-image: url(../assets/img/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -127,7 +127,7 @@ export default {
 
 
 .scrollableY{
-    max-height: 90vh;
+    max-height: 79vh;
     overflow-y: auto;
     overflow-x: hidden;
 }

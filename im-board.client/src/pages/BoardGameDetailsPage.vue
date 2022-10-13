@@ -50,9 +50,9 @@
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Owned</button>
           <button class="btn list-button"><i class="mdi mdi-plus"></i>Wishlist</button>
         </div>
-        <div>
+        <!-- <div>
           <p class="p-3">{{boardGame.description_preview}}</p>
-        </div>
+        </div> -->
       </div>
       <div class="row game-images my-3 ms-1">
         <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
@@ -66,10 +66,12 @@
 
         </swiper>
       </div>
-      <!-- <div class="col-12">
+<div class="px-5 ">
+      <div class="col-12 bg-c2 p-5 my-5 rounded-4">
         <h3 class="text-center">Description</h3>
-        <p class="p-3">{{boardGame.description_preview}}</p>
-      </div> -->
+        <p class="p-3 bg-grey rounded-5">{{boardGame.description_preview}}</p>
+      </div>
+</div>
       <div class="row">
         <div class="col-md-6" v-for="r in reviews" :key="r">
           <ABGReviews :review="r" />
