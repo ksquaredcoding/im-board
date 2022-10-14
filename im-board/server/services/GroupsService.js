@@ -3,9 +3,9 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
-    const groups = await dbContext.Groups.find({ accountId })
-      // .populate("group")
-      .populate("creator", "name picture");
+    const groups = await dbContext.Groups.find({
+      groupMemberIds: accountId,
+    }).populate("creator", "name img");
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
     }

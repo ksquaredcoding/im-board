@@ -7,7 +7,7 @@
             <button  class="btn bg-c3 text-dark box-shadow">
               Highest Rated
             </button>
-            <button  class="btn bg-c3 text-dark box-shadow">Wishlist</button>
+            <button  class="btn bg-c3 text-dark box-shadow">New</button>
           </div>
 </template>
 
