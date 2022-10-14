@@ -9,8 +9,8 @@ export class Group {
 this.group=data.group
 // this.creator = new Account(data.creator)
   this.coverImg=data.coverImg
-    this.name = data.group.name;
-    this.groupMemberIds = data.group.groupMemberIds;
+    this.name = data.name;
+    this.groupMemberIds = data.groupMemberIds;
   }
 }
 
