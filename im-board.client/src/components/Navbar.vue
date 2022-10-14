@@ -54,7 +54,7 @@
 
         <router-link :to="{name: 'Account'}"> 
         
-          <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button"
+          <a name="" id="" class="btn bg-c2 px-1 box-shadow" href="#" role="button"
             >Account</a
           >
         </router-link>

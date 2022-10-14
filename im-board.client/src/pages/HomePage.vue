@@ -11,7 +11,7 @@
           <PresetFilterBar/>
         </div>
 
-        <div class="row scrollableY mx-2">
+        <div class="row mx-2">
           <TransitionGroup
             name="custom-classes"
             enterActiveClass="animate__zoomIn animate__animated"
@@ -60,7 +60,7 @@ export default {
 
 async function handleScroll(){
  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
-console.log('1');
+getBoardGames()
  }
 }
 
