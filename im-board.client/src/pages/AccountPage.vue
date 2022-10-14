@@ -79,13 +79,10 @@
           </div>
         </div>
         <div class="cardholder">
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
+       <div class="" v-for="g in groups" :key="g.id">
+        <GroupCard :group="g" />
+
+      </div>
         </div>
       </div>
 
