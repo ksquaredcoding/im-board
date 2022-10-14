@@ -53,12 +53,12 @@ class GroupMembersService {
       groupId,
       accountId,
     });
+    await groupMember.populate("profile", "name picture");
     let inList = group.groupMemberIds.find((m) => m.accountId == accountId)
     if (!inList) {
       group.groupMemberIds.push(groupMember);
     }
     await group.save();
-    await groupMember.populate("profile", "name picture");
 
     return groupMember;
   }

@@ -12,7 +12,7 @@ export class AccountController extends BaseController {
       .get("", this.getUserAccount)
       .get("/boardgames", this.getAccountBoardGames)
       .get("/groups", this.getMyGroups)
-    // .get('/gamenights', this.getMyGameNights)
+      .put('', this.editMyAccount)
 
   }
 
@@ -42,6 +42,14 @@ export class AccountController extends BaseController {
       res.send(groups);
     } catch (error) {
       next(error);
+    }
+  }
+  async editMyAccount(req, res, next) {
+    try {
+      const account = await accountService.updateAccount(req.userInfo, req.body)
+      res.send(account)
+    } catch (error) {
+      next(error)
     }
   }
 }
