@@ -1,7 +1,7 @@
 <template>
   <div class="account Page container-fluid">
 
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-md-12">
         <div>
           <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#groupForm">
@@ -14,7 +14,7 @@
         <GroupCard :group="g" />
 
       </div>
-    </div> -->
+    </div>
 
     <div class="row bg-c5 banner eum-ipsum">
       <div class="col-md-12 d-flex justify-content-center ">
@@ -30,43 +30,43 @@
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
-<div class="col-md bg-grey ms-2">
-    <div class="row bg-c4">
-      <div class="col d-flex justify-content-center pt-2">
-        <h1>Favorites</h1>
-      </div>
-    </div>
-    <div class="cardholder">
-      <span v-for="b in favList" :key="b.id">
-          <ListCard :boardGameList="b" />
-        </span>
-  </div>
-      </div>
-      
-      <div class="col-md bg-grey mx-3">
-    <div class="row bg-c4">
-      <div class="col-md d-flex justify-content-center pt-2">
-        <h1>Wishlist</h1>
-      </div>
-    </div>
-    <div class="cardholder">
-      <span v-for="b in wishList" :key="b.id">
-          <ListCard :boardGameList="b" />
-        </span>
-  </div>
+      <div class="col-md bg-grey ms-2">
+        <div class="row bg-c4">
+          <div class="col d-flex justify-content-center pt-2">
+            <h1>Favorites</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in favList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
       </div>
 
-   <div class="col-md bg-grey">
-    <div class="row bg-c4">
-      <div class="col-md d-flex justify-content-center pt-2">
-        <h1>Games I own</h1>
+      <div class="col-md bg-grey mx-3">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Wishlist</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in wishList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
       </div>
-    </div>
-    <div class="cardholder">
-      <span v-for="b in ownedList" :key="b.id">
-          <ListCard :boardGameList="b" />
-        </span>
-  </div>
+
+      <div class="col-md bg-grey">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Games I own</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in ownedList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
       </div>
 
 
@@ -79,10 +79,10 @@
           </div>
         </div>
         <div class="cardholder">
-       <div class="" v-for="g in groups" :key="g.id">
-        <GroupCard :group="g" />
+          <div class="" v-for="g in groups" :key="g.id">
+            <GroupCard :group="g" />
 
-      </div>
+          </div>
         </div>
       </div>
 
