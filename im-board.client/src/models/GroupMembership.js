@@ -10,5 +10,6 @@ this.group = new Group(data.group)
     this.coverImg = data.coverImg;
     this.name = data.name;
     this.groupMemberIds = data.groupMemberIds;
+    this.groupId = data.groupId
   }
 }
