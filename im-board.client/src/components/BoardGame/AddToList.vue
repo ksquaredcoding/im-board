@@ -44,6 +44,7 @@ import { AppState } from "../../AppState.js";
 import { ref } from 'vue';
 import { useRoute } from "vue-router";
 import { BoardGame } from "../../models/BoardGame/BoardGame.js";
+import { AuthService } from "../../services/AuthService.js";
 
 export default {
   props: {
@@ -59,6 +60,11 @@ export default {
       // homePageBoardGame : computed(() => AppState.boardgames.find()),
       async handleSubmit() {
         try {
+          if (!AppState.account.id) {
+            return AuthService.loginWithPopup()
+          }
+
+
           let formData = {
             gameId: this.boardGame.id,
             name: this.boardGame.name,
@@ -69,7 +75,7 @@ export default {
             type: editable.value
           }
           await listsService.addGameToList(formData)
-//Test
+          //Test
           Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
         } catch (error) {
 
@@ -79,7 +85,9 @@ export default {
       async handleSubmitOnHomePage() {
         try {
 
-
+          if (!AppState.account.id) {
+            return AuthService.loginWithPopup()
+          }
 
           let formData = {
             gameId: props.boardGameOnHomePage.id,
