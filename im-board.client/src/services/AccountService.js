@@ -1,6 +1,6 @@
 import { AppState } from '../AppState';
 import { BGList } from '../models/BoardGame/BGList.js';
-import { Group } from '../models/Group.js';
+import { GroupMemberShip } from '../models/GroupMembership.js';
 import { logger } from '../utils/Logger';
 import { api } from './AxiosService';
 
@@ -19,9 +19,9 @@ class AccountService {
 
     console.log('Account res.data:', res.data);
     // console.log(AppState.account.id);
-    AppState.groups = res.data.map(g => new Group(g))
+    AppState.groups = res.data.map((g) => new GroupMemberShip(g));
     // AppState.groups = res.data.map((g) => new Group(g));
-    // console.log('AppState.groups:', AppState.groups);
+    console.log('AppState.groups:', AppState.groups);
   }
 
   async getMyLists() {

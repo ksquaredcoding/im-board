@@ -11,32 +11,40 @@
           <GroupForm />
         </div>
       </div>
-    
+
     </div>
 
     <div class="row bg-c5 banner eum-ipsum">
       <div class="">
-       <button class="btn"><i class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt="" title="Edit Profile Banner" ></i></button></div>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
+            class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt=""
+            title="Edit Profile Banner"></i></button>
+        <!-- <EditBanner /> -->
+      </div>
       <div class="col-md-12 d-flex justify-content-center ">
-        
-        <img src="//thiscatdoesnotexist.com" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon position-relative">
-        <button class="btn editprofilepic position-absolute"><i class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt="" title="Edit Profile Picture" ></i></button>
+
+        <img src="//thiscatdoesnotexist.com" alt="" height="150" width="150"
+          class="eum rounded-circle mt-2 icon position-relative">
+        <button class="btn editprofilepic position-absolute"><i
+            class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
+            title="Edit Profile Picture"></i></button>
       </div>
     </div>
 
-   <div class="row justify-content-center align-items-center p-4">
-    <!-- <div class="d-flex justify-content-center editprofilebutton"><button class="btn bg-c6 rounded-circle"></button></div> -->
+    <div class="row justify-content-center align-items-center p-4">
+      <!-- <div class="d-flex justify-content-center editprofilebutton"><button class="btn bg-c6 rounded-circle"></button></div> -->
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
       <div class="col-md d-flex justify-content-center username">User Name</div>
       <div class="col-md d-flex justify-content-end">
 
-        <router-link :to="{name: 'Profile'}"> 
-        <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt="" title="Save Changes" ></i></button>
+        <router-link :to="{name: 'Profile'}">
+          <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
+              title="Save Changes"></i></button>
         </router-link>
-        
-      
+
+
       </div>
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
@@ -84,7 +92,9 @@
       <div class="col-md mx-3 bg-grey">
         <div class="row bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Groups</h2><div><i class="mdi mdi-information-outline fs-5" alt="" title="Groups only visisble to you, not other users." ></i></div>
+            <h2>Groups</h2>
+            <div><i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i></div>
           </div>
         </div>
         <div class="cardholder">
@@ -110,6 +120,7 @@ import GroupCard from "../components/GroupPage/GroupCard.vue"
 import GroupForm from "../components/GroupPage/GroupForm.vue"
 import ListCard from "../components/AccountProfilePage/ListCard.vue"
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue"
+import EditBanner from "../components/AccountProfilePage/EditBanner.vue"
 export default {
   setup() {
     async function getMyGroups() {
@@ -141,7 +152,7 @@ export default {
       ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned"))
     };
   },
-  components: { GroupCard, GroupForm, ListCard, GroupGamesCard }
+  components: { GroupCard, GroupForm, ListCard, GroupGamesCard, EditBanner }
 }
 </script>
 
@@ -177,7 +188,7 @@ export default {
   overflow-x: hidden;
 }
 
-.editprofilepic{
-transform: translateY(4rem) translateX(50px);
+.editprofilepic {
+  transform: translateY(4rem) translateX(50px);
 }
 </style>

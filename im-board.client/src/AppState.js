@@ -6,10 +6,10 @@ export const AppState = reactive({
   /** @type {import('./models/Account.js').Account} */
   account: {},
 
-  /** @type {import('./models/Group.js').Group[]} */
+  /** @type {import('./models/GroupMembership.js').GroupMemberShip[]} */
   groups: [],
 
-  /** @type {import('./models/Group.js').Group | null} */
+  /** @type {import('./models/GroupMembership.js').GroupMemberShip | null} */
   activeGroup: null,
 
   /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
