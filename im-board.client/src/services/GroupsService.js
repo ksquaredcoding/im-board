@@ -1,6 +1,7 @@
 import { AppState } from '../AppState.js';
 import { ActiveGroup } from "../models/ActiveGroup.js";
 import { Group } from '../models/Group.js';
+import { router } from "../router.js";
 import { api } from './AxiosService.js';
 
 class GroupsService {
@@ -8,15 +9,18 @@ class GroupsService {
     const res = await api.get(`/api/groups/${groupId}`);
     console.log('resData',res.data);
    AppState.activeGroup = new ActiveGroup(res.data)
-        console.log('appState',AppState.activeGroup);
+        // console.log('appState',AppState.activeGroup);
   }
   async createGroup(groupData) {
     const res = await api.post('/api/groups', groupData);
     console.log(res.data);
-    // let newGroup = new Group(res.data);
-    console.log(newGroup);
+  const group = new Group(res.data)
+  console.log(group);
+    // console.log(newGroup);
     // AppState.groups = [...AppState.groups, newGroup];
     // console.log(res.data);
+    // AppState.activeGroup = newGroup
+    // router.push({name:"Group",params:{id:newGroup.id}})
   }
   async removeGroup(groupId) {
     await api.delete(`api/groups/${groupId}`);

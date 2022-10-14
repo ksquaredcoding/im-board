@@ -12,18 +12,13 @@
           Categories: {{ boardGame.categories.toString()}} 
         </div>
         <div class="card-text d-flex justify-content-center">
-          Rating: {{ boardGame.average_user_rating.toFixed(2) }} of 5
-        </div>
-        <div class="card-text d-flex justify-content-center">
           {{ boardGame.players}} players
         </div>
-        <p class="card-text d-flex justify-content-center">
-          {{ boardGame.average_user_rating?.toFixed(2) }} of 5
-        </p>
+        <div class="card-text d-flex justify-content-center">
+          Rating: {{ boardGame.average_user_rating.toFixed(2) }} of 5
+        </div>
         <p class="d-flex justify-content-center">
-          <!-- TODO MAKE IT ITS OWN -->
           <AddToList/>
-          <!-- <button class="btn bg-c1 text-dark"><b>+ List</b></button> -->
         </p>
       </div>
     </div>
