@@ -80,13 +80,13 @@
           </div>
         </div>
 
-        <div>
-          <div class="row my-4 justify-content-center price-row">
-            <div v-for="p in prices" :key="p.id" class="col-md-4 mx-2 ">
-              <ABGPrices :price="p" />
-            </div>
+        <div class="hi"> 
+          <div class="mt-5"><h1>Purchase game at ..</h1></div>
+        <div class="row justify-content-center prices bg-c5 text-dark mb-5">
+          <div v-for="p in prices" :key="p.id" class="col-md-6">
+            <ABGPrices :price="p" />
           </div>
-        </div>
+        </div></div>
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
         </div> -->
@@ -269,5 +269,25 @@ p {
 
 .info {
   background-color: #79bd9a70;
+}
+
+.hi{
+  padding-left: 9rem;
+  padding-right:9rem;
+}
+
+.prices{
+  height: 350px;
+  overflow: auto;
+  border:#0B486B solid 10px
+}
+
+.reviews{
+  overflow:auto;
+}
+
+.desc{
+  padding-left: 300px;
+  padding-right:300px
 }
 </style>
