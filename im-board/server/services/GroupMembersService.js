@@ -18,7 +18,7 @@ class GroupMembersService {
       group.creatorId = newAccountId;
       // @ts-ignore
       const members = group.groupMemberIds.filter(
-        (g) => g.toString() !== accountId
+        (g) => g.accountId.toString() !== accountId
       );
       group.groupMemberIds = members;
       await group.save();
@@ -29,7 +29,7 @@ class GroupMembersService {
 
     // @ts-ignore
     const members = group.groupMemberIds.filter(
-      (g) => g.toString() !== member.accountId.toString()
+      (g) => g.accountId.toString() !== member.accountId.toString()
     );
     group.groupMemberIds = members;
     await member.remove();
