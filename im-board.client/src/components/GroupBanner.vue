@@ -1,5 +1,6 @@
 <template>
   <div class="col-md-12 banner elevation-3 ">
+    <div><button  @click="addMemberToGroup()" class="btn btn-info btn-lg">Join Group</button></div>
     <div class="row justify-content-center">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
         <span class="name">{{group?.name}}</span>
@@ -26,13 +27,28 @@
 <script>
 import { ActiveGroup } from "../models/ActiveGroup.js";
 import { Group } from "../models/Group.js";
+import { groupsService } from "../services/GroupsService.js";
+import Pop from "../utils/Pop.js";
 
 export default {
   props: {
-    group:{type: ActiveGroup }
+    group:{type: ActiveGroup, required:true }
   },
   setup(props) {
-    return {};
+    return {
+
+
+      async addMemberToGroup(){
+        try {
+           const groupId = props.group.id
+           console.log(groupId);
+            await groupsService.addMember(groupId)
+            Pop.success('You Joined',props.group.name,"! ")
+          } catch (error) {
+            Pop.error(error,'[addMemberToGroup]')
+          }
+      }
+    };
   },
 };
 </script>

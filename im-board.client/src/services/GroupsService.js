@@ -7,7 +7,7 @@ import { api } from './AxiosService.js';
 class GroupsService {
   async getGroupById(groupId) {
     const res = await api.get(`/api/groups/${groupId}`);
-    console.log('resData',res.data);
+    // console.log('resData',res.data);
    AppState.activeGroup = new ActiveGroup(res.data)
         // console.log('appState',AppState.activeGroup);
   }
@@ -16,9 +16,9 @@ class GroupsService {
     // console.log(res.data);
   const group = new Group(res.data)
   // console.log(group);
-    // console.log(newGroup);
+
     AppState.groups = [...AppState.groups, group];
-    // console.log(res.data);
+
     AppState.activeGroup = newGroup
     router.push({name:"Group",params:{id:newGroup.id}})
   }
@@ -27,6 +27,7 @@ class GroupsService {
   }
 
   async addMember(groupData) {
+  
     const res = await api.post('/api/groupmembers', groupData);
     console.log(res.data);
   }
