@@ -21,8 +21,6 @@ class GroupMembersService {
         (g) => g.toString() !== accountId
       );
       group.groupMemberIds = members;
-      // const memberIndex = group.groupMemberIds.findIndex(accountId);
-      // group.groupMemberIds.splice(memberIndex, 1);
       await group.save();
       // @ts-ignore
       await member.remove();
@@ -30,8 +28,6 @@ class GroupMembersService {
     }
 
     // @ts-ignore
-    // const memberIndex = group.groupMemberIds.findIndex(accountId);
-    // group.groupMemberIds.splice(memberIndex, 1);
     const members = group.groupMemberIds.filter(
       (g) => g.toString() !== member.accountId.toString()
     );
@@ -51,16 +47,15 @@ class GroupMembersService {
     const group = await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
-      // console.log('Already a Member!');
-      // throw new BadRequest("you are already in this group");
       return isMember;
     }
     const groupMember = await dbContext.GroupMembers.create({
       groupId,
       accountId,
     });
-    if (!group.groupMemberIds.includes(accountId)) {
-      group.groupMemberIds.push(accountId);
+    let inList = group.groupMemberIds.find((m) => m.accountId == accountId)
+    if (!inList) {
+      group.groupMemberIds.push(groupMember);
     }
     await group.save();
     await groupMember.populate("profile", "name picture");
