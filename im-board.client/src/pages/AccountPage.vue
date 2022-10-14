@@ -20,12 +20,20 @@
       </div>
     </div>
 
-    <div class="row justify-content-center align-items-center p-4">
+   <div class="row justify-content-center align-items-center p-4">
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
-      <div class="col-md-12 d-flex justify-content-center username">User Name</div>
-    </div>
+      <div class="col-md"></div>
+      <div class="col-md d-flex justify-content-center username">User Name</div>
+      <div class="col-md d-flex justify-content-end">
 
+        <router-link :to="{name: 'Profile'}"> 
+        <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt="" title="Edit Profile" ></i></button>
+        </router-link>
+        
+      
+      </div>
+    </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
       <div class="col-md bg-grey ms-2">

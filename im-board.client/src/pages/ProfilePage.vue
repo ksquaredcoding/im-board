@@ -1,7 +1,7 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
   <div class="account Page container-fluid">
-    
+
     <div class="row bg-c5 banner eum-ipsum">
       <div class="col-md-12 d-flex justify-content-center ">
         <img src="//thiscatdoesnotexist.com" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon">
@@ -11,9 +11,20 @@
     <div class="row justify-content-center align-items-center p-4">
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
-      <div class="col-md-12 d-flex justify-content-center username">User Name</div>
-    </div>
+      <div class="col-md"></div>
+      <div class="col-md d-flex justify-content-center username">User Name</div>
+      <div class="col-md d-flex justify-content-end">
 
+        <router-link :to="{name: 'Account'}"> 
+        <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-cog-outline fs-1" alt="" title="Edit Profile" ></i></button>
+        </router-link>
+        
+      
+      </div>
+    </div>
+    <div class="row">
+      
+    </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
       <div class="col-md bg-grey ms-2">
@@ -59,9 +70,9 @@
 
       <!-- NOTE group card start -->
       <div class="col-md mx-3 bg-grey">
-        <div class="row bg-c6">
+        <div class="row bg-c4">
           <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Groups</h2>
+            <h2>Groups</h2><div><i class="mdi mdi-information-outline fs-5" alt="" title="Groups only visisble to you, not other users." ></i></div>
           </div>
         </div>
         <div class="cardholder">
