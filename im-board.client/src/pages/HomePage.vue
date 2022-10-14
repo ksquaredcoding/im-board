@@ -53,7 +53,12 @@ export default {
     }
     onMounted(() => {
       getBoardGames();
+      window.addEventListener('scroll', this.handleScroll)
     });
+
+
+
+    
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
@@ -80,6 +85,8 @@ export default {
     };
   },
   components: { Filters, Searchbar, BoardGameCard, PresetFilterBar },
+
+
 };
 </script>
 
