@@ -14,7 +14,7 @@ class GroupsService {
   }
   async removeGroup(groupId, accountId) {
     const group = await this.getGroupById(groupId);
-    const member = await dbContext.GroupMembers.find({ accountId })
+    const member = await dbContext.GroupMembers.find({ groupId, accountId })
     // @ts-ignore
     if (group.creatorId.toString() !== accountId) {
       throw new Forbidden("only the creator delete this group");
