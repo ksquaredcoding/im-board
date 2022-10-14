@@ -6,16 +6,16 @@
       
       <div class="card-body p-1 bg-dark rounded-bottom">
         <p class="card-title d-flex justify-content-center">
-           {{ boardGame.name }}
+           {{ boardGame?.name }}
         </p>
         <div class="card-text d-flex justify-content-center">
-          Categories: {{ boardGame.categories.name }} 
+          Categories: {{ boardGame?.categories.name }} 
         </div>
         <div class="card-text d-flex justify-content-center">
-          {{ boardGame.players}} players
+          {{ boardGame?.players}} players
         </div>
         <div class="card-text d-flex justify-content-center">
-          Rating: {{ boardGame.average_user_rating.toFixed(2) }} of 5
+          Rating: {{ boardGame?.average_user_rating.toFixed(2) }} of 5
         </div>
         <p class="d-flex justify-content-center">
           <AddToList :boardGameOnHomePage="boardGame" />

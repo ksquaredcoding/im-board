@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid homepage">
+  <div class="container-fluid homepage" v-if="boardGames">
     <div class="row">
       <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block animate__animated animate__fadeInLeft ">
       <Searchbar />
@@ -17,7 +17,7 @@
             enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated"
           >
-            <div class="col-md-3" v-for="b in boardGames" :key="b.id" v-if="boardGames">
+            <div class="col-md-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCard :boardGame="b" />
             </div>
           
@@ -26,6 +26,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
