@@ -2,12 +2,12 @@
   <div
             class="col-md-12 d-flex justify-content-around align-items-center animate__animated animate__fadeInRight"
           >
-            <button @click="getBoardGamesByOrder_By('')" aria-label="All Categories" title="All Categories" class="btn bg-c3 text-dark box-shadow">All</button>
-            <button  @click="getBoardGamesByOrder_By('rank')"  class="btn bg-c3 text-dark box-shadow">Popular</button>
+            <button id="1" @click="getBoardGamesByOrder_By('')" aria-label="All Categories" title="All Categories" class="btn bg-c3 text-dark box-shadow">All</button>
+            <button id="2"  @click="getBoardGamesByOrder_By('rank')"  class="btn bg-c3 text-dark box-shadow">Popular</button>
             <!-- <button  @click="getBoardGamesByOrder_By('')" class="btn bg-c3 text-dark box-shadow">
               Highest Rated
             </button> -->
-            <button  @click="getBoardGamesByOrder_By('year_published')" class="btn bg-c3 text-dark box-shadow">New</button>
+            <button id="3" @click="getBoardGamesByOrder_By('year_published')" class="btn test bg-c3 text-dark box-shadow">New</button>
           </div>
 </template>
 
@@ -23,12 +23,14 @@ export default {
   setup(props) {
     const editable = ref('');
     return {
+
       categories: computed(() => AppState.categories),
       filter: computed(() => AppState.activeCategoryFilters),
       editable,
 
       async getBoardGamesByOrder_By(query) {
         try {
+     
           await atlasGamesService.getBoardGamesByOrder_By(query)
         } catch (error) {
           Pop.error(error, '[getBoardGamesByCategories]');
@@ -58,6 +60,9 @@ button{
   transition:  0.5s ease;
 }
 
+.test{
+  background-color: red m !important;
+}
 
 button:focus{
  
