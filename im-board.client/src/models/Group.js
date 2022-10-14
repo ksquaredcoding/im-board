@@ -6,7 +6,7 @@ export class Group {
 this.creator=new Account(data.creator)
     this.creatorId = data.creatorId;
     this.coverImg = data.coverImg;
-    this.name = data.group.name;
+    this.name = data.name;
     this.groupMemberIds = data.groupMemberIds;
   }
 }
