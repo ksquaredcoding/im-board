@@ -13,9 +13,10 @@ class GroupsService {
   }
   async createGroup(groupData) {
     const res = await api.post('/api/groups', groupData);
-    console.log(res);
-    const newGroup = new Group(res.data)
-    console.log(newGroup);
+    console.log(res.data);
+  const group = new Group(res.data)
+  console.log(group);
+    // console.log(newGroup);
     // AppState.groups = [...AppState.groups, newGroup];
     // console.log(res.data);
     // AppState.activeGroup = newGroup
