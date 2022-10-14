@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="row justify-content-end">
-      <button @click="getMoreBoardGames(4)" class="btn btn-danger">
+      <button @click="getMoreBoardGames()" class="btn btn-danger">
         Load More
       </button>
     </div>
@@ -56,30 +56,30 @@ export default {
     onMounted(() => {
       getBoardGames();
       AppState.skip = 0
-      window.addEventListener('scroll', handleScroll)
+      // window.addEventListener('scroll', handleScroll)
     });
 
-    async function handleScroll(){
-     if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 200) {
+    // async function handleScroll(){
+    //  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
 
-    }
-    getMoreBoardGames()
-    }
+    // }
+    // getMoreBoardGames()
+    // }
 
-   async function  getMoreBoardGames() {
-        try {
-          await atlasGamesService.getBoardGamesOnScroll();
-        } catch (error) {
-          Pop.error(error, '[getBoardGames]');
-        }
-      }
 
 
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
 
-   
+      async  getMoreBoardGames() {
+        try {
+          await atlasGamesService.getBoardGamesOnScroll();
+        } catch (error) {
+          Pop.error(error, '[getBoardGames]');
+        }
+      }
+,
 
       async getBoardGamesByCategories(category) {
         try {

@@ -21,7 +21,7 @@ class AtlasGamesService {
   }
 
   async getBoardGamesOnScroll() {
-    let limit = 1;
+    let limit = 20;
     AppState.skip += limit;
     let skip = AppState.skip;
     AppState.skip += limit;
