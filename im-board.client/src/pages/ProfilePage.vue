@@ -1,6 +1,7 @@
 <template>
-  <div class="container-fluid">
-
+  <!-- TEST PUTTING COMMENT TUNG -->
+  <div class="account Page container-fluid">
+    
     <div class="row bg-c5 banner eum-ipsum">
       <div class="col-md-12 d-flex justify-content-center ">
         <img src="//thiscatdoesnotexist.com" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon">
@@ -15,49 +16,113 @@
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
-      <ListCard/>
-      <ListCard/>
-      <ListCard/>
-      <!-- NOTE group card start -->
-      <div class="col mx-3 bg-grey">
-        <div class="row bg-c6">
+      <div class="col-md bg-grey ms-2">
+        <div class="row bg-c4">
           <div class="col d-flex justify-content-center pt-2">
+            <h1>Favorites</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in favList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md bg-grey mx-3">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Wishlist</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in wishList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md bg-grey">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Games I own</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in ownedList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+
+
+      <!-- NOTE group card start -->
+      <div class="col-md mx-3 bg-grey">
+        <div class="row bg-c6">
+          <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
           </div>
         </div>
         <div class="cardholder">
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
+          <div class="" v-for="g in groups" :key="g.id">
+            <GroupCard :group="g" />
+
+          </div>
         </div>
       </div>
+
+
     </div>
-
-
   </div>
 </template>
 
-
 <script>
-
-import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
-import ListCard from "../components/AccountProfilePage/ListCard.vue";
-
+import { computed, onMounted } from 'vue'
+import { AppState } from '../AppState'
+import { accountService } from "../services/AccountService.js"
+import { groupsService } from "../services/GroupsService.js"
+import Pop from "../utils/Pop.js"
+import GroupCard from "../components/GroupPage/GroupCard.vue"
+import GroupForm from "../components/GroupPage/GroupForm.vue"
+import ListCard from "../components/AccountProfilePage/ListCard.vue"
+import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue"
 export default {
   setup() {
-
-    return {};
+    async function getMyGroups() {
+      try {
+        await accountService.getMyGroups();
+      }
+      catch (error) {
+        Pop.error(error, "[getMyGroups]");
+      }
+    }
+    async function getMyLists() {
+      try {
+        await accountService.getMyLists()
+      } catch (error) {
+        console.error('[get my lists]', error)
+        Pop.error(error)
+      }
+    }
+    onMounted(() => {
+      getMyGroups(),
+        getMyLists()
+    })
+    return {
+      account: computed(() => AppState.account),
+      groups: computed(() => AppState.groups),
+      bgLists: computed(() => AppState.bgLists),
+      wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
+      favList: computed(() => AppState.bgLists.filter(f => f.listName == "favorite")),
+      ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned"))
+    };
   },
-  components: { GroupGamesCard, ListCard }
+  components: { GroupCard, GroupForm, ListCard, GroupGamesCard }
 }
 </script>
 
-
-<style lang="scss" scoped>
+<style scoped>
 .banner {
   min-height: 188px;
   background-size: cover;
