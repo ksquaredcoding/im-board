@@ -53,9 +53,10 @@ class GameNightsService {
       throw new Forbidden("you must be in the group to create a game night!");
     }
     const gameNight = await dbContext.GameNights.create(
-      // group.id,
       gameNightData
     );
+    await this.attendGameNight(accountId, gameNight.id)
+    await gameNight.save()
     return gameNight;
   }
   async getGameNightsByGroupId(groupId) {
