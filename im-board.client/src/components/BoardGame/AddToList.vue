@@ -78,6 +78,9 @@ export default {
       },
       async handleSubmitOnHomePage() {
         try {
+
+
+
           let formData = {
             gameId: props.boardGameOnHomePage.id,
             name: props.boardGameOnHomePage.name,

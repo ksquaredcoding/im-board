@@ -78,6 +78,7 @@ export default {
             groupMember: computed(() => AppState.groupMembers),
             alreadyAMember: computed(() => props.group.groupMemberIds.includes(AppState.account.id)),
             groupOwner: computed(() => props.group.creatorId == AppState.account.id),
+          
             async removeGroup() {
                 try {
                     if (!this.groupOwner) {
@@ -100,7 +101,7 @@ export default {
                         Pop.error("Already a Member");
                     }
                     else {
-                        editable.value.groupId = props.group.id;
+                        
                         await groupMembersService.addGroupMember(editable.value);
                         Pop.success("You Joined", props.group.name, "! ");
                     }
@@ -114,7 +115,7 @@ export default {
                     if (props.group.creatorId == AppState.account.id) {
                         Pop.error("Must Provide Another Members Info and Relinquish OwnerShip");
                     }
-                    await groupMembersService.leaveGroup(this.groupMember.id);
+                    await groupMembersService.leaveGroup(AppState.account.id);
                 }
                 catch (error) {
                     Pop.error(error, "[leaveGroup]");
