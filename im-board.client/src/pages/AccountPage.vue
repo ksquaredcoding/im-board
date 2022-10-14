@@ -11,10 +11,7 @@
           <GroupForm />
         </div>
       </div>
-      <div class="col-md-2" v-for="g in groups" :key="g.id">
-        <GroupCard :group="g" />
-
-      </div>
+    
     </div>
 
     <div class="row bg-c5 banner eum-ipsum">
