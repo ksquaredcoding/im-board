@@ -75,8 +75,6 @@
         </div>
       </div>
 
-
-
       <!-- NOTE group card start -->
       <div class="col-md mx-3 bg-grey">
         <div class="row bg-c3">
