@@ -19,7 +19,7 @@
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
             class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt=""
             title="Edit Profile Banner"></i></button>
-        <!-- <EditBanner /> -->
+        <EditBanner />
       </div>
       <div class="col-md-12 d-flex justify-content-center ">
 
@@ -103,7 +103,7 @@
 
           </div> -->
           <div v-for="g in groups" :key="g.id">
-<GroupCard :group="g"  />
+            <GroupCard :group="g" />
 
           </div>
         </div>
@@ -125,7 +125,14 @@ import GroupForm from "../components/GroupPage/GroupForm.vue"
 import ListCard from "../components/AccountProfilePage/ListCard.vue"
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue"
 import EditBanner from "../components/AccountProfilePage/EditBanner.vue"
+import { Account } from "../models/Account.js"
 export default {
+  props: {
+    profile: {
+      type: Account,
+      required: true
+    }
+  },
   setup() {
     async function getMyGroups() {
       try {
@@ -165,7 +172,7 @@ export default {
   min-height: 188px;
   background-size: cover;
   background-position: center center;
-  background-image: url(https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80);
+  /* background-image: url(https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80); */
 }
 
 .icon {

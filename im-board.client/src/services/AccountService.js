@@ -1,4 +1,5 @@
 import { AppState } from '../AppState';
+import { Account } from "../models/Account.js";
 import { BGList } from '../models/BoardGame/BGList.js';
 import { GroupMemberShip } from '../models/GroupMembership.js';
 import { logger } from '../utils/Logger';
@@ -22,6 +23,7 @@ class AccountService {
     AppState.groups = res.data.map((g) => new GroupMemberShip(g));
     // AppState.groups = res.data.map((g) => new Group(g));
     console.log('AppState.groups:', AppState.groups);
+    console.log(AppState.account)
   }
 
   async getMyLists() {
@@ -29,6 +31,11 @@ class AccountService {
     // console.log(res.data, 'getting my lists');
     AppState.bgLists = res.data.map((b) => new BGList(b));
     console.log(AppState.bgLists);
+  }
+
+  async editAccount(formData) {
+    const res = await api.put('/account', formData)
+    AppState.account = new Account(res.data)
   }
 }
 

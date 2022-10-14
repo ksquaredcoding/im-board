@@ -1,12 +1,12 @@
 <template>
-  <div class="modal" id="bannerForm" tabindex="-1" aria-labelledby="bannerFormLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal" id="editBanner" tabindex="-1" aria-labelledby="bannerFormLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
           <!-- -------------------SECTION FORM----------------------------------- -->
           <form @submit.prevent="handleSubmit" class="">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div>
                   <label for="profilebanner">Profile Banner Url:</label>
                   <input type="url" v-model="editable.coverImg" required name="coverImg">
