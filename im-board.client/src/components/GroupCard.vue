@@ -1,11 +1,11 @@
 <template>
-  <router-link :to="{ name: 'Group', params: { id: group?.id } }">
+  <router-link :to="{ name: 'Group', params: { id: group.groupId } }">
     <div class="card text-bg-dark my-2 elevation-3">
       <img :src="group?.coverImg" class="card-img" alt="..." />
       <div class="card-img-overlay text-shadow">
         <h3 class="card-title">{{ group?.name }}</h3>
         <h1 class="text-c6">
-          {{ group?.groupMemberIds.length }}
+        
         </h1>
         <p class="card-text"></p>
       </div>
