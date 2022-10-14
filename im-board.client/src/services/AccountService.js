@@ -26,8 +26,8 @@ class AccountService {
   async getMyLists() {
     const res = await api.get('/account/boardgames');
     // console.log(res.data, 'getting my lists');
-    AppState.bGLists = res.data.map((b) => new BGList(b));
-    console.log(AppState.bGLists);
+    AppState.bgLists = res.data.map((b) => new BGList(b));
+    console.log(AppState.bgLists);
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="col mx-3 bg-grey">
     <div class="row bg-c4">
       <div class="col d-flex justify-content-center pt-2">
-
+        {{boardGameList?.boardGameName}}
       </div>
     </div>
     <div class="cardholder">
