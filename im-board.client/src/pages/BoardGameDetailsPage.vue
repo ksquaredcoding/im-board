@@ -77,9 +77,12 @@
           <ABGReviews :review="r" />
         </div>
 
-        <div v-for="p in prices" :key="p.id">
-          <ABGPrices :price="p" />
+        <div class="row my-4 justify-content-center">
+          <div v-for="p in prices" :key="p.id" class="col-md-5">
+            <ABGPrices :price="p" />
+          </div>
         </div>
+
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
         </div> -->
