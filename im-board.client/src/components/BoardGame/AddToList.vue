@@ -69,7 +69,7 @@ export default {
             type: editable.value
           }
           await listsService.addGameToList(formData)
-
+//Test
           Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
         } catch (error) {
 
