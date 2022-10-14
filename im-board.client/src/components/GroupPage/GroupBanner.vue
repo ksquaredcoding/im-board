@@ -8,16 +8,14 @@
       >
         Join Group
       </button>
-      <button @click="" class="btn btn-info btn-lg" v-else>
-        Leave Group
-      </button>
+      <button @click="" class="btn btn-info btn-lg" v-else>Leave Group</button>
     </div>
     <div class="row justify-content-center">
       <div
         class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3"
       >
         <span class="name">{{ group?.name }}</span>
-  
+
         <div>
           <span><small class="text-shadow">Members</small></span>
           <div
@@ -41,11 +39,11 @@
 <script>
 import { computed } from '@vue/reactivity';
 import { ref } from 'vue';
-import { AppState } from '../AppState.js';
-import { ActiveGroup } from '../models/ActiveGroup.js';
-import { Group } from '../models/Group.js';
-import { groupsService } from '../services/GroupsService.js';
-import Pop from '../utils/Pop.js';
+import { AppState } from '../../AppState.js';
+import { ActiveGroup } from '../../models/ActiveGroup.js';
+import { Group } from '../../models/Group.js';
+import { groupsService } from '../../services/GroupsService.js';
+import Pop from '../../utils/Pop.js';
 
 export default {
   props: {
