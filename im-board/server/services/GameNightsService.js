@@ -10,21 +10,28 @@ class GameNightsService {
       throw new BadRequest("bad GameNightId");
     }
 
-    const groupMembers = await groupMembersService.getGroupMembersByGroupId(gameNight.groupId)
-    const groupMember = groupMembers.filter(g => g.accountId.toString() == userId)
+    const groupMembers = await groupMembersService.getGroupMembersByGroupId(
+      gameNight.groupId
+    );
+    const groupMember = groupMembers.find(
+      (g) => g.accountId.toString() == userId
+    );
+    // let isMember = await groupMembersService.getMemberForGroup
 
     // @ts-ignore
-    let attending = gameNight.groupMemberIdsAttending.filter(m => m.id == groupMember.id);
+    let attending = gameNight.groupMemberIdsAttending.find(
+      (m) => m.accountId == groupMember.accountId.toString()
+    );
     // TODO why is this an array within an array?!
-    if (attending.length == 0) {
+    if (!attending) {
       // @ts-ignore
-      gameNight.groupMemberIdsAttending.push({ groupMember });
+      gameNight.groupMemberIdsAttending.push(groupMember);
       await gameNight.save();
       return gameNight;
     }
     gameNight.groupMemberIdsAttending =
       // @ts-ignore
-      gameNight.groupMemberIdsAttending.filter(m => m.id !== groupMember.id);
+      gameNight.groupMemberIdsAttending.filter((m) => m.accountId !== groupMember.accountId.toString());
     await gameNight.save();
     return gameNight;
   }
