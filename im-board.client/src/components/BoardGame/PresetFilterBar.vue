@@ -2,12 +2,12 @@
   <div
             class="col-md-12 d-flex justify-content-around align-items-center animate__animated animate__fadeInRight"
           >
-            <button  aria-label="All Categories" title="All Categories" class="btn bg-c3 text-dark box-shadow">All</button>
-            <button  class="btn bg-c3 text-dark box-shadow">Popular</button>
-            <button  class="btn bg-c3 text-dark box-shadow">
+            <button @click="getBoardGamesByOrder_By('')" aria-label="All Categories" title="All Categories" class="btn bg-c3 text-dark box-shadow">All</button>
+            <button  @click="getBoardGamesByOrder_By('rank')"  class="btn bg-c3 text-dark box-shadow">Popular</button>
+            <!-- <button  @click="getBoardGamesByOrder_By('')" class="btn bg-c3 text-dark box-shadow">
               Highest Rated
-            </button>
-            <button  class="btn bg-c3 text-dark box-shadow">New</button>
+            </button> -->
+            <button  @click="getBoardGamesByOrder_By('year_published')" class="btn bg-c3 text-dark box-shadow">New</button>
           </div>
 </template>
 
@@ -27,9 +27,9 @@ export default {
       filter: computed(() => AppState.activeCategoryFilters),
       editable,
 
-      async getBoardGamesByCategories(category) {
+      async getBoardGamesByOrder_By(category) {
         try {
-          await atlasGamesService.getBoardGamesByCategories(category)
+          await atlasGamesService.getBoardGamesByOrder_By()
         } catch (error) {
           Pop.error(error, '[getBoardGamesByCategories]');
         }

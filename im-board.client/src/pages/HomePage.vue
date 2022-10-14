@@ -2,7 +2,7 @@
   <div class="container-fluid homepage">
     <div class="row">
       <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block animate__animated animate__fadeInLeft ">
-        <Searchbar  />
+      <Searchbar />
         <Filters class="" />
       </div>
 

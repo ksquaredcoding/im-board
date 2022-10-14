@@ -18,7 +18,7 @@
           Rating: {{ boardGame.average_user_rating.toFixed(2) }} of 5
         </div>
         <p class="d-flex justify-content-center">
-          <AddToList/>
+          <AddToList :boardGameOnHomePage="boardGame" />
         </p>
       </div>
     </div>
