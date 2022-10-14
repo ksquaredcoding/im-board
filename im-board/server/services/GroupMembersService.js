@@ -47,6 +47,7 @@ class GroupMembersService {
     const group = await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
+      console.log('Already a Member!');
       return isMember;
     }
     const groupMember = await dbContext.GroupMembers.create({
