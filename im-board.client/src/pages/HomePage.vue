@@ -1,34 +1,37 @@
 <template>
   <div class="container-fluid homepage" v-if="boardGames">
     <div class="row">
-      <div class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block animate__animated animate__fadeInLeft ">
-      <Searchbar />
+      <div
+        class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block animate__animated animate__fadeInLeft"
+      >
+        <Searchbar />
         <Filters class="" />
       </div>
 
       <div class="col-md-10">
         <div class="row p-3 presetfilters d-none d-sm-block">
-          <PresetFilterBar/>
+          <PresetFilterBar />
         </div>
 
         <div class="row mx-2">
-          <TransitionGroup
-            name="custom-classes"
-            enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__zoomOut animate__animated"
-          >
-            <div class="col-md-3" v-for="b in boardGames" :key="b.id">
-              <BoardGameCard :boardGame="b" />
-            </div>
-          
-          </TransitionGroup>
+          <div class="col-md-3" v-for="b in boardGames" :key="b.id">
+            <BoardGameCard :boardGame="b" />
+          </div>
         </div>
       </div>
     </div>
+    <div class="row justify-content-end">
+      <button @click="getMoreBoardGames(4)" class="btn btn-danger">
+        Load More
+      </button>
+    </div>
   </div>
-
 </template>
-
+<TransitionGroup
+  name="custom-classes"
+  enterActiveClass="animate__zoomIn animate__animated"
+  leaveActiveClass="animate__zoomOut animate__animated"
+></TransitionGroup>
 <script>
 import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
@@ -37,41 +40,47 @@ import Filters from '../components/BoardGame/Filters.vue';
 import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
-import PresetFilterBar from "../components/BoardGame/PresetFilterBar.vue";
+import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
 
 export default {
   setup() {
-    
     const editable = ref('');
     async function getBoardGames() {
       try {
-        
         await atlasGamesService.getBoardGames();
       } catch (error) {
         Pop.error(error, '[getBoardGames]');
       }
     }
-    onMounted(() => {
-      
 
+    onMounted(() => {
       getBoardGames();
+      AppState.skip = 0
       window.addEventListener('scroll', handleScroll)
     });
 
-async function handleScroll(){
- if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
-getBoardGames()
- }
-}
+    async function handleScroll(){
+     if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 100) {
 
-    
+    }
+    getMoreBoardGames()
+    }
+
+   async function  getMoreBoardGames() {
+        try {
+          await atlasGamesService.getBoardGamesOnScroll();
+        } catch (error) {
+          Pop.error(error, '[getBoardGames]');
+        }
+      }
+
+
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
 
+   
 
-
-      
       async getBoardGamesByCategories(category) {
         try {
           await atlasGamesService.getBoardGamesByCategories(category);
@@ -79,23 +88,10 @@ getBoardGames()
           Pop.error(error, '[getBoardGamesByCategories]');
         }
       },
-      //Infinite Scroll need to add to it and test
-      getNextSetOfBoardGames() {
-        window.onscroll(() => {
-          let bottomOfWindow =
-            document.documentElement.scrollTop + window.innerHeight ===
-            document.documentElement.offsetHeight;
-          
-          if (bottomOfWindow) {
-           atlasGamesService.getBoardGames()
-          }
-        });
-      },
+
     };
   },
   components: { Filters, Searchbar, BoardGameCard, PresetFilterBar },
-
-
 };
 </script>
 
@@ -134,11 +130,10 @@ getBoardGames()
   background-position: center;
 }
 
-
-.scrollableY{
-    max-height: 79vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+.scrollableY {
+  max-height: 79vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .presetfilters {
   background-color: #2c2c2fe7;

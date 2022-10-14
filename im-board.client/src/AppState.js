@@ -5,24 +5,24 @@ export const AppState = reactive({
   user: {},
   /** @type {import('./models/Account.js').Account} */
   account: {},
-  
-  
-  
+
   /** @type {import('./models/Group.js').Group[]} */
   groups: [],
 
   /** @type {import('./models/Group.js').Group | null} */
-  activeGroup:null,
-  
-  /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
-  bgLists:[],
-  
-  /** @type {import('./models/Account.js').Account[]} */
-groupMembers:[],
+  activeGroup: null,
 
+  /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
+  bgLists: [],
+
+  /** @type {import('./models/Account.js').Account[]} */
+  groupMembers: [],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   boardgames: [],
+
+  /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
+  scrollBoardGames: [],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame | null} */
   activeBoardGame: null,
@@ -58,4 +58,5 @@ groupMembers:[],
     { name: 'Wargame', id: 'jX8asGGR6o' },
     { name: 'Word game', id: 'rHvAx4hH2f' },
   ],
+  skip: 0,
 });

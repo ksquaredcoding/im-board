@@ -12,7 +12,7 @@ class AtlasGamesService {
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
-        limit: 20,
+        limit: 12,
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
@@ -20,15 +20,23 @@ class AtlasGamesService {
     console.log(AppState.boardgames);
   }
 
-  async getBoardGamesOnScroll(){
+  async getBoardGamesOnScroll() {
+    let limit = 1;
+    AppState.skip += limit;
+    let skip = AppState.skip;
+    AppState.skip += limit;
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
-        limit:4
+        limit: limit,
+        skip: skip,
       },
     });
-
-    
+    AppState.scrollBoardGames = res.data.games.map((b) => new BoardGame(b));
+    AppState.boardgames = [
+      ...AppState.boardgames,
+      ...AppState.scrollBoardGames,
+    ];
   }
   async getBoardGamesByQuery(name = '') {
     const res = await atlasApi.get('/api/search', {
@@ -59,10 +67,9 @@ class AtlasGamesService {
         client_id: '2I6DeypMLL',
         order_by: query,
       },
-
     });
     console.log(res.data.games);
-        AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // AppState.boardgames = res.data.games.map(b=> new BoardGame(b))
     // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
