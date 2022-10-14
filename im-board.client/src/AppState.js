@@ -9,14 +9,14 @@ export const AppState = reactive({
 
 
   /** @type {import('./models/Group.js').Group[]} */
-  groups:[],
-  
+  groups: [],
+
   /** @type {import('./models/ActiveGroup.js').ActiveGroup | null} */
-activeGroup:null,
+  activeGroup: null,
 
 
-
-
+  /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
+  bGLists: [],
 
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
