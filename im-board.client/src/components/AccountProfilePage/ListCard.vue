@@ -1,11 +1,10 @@
 <template>
   <div class="col mx-3 bg-grey">
           <div class="row bg-c4">
-            <div class="col d-flex justify-content-center pt-2"><h2>Favorites</h2></div>
+            <div class="col d-flex justify-content-center pt-2"><h2>{{this.type}}</h2></div>
             </div>
             <div class="cardholder">
-             <!-- NOTE boardgamecard component here -->
-
+            <!-- NOTE boardgamecard component here -->
             </div>
         </div>
 </template>
@@ -22,7 +21,7 @@ export default {
   },
   setup(props){
     return {
-
+    
       async removeGameFromList() {
         try {
             await listsService.removeGameFromList()
