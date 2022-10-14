@@ -27,9 +27,9 @@ export default {
       filter: computed(() => AppState.activeCategoryFilters),
       editable,
 
-      async getBoardGamesByOrder_By(category) {
+      async getBoardGamesByOrder_By(query) {
         try {
-          await atlasGamesService.getBoardGamesByOrder_By()
+          await atlasGamesService.getBoardGamesByOrder_By(query)
         } catch (error) {
           Pop.error(error, '[getBoardGamesByCategories]');
         }
@@ -41,6 +41,9 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
+
 .btn {
   width: 175px;
   height: 50px;
@@ -49,5 +52,21 @@ export default {
   font-weight: bold;
   padding: 10px;
   font-family: 'Baloo 2', cursive;
+}
+
+button{
+  transition:  0.5s ease;
+}
+
+
+button:focus{
+ 
+  transition: 0.5s ease;
+  color: rgb(31, 28, 28);
+  border: 1px solid  #ffa216;
+  background-color: #ffa216 !important;
+border-bottom: 5px solid #ffc267;
+box-shadow: #fbc756ac 0px 5px, rgba(240, 159, 46, 0.3) 0px 10px, rgba(240, 179, 46, 0.2) 0px 15px, rgba(240, 169, 46, 0.1) 0px 20px, rgba(240, 137, 46, 0.05) 0px 25px,inset 17px 17px 60px 1px #ffefaa ;
+
 }
 </style>

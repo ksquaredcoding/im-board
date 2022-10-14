@@ -10,15 +10,24 @@
       <button class="btn bg-c1 mt-1" type="submit">Add!</button></div>
     </form>
   </div>
-  <div class="component" v-else >
-    <form @submit.prevent="handleSubmitOnHomePage()">
-      <select v-model="editable" class="form-select border-secondary" aria-label="Default select example">
-        <option value="favorite">Favorite</option>
+  <!-- HOMEPAGE BUTTON -->
+  <div class="component  " v-else >
+    <form @submit.prevent="handleSubmitOnHomePage()" class="d-flex justify-content-center align-items-center">
+    <div class="dropDown " height="30" width="30">
+   <select v-model="editable" class="form-select " aria-label="Default select example">
+   <option selected>{{}}</option>
+        <option  value="favorite">Favorite</option>
         <option value="owned">Owned</option>
         <option value="wish">Wish</option>
       </select>
-       <div class="text-center">
-      <button class="btn bg-c1 mt-1" type="submit">Add!From Home Page</button></div>
+    
+    </div>
+   
+       <div class="ms-2">
+
+         <button class="btn p-0 px-1 btn-warning mt-1" type="submit"><i class="fs-5  mdi mdi-plus text-dark"></i></button>
+       </div>
+    
     </form>
   </div>
   

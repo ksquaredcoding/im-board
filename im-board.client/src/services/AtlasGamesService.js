@@ -49,8 +49,12 @@ class AtlasGamesService {
         client_id: '2I6DeypMLL',
         order_by: query,
       },
+
     });
-    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+    console.log(res.data.games);
+        AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+    // AppState.boardgames = res.data.games.map(b=> new BoardGame(b))
+    // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
   //REVIEW https://api.boardgameatlas.com/api/search?client_id=2I6DeypMLL&ids=TAAifFP590
