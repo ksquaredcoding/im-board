@@ -40,9 +40,9 @@ export default {
 
       async addMemberToGroup(){
         try {
-           const groupId = props.group.id
-           console.log(groupId);
-            await groupsService.addMember(groupId)
+        
+         
+            await groupsService.addMember(props.group.id)
             Pop.success('You Joined',props.group.name,"! ")
           } catch (error) {
             Pop.error(error,'[addMemberToGroup]')
