@@ -29,15 +29,15 @@
     </div>
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-      <div v-for="b in bgLists" :key="b.id">
+      <div class="col-md-3">
+      <span v-for="b in bgLists" :key="b.id">
 
         <ListCard :boardGameList="b" />
-      </div>
-
-      <!-- <ListCard /> -->
+      </span>
+</div>
 
       <!-- NOTE group card start -->
-      <div class="col mx-3 bg-grey">
+      <!-- <div class="col-md mx-3 bg-grey">
         <div class="row bg-c6">
           <div class="col d-flex justify-content-center pt-2">
             <h2>Groups</h2>
@@ -52,10 +52,10 @@
           <GroupGamesCard />
           <GroupGamesCard />
         </div>
-      </div>
+      </div> -->
+
+
     </div>
-
-
   </div>
 </template>
 
