@@ -132,12 +132,7 @@ import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue"
 import EditBanner from "../components/AccountProfilePage/EditBanner.vue"
 import { Account } from "../models/Account.js"
 export default {
-  props: {
-    profile: {
-      type: Account,
-      required: true
-    }
-  },
+ 
   setup() {
     async function getMyGroups() {
       try {

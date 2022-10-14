@@ -21,7 +21,7 @@ console.log('Account:',res.data);
     // console.log(AppState.account.id);
     AppState.groupMemberShip = res.data.map((g) => new GroupMemberShip(g));
     // AppState.groups = res.data.map((g) => new Group(g));
-    console.log('AppState.groups:', AppState.groups);
+  
     console.log(AppState.account)
   }
 
