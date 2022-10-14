@@ -1,5 +1,5 @@
 <template>
-  <div class="account Page container-fluid" v-if="bgLists">
+  <div class="account Page container-fluid">
 
     <!-- <div class="row">
       <div class="col-md-12">
@@ -29,10 +29,12 @@
     </div>
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-      <span v-for="b in bgLists" :key="b.id">
+      <div v-for="b in bgLists" :key="b.id">
 
         <ListCard :boardGameList="b" />
-      </span>
+      </div>
+
+      <!-- <ListCard /> -->
 
       <!-- NOTE group card start -->
       <div class="col mx-3 bg-grey">
