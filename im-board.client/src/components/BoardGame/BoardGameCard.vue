@@ -1,7 +1,7 @@
 <template>
     <div class="card elevation-4 my-2" v-if="boardGame">
      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"> 
-      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded" />
+      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded"  />
 </router-link>
       
       <div class="card-body p-1 bg-dark rounded-bottom">

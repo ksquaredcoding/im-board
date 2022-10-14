@@ -1,5 +1,5 @@
 import { AppState } from '../AppState';
-import { BGList } from "../models/BoardGame/BGList.js";
+import { BGList } from '../models/BoardGame/BGList.js';
 import { Group } from '../models/Group.js';
 import { logger } from '../utils/Logger';
 import { api } from './AxiosService';
@@ -15,7 +15,6 @@ class AccountService {
   }
 
   async getMyGroups() {
-    //TODO FIRE OFF IN ACCOUNT SERVICE
     const res = await api.get('/account/groups');
 
     // console.log('Account res.data:', res.data);
@@ -25,9 +24,9 @@ class AccountService {
   }
 
   async getMyLists() {
-    const res = await api.get('/account/boardgames')
+    const res = await api.get('/account/boardgames');
     // console.log(res.data, 'getting my lists');
-    AppState.bGLists = res.data.map(b => new BGList(b))
+    AppState.bGLists = res.data.map((b) => new BGList(b));
     console.log(AppState.bGLists);
   }
 }

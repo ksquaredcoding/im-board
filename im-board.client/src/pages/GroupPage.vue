@@ -64,6 +64,7 @@ import { AppState } from '../AppState.js';
 import { AuthService } from '../services/AuthService.js';
 import { useRoute } from 'vue-router';
 import { computed } from '@vue/reactivity';
+import { groupMembersService } from "../services/GroupMembersService.js";
 
 export default {
   setup() {
@@ -79,7 +80,7 @@ export default {
     //TODO NEED TO FINISH
     async function getGroupMembersByGroupId() {
       try {
-        await groupsService.getGroupMembers('634857a3901c93d70bdc7d8c');
+        await groupsService.getGroupMembers(route.params.id);
       } catch (error) {
         Pop.error(error, '[getGroupMemberByGroupId]');
       }
@@ -91,7 +92,7 @@ export default {
     });
     return {
       group: computed(() => AppState.activeGroup),
-
+groupOwner: computed(()=> AppState.activeGroup.creatorId == AppState.account.id),
       async createGroup() {
         try {
           await groupsService.createGroup();
@@ -100,32 +101,7 @@ export default {
         }
       },
 
-      async addGroupMember() {
-        try {
-          if (!AppState.account.id) {
-            return AuthService.loginWithPopup();
-          } else {
-            await groupsService.addMember({});
-            Pop.success('Thanks for Joining!');
-          }
-        } catch (error) {
-          Pop.error(error, '[addGroupMember]');
-        }
-      },
-      //TODO FINISH
-      async removeGroup() {
-        try {
-          const yes = await Pop.confirm();
-          if (!yes) {
-            return;
-          }
-
-          await groupsService.removeGroup();
-          Pop.confirm('Group Removed');
-        } catch (error) {
-          Pop.error(error, '[removeGroupMember]');
-        }
-      },
+   
     };
   },
   components: {
