@@ -1,12 +1,14 @@
 <template>
   <div class="col mx-3 bg-grey">
-          <div class="row bg-c4">
-            <div class="col d-flex justify-content-center pt-2"><h2>{{this.type}}</h2></div>
-            </div>
-            <div class="cardholder">
-            <!-- NOTE boardgamecard component here -->
-            </div>
-        </div>
+    <div class="row bg-c4">
+      <div class="col d-flex justify-content-center pt-2">
+
+      </div>
+    </div>
+    <div class="cardholder">
+      <!-- NOTE boardgamecard component here -->
+    </div>
+  </div>
 </template>
 
 
@@ -17,18 +19,21 @@ import Pop from "../../utils/Pop.js"
 
 export default {
   props: {
-    boardGameLists: {type: BGList, required: true}
+    boardGameList: {
+      type: BGList,
+      required: true
+    }
   },
-  setup(props){
+  setup(props) {
     return {
-    
+
       async removeGameFromList() {
         try {
-            await listsService.removeGameFromList()
-          } catch (error) {
-            console.error('[RemoveGame]',error)
-            Pop.error(error)
-          }
+          await listsService.removeGameFromList()
+        } catch (error) {
+          console.error('[RemoveGame]', error)
+          Pop.error(error)
+        }
       }
 
     }

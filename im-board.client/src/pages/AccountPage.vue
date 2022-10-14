@@ -1,5 +1,5 @@
 <template>
-  <div class="account Page container-fluid">
+  <div class="account Page container-fluid" v-if="bgLists">
 
     <!-- <div class="row">
       <div class="col-md-12">
@@ -16,7 +16,7 @@
       </div>
     </div> -->
 
-<div class="row bg-c5 banner eum-ipsum">
+    <div class="row bg-c5 banner eum-ipsum">
       <div class="col-md-12 d-flex justify-content-center ">
         <img src="//thiscatdoesnotexist.com" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon">
       </div>
@@ -29,9 +29,11 @@
     </div>
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-<ListCard/>
-<ListCard/>
-<ListCard/>
+      <span v-for="b in bgLists" :key="b.id">
+
+        <ListCard :boardGameList="b" />
+      </span>
+
       <!-- NOTE group card start -->
       <div class="col mx-3 bg-grey">
         <div class="row bg-c6">
@@ -40,13 +42,13 @@
           </div>
         </div>
         <div class="cardholder">
-         <GroupGamesCard/>
-          <GroupGamesCard/>
-           <GroupGamesCard/>
-            <GroupGamesCard/>
-             <GroupGamesCard/>
-              <GroupGamesCard/>
-               <GroupGamesCard/>
+          <GroupGamesCard />
+          <GroupGamesCard />
+          <GroupGamesCard />
+          <GroupGamesCard />
+          <GroupGamesCard />
+          <GroupGamesCard />
+          <GroupGamesCard />
         </div>
       </div>
     </div>
@@ -89,7 +91,8 @@ export default {
     })
     return {
       account: computed(() => AppState.account),
-      groups: computed(() => AppState.groups)
+      groups: computed(() => AppState.groups),
+      bgLists: computed(() => AppState.bgLists)
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard }
@@ -97,7 +100,6 @@ export default {
 </script>
 
 <style scoped>
-
 .banner {
   min-height: 188px;
   background-size: cover;
