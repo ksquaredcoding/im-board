@@ -32,11 +32,11 @@
 import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
 import Pop from '../utils/Pop.js';
-import Filters from '../components/Filters.vue';
-import Searchbar from '../components/Searchbar.vue';
-import BoardGameCard from '../components/BoardGameCard.vue';
+import Filters from '../components/BoardGame/Filters.vue';
+import Searchbar from '../components/BoardGame/Searchbar.vue';
+import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
-import PresetFilterBar from "../components/PresetFilterBar.vue";
+import PresetFilterBar from "../components/BoardGame/PresetFilterBar.vue";
 
 export default {
   setup() {

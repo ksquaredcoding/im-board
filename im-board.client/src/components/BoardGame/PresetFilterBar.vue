@@ -14,8 +14,8 @@
 
 <script>
 import { computed, ref } from "@vue/reactivity";
-import Pop from "../utils/Pop.js";
-import { atlasGamesService } from '../services/AtlasGamesService.js';
+import Pop from "../../utils/Pop.js";
+import { atlasGamesService } from '../../services/AtlasGamesService.js';
 
 export default {
   props: {},

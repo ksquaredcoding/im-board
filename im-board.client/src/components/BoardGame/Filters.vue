@@ -30,9 +30,9 @@
 
 <script>
 import { onMounted, ref, computed } from 'vue';
-import { AppState } from '../AppState.js';
-import { atlasGamesService } from '../services/AtlasGamesService.js';
-import Pop from '../utils/Pop.js';
+import { AppState } from '../../AppState.js';
+import { atlasGamesService } from '../../services/AtlasGamesService.js';
+import Pop from '../../utils/Pop.js';
 
 export default {
   props: {},

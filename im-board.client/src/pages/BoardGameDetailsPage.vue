@@ -135,7 +135,7 @@ import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
 import ActiveBoardGameVideos from "../components/BoardGame/ActiveBoardGameVideos.vue";
 import ABGReviews from "../components/BoardGame/ABGReviews.vue";
-import AddToList from "../components/AddToList.vue";
+import AddToList from "../components/BoardGame/AddToList.vue";
 import ABGPrices from "../components/BoardGame/ABGPrices.vue";
 
 

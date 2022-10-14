@@ -14,10 +14,10 @@
 
 
 <script>
-import Pop from "../utils/Pop.js"
-import { listsService } from "../services/ListsService.js";
+import Pop from "../../utils/Pop.js"
+import { listsService } from "../../services/ListsService.js";
 import { computed } from "@vue/reactivity";
-import { AppState } from "../AppState.js";
+import { AppState } from "../../AppState.js";
 import { ref } from 'vue';
 
 export default {
