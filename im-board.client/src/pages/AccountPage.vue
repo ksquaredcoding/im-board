@@ -14,7 +14,7 @@
 
     </div>
 
-    <div class="row bg-c5 banner eum-ipsum">
+    <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="">
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
             class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt=""
@@ -36,7 +36,12 @@
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">User Name</div>
+      <div class="col-md d-flex justify-content-center username">{{account.name}}
+
+        <button class="btn"><i class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
+            title="Edit Profile Picture"></i></button>
+
+      </div>
       <div class="col-md d-flex justify-content-end">
 
         <router-link :to="{name: 'Profile'}">
