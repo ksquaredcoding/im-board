@@ -32,7 +32,9 @@ class GameNightsService {
     }
     gameNight.groupMemberIdsAttending =
       // @ts-ignore
-      gameNight.groupMemberIdsAttending.filter((m) => m.accountId.toString() !== groupMember.accountId.toString());
+      gameNight.groupMemberIdsAttending.filter(
+        (m) => m.accountId.toString() !== groupMember.accountId.toString()
+      );
     await gameNight.save();
     return gameNight;
   }
@@ -52,12 +54,10 @@ class GameNightsService {
     if (!isMember) {
       throw new Forbidden("you must be in the group to create a game night!");
     }
-    const gameNight = await dbContext.GameNights.create(
-      gameNightData
-    );
-    await this.attendGameNight(accountId, gameNight.id)
-    await gameNight.save()
-    return gameNight;
+    const gameNight = await dbContext.GameNights.create(gameNightData);
+    const newGameNight = await this.attendGameNight(accountId, gameNight.id);
+    // const newGameNight = await dbContext.GameNights.find
+    return newGameNight;
   }
   async getGameNightsByGroupId(groupId) {
     const gameNights = await dbContext.GameNights.find({ groupId });
