@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupsService } from "./GroupsService.js";
@@ -47,7 +48,7 @@ class GroupMembersService {
     const group = await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
-      return isMember;
+      throw new Forbidden("You cannot join a group more than once.")
     }
     const groupMember = await dbContext.GroupMembers.create({
       groupId,
