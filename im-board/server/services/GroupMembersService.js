@@ -17,7 +17,9 @@ class GroupMembersService {
     if (isCreator && isMember) {
       group.creatorId = newAccountId;
       // @ts-ignore
-      const members = group.groupMemberIds.filter((g) => g.toString() !== accountId);
+      const members = group.groupMemberIds.filter(
+        (g) => g.toString() !== accountId
+      );
       group.groupMemberIds = members;
       // const memberIndex = group.groupMemberIds.findIndex(accountId);
       // group.groupMemberIds.splice(memberIndex, 1);
@@ -30,7 +32,9 @@ class GroupMembersService {
     // @ts-ignore
     // const memberIndex = group.groupMemberIds.findIndex(accountId);
     // group.groupMemberIds.splice(memberIndex, 1);
-    const members = group.groupMemberIds.filter((g) => g.toString() !== member.accountId.toString());
+    const members = group.groupMemberIds.filter(
+      (g) => g.toString() !== member.accountId.toString()
+    );
     group.groupMemberIds = members;
     await member.remove();
     await group.save();
@@ -47,8 +51,9 @@ class GroupMembersService {
     const group = await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
-      console.log('Already a Member!');
-      return isMember;
+      // console.log('Already a Member!');
+      throw new BadRequest("you are already in this group");
+      // return isMember;
     }
     const groupMember = await dbContext.GroupMembers.create({
       groupId,
