@@ -5,6 +5,7 @@ import { groupsService } from "./GroupsService.js";
 
 class GroupMembersService {
   async kickMember(groupMemberId, accountId, newAccountId) {
+    debugger
     const member = await this.getGroupMemberById(groupMemberId);
     // @ts-ignore
     const group = await groupsService.getGroupById(member.groupId.toString());
@@ -18,10 +19,9 @@ class GroupMembersService {
     if (isCreator && isMember) {
       group.creatorId = newAccountId;
       // @ts-ignore
-      const members = group.groupMemberIds.filter(
+      group.groupMemberIds = group.groupMemberIds.filter(
         (g) => g.accountId.toString() !== accountId
       );
-      group.groupMemberIds = members;
       await group.save();
       // @ts-ignore
       await member.remove();
@@ -29,10 +29,9 @@ class GroupMembersService {
     }
 
     // @ts-ignore
-    const members = group.groupMemberIds.filter(
+    group.groupMemberIds = group.groupMemberIds.filter(
       (g) => g.accountId.toString() !== member.accountId.toString()
     );
-    group.groupMemberIds = members;
     await member.remove();
     await group.save();
     // TODO finish remove member
