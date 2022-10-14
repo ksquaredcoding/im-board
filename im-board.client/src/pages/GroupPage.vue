@@ -1,6 +1,34 @@
 <template>
   <div v-if="!group">
-    <p>Loading...</p>
+   <div class="row">
+    
+      <div class="col-md-3 p-0">
+        <div class=""></div>
+        <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
+          <h4>Group Chat</h4>
+        </div>
+
+        <div class="col-12 p-2 overflow-auto groupchatbox">
+         
+        </div>
+
+        <div></div>
+        <div></div>
+ 
+      </div>
+      <div class="col-md-6 overflow-auto gamecardbox">
+        <div class="px-1">
+     
+        </div>
+      </div>
+
+      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
+        <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
+          <h4>Group Games</h4>
+        </div>
+    
+      </div>
+    </div>
   </div>
   <div class="group-page container-fluid" v-else="group">
     <div class="row">
