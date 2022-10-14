@@ -11,5 +11,6 @@ export class BGList {
     this.rating = data.rating
     this.type = data.type
     this.updatedAt = data.updatedAt
+    this.imgUrl = data.imgUrl
   }
 }
