@@ -79,8 +79,8 @@
 
     <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
-      <div class="pe-3  d-flex box-shadow d-none d-sm-block">
-        <img :src="user.picture" alt="" height="60" class="me-4 rounded-circle">
+      <div class="pe-3  d-flex d-none d-sm-block">
+       
         <router-link :to="{name: 'Profile'}"> 
           <a
           name=""
