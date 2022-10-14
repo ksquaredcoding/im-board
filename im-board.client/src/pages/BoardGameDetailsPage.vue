@@ -72,17 +72,21 @@
           <p class="p-3 bg-grey rounded-5 elevation-4">{{boardGame.description_preview}}</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6" v-for="r in reviews" :key="r">
-          <ABGReviews :review="r" />
-        </div>
 
-        <div class="row my-4 justify-content-center">
-          <div v-for="p in prices" :key="p.id" class="col-md-5">
-            <ABGPrices :price="p" />
+      <div>
+        <div class="row review-row">
+          <div class="col-md-6" v-for="r in reviews" :key="r">
+            <ABGReviews :review="r" />
           </div>
         </div>
 
+        <div>
+          <div class="row my-4 justify-content-center price-row">
+            <div v-for="p in prices" :key="p.id" class="col-md-4 mx-2 ">
+              <ABGPrices :price="p" />
+            </div>
+          </div>
+        </div>
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
         </div> -->
@@ -90,7 +94,6 @@
       </div>
     </div>
   </section>
-
 
 
   <!-- MODAL -->
@@ -240,6 +243,16 @@ p {
 
   font-weight: 600;
   color: #0B486B;
+}
+
+.price-row {
+  height: 20rem;
+  overflow: auto;
+}
+
+.review-row {
+  height: 20rem;
+  overflow: auto;
 }
 
 .game-images {

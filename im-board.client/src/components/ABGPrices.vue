@@ -1,7 +1,8 @@
 <template>
-  <div class="component justify-content-center price-info rounded-3 my-2 text-center p-3 elevation-5"
+  <div class="component justify-content-center price-info  my-2 text-center p-3 elevation-1 "
     v-if="price.in_stock == true">
     <h2>{{price.store_name}}</h2>
+    <h5>{{price.name}}</h5>
     <div class="d-flex text-center justify-content-center gap-3">
       <p>{{price.updated_at_ago}}</p>
       <b>{{price.price_text}}</b>
@@ -30,6 +31,6 @@ export default {
 
 <style lang="scss" scoped>
 .price-info {
-  background-color: rgba(46, 206, 107, 0.634);
+  background-color: rgb(225, 241, 217);
 }
 </style>

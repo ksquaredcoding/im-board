@@ -17,7 +17,7 @@ class AtlasGamesService {
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    // console.log(res.data);
+    console.log(res.data);
     console.log(AppState.boardgames);
   }
 
