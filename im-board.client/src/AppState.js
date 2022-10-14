@@ -27,13 +27,13 @@ activeGroup:null,
 
   activeImage: null,
 
-  /** @type {import('./models/ActiveBoardGameImage.js').ActiveBoardGameImage[]} */
+  /** @type {import('./models/BoardGame/ActiveBoardGameImage.js').ActiveBoardGameImage[]} */
   activeBoardGameImages: [],
 
-  /** @type {import('./models/ActiveBoardGameVideo.js').ActiveBoardGameVideo[]} */
+  /** @type {import('./models/BoardGame/ActiveBoardGameVideo.js').ActiveBoardGameVideo[]} */
   activeBoardGameVideos: [],
 
-  /** @type {import('./models/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
+  /** @type {import('./models/BoardGame/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
   activeBoardGamePrices: [],
 
   /** @type {import('./models/ABGReviews.js').ABGReviews[]} */

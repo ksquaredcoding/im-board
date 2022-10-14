@@ -9,7 +9,7 @@
 
 
 <script>
-import { ActiveBoardGameVideo } from "../../models/ActiveBoardGameVideo.js";
+import { ActiveBoardGameVideo } from "../../models/BoardGame/ActiveBoardGameVideo.js";
 
 export default {
   props:

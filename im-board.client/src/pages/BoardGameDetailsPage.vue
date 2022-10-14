@@ -132,7 +132,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
+import { ActiveBoardGameImage } from "../models/BoardGame/ActiveBoardGameImage.js";
 import ActiveBoardGameVideos from "../components/BoardGame/ActiveBoardGameVideos.vue";
 import ABGReviews from "../components/BoardGame/ABGReviews.vue";
 import AddToList from "../components/BoardGame/AddToList.vue";

@@ -1,11 +1,11 @@
 
 import { atlasApi } from "./AxiosService.js";
 import { BoardGame } from "../models/BoardGame.js";
-import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
-import { ActiveBoardGameVideo } from "../models/ActiveBoardGameVideo.js";
+import { ActiveBoardGameImage } from "../models/BoardGame/ActiveBoardGameImage.js";
+import { ActiveBoardGameVideo } from "../models/BoardGame/ActiveBoardGameVideo.js";
 import { AppState } from "../AppState.js";
 import { ABGReviews } from "../models/ABGReviews.js";
-import { ActiveBoardGamePrice } from "../models/ActiveBoardGamePrice.js";
+import { ActiveBoardGamePrice } from "../models/BoardGame/ActiveBoardGamePrice.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
