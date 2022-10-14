@@ -13,7 +13,7 @@
 
 
 <script>
-import { ABGReviews } from "../../models/ABGReviews.js";
+import { ABGReviews } from "../../models/BoardGame/ABGReviews.js";
 
 export default {
   props: {

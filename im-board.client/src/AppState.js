@@ -19,10 +19,10 @@ activeGroup:null,
 
 
 
-  /** @type {import('./models/BoardGame.js').BoardGame[]} */
+  /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   boardgames: [],
 
-  /** @type {import('./models/BoardGame.js').BoardGame | null} */
+  /** @type {import('./models/BoardGame/BoardGame.js').BoardGame | null} */
   activeBoardGame: null,
 
   activeImage: null,
@@ -36,7 +36,7 @@ activeGroup:null,
   /** @type {import('./models/BoardGame/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
   activeBoardGamePrices: [],
 
-  /** @type {import('./models/ABGReviews.js').ABGReviews[]} */
+  /** @type {import('./models/BoardGame/ABGReviews.js').ABGReviews[]} */
   activeBoardGameReviews: [],
 
   activeCategoryFilters: [],

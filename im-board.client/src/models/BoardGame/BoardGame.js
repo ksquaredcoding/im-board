@@ -4,10 +4,9 @@ export class BoardGame {
     this.rating = data.average_user_rating;
     this.rank = data.rank;
     this.large = data.images.large;
-    // this.coverImg = data.images.original;
     this.name = data.name;
-    this.coverImg = data.images.original
-    this.largeImage = data.images.large
+    this.coverImg = data.images.original;
+    this.largeImage = data.images.large;
     this.description_preview = data.description_preview; //not text but HTML
     this.description = data.description;
     this.categories = data.categories; //is array
@@ -21,8 +20,8 @@ export class BoardGame {
     this.price = data.price;
     this.primary_publisher = data.primary_publisher.name;
     this.year_published = data.year_published;
-    this.average_user_rating = data.average_user_rating
-    this.average_learning_complexity = data.average_learning_complexity
+    this.average_user_rating = data.average_user_rating;
+    this.average_learning_complexity = data.average_learning_complexity;
     this.video_links = data.video_links;
     this.artists = data.artists;
     this.commentary = data.commentary;

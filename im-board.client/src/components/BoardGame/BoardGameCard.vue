@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { BoardGame } from '../../models/BoardGame.js';
+import { BoardGame } from '../../models/BoardGame/BoardGame.js';
 import AddToList from "./AddToList.vue";
 
 export default {
