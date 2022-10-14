@@ -30,11 +30,11 @@
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
       <div class="col-md-3">
-      <span v-for="b in bgLists" :key="b.id">
+        <span v-for="b in bgLists" :key="b.id">
 
-        <ListCard :boardGameList="b" />
-      </span>
-</div>
+          <ListCard :boardGameList="b" />
+        </span>
+      </div>
 
       <!-- NOTE group card start -->
       <!-- <div class="col-md mx-3 bg-grey">
