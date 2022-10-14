@@ -34,7 +34,7 @@ export class GameNightsController extends BaseController {
   }
   async attendGameNight(req, res, next) {
     try {
-      debugger;
+      // debugger;
       const gameNight = await gameNightsService.attendGameNight(
         req.userInfo.id,
         req.params.gameNightId

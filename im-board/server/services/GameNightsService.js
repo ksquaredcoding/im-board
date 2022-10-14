@@ -18,12 +18,13 @@ class GameNightsService {
     // TODO why is this an array within an array?!
     if (attending.length == 0) {
       // @ts-ignore
-      gameNight.groupMemberIdsAttending.push(groupMember);
+      gameNight.groupMemberIdsAttending.push({ groupMember });
       await gameNight.save();
       return gameNight;
     }
     gameNight.groupMemberIdsAttending =
-      gameNight.groupMemberIdsAttending.filter((m) => m !== groupMember);
+      // @ts-ignore
+      gameNight.groupMemberIdsAttending.filter(m => m.id !== groupMember.id);
     await gameNight.save();
     return gameNight;
   }
