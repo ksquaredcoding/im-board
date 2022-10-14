@@ -4,7 +4,7 @@ import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
     // debugger
-    const groups = await dbContext.GroupMembers.find({ accountId })
+    const groups = await dbContext.GroupMembers.find({ accountId }).populate('group', 'name coverImg')
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
     }
