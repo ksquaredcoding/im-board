@@ -69,7 +69,7 @@ boardGameOnHomePage: {type: BoardGame}
           Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
         } catch (error) {
 
-          Pop.error('You Already Have It Part OF this List')
+          Pop.error(`You already have ${this.boardGame.name} on ${editable.value}!`)
         }
       },
          async handleSubmitOnHomePage() {
@@ -86,7 +86,7 @@ boardGameOnHomePage: {type: BoardGame}
           Pop.success(`You Added ${props.boardGameOnHomePage.name} to ${editable.value} list!`)
         } catch (error) {
 
-          Pop.error('You Already Have It Part OF this List')
+          Pop.error(`You already have ${this.boardGame.name} on ${editable.value}!`)
         }
       }
     }
