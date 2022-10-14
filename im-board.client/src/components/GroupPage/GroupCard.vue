@@ -15,21 +15,21 @@
 
 <script>
 import { AppState } from '../../AppState.js';
-import { Group } from '../../models/Group.js';
-
+import { GroupMemberShip } from "../../models/GroupMembership.js";
+import { Group} from '../../models/Group.js'
 export default {
   props: {
-    group: { type: Group, required: true },
+   group:{ type: Group, required:true}
   },
 
   setup(props) {
     return {
       setActiveGroup() {
-        let group = AppState.groups.find(
-          (g) => g.groupId == props.group.groupId
-        );
-        AppState.activeGroup = group;
-        console.log('activeGroup-tung', AppState.activeGroup);
+        // let group = AppState.groups.find(
+        //   (g) => g.groupId == props.group.groupId
+        // );
+        // AppState.activeGroup = group;
+        // console.log('activeGroup-tung', AppState.activeGroup);
       },
     };
   },
