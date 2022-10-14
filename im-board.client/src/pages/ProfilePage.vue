@@ -70,7 +70,7 @@
 
       <!-- NOTE group card start -->
       <div class="col-md mx-3 bg-grey">
-        <div class="row bg-c4">
+        <div class="row bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2><div><i class="mdi mdi-information-outline fs-5" alt="" title="Groups only visisble to you, not other users." ></i></div>
           </div>
