@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'Group', params: { id: group.groupId } }">
+  <router-link :to="{ name: 'Group', params: { id: group?.id } }">
     <div class="card text-bg-dark my-2 elevation-3">
       <img :src="group?.coverImg" class="card-img" alt="..." />
       <div class="card-img-overlay text-shadow">
