@@ -82,7 +82,7 @@
 
         <div class="hi"> 
           <div class="mt-5"><h1>Purchase game at ..</h1></div>
-        <div class="row justify-content-center prices bg-c5 text-dark mb-5">
+        <div class="row justify-content-center prices bg-c4 text-dark mb-5">
           <div v-for="p in prices" :key="p.id" class="col-md-6">
             <ABGPrices :price="p" />
           </div>
@@ -279,7 +279,7 @@ p {
 .prices{
   height: 350px;
   overflow: auto;
-  border:#0B486B solid 10px
+  border:#3b8686 solid 10px
 }
 
 .reviews{
