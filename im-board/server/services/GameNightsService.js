@@ -31,7 +31,7 @@ class GameNightsService {
     }
     gameNight.groupMemberIdsAttending =
       // @ts-ignore
-      gameNight.groupMemberIdsAttending.filter((m) => m.accountId !== groupMember.accountId.toString());
+      gameNight.groupMemberIdsAttending.filter((m) => m.accountId.toString() !== groupMember.accountId.toString());
     await gameNight.save();
     return gameNight;
   }
