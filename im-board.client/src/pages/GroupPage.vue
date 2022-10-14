@@ -1,5 +1,8 @@
 <template>
-  <div class="group-page container-fluid" v-if="group">
+  <div v-if="!group">
+    <p>Loading...</p>
+  </div>
+  <div class="group-page container-fluid" v-else="group">
     <div class="row">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <div class="col-md-3 p-0">
@@ -57,14 +60,14 @@ import GroupChatInput from '../components/GroupPage/GroupChatInput.vue';
 import GroupGamesCard from '../components/GroupPage/GroupGamesCard.vue';
 import Pop from '../utils/Pop.js';
 import { groupsService } from '../services/GroupsService.js';
-import { onMounted } from 'vue';
+import { onMounted, watchEffect } from 'vue';
 import GroupForm from '../components/GroupPage/GroupForm.vue';
 import { accountService } from '../services/AccountService.js';
 import { AppState } from '../AppState.js';
 import { AuthService } from '../services/AuthService.js';
 import { useRoute } from 'vue-router';
 import { computed } from '@vue/reactivity';
-import { groupMembersService } from "../services/GroupMembersService.js";
+import { groupMembersService } from '../services/GroupMembersService.js';
 
 export default {
   setup() {
@@ -77,7 +80,6 @@ export default {
       }
     }
 
-    //TODO NEED TO FINISH
     async function getGroupMembersByGroupId() {
       try {
         await groupsService.getGroupMembers(route.params.id);
@@ -88,11 +90,22 @@ export default {
 
     onMounted(() => {
       getGroupById();
-      // getGroupMembersByGroupId()
+      getGroupMembersByGroupId();
     });
+
+    // ANCHOR this essentially works as an observer.. think 'AppState.on'
+    // watchEffect(() => {
+    //   AppState.account;
+    //   getGroupById();
+    //   getGroupMembersByGroupId();
+    // });
+
     return {
       group: computed(() => AppState.activeGroup),
-groupOwner: computed(()=> AppState.activeGroup.creatorId == AppState.account.id),
+      account: computed(() => AppState.account),
+      groupOwner: computed(
+        () => AppState.activeGroup.creatorId == AppState.account.id
+      ),
       async createGroup() {
         try {
           await groupsService.createGroup();
@@ -100,8 +113,6 @@ groupOwner: computed(()=> AppState.activeGroup.creatorId == AppState.account.id)
           Pop.error(error, '[createGroup]');
         }
       },
-
-   
     };
   },
   components: {

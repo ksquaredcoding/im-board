@@ -1,49 +1,49 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import { authGuard } from '@bcwdev/auth0provider-client'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import { authGuard, authSettled } from '@bcwdev/auth0provider-client';
 
 function loadPage(page) {
-  return () => import(`./pages/${page}.vue`)
+  return () => import(`./pages/${page}.vue`);
 }
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: loadPage('HomePage')
+    component: loadPage('HomePage'),
   },
   {
     path: '/about',
     name: 'About',
-    component: loadPage('AboutPage')
+    component: loadPage('AboutPage'),
   },
   {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
-    beforeEnter: authGuard
+    beforeEnter: authGuard,
   },
   {
     path: '/profile',
     name: 'Profile',
     component: loadPage('ProfilePage'),
-  
   },
   {
     path: '/groups/:id',
     name: 'Group',
     component: loadPage('GroupPage'),
-  
+    beforeEnter: authSettled,
   },
   {
     path: '/boardGame_Details/:id',
     name: 'BoardGameDetails',
-    component: loadPage('BoardGameDetailsPage')
+    component: loadPage('BoardGameDetailsPage'),
+    beforeEnter: authSettled,
   },
-]
+];
 
 export const router = createRouter({
   linkActiveClass: 'router-link-active',
   linkExactActiveClass: 'router-link-exact-active',
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});

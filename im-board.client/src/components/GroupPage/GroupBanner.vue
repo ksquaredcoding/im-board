@@ -19,6 +19,12 @@
        <div v-else>
         
        </div>
+       <!-- EDIT -->
+       <div>
+        <button @click="editGroup()" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#groupForm">EDIT GROUP IMAGE</button>
+        <GroupForm />
+        
+       </div>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -33,13 +39,13 @@
             class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar"
           >
             <img
-              src="//thiscatdoesnotexist.com"
-              alt="groupMember.name"
-              title="groupMember.name"
+              :src="g.picture"
+              :alt="g.name"
+              :title="g.name"
               height="45"
               width="45"
               class="rounded-circle box-shadow mx-1 profile-img"
-              v-for="i in 6"
+             v-for="g in groupMember" :key="g.id"
             />
           </div>
         </div>
@@ -49,62 +55,81 @@
 </template>
 <script>
 import { computed } from '@vue/reactivity';
-import { prop } from 'dom7';
+
+
 import { ref } from 'vue';
 import { AppState } from '../../AppState.js';
+import { Account } from "../../models/Account.js";
 import { ActiveGroup } from '../../models/ActiveGroup.js';
 import { Group } from '../../models/Group.js';
 import { groupMembersService } from "../../services/GroupMembersService.js";
 import { groupsService } from '../../services/GroupsService.js';
 import Pop from '../../utils/Pop.js';
+import GroupForm from "./GroupForm.vue";
 
 export default {
-  props: {
-    group: { type: ActiveGroup, required: true },
-  },
-  setup(props) {
-    const editable = ref({});
-
-    return {
-      editable,
-      alreadyAMember: computed(() =>
-        props.group.groupMemberIds.includes(AppState.account.id)
-      ),
-      groupOwner: computed(() => props.group.creatorId == AppState.account.id),
-      async removeGroup() {
-        try {
-          if (!this.groupOwner) {
-            Pop.toast('Forbidden Not Your Group', 'warning', 'top-end', 1000);
-          }
-          const yes = await Pop.confirm();
-          if (!yes) {
-            return;
-          }
-
-          await groupsService.removeGroup(props.group.id);
-
-          Pop.success('Group Removed');
-        } catch (error) {
-          Pop.error(error, '[removeGroupMember]');
-        }
-      },
-
-      async addGroupMember() {
-        try {
-          if (props.group.creatorId == AppState.account.id) {
-            Pop.error('Already a Member');
-          } else {
-            editable.value.groupId = props.group.id;
-
-        await groupMembersService.addGroupMember(editable.value)
-            Pop.success('You Joined', props.group.name, '! ');
-          }
-        } catch (error) {
-          Pop.error(error, '[addMemberToGroup]');
-        }
-      },
-    };
-  },
+    props: {
+        group: { type: ActiveGroup, required: true },
+    },
+    setup(props) {
+        const editable = ref({});
+        return {
+            editable,
+            groupMember: computed(() => AppState.groupMembers),
+            alreadyAMember: computed(() => props.group.groupMemberIds.includes(AppState.account.id)),
+            groupOwner: computed(() => props.group.creatorId == AppState.account.id),
+            async removeGroup() {
+                try {
+                    if (!this.groupOwner) {
+                        Pop.toast("Forbidden Not Your Group", "warning", "top-end", 1000);
+                    }
+                    const yes = await Pop.confirm();
+                    if (!yes) {
+                        return;
+                    }
+                    await groupsService.removeGroup(props.group.id);
+                    Pop.success("Group Removed");
+                }
+                catch (error) {
+                    Pop.error(error, "[removeGroupMember]");
+                }
+            },
+            async addGroupMember() {
+                try {
+                    if (props.group.creatorId == AppState.account.id) {
+                        Pop.error("Already a Member");
+                    }
+                    else {
+                        editable.value.groupId = props.group.id;
+                        await groupMembersService.addGroupMember(editable.value);
+                        Pop.success("You Joined", props.group.name, "! ");
+                    }
+                }
+                catch (error) {
+                    Pop.error(error, "[addMemberToGroup]");
+                }
+            },
+            async leaveGroup() {
+                try {
+                    if (props.group.creatorId == AppState.account.id) {
+                        Pop.error("Must Provide Another Members Info and Relinquish OwnerShip");
+                    }
+                    await groupMembersService.leaveGroup(this.groupMember.id);
+                }
+                catch (error) {
+                    Pop.error(error, "[leaveGroup]");
+                }
+            },
+            async editGroup() {
+                try {
+                }
+                catch (error) {
+                    Pop.error(error, "[edit Group]");
+                }
+            }
+        };
+    },
+    components: { GroupForm }
 };
 </script>
 <style lang="scss" scoped>
@@ -133,6 +158,6 @@ export default {
 }
 
 .name {
-  font-size: 55px;
+  font-size: 45px;
 }
 </style>

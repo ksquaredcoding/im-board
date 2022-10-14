@@ -1,26 +1,36 @@
-<template  >
-  <section class="container " v-if="boardGame">
+<template>
+  <section class="container" v-if="boardGame">
     <div class="row">
-      <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
-        <h1>{{boardGame.name}}</h1>
+      <div
+        class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
+      >
+        <h1>{{ boardGame.name }}</h1>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft ">
-        <img :src="boardGame.large" alt="" class="img-fluid rounded elevation-3">
+      <div
+        class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
+      >
+        <img
+          :src="boardGame.large"
+          alt=""
+          class="img-fluid rounded elevation-3"
+        />
       </div>
-      <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
+      <div
+        class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3"
+      >
         <div class="d-flex">
           <b>Number of players : </b>
-          <p class="ms-3">{{boardGame.players}}</p>
+          <p class="ms-3">{{ boardGame.players }}</p>
         </div>
         <div class="d-flex">
           <b> Playtime:</b>
-          <p class="ms-3">{{boardGame.playtime}}</p>
+          <p class="ms-3">{{ boardGame.playtime }}</p>
         </div>
         <div class="d-flex">
           <b>Ages:</b>
-          <p class="ms-3">{{boardGame.min_age}}+</p>
+          <p class="ms-3">{{ boardGame.min_age }}+</p>
         </div>
         <div class="d-flex">
           <b>Categories:</b>
@@ -28,24 +38,24 @@
         </div>
         <div class="d-flex">
           <b>Primary Publisher:</b>
-          <p class="ms-3">{{boardGame.primary_publisher}}</p>
+          <p class="ms-3">{{ boardGame.primary_publisher }}</p>
         </div>
         <div class="text-center mt-1">
           <b>Average User Rating:</b>
-          <p class="">{{boardGame.average_user_rating.toFixed(2)}}</p>
+          <p class="">{{ boardGame.average_user_rating.toFixed(2) }}</p>
         </div>
         <div class="text-center mt-1">
           <b>Average Learning Complexity:</b>
-          <p>{{boardGame.average_learning_complexity.toFixed(2)}}</p>
+          <p>{{ boardGame.average_learning_complexity.toFixed(2) }}</p>
         </div>
         <div class="text-center mt-1">
           <b>Ranking:</b>
-          <p>{{boardGame.rank}}</p>
+          <p>{{ boardGame.rank }}</p>
         </div>
         <div class="text-center mt-3">
           <b>Add to list</b>
         </div>
-        <div class="d-flex justify-content-center ">
+        <div class="d-flex justify-content-center">
           <div class="col-3 text-center">
             <AddToList />
           </div>
@@ -55,21 +65,30 @@
         </div> -->
       </div>
       <div class="row game-images my-3 ms-1">
-        <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
+        <swiper
+          :slidesPerView="4"
+          :spaceBetween="50"
+          :slidesPerGroup="3"
+          :loop="true"
+          :loopFillGroupWithBlank="true"
           :pagination="{
             clickable: true,
-          }" :navigation="true" :modules="modules" class="mySwiper">
+          }"
+          :navigation="true"
+          :modules="modules"
+          class="mySwiper"
+        >
           <swiper-slide class="my-2" v-for="i in images">
             <ActiveBoardGameImages :images="i" />
           </swiper-slide>
-
-
         </swiper>
       </div>
       <div class="px-5 mt-5">
         <div class="col-12 bg-c2 p-5 my-5 rounded-4">
           <h3 class="text-center">Description</h3>
-          <p class="p-3 bg-grey rounded-5 elevation-4">{{boardGame.description_preview}}</p>
+          <p class="p-3 bg-grey rounded-5 elevation-4">
+            {{ boardGame.description_preview }}
+          </p>
         </div>
       </div>
 
@@ -80,64 +99,60 @@
           </div>
         </div>
 
-        <div class="hi"> 
+        <div class="hi">
           <div class="mt-5"><h1>Purchase game at ..</h1></div>
-        <div class="row justify-content-center prices bg-c4 text-dark mb-5">
-          <div v-for="p in prices" :key="p.id" class="col-md-6">
-            <ABGPrices :price="p" />
+          <div class="row justify-content-center prices bg-c4 text-dark mb-5">
+            <div v-for="p in prices" :key="p.id" class="col-md-6">
+              <ABGPrices :price="p" />
+            </div>
           </div>
-        </div></div>
+        </div>
         <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
         </div> -->
-
       </div>
     </div>
   </section>
 
-
   <!-- MODAL -->
-  <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="activeImage"
+    tabindex="-1"
+    aria-labelledby="activeImageLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
-
-
-        <img :src="modalImage" alt="" class="rounded elevation-2 customSize">
-
-
+        <img :src="modalImage" alt="" class="rounded elevation-2 customSize" />
       </div>
     </div>
   </div>
-
 </template>
 
-
 <script>
-import { computed } from "@vue/reactivity";
-import { onMounted } from "vue";
-import { useRoute } from "vue-router";
-import { AppState } from "../AppState.js";
-import { atlasGamesService } from "../services/AtlasGamesService.js";
-import Pop from "../utils/Pop.js";
-import ActiveBoardGameImages from "../components/BoardGame/ActiveBoardGameImages.vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { computed } from '@vue/reactivity';
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { AppState } from '../AppState.js';
+import { atlasGamesService } from '../services/AtlasGamesService.js';
+import Pop from '../utils/Pop.js';
+import ActiveBoardGameImages from '../components/BoardGame/ActiveBoardGameImages.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
-import "swiper/css";
+import 'swiper/css';
 
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
-import { ActiveBoardGameImage } from "../models/BoardGame/ActiveBoardGameImage.js";
-import ActiveBoardGameVideos from "../components/BoardGame/ActiveBoardGameVideos.vue";
-import ABGReviews from "../components/BoardGame/ABGReviews.vue";
-import AddToList from "../components/BoardGame/AddToList.vue";
-import ABGPrices from "../components/BoardGame/ABGPrices.vue";
-
+import { Pagination, Navigation } from 'swiper';
+import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
+import ActiveBoardGameVideos from '../components/BoardGame/ActiveBoardGameVideos.vue';
+import ABGReviews from '../components/BoardGame/ABGReviews.vue';
+import AddToList from '../components/BoardGame/AddToList.vue';
+import ABGPrices from '../components/BoardGame/ABGPrices.vue';
 
 export default {
   setup() {
@@ -145,9 +160,8 @@ export default {
     async function getBoardGameDetailsById() {
       try {
         await atlasGamesService.getBoardGameDetailsById(route.params.id);
-      }
-      catch (error) {
-        console.error("[getBoardGameDetailsById]", error);
+      } catch (error) {
+        console.error('[getBoardGameDetailsById]', error);
         Pop.error(error);
       }
     }
@@ -155,9 +169,8 @@ export default {
     async function getBoardGameImagesByGameId() {
       try {
         await atlasGamesService.getBoardGameImagesByGameId(route.params.id);
-      }
-      catch (error) {
-        console.error("[getBoardGameImagesByGameId]", error);
+      } catch (error) {
+        console.error('[getBoardGameImagesByGameId]', error);
         Pop.error(error);
       }
     }
@@ -165,36 +178,34 @@ export default {
     async function getBoardGamePricesByGameId() {
       try {
         await atlasGamesService.getBoardGamePricesByGameId(route.params.id);
-      }
-      catch (error) {
-        console.error("[getBoardGamePricedByGameId]", error);
+      } catch (error) {
+        console.error('[getBoardGamePricedByGameId]', error);
         Pop.error(error);
       }
     }
     async function getBoardGameVideosByGameId() {
       try {
         await atlasGamesService.getBoardGameVideosByGameId(route.params.id);
-      }
-      catch (error) {
-        console.error("[getBoardGameVideosByGameId]", error);
+      } catch (error) {
+        console.error('[getBoardGameVideosByGameId]', error);
         Pop.error(error);
       }
     }
 
     async function getBoardGameReviewsByGameId() {
       try {
-        await atlasGamesService.getBoardGameReviewsByGameId(route.params.id)
+        await atlasGamesService.getBoardGameReviewsByGameId(route.params.id);
       } catch (error) {
-        console.error('[getBoardGameReviewsByGameId]', error)
-        Pop.error(error)
+        console.error('[getBoardGameReviewsByGameId]', error);
+        Pop.error(error);
       }
     }
     onMounted(() => {
       getBoardGameDetailsById();
       getBoardGamePricesByGameId();
       getBoardGameVideosByGameId();
-      getBoardGameImagesByGameId()
-      getBoardGameReviewsByGameId()
+      getBoardGameImagesByGameId();
+      getBoardGameReviewsByGameId();
     });
     return {
       modules: [Pagination, Navigation],
@@ -203,7 +214,7 @@ export default {
       videos: computed(() => AppState.activeBoardGameVideos),
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
-      modalImage: computed(() => AppState.activeImage)
+      modalImage: computed(() => AppState.activeImage),
     };
   },
   components: {
@@ -213,17 +224,13 @@ export default {
     ActiveBoardGameVideos,
     ABGReviews,
     AddToList,
-    ABGPrices
-  }
-}
+    ABGPrices,
+  },
+};
 </script>
 
-$c1: #cff09e;
-$c2: #a8dba8;
-$c3: #79bd9a;
-$c4: #3b8686;
-$c5: #0B486B;
-$c6: #ffa216;
+$c1: #cff09e; $c2: #a8dba8; $c3: #79bd9a; $c4: #3b8686; $c5: #0B486B; $c6:
+#ffa216;
 
 <style lang="scss" scoped>
 .customSize {
@@ -237,12 +244,11 @@ b {
 }
 
 p {
-
   padding-top: 2.5px;
   margin-bottom: 0;
 
   font-weight: 600;
-  color: #0B486B;
+  color: #0b486b;
 }
 
 .price-row {
@@ -271,23 +277,23 @@ p {
   background-color: #79bd9a70;
 }
 
-.hi{
+.hi {
   padding-left: 9rem;
-  padding-right:9rem;
+  padding-right: 9rem;
 }
 
-.prices{
+.prices {
   height: 350px;
   overflow: auto;
-  border:#3b8686 solid 10px
+  border: #3b8686 solid 10px;
 }
 
-.reviews{
-  overflow:auto;
+.reviews {
+  overflow: auto;
 }
 
-.desc{
+.desc {
   padding-left: 300px;
-  padding-right:300px
+  padding-right: 300px;
 }
 </style>

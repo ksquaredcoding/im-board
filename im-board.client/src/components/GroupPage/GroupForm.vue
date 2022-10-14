@@ -5,7 +5,7 @@
     tabindex="-1"
     aria-labelledby="groupFormLabel"
     aria-hidden="true"
-  >
+   v-if="route.name =='Account'">
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
@@ -42,6 +42,58 @@
         </div>
       </div>
     </div>
+
+  
+  </div>
+
+
+
+  <div
+  v-else
+    class="modal"
+    id="groupForm"
+    tabindex="-1"
+    aria-labelledby="groupFormLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body FORM">
+          <!-- -------------------SECTION FORM----------------------------------- -->
+          <form @submit.prevent="handleSubmitForEdit()" class="">
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <img
+                    :src="editable.coverImg"
+                    alt=""
+                    class="forcedImg smallerImg mt-2 Img1"
+                  />
+                </div>
+                <div class="mt-3 inputBox">
+                  <input type="url" class=" " v-model="editable.coverImg" required aria-required="true" />
+                  <span>CoverImg</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mt-3 inputBox">
+                  <input type="text" class=" " v-model="editable.name"  aria-required="true" required/>
+                  <span>group Name</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-3">
+              <button class="btn btn-success selectable" type="submit" data-bs-dismiss="modal" >
+               Edit Group
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  
   </div>
 </template>
 
@@ -52,10 +104,13 @@ import { ref } from 'vue';
 import { groupsService } from '../../services/GroupsService.js';
 import Pop from '../../utils/Pop.js';
 import { AppState } from '../../AppState.js';
+import { useRoute } from "vue-router";
 export default {
   setup(props) {
+    const route = useRoute()
     const editable = ref({});
     return {
+      route,
       editable,
       group: computed(() => AppState.groups),
 
@@ -66,6 +121,16 @@ export default {
           Pop.error(error, '[handleSubmit(createGroup)]');
         }
       },
+
+      
+      async handleSubmitForEdit() {
+        try {
+          await groupsService.editGroup(editable.value);
+        } catch (error) {
+          Pop.error(error, '[handleSubmit(createGroup)]');
+        }
+      },
+
     };
   },
 };
