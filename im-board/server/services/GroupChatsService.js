@@ -3,6 +3,18 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupMembersService } from "./GroupMembersService.js";
 
 class GroupChatService {
+  async removeGroupChat(groupChatId, accountId) {
+    const chat = await dbContext.GroupChats.find({ id: groupChatId });
+    if (!chat) {
+      throw new BadRequest("bad or invalid chatId");
+    }
+    // @ts-ignore
+    let groupId = chat.groupId;
+    const group = await dbContext.Groups.find({ id: groupId });
+    // @ts-ignore
+    const isMember = await groupMembersService.getMemberForGroup(group.id);
+    // const iscreator
+  }
   async addGroupChat(groupChatData) {
     const isMember = await groupMembersService.getMemberForGroup(
       groupChatData.groupId,
