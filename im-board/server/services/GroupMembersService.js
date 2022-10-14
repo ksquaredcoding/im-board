@@ -52,8 +52,8 @@ class GroupMembersService {
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
       // console.log('Already a Member!');
-      throw new BadRequest("you are already in this group");
-      // return isMember;
+      // throw new BadRequest("you are already in this group");
+      return isMember;
     }
     const groupMember = await dbContext.GroupMembers.create({
       groupId,
