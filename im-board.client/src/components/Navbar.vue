@@ -55,7 +55,7 @@
         <router-link :to="{name: 'Account'}"> 
         
           <a name="" id="" class="btn bg-c2 box-shadow" href="#" role="button"
-            >Lists</a
+            >Account</a
           >
         </router-link>
       </div>
