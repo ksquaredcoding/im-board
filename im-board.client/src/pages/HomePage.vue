@@ -52,17 +52,26 @@ export default {
       }
     }
     onMounted(() => {
+      
+
       getBoardGames();
-      window.addEventListener('scroll', this.handleScroll)
+      window.addEventListener('scroll', handleScroll)
     });
 
-
+async function handleScroll(){
+ if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
+console.log('1');
+ }
+}
 
     
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
 
+
+
+      
       async getBoardGamesByCategories(category) {
         try {
           await atlasGamesService.getBoardGamesByCategories(category);

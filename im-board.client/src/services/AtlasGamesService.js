@@ -12,7 +12,7 @@ class AtlasGamesService {
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
-        limit: 20,
+        limit: 80,
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
