@@ -119,7 +119,7 @@ import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { atlasGamesService } from "../services/AtlasGamesService.js";
 import Pop from "../utils/Pop.js";
-import ActiveBoardGameImages from "../components/ActiveBoardGameImages.vue";
+import ActiveBoardGameImages from "../components/BoardGame/ActiveBoardGameImages.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
@@ -133,10 +133,10 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../models/ActiveBoardGameImage.js";
-import ActiveBoardGameVideos from "../components/ActiveBoardGameVideos.vue";
-import ABGReviews from "../components/ABGReviews.vue";
+import ActiveBoardGameVideos from "../components/BoardGame/ActiveBoardGameVideos.vue";
+import ABGReviews from "../components/BoardGame/ABGReviews.vue";
 import AddToList from "../components/AddToList.vue";
-import ABGPrices from "../components/ABGPrices.vue";
+import ABGPrices from "../components/BoardGame/ABGPrices.vue";
 
 
 export default {

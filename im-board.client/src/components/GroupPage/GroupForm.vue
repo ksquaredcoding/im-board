@@ -49,9 +49,9 @@
 import { computed } from '@vue/reactivity';
 import { ref } from 'vue';
 
-import { groupsService } from '../services/GroupsService.js';
-import Pop from '../utils/Pop.js';
-import { AppState } from '../AppState.js';
+import { groupsService } from '../../services/GroupsService.js';
+import Pop from '../../utils/Pop.js';
+import { AppState } from '../../AppState.js';
 export default {
   setup(props) {
     const editable = ref({});

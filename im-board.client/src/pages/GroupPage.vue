@@ -50,15 +50,15 @@
   </div>
 </template>
 <script>
-import GroupChatCard from '../components/GroupChatCard.vue';
+import GroupChatCard from '../components/GroupPage/GroupChatCard.vue';
 import GroupBanner from '../components/GroupBanner.vue';
-import GameNightCard from '../components/GameNightCard.vue';
-import GroupChatInput from '../components/GroupChatInput.vue';
-import GroupGamesCard from '../components/GroupGamesCard.vue';
+import GameNightCard from '../components/GroupPage/GameNightCard.vue';
+import GroupChatInput from '../components/GroupPage/GroupChatInput.vue';
+import GroupGamesCard from '../components/GroupPage/GroupGamesCard.vue';
 import Pop from '../utils/Pop.js';
 import { groupsService } from '../services/GroupsService.js';
 import { onMounted } from 'vue';
-import GroupForm from '../components/GroupForm.vue';
+import GroupForm from '../components/GroupPage/GroupForm.vue';
 import { accountService } from '../services/AccountService.js';
 import { AppState } from '../AppState.js';
 import { AuthService } from '../services/AuthService.js';

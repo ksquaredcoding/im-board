@@ -28,8 +28,8 @@ import { AppState } from '../AppState'
 import { accountService } from "../services/AccountService.js"
 import { groupsService } from "../services/GroupsService.js"
 import Pop from "../utils/Pop.js"
-import GroupCard from "../components/GroupCard.vue"
-import GroupForm from "../components/GroupForm.vue"
+import GroupCard from "../components/GroupPage/GroupCard.vue"
+import GroupForm from "../components/GroupPage/GroupForm.vue"
 export default {
     setup() {
         async function getMyGroups() {

@@ -73,7 +73,7 @@
 
 
 <script>
-import GroupGamesCard from "../components/GroupGamesCard.vue";
+import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
 export default {
     setup() {
         return {};

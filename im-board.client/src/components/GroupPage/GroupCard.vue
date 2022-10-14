@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import { AppState } from '../AppState.js';
-import { Group } from '../models/Group.js';
+import { AppState } from '../../AppState.js';
+import { Group } from '../../models/Group.js';
 
 export default {
   props: {

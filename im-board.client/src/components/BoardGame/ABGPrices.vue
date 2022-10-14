@@ -14,7 +14,7 @@
 
 
 <script>
-import { ActiveBoardGamePrice } from "../models/ActiveBoardGamePrice.js";
+import { ActiveBoardGamePrice } from "../../models/ActiveBoardGamePrice.js";
 
 export default {
   props: {
