@@ -1,3 +1,5 @@
+import { BoardGameCategory } from "./BoardGameCategory.js";
+
 export class BoardGame {
   constructor(data) {
     this.id = data.id;
@@ -9,7 +11,7 @@ export class BoardGame {
     this.largeImage = data.images.large;
     this.description_preview = data.description_preview; //not text but HTML
     this.description = data.description;
-    this.categories = data.categories; //is array
+    this.categories = data.categories.map(d=> new BoardGameCategory(d)); //is array
     this.faq = data.faq; // not text but HTML
     this.official_url = data.official_url;
     this.rules_url = data.rules_url;
@@ -18,7 +20,8 @@ export class BoardGame {
     this.playtime = data.playtime;
     this.players = data.players;
     this.price = data.price;
-    this.primary_publisher = data.primary_publisher.name;
+    //Had to comment out for when using 4 main sorting buttons, didn't like this one idk
+    // this.primary_publisher = data.primary_publisher.name || null ;
     this.year_published = data.year_published;
     this.average_user_rating = data.average_user_rating;
     this.average_learning_complexity = data.average_learning_complexity;

@@ -9,7 +9,7 @@
            {{ boardGame.name }}
         </p>
         <div class="card-text d-flex justify-content-center">
-          Categories: {{ boardGame.categories.toString()}} 
+          Categories: {{ boardGame.categories.name }} 
         </div>
         <div class="card-text d-flex justify-content-center">
           {{ boardGame.players}} players
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { computed } from "@vue/reactivity";
 import { BoardGame } from '../../models/BoardGame/BoardGame.js';
 import AddToList from "./AddToList.vue";
 
@@ -36,7 +37,11 @@ export default {
         boardGame: { type: BoardGame, required: true },
     },
     setup(props) {
-        return {};
+        return {
+
+   //TODO SORTING BOARD GAME CATEGORIES TO SHOW ON THE HOMEPAGE CARD
+  //NEED TO MATCH THE ID AND FIND THE NAME ATTACHED
+        };
     },
     components: { AddToList }
 };
