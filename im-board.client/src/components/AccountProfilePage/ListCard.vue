@@ -5,7 +5,7 @@
             </div>
             <div class="cardholder">
              <!-- NOTE boardgamecard component here -->
-             
+
             </div>
         </div>
 </template>

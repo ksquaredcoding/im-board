@@ -15,49 +15,10 @@
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
-      <div class="col mx-3 bg-grey">
-        <div class="row bg-c4">
-          <div class="col d-flex justify-content-center pt-2">
-            <h2>Favorites</h2>
-          </div>
-        </div>
-        <div class="cardholder">
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-        </div>
-      </div>
-
-      <div class="col mx-3 bg-grey">
-        <div class="row bg-c4">
-          <div class="col d-flex justify-content-center pt-2">
-            <h2>Games I Own</h2>
-          </div>
-        </div>
-        <div class="cardholder">
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-        </div>
-      </div>
-      <div class="col mx-3 bg-grey">
-        <div class="row bg-c4">
-          <div class="col d-flex justify-content-center pt-2">
-            <h2>Wislist</h2>
-          </div>
-        </div>
-        <div class="cardholder">
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-          <GroupGamesCard />
-        </div>
-      </div>
+      <ListCard/>
+      <ListCard/>
+      <ListCard/>
+      <!-- NOTE group card start -->
       <div class="col mx-3 bg-grey">
         <div class="row bg-c6">
           <div class="col d-flex justify-content-center pt-2">
@@ -84,13 +45,14 @@
 <script>
 
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
+import ListCard from "../components/AccountProfilePage/ListCard.vue";
 
 export default {
   setup() {
 
     return {};
   },
-  components: { GroupGamesCard }
+  components: { GroupGamesCard, ListCard }
 }
 </script>
 
