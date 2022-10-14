@@ -1,13 +1,28 @@
 <template>
-  <div class="col-md-12 banner elevation-3 ">
-    <div><button  @click="addMemberToGroup()" class="btn btn-info btn-lg">Join Group</button></div>
+  <div class="col-md-12 banner elevation-3">
+    <div>
+      <button
+        @click="addMemberToGroup()"
+        class="btn btn-info btn-lg"
+        v-if="!alreadyAMember"
+      >
+        Join Group
+      </button>
+      <button @click="" class="btn btn-info btn-lg" v-else>
+        Leave Group
+      </button>
+    </div>
     <div class="row justify-content-center">
-      <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
-        <span class="name">{{group?.name}}</span>
+      <div
+        class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3"
+      >
+        <span class="name">{{ group?.name }}</span>
+  
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div class=" d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar">
-         
+          <div
+            class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar"
+          >
             <img
               src="//thiscatdoesnotexist.com"
               alt="groupMember.name"
@@ -17,7 +32,6 @@
               class="rounded-circle box-shadow mx-1 profile-img"
               v-for="i in 6"
             />
-       
           </div>
         </div>
       </div>
@@ -25,45 +39,57 @@
   </div>
 </template>
 <script>
-import { ActiveGroup } from "../models/ActiveGroup.js";
-import { Group } from "../models/Group.js";
-import { groupsService } from "../services/GroupsService.js";
-import Pop from "../utils/Pop.js";
+import { computed } from '@vue/reactivity';
+import { ref } from 'vue';
+import { AppState } from '../AppState.js';
+import { ActiveGroup } from '../models/ActiveGroup.js';
+import { Group } from '../models/Group.js';
+import { groupsService } from '../services/GroupsService.js';
+import Pop from '../utils/Pop.js';
 
 export default {
   props: {
-    group:{type: ActiveGroup, required:true }
+    group: { type: ActiveGroup, required: true },
   },
   setup(props) {
+    const editable = ref({});
+
     return {
+      editable,
+      alreadyAMember: computed(() =>
+        props.group.groupMemberIds.includes(AppState.account.id)
+      ),
 
-
-      async addMemberToGroup(){
+      async addMemberToGroup() {
         try {
-        
-         
-            await groupsService.addMember(props.group.id)
-            Pop.success('You Joined',props.group.name,"! ")
-          } catch (error) {
-            Pop.error(error,'[addMemberToGroup]')
+          if (props.group.creatorId == AppState.account.id) {
+            Pop.error('Already a Member');
+          } else {
+            editable.value.groupId = props.group.id;
+
+            await groupsService.addMember(editable.value);
+            Pop.success('You Joined', props.group.name, '! ');
           }
-      }
+        } catch (error) {
+          Pop.error(error, '[addMemberToGroup]');
+        }
+      },
     };
   },
 };
 </script>
 <style lang="scss" scoped>
-.groupMemberBar{
+.groupMemberBar {
   // box-shadow: inset 0 2px 5px 0 #082f46e8;;
-transition: 1s ease;
-margin-inline: 7rem;
+  transition: 1s ease;
+  margin-inline: 7rem;
 }
-.groupMemberBar:hover{
+.groupMemberBar:hover {
   transition: 1s ease;
   filter: brightness(120%);
 }
-.bannerBg{
-background-color: #2c2c2fd5;
+.bannerBg {
+  background-color: #2c2c2fd5;
 }
 .banner {
   background-size: cover;
@@ -71,13 +97,13 @@ background-color: #2c2c2fd5;
 }
 .text-shadow {
   color: aliceblue;
-  text-shadow: 1px 1px #2c2c2f, 0px 0px 5px #79bd9a;;
+  text-shadow: 1px 1px #2c2c2f, 0px 0px 5px #79bd9a;
   font-weight: bold;
   letter-spacing: 0.09rem;
   /* Second Color  in text-shadow is the blur */
 }
 
-.name{
+.name {
   font-size: 55px;
 }
 </style>
