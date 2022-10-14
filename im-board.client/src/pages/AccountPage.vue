@@ -29,28 +29,52 @@
     </div>
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-      <div class="col-md-3">
-        <span v-for="b in wishList" :key="b.id">
+
+<div class="col-md bg-grey ms-2">
+    <div class="row bg-c4">
+      <div class="col d-flex justify-content-center pt-2">
+        <h1>Favorites</h1>
+      </div>
+    </div>
+    <div class="cardholder">
+      <span v-for="b in favList" :key="b.id">
           <ListCard :boardGameList="b" />
         </span>
+  </div>
+      </div>
+      
+      <div class="col-md bg-grey mx-3">
+    <div class="row bg-c4">
+      <div class="col-md d-flex justify-content-center pt-2">
+        <h1>Wishlist</h1>
+      </div>
+    </div>
+    <div class="cardholder">
+      <span v-for="b in wishList" :key="b.id">
+          <ListCard :boardGameList="b" />
+        </span>
+  </div>
       </div>
 
-      <div class="col-md-3">
-        <span v-for="b in ownedList" :key="b.id">
+   <div class="col-md bg-grey">
+    <div class="row bg-c4">
+      <div class="col-md d-flex justify-content-center pt-2">
+        <h1>Games I own</h1>
+      </div>
+    </div>
+    <div class="cardholder">
+      <span v-for="b in ownedList" :key="b.id">
           <ListCard :boardGameList="b" />
         </span>
+  </div>
       </div>
 
-      <div class="col-md-3">
-        <span v-for="b in favList" :key="b.id">
-          <ListCard :boardGameList="b" />
-        </span>
-      </div>
+
 
       <!-- NOTE group card start -->
-      <!-- <div class="col-md mx-3 bg-grey">
+      <div class="col-md mx-3 bg-grey">
         <div class="row bg-c6">
-          <div class="col d-flex justify-content-center pt-2">
+          <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
           </div>
         </div>
@@ -63,7 +87,7 @@
           <GroupGamesCard />
           <GroupGamesCard />
         </div>
-      </div> -->
+      </div>
 
 
     </div>
