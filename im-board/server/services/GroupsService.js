@@ -4,8 +4,8 @@ import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
     const groups = await dbContext.Groups.find({ accountId })
-      .populate("group")
-      .populate("profile", "name picture");
+      // .populate("group")
+      // .populate("profile", "name picture");
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
     }
