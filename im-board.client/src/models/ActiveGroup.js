@@ -9,5 +9,6 @@ constructor(data) {
   this.groupMemberIds=data.groupMemberIds
   this.createdAt = data.createdAt
   this.creator=new Account(data.creator)
+  
 }
 }
