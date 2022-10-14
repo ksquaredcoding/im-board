@@ -30,8 +30,19 @@
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
       <div class="col-md-3">
-        <span v-for="b in bgLists" :key="b.id">
+        <span v-for="b in wishList" :key="b.id">
+          <ListCard :boardGameList="b" />
+        </span>
+      </div>
 
+      <div class="col-md-3">
+        <span v-for="b in ownedList" :key="b.id">
+          <ListCard :boardGameList="b" />
+        </span>
+      </div>
+
+      <div class="col-md-3">
+        <span v-for="b in favList" :key="b.id">
           <ListCard :boardGameList="b" />
         </span>
       </div>
@@ -94,7 +105,10 @@ export default {
     return {
       account: computed(() => AppState.account),
       groups: computed(() => AppState.groups),
-      bgLists: computed(() => AppState.bgLists)
+      bgLists: computed(() => AppState.bgLists),
+      wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
+      favList: computed(() => AppState.bgLists.filter(f => f.listName == "favorite")),
+      ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned"))
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard }
