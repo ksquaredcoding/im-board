@@ -12,12 +12,13 @@
 
 
 <script>
+import { BGList } from "../../models/BoardGame/BGList.js"
 import { listsService } from "../../services/ListsService.js"
 import Pop from "../../utils/Pop.js"
 
 export default {
   props: {
-    
+    boardGameLists: {type: BGList, required: true}
   },
   setup(props){
     return {
