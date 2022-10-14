@@ -60,7 +60,7 @@ export default {
     });
 
     async function handleScroll(){
-     if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 100) {
+     if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 200) {
 
     }
     getMoreBoardGames()
