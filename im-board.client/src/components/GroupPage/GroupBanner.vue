@@ -1,38 +1,22 @@
 <template>
-  <div class="col-md-12 banner elevation-3">
+  <div class="col-md-12 banner elevation-3" :style="{backgroundImage: `url(${group.coverImg})`}">
     <div class="logicButtons">
-      <button
-        @click="addGroupMember()"
-        class="btn btn-info button-50 py-1 px-2 m-2"
-        v-if="!alreadyAMember"
-      >
+      <button @click="addGroupMember()" class="btn btn-info button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group
       </button>
-      <button
-        @click="leaveGroup()"
-        class="btn btn-info button-51 py-1 px-2 m-2"
-        v-else
-      >
+      <button @click="leaveGroup()" class="btn btn-info button-51 py-1 px-2 m-2" v-else>
         Leave Group
       </button>
       <div class="">
         <!-- ------------ -->
-        <button
-          @click="removeGroup()"
-          class="btn btn-danger button-52 py-1 px-2 m-2"
-          v-if="groupOwner"
-        >
+        <button @click="removeGroup()" class="btn btn-danger button-52 py-1 px-2 m-2" v-if="groupOwner">
           Remove Group
         </button>
         <div v-else></div>
         <!-- EDIT -->
         <div v-if="groupOwner">
-          <button
-            @click="editGroup()"
-            class="btn btn-warning button-50 py-1 px-2 m-2"
-            data-bs-toggle="modal"
-            data-bs-target="#groupForm"
-          >
+          <button @click="editGroup()" class="btn btn-warning button-50 py-1 px-2 m-2" data-bs-toggle="modal"
+            data-bs-target="#groupForm">
             Edit group
           </button>
           <GroupForm />
@@ -40,26 +24,14 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div
-        class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3"
-      >
+      <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
         <span class="name">{{ group?.name }}</span>
 
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div
-            class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar"
-          >
-            <img
-              :src="g.profile.picture"
-              :alt="g.profile.name"
-              :title="g.profile.name"
-              height="45"
-              width="45"
-              class="rounded-circle box-shadow mx-1 profile-img"
-              v-for="g in groupMember"
-              :key="g.id"
-            />
+          <div class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar">
+            <img :src="g.profile.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
+              class="rounded-circle box-shadow mx-1 profile-img" v-for="g in groupMember" :key="g.id" />
           </div>
         </div>
       </div>
@@ -159,17 +131,23 @@ export default {
   transition: 1s ease;
   margin-inline: 7rem;
 }
+
 .groupMemberBar:hover {
   transition: 1s ease;
   filter: brightness(120%);
 }
+
 .bannerBg {
   background-color: #2c2c2fd5;
 }
+
 .banner {
   background-size: cover;
-  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F448%2F448821.jpg&f=1&nofb=1&ipt=c82f7488813551ce7475226bda34e557ed75955562a742824dae6d417ad79a5e&ipo=images);
+  // background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F448%2F448821.jpg&f=1&nofb=1&ipt=c82f7488813551ce7475226bda34e557ed75955562a742824dae6d417ad79a5e&ipo=images);
+  background-position: center;
+  background-position: fixed;
 }
+
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px #2c2c2f, 0px 0px 5px #79bd9a;
