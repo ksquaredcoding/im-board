@@ -116,9 +116,23 @@ export default {
       }
     }
 
+
+async function getListsByGroupId(){
+  try {
+      await groupsService.getListsByGroupId(route.params.id)
+    } catch (error) {
+      Pop.error(error,'[getListsByGroupId]')
+    }
+}
+
+
+
+
+
     onMounted(() => {
       getGroupById();
       getGroupMembersByGroupId();
+      getListsByGroupId()
     });
 
     // ANCHOR this essentially works as an observer.. think 'AppState.on'

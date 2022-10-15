@@ -101,6 +101,8 @@ export default {
             name: props.boardGameOnHomePage.name,
             imgUrl: props.boardGameOnHomePage.largeImage,
             rating: props.boardGameOnHomePage.average_user_rating,
+            players:props.boardGameOnHomePage.players,
+            playTime:props.boardGameOnHomePage.playtime,
             type: editable.value
           }
           await listsService.addGameToList(formData)

@@ -4,7 +4,7 @@ export class BGList {
   constructor(data) {
     this.listId = data.id
     this.boardGameName = data.name
-    this.account = new Account(data.account)
+    // this.account = new Account(data.account)
     this.accountId = data.accountId
     this.addedToListAt = data.createdAt
     this.gameId = data.gameId
@@ -13,5 +13,7 @@ export class BGList {
     this.updatedAt = data.updatedAt
     this.imgUrl = data.imgUrl
     this.players = data.players
+    this.playTime=data.playTime
   }
 }
+
