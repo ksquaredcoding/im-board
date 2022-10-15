@@ -9,9 +9,9 @@ import { api } from './AxiosService.js';
 class GroupsService {
   async getGroupById(groupId) {
     const res = await api.get(`/api/groups/${groupId}`);
-    console.log('resData',res.data);
+    console.log('resData', res.data);
     AppState.activeGroup = new ActiveGroup(res.data);
-    console.log('appState',AppState.activeGroup);
+    console.log('appState', AppState.activeGroup);
   }
   async createGroup(groupData) {
     const res = await api.post('/api/groups', groupData);
@@ -19,7 +19,8 @@ class GroupsService {
     const group = new Group(res.data);
     // const group = new GroupMemberShip(res.data);
 
-    AppState.groups = [...AppState.groups, group];
+    // AppState.groups = [...AppState.groups, group];
+    
     AppState.activeGroup = group;
     // AppState.groups = [...AppState.groups, group];
 
@@ -28,9 +29,16 @@ class GroupsService {
   }
   async removeGroup(groupId) {
     await api.delete(`api/groups/${groupId}`);
-    AppState.groups = AppState.groups.filter(g=> g.groupId != groupId)
-    // AppState.groups = AppState.groups.filter((g) => g.id != groupId);
-    router.push({ name: 'Account' });
+
+    //Filter from Account Page populating groupMemberships
+    AppState.myGroupMemberShips = AppState.myGroupMemberShips.filter(
+      (g) => g.groupId != groupId
+      );
+
+
+      // AppState.groups = AppState.groups.filter(g=> g.id != groupId)
+      router.push({ name: 'Account' });
+   
   }
 
   async editGroup(groupId) {
@@ -47,4 +55,3 @@ class GroupsService {
   }
 }
 export const groupsService = new GroupsService();
-

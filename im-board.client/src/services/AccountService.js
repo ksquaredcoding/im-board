@@ -1,5 +1,5 @@
 import { AppState } from '../AppState';
-import { Account } from "../models/Account.js";
+import { Account } from '../models/Account.js';
 import { BGList } from '../models/BoardGame/BGList.js';
 import { GroupMemberShip } from '../models/GroupMembership.js';
 import { logger } from '../utils/Logger';
@@ -17,12 +17,12 @@ class AccountService {
 
   async getMyGroups() {
     const res = await api.get('/account/groups');
-console.log('Account:',res.data);
+    console.log('Account:', res.data);
     // console.log(AppState.account.id);
-    AppState.groupMemberShip = res.data.map((g) => new GroupMemberShip(g));
+    AppState.myGroupMemberShips = res.data.map((g) => new GroupMemberShip(g));
     // AppState.groups = res.data.map((g) => new Group(g));
-  
-    console.log(AppState.account)
+
+    console.log(AppState.account);
   }
 
   async getMyLists() {
@@ -33,8 +33,8 @@ console.log('Account:',res.data);
   }
 
   async editAccount(formData) {
-    const res = await api.put('/account', formData)
-    AppState.account = new Account(res.data)
+    const res = await api.put('/account', formData);
+    AppState.account = new Account(res.data);
   }
 }
 

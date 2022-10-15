@@ -7,7 +7,7 @@ export class GroupMemberShip {
     this.createdAt = data.createdAt;
 // this.group = new Group(data.group)
 
-this.group = data.group
+this.group = new Group(data.group)
  
     this.groupId = data.groupId
   }

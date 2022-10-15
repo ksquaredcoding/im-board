@@ -7,20 +7,19 @@ export const AppState = reactive({
   account: {},
 
   /** @type {import('./models/GroupMembership.js').GroupMemberShip[]} */
-  groupMemberShip:[],
+  myGroupMemberShips: [],
 
-  /** @type {import('./models/GroupMembership.js').GroupMemberShip[]} */
+  /** @type {import('./models/Group.js').Group[]} */
   groups: [],
 
   /** @type {import('./models/GroupMembership.js').GroupMemberShip | null} */
   activeGroup: null,
 
-  /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
-  bgLists: [],
-
   /** @type {import('./models/Account.js').Account[]} */
   groupMembers: [],
 
+  /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
+  bgLists: [],
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   boardgames: [],
 
