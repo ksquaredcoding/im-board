@@ -5,7 +5,7 @@
     tabindex="-1"
     aria-labelledby="groupFormLabel"
     aria-hidden="true"
-   v-if="route.name =='Account'">
+>
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
@@ -21,7 +21,7 @@
                   />
                 </div>
                 <div class="mt-3 inputBox">
-                  <input type="url" class=" " v-model="editable.coverImg" required aria-required="true" 7 />
+                  <input type="url" class=" " v-model="editable.coverImg" required aria-required="true"  />
                   <span>CoverImg</span>
                 </div>
               </div>
@@ -47,9 +47,9 @@
   </div>
 
 
-
+<!-- 
   <div
-  v-else
+ 
     class="modal"
     id="groupForm"
     tabindex="-1"
@@ -59,7 +59,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
-          <!-- -------------------SECTION FORM----------------------------------- -->
+     
           <form @submit.prevent="handleSubmitForEdit()" class="">
             <div class="row">
               <div class="col-md-6">
@@ -94,7 +94,7 @@
     </div>
 
   
-  </div>
+  </div> -->
 </template>
 
 <script>
