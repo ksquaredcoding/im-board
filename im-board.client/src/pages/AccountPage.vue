@@ -220,7 +220,7 @@ export default {
 }
 
 .cardholder {
-  max-height: 44vh;
+  max-height: 70vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
