@@ -72,14 +72,16 @@ export default {
             rating: this.boardGame.average_user_rating,
             players: this.boardGame.players,
             categories: this.boardGame.categories,
+            players: this.boardGame.players,
+            playTime: this.boardGame.playtime,
             type: editable.value
           }
-       const test =   await listsService.addGameToList(formData)
+          const test = await listsService.addGameToList(formData)
           //Test
           if (test) {
-            
+
             Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
-          } else{
+          } else {
             Pop.error('Already Have This On This List')
           }
         } catch (error) {

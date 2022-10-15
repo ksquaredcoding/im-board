@@ -79,9 +79,8 @@
           </div>
         </div>
         <div class="cardholder">
-          <div class="" v-for="g in groups" :key="g.id">
+          <div v-for="g in groups" :key="g.id">
             <GroupCard :group="g" />
-
           </div>
         </div>
       </div>
