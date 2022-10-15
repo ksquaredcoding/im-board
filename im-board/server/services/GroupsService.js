@@ -24,9 +24,9 @@ class GroupsService {
       throw new Forbidden("only the creator delete this group");
     }
 
-    if (group.groupMemberIds.length > 1) {
-      throw new Forbidden("this group still has members!");
-    }
+    // if (group.groupMemberIds.length > 1) {
+    //   throw new Forbidden("this group still has members!");
+    // }
     // @ts-ignore
     await member.remove();
     await group.remove();
