@@ -31,6 +31,7 @@ class GroupChatService {
     return chat;
   }
   async addGroupChat(groupChatData) {
+    // debugger
     const isMember = await groupMembersService.getMemberForGroup(
       groupChatData.groupId,
       groupChatData.creatorId

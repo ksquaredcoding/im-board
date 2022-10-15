@@ -36,6 +36,7 @@
 
 <script>
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 import { AppState } from "../../AppState.js";
 import { AuthService } from "../../services/AuthService.js";
 import { groupChatsService } from "../../services/GroupChatsService.js";
@@ -44,6 +45,7 @@ import Pop from "../../utils/Pop.js";
 export default {
   setup() {
     const editable = ref({});
+    const route = useRoute();
     return {
       editable,
       async handleSubmit() {
@@ -51,10 +53,12 @@ export default {
           if (!AppState.account.id) {
             return AuthService.loginWithPopup();
           }
+          const id = route.params.id;
+          editable.value.groupId = id;
           await groupChatsService.addGroupChat(editable.value);
           editable = {};
         } catch (error) {
-          Pop.error(error, 'handleChatSubmit')
+          Pop.error(error, "handleChatSubmit");
         }
       },
     };
