@@ -1,23 +1,23 @@
 <template>
-    <div class="card elevation-4 my-2" v-if="forumPost">
-   
-      <img :src="forumPost.images.small" alt="" class="forcedImg rounded"  />
+  <div class="card elevation-4 my-2" v-if="forumPost">
 
-      <div class="card-body p-1 bg-dark rounded-bottom">
-        <p class="card-title d-flex justify-content-center">
-          <a  class="text-light" :href="forumPost.postUrl">
-            
-            <h4>{{ forumPost.title}}</h4>
+    <img :src="forumPost.images.small" alt="" class="forcedImg rounded" />
 
-           </a>
-      
-        </p>
-       
-   
-      </div>
+    <div class="card-body p-1 bg-dark rounded-bottom">
+      <p class="card-title d-flex justify-content-center">
+        <a class="text-light" :href="forumPost.postUrl" target="_blank">
+
+          <h4>{{ forumPost.title}}</h4>
+
+        </a>
+
+      </p>
+
+
     </div>
-  
-  
+  </div>
+
+
 
 </template>
 
@@ -27,16 +27,16 @@
 import { ForumPost } from "../models/ForumPost.js";
 
 export default {
-    props: {
-  forumPost:{type: ForumPost, required:true}
-    },
-    setup(props) {
-    
-        return {
+  props: {
+    forumPost: { type: ForumPost, required: true }
+  },
+  setup(props) {
 
-        };
-    },
-  
+    return {
+
+    };
+  },
+
 };
 </script>
 
