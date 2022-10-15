@@ -1,7 +1,8 @@
 <template>
   <router-link :to="{ name: 'Group', params: { id: group?.groupId } }">
-    <div class="card text-bg-dark my-2 elevation-3 groupCard">
-      <img :src="group?.group.coverImg" class="card-img" alt="..." />
+    <div class="card text-bg-dark my-2 elevation-3 groupCard"
+      :style="{backgroundImage: `url(${group.group.coverImg})`}">
+      <!-- <img :src="group?.group.coverImg" class="card-img" alt="..." /> -->
       <div class="card-img-overlay text-shadow">
         <h3 class="card-title">{{ group?.group.name }}</h3>
         <h1 class="text-c6"></h1>
@@ -54,6 +55,8 @@ export default {
   max-height: 30vh;
   min-height: 30vh;
   border: none;
+  background-size: cover;
+  background-position: center;
 }
 
 .groupCard:hover {
@@ -66,7 +69,8 @@ export default {
 
 .card-img {
   // height: 30vh;
-  overflow:hidden;
-  
+  overflow: hidden;
+  max-width: auto;
+  max-height: 16rem;
 }
 </style>
