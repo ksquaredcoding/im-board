@@ -3,7 +3,7 @@
     <form @submit.prevent="getBoardGamesByQuery()">
       <div class=" d-flex">
         <input  v-model="editable" type="text" class="form-control" placeholder="SkullKing,Catan,Twilight Imperium, etc.. " aria-label="Search" aria-describedby="button-addon2">
-<button class="btn btn-outline-secondary bg-c1" type="submit" id="button-addon2"><i class="mdi mdi-magnify mx-2" alt="" title="search By Name" ></i></button>
+<button class="btn button-50 py-1 px-2 mx-2" type="submit" id="button-addon2"><i class="mdi mdi-magnify mx-2" alt="" title="search By Name" ></i></button>
       </div>
 
     </form>

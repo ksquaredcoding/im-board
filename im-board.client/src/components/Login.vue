@@ -2,14 +2,14 @@
 
   <!-- <a name="" id="" class="btn bg-c4 px-2" href="#" role="button">Logout</a> -->
     <button
-      class="btn selectable bg-c4 px-2"
+      class="btn selectable button-50 py-1 px-2 mx-2"
       @click="login"
       v-if="!user.isAuthenticated"
     >
       Login
     </button>
 
-    <div class="btn bg-c4 px-2" v-else>
+    <div class="btn button-51 py-1 px-2 mx-2" v-else>
         <div class="hoverable" @click="logout">
           Logout
         </div>

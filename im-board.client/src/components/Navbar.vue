@@ -70,7 +70,7 @@
       <div class="pe-3  d-flex d-none d-sm-block">
 
         <router-link :to="{name: 'Profile'}">
-          <a name="" id="" class="btn bg-c4 me-2 px-2 box-shadow" href="#" role="button">Profile</a>
+          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
         </router-link>
 
         <Login />
