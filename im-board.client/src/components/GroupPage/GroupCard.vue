@@ -60,7 +60,7 @@ export default {
 }
 
 .groupCard:hover {
-  box-shadow: 0px 10px 20px #000000 inset !important;
+  // box-shadow: 0px 10px 20px #4c4747 inset !important;
   transform: scale(95%);
   transition: all 0.55s ease;
   filter: saturate(120%);
