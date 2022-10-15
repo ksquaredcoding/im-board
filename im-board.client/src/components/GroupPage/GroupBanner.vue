@@ -4,14 +4,14 @@
       <button
         @click="addGroupMember()"
         class="btn btn-info btn-lg"
-        v-if="!groupOwner"
+        v-if="!alreadyAMember"
       >
  
         Join Group
       </button>
-      <!-- <button @click="leaveGroup()" class="btn btn-info btn-lg" v-else>
+      <button @click="leaveGroup()" class="btn btn-info btn-lg" v-else >
         Leave Group
-      </button> -->
+      </button>
       <div class="">
         <!-- ------------ -->
         <button @click="removeGroup()" class="btn btn-danger btn-lg" v-if="groupOwner">
@@ -77,7 +77,7 @@ export default {
         return {
             editable,
             groupMember: computed(() => AppState.groupMembers),
-            alreadyAMember: computed(() => props.group.groupMemberIds.includes(AppState.account.id)),
+            alreadyAMember: computed(() => AppState.groupMembers.filter(b=> b.id == AppState.account.id)),
             groupOwner: computed(() => props.group.creatorId == AppState.account.id),
           
             async removeGroup() {
@@ -99,11 +99,11 @@ export default {
             async addGroupMember() {
                 try {
                     if (props.group.creatorId == AppState.account.id) {
-                        Pop.error("Already a Member");
+                        Pop.error("Already made this group and are already part of it");
                     }
                     else {
                         
-                        await groupMembersService.addGroupMember(editable.value);
+                        await groupMembersService.addGroupMember(props.group.id);
                         Pop.success("You Joined", props.group.name, "! ");
                     }
                 }

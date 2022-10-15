@@ -4,7 +4,7 @@ import { api } from './AxiosService.js';
 
 class GroupMembersService {
   async addGroupMember(groupId) {
-    const res = await api.post('/api/groupmembers', groupId);
+    const res = await api.post('/api/groupmembers', {groupId});
 
     AppState.groupMembers = [new Account(res.data), ...AppState.groupMembers];
     console.log(AppState.groupMembers);
