@@ -55,6 +55,12 @@
       "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#695e5e",
-    "cSpell.words": ["gamenights", "groupchats", "groupmembers"]
+    "cSpell.words": [
+      "gamecardbox",
+      "gamenights",
+      "groupchatbox",
+      "groupchats",
+      "groupmembers"
+    ]
   }
 }
