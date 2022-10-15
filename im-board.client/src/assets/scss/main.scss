@@ -36,7 +36,7 @@ a {
 
 .button-50 
 {
-  background: linear-gradient(to bottom right, #79bd9a, #3b8686);
+  background: linear-gradient(to bottom right, #cff09e, #3b8686);
   border: 0;
   border-radius: 12px;
   color: #FFFFFF;
@@ -61,7 +61,11 @@ a {
 }
 
 .button-50:hover{
-  color: #0B486B!important
+  color: #0B486B!important;
+   transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
 }
 //------------ BUTTON 51 -----------------
 
@@ -91,8 +95,49 @@ a {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 .button-51:hover{
-  color: #2c2c2f!important
+  color: #2c2c2f!important;
+   transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
 }
+
+//------------ BUTTON 52 -----------------
+
+.button-52 
+{
+  background: linear-gradient(to bottom right, #a8dba8, #0B486B);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  // font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family: 'Baloo 2', cursive;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 2.5;
+  outline: transparent;
+  // padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+.button-52:hover{
+  color: #2c2c2f!important;
+   transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
+}
+
+
 
 @media (min-width: 768px) {
   .button-50 {

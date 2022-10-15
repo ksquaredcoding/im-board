@@ -3,14 +3,14 @@
     <div class="logicButtons">
       <button
         @click="addGroupMember()"
-        class="btn btn-info btn-lg button-50 py-1 px-2 m-2"
+        class="btn btn-info button-50 py-1 px-2 m-2"
         v-if="!alreadyAMember"
       >
         Join Group
       </button>
       <button
         @click="leaveGroup()"
-        class="btn btn-info btn-sm button-50 py-1 px-2 m-2"
+        class="btn btn-info button-51 py-1 px-2 m-2"
         v-else
       >
         Leave Group
@@ -19,7 +19,7 @@
         <!-- ------------ -->
         <button
           @click="removeGroup()"
-          class="btn btn-danger btn-sm button-50 py-1 px-2 m-2"
+          class="btn btn-danger button-52 py-1 px-2 m-2"
           v-if="groupOwner"
         >
           Remove Group
