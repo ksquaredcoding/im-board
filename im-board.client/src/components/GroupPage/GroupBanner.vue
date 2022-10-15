@@ -7,20 +7,20 @@
       <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2" v-else>
         Leave Group
       </button>
-      
-        <!-- ------------ -->
-        <button @click="removeGroup()" class="btn btn-danger button-52 py-1 px-2 m-2" v-if="groupOwner">
-          Remove Group
+
+      <!-- ------------ -->
+      <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
+        Delete Group
+      </button>
+      <div v-else></div>
+      <!-- EDIT -->
+      <div v-if="groupOwner">
+        <button @click="editGroup()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
+          data-bs-target="#groupForm">
+          Edit group
         </button>
-        <div v-else></div>
-        <!-- EDIT -->
-        <div v-if="groupOwner">
-          <button @click="editGroup()" class="btn btn-warning button-50 py-1 px-2 m-2" data-bs-toggle="modal"
-            data-bs-target="#groupForm">
-            Edit group
-          </button>
-          <GroupForm />
-        </div>
+        <GroupForm />
+      </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
