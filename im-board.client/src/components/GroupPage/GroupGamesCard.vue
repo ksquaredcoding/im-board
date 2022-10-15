@@ -14,6 +14,10 @@
         </div>
       </div>
 
+      <!-- <div class="d-flex justify-content-center">
+        <img :src="m.profile?.picture" alt="" v-for="m in member" :title="m.profile?.name"
+          class="rounded-circle forcedImg">
+      </div> -->
 
     </div>
 
@@ -28,17 +32,27 @@
 
 
 <script>
+import { computed } from "@vue/reactivity";
+import { AppState } from "../../AppState.js";
 import { BGList } from "../../models/BoardGame/BGList.js";
+import { GroupMembers } from "../../models/GroupMember.js";
 
 export default {
   props: {
     boardGameList: {
       type: BGList,
       required: true
-    }
+    },
+    // groupMember: {
+    //   type: GroupMembers,
+    //   required: true
+
+    // }
   },
   setup(props) {
-    return {}
+    return {
+      member: computed(() => AppState.groupMembers)
+    }
   }
 }
 </script>
@@ -52,5 +66,10 @@ export default {
 .bg-img {
   background-size: contain;
   background-position: center;
+}
+
+.forcedImg {
+  width: 60px;
+  height: 60px;
 }
 </style>
