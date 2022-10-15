@@ -1,13 +1,13 @@
 <template>
   <div class="col-md-12 banner elevation-3" :style="{backgroundImage: `url(${group.coverImg})`}">
-    <div class="logicButtons">
-      <button @click="addGroupMember()" class="btn btn-info button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
+    <div class="logicButtons d-flex">
+      <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group
       </button>
-      <button @click="leaveGroup()" class="btn btn-info button-51 py-1 px-2 m-2" v-else>
+      <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2" v-else>
         Leave Group
       </button>
-      <div class="">
+      
         <!-- ------------ -->
         <button @click="removeGroup()" class="btn btn-danger button-52 py-1 px-2 m-2" v-if="groupOwner">
           Remove Group
@@ -21,7 +21,6 @@
           </button>
           <GroupForm />
         </div>
-      </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
