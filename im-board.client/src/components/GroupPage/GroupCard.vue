@@ -51,14 +51,22 @@ export default {
 
 .groupCard {
   transition: all 0.55s ease;
-  
+  max-height: 30vh;
+  min-height: 30vh;
+  border: none;
 }
 
 .groupCard:hover {
-    box-shadow: 0px 10px 20px #000000 inset !important;
+  box-shadow: 0px 10px 20px #000000 inset !important;
   transform: scale(95%);
   transition: all 0.55s ease;
   filter: saturate(120%);
   filter: brightness(120%);
+}
+
+.card-img {
+  // height: 30vh;
+  overflow:hidden;
+  
 }
 </style>
