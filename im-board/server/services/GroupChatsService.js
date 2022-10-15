@@ -4,16 +4,31 @@ import { groupMembersService } from "./GroupMembersService.js";
 
 class GroupChatService {
   async removeGroupChat(groupChatId, accountId) {
-    const chat = await dbContext.GroupChats.find({ id: groupChatId });
+    // @ts-ignore
+    const chat = await this.getGroupChatById(groupChatId);
+    // @ts-ignore
+    let groupId = chat.groupId;
+    const isMember = await groupMembersService.getMemberForGroup(
+      groupId,
+      accountId
+    );
+    if (!isMember) {
+      throw new Forbidden("please join the group to chat!");
+    }
+    // @ts-ignore
+    if (chat.creatorId.tostring() != accountId) {
+      throw new BadRequest("not your groupChat");
+    }
+    // @ts-ignore
+    await chat.remove();
+    return chat;
+  }
+  async getGroupChatById(id) {
+    const chat = await dbContext.GroupChats.find({ id });
     if (!chat) {
       throw new BadRequest("bad or invalid chatId");
     }
-    // @ts-ignore
-    let groupId = chat.groupId;
-    const group = await dbContext.Groups.find({ id: groupId });
-    // @ts-ignore
-    const isMember = await groupMembersService.getMemberForGroup(group.id);
-    // const iscreator
+    return chat;
   }
   async addGroupChat(groupChatData) {
     const isMember = await groupMembersService.getMemberForGroup(
