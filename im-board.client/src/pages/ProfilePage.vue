@@ -124,7 +124,7 @@ export default {
     })
     return {
       account: computed(() => AppState.account),
-      groups: computed(() => AppState.groups),
+      groups: computed(() => AppState.groupMemberShips),
       bgLists: computed(() => AppState.bgLists),
       wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
       favList: computed(() => AppState.bgLists.filter(f => f.listName == "favorite")),

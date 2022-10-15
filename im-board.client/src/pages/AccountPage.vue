@@ -60,7 +60,7 @@
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
       <!-- animate__animated animate__fadeInUp -->
-      <div class="col-md-3 bg-grey ms-md-2">
+      <div class="col-md bg-grey ms-md-2">
         <div class="row bg-c4">
           <div class="col d-flex justify-content-center pt-2">
             <h1>Favorites</h1>
@@ -73,7 +73,7 @@
         </div>
       </div>
 
-      <div class="col-md-3 bg-grey mx-md-3">
+      <div class="col-md bg-grey mx-md-3">
         <div class="row bg-c4">
           <div class="col-md d-flex justify-content-center pt-2">
             <h1>Wishlist</h1>
@@ -86,13 +86,13 @@
         </div>
       </div>
 
-      <div class="col-md-3 bg-grey">
+      <div class="col-md bg-grey">
         <div class="row bg-c4">
-          <div class="col-md-12 d-flex justify-content-center pt-2">
+          <div class="col-md d-flex justify-content-center pt-2">
             <h1>Games I own</h1>
           </div>
         </div>
-        <div class="cardholder col-md-3">
+        <div class="cardholder">
           <span v-for="b in ownedList" :key="b.id">
             <ListCard :boardGameList="b" />
           </span>
