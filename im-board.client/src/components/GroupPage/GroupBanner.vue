@@ -21,7 +21,7 @@
         
        </div>
        <!-- EDIT -->
-       <div>
+       <div v-if="groupOwner">
         <button @click="editGroup()" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#groupForm">EDIT GROUP IMAGE</button>
         <GroupForm />
         
@@ -40,9 +40,9 @@
             class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar"
           >
             <img
-              :src="g.picture"
-              :alt="g.name"
-              :title="g.name"
+              :src="g.profile.picture"
+              :alt="g.profile.name"
+              :title="g.profile.name"
               height="45"
               width="45"
               class="rounded-circle box-shadow mx-1 profile-img"
@@ -77,9 +77,9 @@ export default {
         return {
             editable,
             groupMember: computed(() => AppState.groupMembers),
-            alreadyAMember: computed(() => AppState.groupMembers.filter(b=> b.id == AppState.account.id)),
+            alreadyAMember: computed(() => AppState.groupMembers.find(b=> b.accountId == AppState.account.id)),
             groupOwner: computed(() => props.group.creatorId == AppState.account.id),
-          
+        memberId: computed(()=> AppState.groupMembers.find(g=> g.accountId == AppState.account.id)),
             async removeGroup() {
                 try {
                     if (!this.groupOwner) {
@@ -104,7 +104,7 @@ export default {
                     else {
                         
                         await groupMembersService.addGroupMember(props.group.id);
-                        Pop.success("You Joined", props.group.name, "! ");
+                        Pop.success(`You Joined ${props.group.name} !`);
                     }
                 }
                 catch (error) {
@@ -116,7 +116,9 @@ export default {
                     if (props.group.creatorId == AppState.account.id) {
                         Pop.error("Must Provide Another Members Info and Relinquish OwnerShip");
                     }
-                    await groupMembersService.leaveGroup(AppState.account.id);
+                    // console.log(this.memberId.id);
+                    await groupMembersService.leaveGroup(this.memberId.id);
+                    Pop.success(`Left ${props.group.name}`)
                 }
                 catch (error) {
                     Pop.error(error, "[leaveGroup]");

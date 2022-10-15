@@ -15,7 +15,7 @@ export const AppState = reactive({
   /** @type {import('./models/GroupMembership.js').GroupMemberShip | null} */
   activeGroup: null,
 
-  /** @type {import('./models/Account.js').Account[]} */
+  /** @type {import('./models/GroupMember.js').GroupMember[]} */
   groupMembers: [],
 
   /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
