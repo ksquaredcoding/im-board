@@ -1,32 +1,25 @@
 <template>
   <div v-if="!group" class=" ">
-   <div class="row">
-    
+    <div class="row">
       <div class="col-md-3 p-0">
         <div class=""></div>
         <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-12 p-2 overflow-auto groupchatbox">
-         
-        </div>
+        <div class="col-12 p-2 overflow-auto groupchatbox"></div>
 
         <div></div>
         <div></div>
- 
       </div>
       <div class="col-md-6 overflow-auto gamecardbox">
-        <div class="px-1">
-     
-        </div>
+        <div class="px-1"></div>
       </div>
 
       <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
-    
       </div>
     </div>
   </div>
@@ -51,10 +44,8 @@
           <GroupChatCard />
           <GroupChatCard />
         </div>
-
-        <div></div>
-        <div></div>
         <GroupChatInput />
+
       </div>
       <div class="col-md-6 overflow-auto gamecardbox">
         <div class="px-1">
@@ -72,9 +63,7 @@
 
         <div v-for="g in lists" :key="g.id">
           <GroupGamesCard :boardGameList="g" />
-
         </div>
-
       </div>
     </div>
   </div>
@@ -117,14 +106,20 @@ export default {
       }
     }
 
-
-async function getListsByGroupId(){
-  try {
-      await groupsService.getListsByGroupId(route.params.id)
-    } catch (error) {
-      Pop.error(error,'[getListsByGroupId]')
+    async function getListsByGroupId() {
+      try {
+        await listsService.getListsByGroupId(route.params.id);
+      } catch (error) {
+        Pop.error(error, "[getListsByGroupId]");
+      }
     }
-}
+    async function getGroupChatsByGroupId() {
+      try {
+        await groupChatsService.getGroupChatsByGroupId(route.params.id);
+      } catch (error) {
+        Pop.error(error, "[getListsByGroupId]");
+      }
+    }
 
     onMounted(() => {
       getGroupById();

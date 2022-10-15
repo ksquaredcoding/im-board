@@ -41,7 +41,7 @@ export default {
   setup() {
     const editable = ref({})
     return {
-      editable
+      editable,
       async handleSubmit() {
         try {
         } catch (error) {}
