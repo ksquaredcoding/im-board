@@ -37,22 +37,19 @@
   </nav> -->
 
   <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage" >
-    <div class=" col-md-2 d-flex">
+    <div class=" col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
-
-        <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Groups</a>
 
         <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm">
           Create Group
         </a>
-        <router-link :to="{name: 'Account'}">
-          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
-        </router-link>
-      </div>
+        
+      </div><div class="ps-4"><Searchbar/></div>
       <!-- TODO END -->
     </div>
-    <div class="col-md-8 d-flex justify-content-center align-items-center">
+    
+    <div class="col-md d-flex justify-content-center align-items-center">
       
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center">
@@ -60,17 +57,21 @@
           <p class=" mb-0 mx-2 navbar-title justify-content-center">I'm Game</p>
         </div>
       </router-link>
-      <Searchbar/>
+     
 
     </div>
+   
     
-    
-    <div class="col-md-2 d-flex flex-row-reverse">
+    <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
       <div class="pe-3  d-flex d-none d-sm-block">
 
         <router-link :to="{name: 'Profile'}">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
+        </router-link>
+
+        <router-link :to="{name: 'Account'}">
+          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
         </router-link>
 
         <Login />

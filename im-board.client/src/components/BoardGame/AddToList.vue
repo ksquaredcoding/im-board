@@ -26,7 +26,8 @@
 
       <div class="ms-2">
 
-        <button class="btn p-0 px-1 bg-c6 mt-1 add" type="submit"><i class="fs-5  mdi mdi-plus text-dark"></i></button>
+        <button class="btn p-0 px-1 bg-c6 mt-1 add" type="submit"><i
+            class="fs-5 add mdi mdi-plus text-dark"></i></button>
       </div>
 
     </form>
@@ -124,5 +125,6 @@ export default {
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 0.75s ease;
+  color: white !important;
 }
 </style>
