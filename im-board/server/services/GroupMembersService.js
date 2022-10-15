@@ -5,7 +5,7 @@ import { groupsService } from "./GroupsService.js";
 
 class GroupMembersService {
   async kickMember(groupMemberId, accountId, newAccountId) {
-    debugger
+    // debugger
     const member = await this.getGroupMemberById(groupMemberId);
     // @ts-ignore
     const group = await groupsService.getGroupById(member.groupId.toString());
