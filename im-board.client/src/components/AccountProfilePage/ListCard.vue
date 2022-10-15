@@ -1,5 +1,5 @@
 <template>
-
+<div class="hi">
   <div class="card elevation-4 my-2">
     <img :src="boardGameList.imgUrl" class="forcedImg rounded img-fluid" />
     <div class="card-body p-1 bg-dark rounded-bottom">
@@ -19,7 +19,7 @@
 
       </p>
     </div>
-  </div>
+  </div></div>
 </template>
 
 
@@ -70,5 +70,10 @@ export default {
 
 .card {
   border: none;
+
+}
+
+.hi{
+  margin-bottom: 25px;
 }
 </style>
