@@ -1,5 +1,6 @@
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
+import { groupChatsService } from "./GroupChatsService.js";
 import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
   async getMyGroups(accountId) {
@@ -13,15 +14,15 @@ class GroupsService {
     return groups;
   }
   async removeGroup(groupId, accountId) {
-  
     const group = await this.getGroupById(groupId);
     const member = await groupMembersService.getMemberForGroup(
       groupId,
       accountId
     );
+    const chats = await groupChatsService.getGroupChatsByGroupId(groupId);
 
     if (group.creatorId.toString() !== accountId) {
-      throw new Forbidden("only the creator delete this group");
+      throw new Forbidden("only the creator can delete this group");
     }
 
     // if (group.groupMemberIds.length > 1) {
@@ -29,6 +30,8 @@ class GroupsService {
     // }
     // @ts-ignore
     await member.remove();
+    // @ts-ignore
+    await chats.remove();
     await group.remove();
     return group;
   }
