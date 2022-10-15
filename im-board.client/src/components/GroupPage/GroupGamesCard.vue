@@ -1,6 +1,5 @@
 <template>
   <div class="bg-light pb-2 m-2 noborder bg-img" :style="{backgroundImage: `url(${boardGameList.imgUrl})`}">
-    test
 
     <div class="row">
 
