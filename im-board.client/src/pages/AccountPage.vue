@@ -2,8 +2,8 @@
   <!-- TEST PUTTING COMMENT TUNG -->
 
   <div class="account Page container-fluid ">
-<!-- animate__animated animate__fadeInLeft -->
-    <div class="row">
+    <!-- animate__animated animate__fadeInLeft -->
+    <!-- <div class="row">
       <div class="col-md-12">
         <div>
           <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#groupForm">
@@ -13,7 +13,7 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
 
     <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="">
@@ -37,8 +37,8 @@
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">
-        <h1>
+      <div class="col-md d-flex justify-content-center ">
+        <h1 class="username">
           {{account.name}}
         </h1>
 
@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
-<!-- animate__animated animate__fadeInUp -->
+      <!-- animate__animated animate__fadeInUp -->
       <div class="col-md-3 bg-grey ms-md-2">
         <div class="row bg-c4">
           <div class="col d-flex justify-content-center pt-2">
