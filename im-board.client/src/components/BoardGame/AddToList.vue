@@ -74,12 +74,17 @@ export default {
             categories: this.boardGame.categories,
             type: editable.value
           }
-          await listsService.addGameToList(formData)
+       const test =   await listsService.addGameToList(formData)
           //Test
-          Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
+          if (test) {
+            
+            Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
+          } else{
+            Pop.error('Already Have This On This List')
+          }
         } catch (error) {
 
-          Pop.error(`You already have ${this.boardGame.name} on ${editable.value}!`)
+          Pop.error(`You already have This One Added to This List!`)
         }
       },
       async handleSubmitOnHomePage() {

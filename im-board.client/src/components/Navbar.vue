@@ -36,7 +36,7 @@
     </div>
   </nav> -->
 
-  <nav class="navbar navbar-dark bg-dark px-3  ">
+  <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage" >
     <div class="col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3  d-none d-sm-block">

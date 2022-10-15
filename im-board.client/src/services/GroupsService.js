@@ -41,7 +41,7 @@ class GroupsService {
 
   async getGroupMembers(groupId) {
     const res = await api.get(`api/groupmembers/${groupId}`);
-    console.log(res.data);
+    // console.log(res.data);
     AppState.groupMembers = res.data.map((g) => new Account(g.profile));
     console.log(AppState.groupMembers);
   }

@@ -37,7 +37,6 @@ const routes = [
     path: '/boardGame_Details/:id',
     name: 'BoardGameDetails',
     component: loadPage('BoardGameDetailsPage'),
-
   },
 ];
 

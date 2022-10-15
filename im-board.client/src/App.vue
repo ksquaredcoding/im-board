@@ -5,6 +5,11 @@
   <main>
     <router-view />
   </main>
+
+  <GroupForm/>
+  <EditBanner/>
+  <EditName/>
+  <EditPic/>
   <!-- <footer>
     <div class="bg-dark text-light text-center p-4">
       Made with 💖 by CodeWorks
@@ -16,6 +21,10 @@
 import { computed } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
+import GroupForm from "./components/GroupPage/GroupForm.vue"
+import EditBanner from "./components/AccountProfilePage/EditBanner.vue"
+import EditName from "./components/AccountProfilePage/EditName.vue"
+import EditPic from "./components/AccountProfilePage/EditPic.vue"
 
 export default {
   setup() {
@@ -23,7 +32,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar }
+  components: { Navbar, GroupForm, EditBanner, EditName, EditPic }
 }
 </script>
 <style lang="scss">

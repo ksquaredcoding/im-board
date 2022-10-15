@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!group">
+  <div v-if="!group" class=" ">
    <div class="row">
     
       <div class="col-md-3 p-0">
@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="group-page container-fluid" v-else="group">
+  <div class="group-page container animate__animated animate__fadeInRight " v-else>
     <div class="row">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <div class="col-md-3 p-0">

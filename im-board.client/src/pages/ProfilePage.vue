@@ -1,6 +1,6 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
-  <div class="account Page container-fluid">
+  <div class="account Page container-fluid animate__animated animate__fadeInUp">
 
     <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">

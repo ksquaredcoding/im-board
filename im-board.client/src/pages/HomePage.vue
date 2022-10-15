@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid homepage" v-if="boardGames">
+  <div class="container-fluid homepage animate__animated animate__fadeInDown" v-if="boardGames">
     <div class="row">
       <div
         class="col-md-2 bg-c4 p-0 searchcol d-none d-sm-block animate__animated animate__fadeInLeft"
@@ -14,16 +14,29 @@
         </div>
 
         <div class="row mx-2">
+          <TransitionGroup
+  name="custom-classes"
+  enterActiveClass="animate__zoomIn animate__animated"
+  leaveActiveClass="animate__zoomOut animate__animated"
+>
           <div class="col-md-3" v-for="b in boardGames" :key="b.id">
             <BoardGameCard :boardGame="b" />
+            
           </div>
+
+</TransitionGroup>
         </div>
       </div>
     </div>
-    <div class="row justify-content-end">
+    <div class="row justify-content-start">
+      <button class="btn btn-dark">
+
+        <a  href="#">Return To Top</a>
+      </button>
       <button @click="getMoreBoardGames()" class="btn btn-danger">
         Load More
       </button>
+    
     </div>
   </div>
 </template>
