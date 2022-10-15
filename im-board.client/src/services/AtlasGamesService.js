@@ -70,11 +70,35 @@ class AtlasGamesService {
     });
     console.log(res.data.games);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    // AppState.boardgames = res.data.games.map(b=> new BoardGame(b))
-    // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+
   }
 
-  //REVIEW https://api.boardgameatlas.com/api/search?client_id=2I6DeypMLL&ids=TAAifFP590
+
+
+
+async getBoardGamesByMinimumPlayers(count){
+  const res = await atlasApi.get('/api/search', {
+    params: {
+      client_id: '2I6DeypMLL',
+      gt_min_players: count, //	Greater than the provided minimum number of players. The example will return 3 or more.
+      // gt_min_playtime: count, //Greater than the provided minimum minutes of playtime. The example will return 11 or more.
+      // gt_max_playtime: count, // Greater than the provided maximum minutes of playtime. The example will return 31 or more.
+      // gt_min_age: count, //	Greater than the provided minimum recommended player age. The example will return 11 or more.
+    },
+  });
+  console.log(res.data.games);
+  // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+}
+
+
+
+
+
+
+
+
+
+
   async getBoardGameDetailsById(id) {
     AppState.activeBoardGame = null;
     const res = await atlasApi.get(`/api/search?${id}`, {
@@ -100,7 +124,7 @@ class AtlasGamesService {
       (a) => new ActiveBoardGameImage(a)
     );
     // console.log(AppState.activeBoardGameImages);
-    // console.log(res.data.images);
+
   }
   async getBoardGamePricesByGameId(id) {
     const res = await atlasApi.get('api/game/prices?', {
@@ -113,7 +137,7 @@ class AtlasGamesService {
     AppState.activeBoardGamePrices = res.data.gameWithPrices.us.map(
       (p) => new ActiveBoardGamePrice(p)
     );
-    console.log(AppState.activeBoardGamePrices);
+    // console.log(AppState.activeBoardGamePrices);
   }
   async getBoardGameVideosByGameId(id) {
     const res = await atlasApi.get('api/game/videos?', {

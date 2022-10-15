@@ -17,10 +17,8 @@ class GroupsService {
     const res = await api.post('/api/groups', groupData);
     console.log(res.data);
     const group = new Group(res.data);
-    // const group = new GroupMemberShip(res.data);
-
-    // AppState.groups = [...AppState.groups, group];
     
+
     AppState.activeGroup = group;
     // AppState.groups = [...AppState.groups, group];
 
@@ -31,14 +29,12 @@ class GroupsService {
     await api.delete(`api/groups/${groupId}`);
 
     //Filter from Account Page populating groupMemberships
-    AppState.myGroupMemberShips = AppState.myGroupMemberShips.filter(
+    AppState.groupMemberShips = AppState.groupMemberShips.filter(
       (g) => g.groupId != groupId
-      );
+    );
 
-
-      // AppState.groups = AppState.groups.filter(g=> g.id != groupId)
-      router.push({ name: 'Account' });
-   
+    // AppState.groups = AppState.groups.filter(g=> g.id != groupId)
+    router.push({ name: 'Account' });
   }
 
   async editGroup(groupId) {

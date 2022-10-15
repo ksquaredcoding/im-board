@@ -7,7 +7,7 @@ export const AppState = reactive({
   account: {},
 
   /** @type {import('./models/GroupMembership.js').GroupMemberShip[]} */
-  myGroupMemberShips: [],
+  groupMemberShips: [],
 
   /** @type {import('./models/Group.js').Group[]} */
   groups: [],

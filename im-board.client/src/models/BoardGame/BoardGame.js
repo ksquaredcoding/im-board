@@ -11,7 +11,8 @@ export class BoardGame {
     this.largeImage = data.images.large;
     this.description_preview = data.description_preview; //not text but HTML
     this.description = data.description;
-    this.categories = data.categories.map(d=> new BoardGameCategory(d)); //is array
+    this.categories = data.categories
+    // this.categories = data.categories.map(d=> new BoardGameCategory(d)); //is array
     this.faq = data.faq; // not text but HTML
     this.official_url = data.official_url;
     this.rules_url = data.rules_url;

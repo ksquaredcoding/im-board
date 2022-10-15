@@ -5,7 +5,7 @@ export class BoardGameCategory {
     // this.cardGame = data.cardGame = '85OKv8p5Ow';
     this.id = data.id;
     this.url = data.url;
-    this.name = this.sortCategories(data.id)
+    this.name = this.sortCategories(data.id) || ""
   }
   sortCategories(id) {
   
