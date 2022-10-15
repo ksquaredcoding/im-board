@@ -13,7 +13,7 @@ class GroupsService {
     return groups;
   }
   async removeGroup(groupId, accountId) {
-    debugger;
+  
     const group = await this.getGroupById(groupId);
     const member = await groupMembersService.getMemberForGroup(
       groupId,
