@@ -13,9 +13,13 @@ class GroupsService {
     return groups;
   }
   async removeGroup(groupId, accountId) {
+    debugger;
     const group = await this.getGroupById(groupId);
-    const member = await dbContext.GroupMembers.find({ groupId, accountId })
-    // @ts-ignore
+    const member = await groupMembersService.getMemberForGroup(
+      groupId,
+      accountId
+    );
+
     if (group.creatorId.toString() !== accountId) {
       throw new Forbidden("only the creator delete this group");
     }
@@ -24,7 +28,7 @@ class GroupsService {
       throw new Forbidden("this group still has members!");
     }
     // @ts-ignore
-    await member.remove()
+    await member.remove();
     await group.remove();
     return group;
   }
