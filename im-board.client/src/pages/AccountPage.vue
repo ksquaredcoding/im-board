@@ -1,128 +1,127 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
 
-    <div class="account Page container-fluid animate__animated animate__fadeInLeft">
-  
-      <div class="row">
-        <div class="col-md-12">
-          <div>
-            <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#groupForm">
-              Create Group
-            </button>
-       
-          </div>
-        </div>
-  
-      </div>
-  
-      <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
-        <div class="">
-          <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
-              class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt=""
-              title="Edit Profile Banner"></i></button>
-          <!-- <EditBanner /> -->
-        </div>
-        <div class="col-md-12 d-flex justify-content-center ">
-  
-          <img :src="account.picture" alt=""
-            class="eum rounded-circle mt-2 icon position-relative forcedImg">
-          <button class="btn editprofilepic position-absolute" data-bs-toggle="modal" data-bs-target="#editProfilePic"><i
-              class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
-              title="Edit Profile Picture"></i></button>
-          <!-- <EditPic /> -->
+  <div class="account Page container-fluid animate__animated animate__fadeInLeft">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#groupForm">
+            Create Group
+          </button>
+
         </div>
       </div>
-  
-      <div class="row justify-content-center align-items-center p-4">
-        <!-- <div class="d-flex justify-content-center editprofilebutton"><button class="btn bg-c6 rounded-circle"></button></div> -->
+
+    </div>
+
+    <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
+      <div class="">
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
+            class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt=""
+            title="Edit Profile Banner"></i></button>
+        <!-- <EditBanner /> -->
       </div>
-      <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
-        <div class="col-md"></div>
-        <div class="col-md d-flex justify-content-center username">
-          <h6>
-{{account.name}}
-          </h6>
-  
-          <button class="btn" data-bs-toggle="modal" data-bs-target="#editName"><i
-              class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
-              title="Edit Username"></i></button>
-          <!-- <EditName /> -->
-  
-        </div>
-        <div class="col-md d-flex justify-content-end">
-  
-          <router-link :to="{name: 'Profile'}">
-            <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
-                title="Save Changes"></i></button>
-          </router-link>
-  
-  
-        </div>
-      </div>
-      <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 animate__animated animate__fadeInUp">
-  
-        <div class="col-md-3 bg-grey ms-md-2">
-          <div class="row bg-c4">
-            <div class="col d-flex justify-content-center pt-2">
-              <h1>Favorites</h1>
-            </div>
-          </div>
-          <div class="cardholder">
-            <span v-for="b in favList" :key="b.id">
-              <ListCard :boardGameList="b" />
-            </span>
-          </div>
-        </div>
-  
-        <div class="col-md-3 bg-grey mx-md-3">
-          <div class="row bg-c4">
-            <div class="col-md d-flex justify-content-center pt-2">
-              <h1>Wishlist</h1>
-            </div>
-          </div>
-          <div class="cardholder">
-            <span v-for="b in wishList" :key="b.id">
-              <ListCard :boardGameList="b" />
-            </span>
-          </div>
-        </div>
-  
-        <div class="col-md-3 bg-grey">
-          <div class="row bg-c4">
-            <div class="col-md-12 d-flex justify-content-center pt-2">
-              <h1>Games I own</h1>
-            </div>
-          </div>
-          <div class="cardholder col-md-3">
-            <span v-for="b in ownedList" :key="b.id">
-              <ListCard :boardGameList="b" />
-            </span>
-          </div>
-        </div>
-  
-        <!-- NOTE group card start -->
-        <div class="col-md mx-3 bg-grey">
-          <div class="row bg-c3">
-            <div class="col-md d-flex justify-content-center pt-2">
-              <h2>Groups</h2>
-              <div><i class="mdi mdi-information-outline fs-5" alt=""
-                  title="Groups only visisble to you, not other users."></i></div>
-            </div>
-          </div>
-          <div class="cardholder ">
-        
-            <div v-for="g in groups" :key="g.id">
-              <GroupCard :group="g" />
-  
-            </div>
-          </div>
-        </div>
-  
-  
+      <div class="col-md-12 d-flex justify-content-center ">
+
+        <img :src="account.picture" alt="" class="eum rounded-circle mt-2 icon position-relative forcedImg">
+        <button class="btn editprofilepic position-absolute" data-bs-toggle="modal" data-bs-target="#editProfilePic"><i
+            class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
+            title="Edit Profile Picture"></i></button>
+        <!-- <EditPic /> -->
       </div>
     </div>
 
- 
+    <div class="row justify-content-center align-items-center p-4">
+      <!-- <div class="d-flex justify-content-center editprofilebutton"><button class="btn bg-c6 rounded-circle"></button></div> -->
+    </div>
+    <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
+      <div class="col-md"></div>
+      <div class="col-md d-flex justify-content-center username">
+        <h1>
+          {{account.name}}
+        </h1>
+
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#editName"><i
+            class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
+            title="Edit Username"></i></button>
+        <!-- <EditName /> -->
+
+      </div>
+      <div class="col-md d-flex justify-content-end">
+
+        <router-link :to="{name: 'Profile'}">
+          <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
+              title="Save Changes"></i></button>
+        </router-link>
+
+
+      </div>
+    </div>
+    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 animate__animated animate__fadeInUp">
+
+      <div class="col-md-3 bg-grey ms-md-2">
+        <div class="row bg-c4">
+          <div class="col d-flex justify-content-center pt-2">
+            <h1>Favorites</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in favList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-3 bg-grey mx-md-3">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Wishlist</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in wishList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-3 bg-grey">
+        <div class="row bg-c4">
+          <div class="col-md-12 d-flex justify-content-center pt-2">
+            <h1>Games I own</h1>
+          </div>
+        </div>
+        <div class="cardholder col-md-3">
+          <span v-for="b in ownedList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <!-- NOTE group card start -->
+      <div class="col-md mx-3 bg-grey">
+        <div class="row bg-c3">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h2>Groups</h2>
+            <div><i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i></div>
+          </div>
+        </div>
+        <div class="cardholder ">
+
+          <div v-for="g in groups" :key="g.id">
+            <GroupCard :group="g" />
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
 </template>
 
 <script>
@@ -176,11 +175,12 @@ export default {
 </script>
 
 <style scoped>
-.forcedImg{
+.forcedImg {
   height: 150px;
   width: 150px;
   object-fit: cover;
 }
+
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -194,6 +194,7 @@ export default {
   transform: translateX(20px);
   opacity: 0;
 }
+
 .banner {
   min-height: 188px;
   background-size: cover;
@@ -214,7 +215,6 @@ export default {
 }
 
 .username {
-  font-size: 3rem;
   font-family: 'Baloo 2', cursive;
   font-weight: 600;
 }
