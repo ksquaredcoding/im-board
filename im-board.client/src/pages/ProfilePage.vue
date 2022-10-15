@@ -16,7 +16,7 @@
       <div class="col-md d-flex justify-content-end">
 
         <router-link :to="{name: 'Account'}">
-          <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-cog-outline fs-1" alt=""
+          <button class="btn rounded-circle editbtn"><i class="ps-1 mdi mdi-account-cog-outline fs-1" alt=""
               title="Edit Profile"></i></button>
         </router-link>
 
@@ -166,5 +166,17 @@ export default {
   max-height: 70vh;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.editbtn{
+  background: linear-gradient(to bottom right, #ff6f00, #ff9900);
+}
+
+.editbtn:hover {
+  color: white !important;
+  transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
 }
 </style>

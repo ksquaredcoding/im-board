@@ -18,7 +18,7 @@
     <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="">
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
-            class="mdi mdi-circle-edit-outline fs-3 bg-c6 rounded-circle ps-2 pe-2 py-1" alt=""
+            class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
             title="Edit Profile Banner"></i></button>
         <!-- <EditBanner /> -->
       </div>
@@ -26,7 +26,7 @@
 
         <img :src="account.picture" alt="" class="eum rounded-circle mt-2 icon position-relative forcedImg">
         <button class="btn editprofilepic position-absolute" data-bs-toggle="modal" data-bs-target="#editProfilePic"><i
-            class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
+            class="mdi mdi-circle-edit-outline fs-3 py-1 rounded-circle editbtn ps-2 pe-2" alt=""
             title="Edit Profile Picture"></i></button>
         <!-- <EditPic /> -->
       </div>
@@ -43,7 +43,7 @@
         </h1>
 
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editName"><i
-            class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
+            class="mdi mdi-circle-edit-outline fs-3 py-1 rounded-circle editbtn ps-2 pe-2" alt=""
             title="Edit Username"></i></button>
         <!-- <EditName /> -->
 
@@ -51,7 +51,7 @@
       <div class="col-md d-flex justify-content-end">
 
         <router-link :to="{name: 'Profile'}">
-          <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
+          <button class="btn rounded-circle editbtn"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
               title="Save Changes"></i></button>
         </router-link>
 
@@ -227,5 +227,17 @@ export default {
 
 .editprofilepic {
   transform: translateY(4rem) translateX(50px);
+}
+
+.editbtn {
+  background: linear-gradient(to bottom right, #ff6f00, #ff9900);
+}
+
+.editbtn:hover {
+  color: white !important;
+  transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
 }
 </style>
