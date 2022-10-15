@@ -8,10 +8,21 @@ export class BoardGamesController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getBoardGamesByAccountId)
+      .get('/:groupId', this.getListByGroupId)
       .post("", this.addBoardGameToList)
       .delete("/:boardGameId", this.removeBoardGameFromList);
   }
   // TODO
+
+   async getListByGroupId(req, res, next){
+    try{
+      const lists = await boardGamesService.getListByGroupId(req.params.groupId)
+   res.send(lists)
+    }
+    catch (error) {
+    next(error)
+    }
+    }
   async getBoardGamesByAccountId(req, res, next) {
     try {
       const boardGames = await boardGamesService.getBoardGamesByAccountId(
