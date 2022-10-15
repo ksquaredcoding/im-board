@@ -39,18 +39,18 @@
   <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage" >
     <div class="col-md d-flex">
       <!-- TODO make into component. -->
-      <div class="ps-3  d-none d-sm-block">
+      <div class="ps-3 d-none d-sm-block">
 
-        <a name="" id="" class="btn bg-c2 me-2 px-2 box-shadow" href="#" role="button">Groups</a>
+        <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Groups</a>
 
-        <button class="btn bg-c6 me-2" data-bs-toggle="modal" data-bs-target="#groupForm">
+        <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm">
           Create Group
-        </button>
+        </a>
         <!-- <GroupForm /> -->
 
         <router-link :to="{name: 'Account'}">
 
-          <a name="" id="" class="btn bg-c2 px-1 box-shadow" href="#" role="button">Account</a>
+          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
         </router-link>
       </div>
       <!-- TODO END -->
@@ -128,10 +128,6 @@ nav {
   font-size: 40px;
 }
 
-.btn {
-  width: 70px;
-  font-weight: 600;
-}
 
 @media screen AND (max-width: 768px) {}
 </style>
