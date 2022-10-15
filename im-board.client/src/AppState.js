@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive } from "vue";
 
 // NOTE AppState is a reactive object to contain app level data
 export const AppState = reactive({
@@ -11,6 +11,7 @@ export const AppState = reactive({
 
   /** @type {import('./models/Group.js').Group[]} */
   groups: [],
+  groupChats: [],
 
   /** @type {import('./models/GroupMembership.js').GroupMemberShip | null} */
   activeGroup: null,
@@ -45,20 +46,20 @@ export const AppState = reactive({
 
   activeCategoryFilters: [],
   categories: [
-    { name: 'CardGame', id: 'eX8uuNlQkQ' },
-    { name: 'Fantasy', id: 'ZTneo8TaIO' },
-    { name: 'Economic', id: 'N0TkEGfEsF' },
-    { name: 'Scifi', id: '3B3QpKvXD3' },
-    { name: 'City Building', id: 'ODWOjWAJj3' },
-    { name: 'Party Game', id: 'X8J7RM6dxX' },
-    { name: 'Adventure', id: 'KUBCKBkGxV' },
-    { name: 'Bluffing', id: 'PinhJrhnxU' },
-    { name: 'Dice', id: 'mavSOM8vjH' },
-    { name: 'Horror', id: 'cAIkk5aLdQ' },
-    { name: 'Puzzle', id: 'WVMOS3s2pb' },
-    { name: 'Cooperative', id: 'ge8pIhEUGE' },
-    { name: 'Wargame', id: 'jX8asGGR6o' },
-    { name: 'Word game', id: 'rHvAx4hH2f' },
+    { name: "CardGame", id: "eX8uuNlQkQ" },
+    { name: "Fantasy", id: "ZTneo8TaIO" },
+    { name: "Economic", id: "N0TkEGfEsF" },
+    { name: "Scifi", id: "3B3QpKvXD3" },
+    { name: "City Building", id: "ODWOjWAJj3" },
+    { name: "Party Game", id: "X8J7RM6dxX" },
+    { name: "Adventure", id: "KUBCKBkGxV" },
+    { name: "Bluffing", id: "PinhJrhnxU" },
+    { name: "Dice", id: "mavSOM8vjH" },
+    { name: "Horror", id: "cAIkk5aLdQ" },
+    { name: "Puzzle", id: "WVMOS3s2pb" },
+    { name: "Cooperative", id: "ge8pIhEUGE" },
+    { name: "Wargame", id: "jX8asGGR6o" },
+    { name: "Word game", id: "rHvAx4hH2f" },
   ],
   skip: 0,
 });

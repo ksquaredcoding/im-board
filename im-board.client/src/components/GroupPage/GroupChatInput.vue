@@ -35,16 +35,27 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
+import { AppState } from "../../AppState.js";
+import { AuthService } from "../../services/AuthService.js";
+import { groupChatsService } from "../../services/GroupChatsService.js";
+import Pop from "../../utils/Pop.js";
 
 export default {
   setup() {
-    const editable = ref({})
+    const editable = ref({});
     return {
       editable,
       async handleSubmit() {
         try {
-        } catch (error) {}
+          if (!AppState.account.id) {
+            return AuthService.loginWithPopup();
+          }
+          await groupChatsService.addGroupChat(editable.value);
+          editable = {};
+        } catch (error) {
+          Pop.error(error, 'handleChatSubmit')
+        }
       },
     };
   },
