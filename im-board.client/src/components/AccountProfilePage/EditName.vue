@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" id="editProfilePic" tabindex="-1" aria-labelledby="profilePicFormLabel" aria-hidden="true">
+  <div class="modal" id="editName" tabindex="-1" aria-labelledby="nameFormLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
@@ -8,8 +8,8 @@
             <div class="row">
               <div class="col-md-6">
                 <div>
-                  <label for="profilepic">New Profile Picture</label>
-                  <input type="url" v-model="editable.picture" required name="Profile Picture">
+                  <label for="username">New Username:</label>
+                  <input type="text" v-model="editable.name" required name="Username">
                 </div>
               </div>
             </div>
