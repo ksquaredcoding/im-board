@@ -2,9 +2,9 @@
   <!-- TEST PUTTING COMMENT TUNG -->
   <div class="account Page container-fluid">
 
-    <div class="row bg-c5 banner eum-ipsum">
+    <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">
-        <img src="//thiscatdoesnotexist.com" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon">
+        <img :src="account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon">
       </div>
     </div>
 
@@ -12,18 +12,19 @@
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">User Name</div>
+      <div class="col-md d-flex justify-content-center username">{{account.name}}</div>
       <div class="col-md d-flex justify-content-end">
 
-        <router-link :to="{name: 'Account'}"> 
-        <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-cog-outline fs-1" alt="" title="Edit Profile" ></i></button>
+        <router-link :to="{name: 'Account'}">
+          <button class="btn bg-c6 rounded-circle"><i class="ps-1 mdi mdi-account-cog-outline fs-1" alt=""
+              title="Edit Profile"></i></button>
         </router-link>
-        
-      
+
+
       </div>
     </div>
     <div class="row">
-      
+
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
@@ -72,7 +73,9 @@
       <div class="col-md mx-3 bg-grey">
         <div class="row bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Groups</h2><div><i class="mdi mdi-information-outline fs-5" alt="" title="Groups only visisble to you, not other users." ></i></div>
+            <h2>Groups</h2>
+            <div><i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i></div>
           </div>
         </div>
         <div class="cardholder">
@@ -135,10 +138,10 @@ export default {
 
 <style scoped>
 .banner {
-  min-height: 188px;
+  min-height: 220px;
   background-size: cover;
   background-position: center center;
-  background-image: url(https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80);
+  /* background-image: url(https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80); */
 }
 
 .icon {

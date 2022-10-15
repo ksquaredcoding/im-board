@@ -40,38 +40,25 @@
     <div class="col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3  d-none d-sm-block">
-    
-          <a
-            name=""
-            id=""
-            class="btn bg-c2 me-2 px-2 box-shadow"
-            href="#"
-            role="button"
-            >Groups</a
-          >
-        
-  
 
-        <router-link :to="{name: 'Account'}"> 
-        
-          <a name="" id="" class="btn bg-c2 px-1 box-shadow" href="#" role="button"
-            >Account</a
-          >
+        <a name="" id="" class="btn bg-c2 me-2 px-2 box-shadow" href="#" role="button">Groups</a>
+
+        <button class="btn bg-c6 me-2" data-bs-toggle="modal" data-bs-target="#groupForm">
+          Create Group
+        </button>
+        <!-- <GroupForm /> -->
+
+        <router-link :to="{name: 'Account'}">
+
+          <a name="" id="" class="btn bg-c2 px-1 box-shadow" href="#" role="button">Account</a>
         </router-link>
       </div>
       <!-- TODO END -->
     </div>
     <div class="col-md d-flex justify-content-center">
-      <router-link
-        class="navbar-brand d-flex justify-content-center"
-        :to="{ name: 'Home' }"
-      >
+      <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center">
-          <img
-            alt="logo"
-            src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png"
-            height="45"
-          />
+          <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
           <p class=" mb-0 ms-2 navbar-title justify-content-center">I'm Game</p>
         </div>
       </router-link>
@@ -80,18 +67,11 @@
     <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
       <div class="pe-3  d-flex d-none d-sm-block">
-       
-        <router-link :to="{name: 'Profile'}"> 
-          <a
-          name=""
-          id=""
-          class="btn bg-c4 me-2 px-2 box-shadow"
-          href="#"
-          role="button"
-          >Profile</a
-        >
+
+        <router-link :to="{name: 'Profile'}">
+          <a name="" id="" class="btn bg-c4 me-2 px-2 box-shadow" href="#" role="button">Profile</a>
         </router-link>
-      
+
         <Login />
       </div>
       <!-- TODO END -->
@@ -109,17 +89,19 @@ import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState.js";
 import { AuthService } from "../services/AuthService.js";
 import Login from './Login.vue';
+import GroupForm from "./GroupPage/GroupForm.vue";
 export default {
   setup() {
     return {
+      groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
       async login() {
-       AuthService.loginWithPopup()
+        AuthService.loginWithPopup()
       },
     };
   },
-  components: { Login },
+  components: { Login, GroupForm },
 };
 </script>
 
@@ -151,6 +133,5 @@ nav {
   font-weight: 600;
 }
 
-@media screen AND (max-width: 768px) {
-}
+@media screen AND (max-width: 768px) {}
 </style>
