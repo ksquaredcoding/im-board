@@ -11,7 +11,7 @@ class GroupMembersService {
       new GroupMembers(res.data),
       ...AppState.groupMembers,
     ];
-    console.log(AppState.groupMembers);
+    // console.log(AppState.groupMembers);
   }
 
   async leaveGroup(groupMemberId,newAccountId) {
@@ -22,7 +22,7 @@ if (owner) {
   res = await api.delete(`api/groupmembers/${groupMemberId}`,newAccountId);
 } else {
    res = await api.delete(`api/groupmembers/${groupMemberId}`);
-    console.log(res.data);
+    // console.log(res.data);
     AppState.groupMembers = AppState.groupMembers.filter(
       (g) => g.id !== groupMemberId
     );
