@@ -1,8 +1,8 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
 
-  <div class="account Page container-fluid animate__animated animate__fadeInLeft">
-
+  <div class="account Page container-fluid ">
+<!-- animate__animated animate__fadeInLeft -->
     <div class="row">
       <div class="col-md-12">
         <div>
@@ -58,8 +58,8 @@
 
       </div>
     </div>
-    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 animate__animated animate__fadeInUp">
-
+    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
+<!-- animate__animated animate__fadeInUp -->
       <div class="col-md-3 bg-grey ms-md-2">
         <div class="row bg-c4">
           <div class="col d-flex justify-content-center pt-2">
