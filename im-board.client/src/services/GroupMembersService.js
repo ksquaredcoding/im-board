@@ -14,15 +14,21 @@ class GroupMembersService {
     console.log(AppState.groupMembers);
   }
 
-  async leaveGroup(groupMemberId) {
-    const res = await api.delete(`api/groupmembers/${groupMemberId}`);
+  async leaveGroup(groupMemberId,newAccountId) {
+
+let res 
+ let owner = AppState.groupMembers.find(g => g.accountId == AppState.account.id)
+if (owner) {
+  res = await api.delete(`api/groupmembers/${groupMemberId}`,newAccountId);
+} else {
+   res = await api.delete(`api/groupmembers/${groupMemberId}`);
     console.log(res.data);
     AppState.groupMembers = AppState.groupMembers.filter(
       (g) => g.id !== groupMemberId
     );
-    // AppState.groupMembers = AppState.groupMembers.filter(
-    //   (g) => g.id != groupMemberId
-    // );
+}
+   
+   
   }
 }
 export const groupMembersService = new GroupMembersService();
