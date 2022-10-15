@@ -1,7 +1,7 @@
 <template>
 
   <div class="card elevation-4 my-2">
-    <img src="https://d2k4q26owzy373.cloudfront.net/700x700/games/empty+box.jpg alt=" class="forcedImg rounded" />
+    <img :src="boardGameList.imgUrl" class="forcedImg rounded" />
     <div class="card-body p-1 bg-dark rounded-bottom">
       <p class="card-title d-flex justify-content-center">
       <h4>{{boardGameList?.boardGameName}}</h4>
@@ -54,5 +54,21 @@ export default {
 
 
 <style lang="scss" scoped>
+.text-shadow {
+  color: aliceblue;
+  text-shadow: 1px 1px black, 0px 0px 5px salmon;
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+  /* Second Color  in text-shadow is the blur */
+}
 
+.forcedImg {
+  height: 170px;
+  width: auto;
+  object-fit: contain;
+}
+
+.card {
+  border: none;
+}
 </style>
