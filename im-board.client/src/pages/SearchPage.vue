@@ -1,20 +1,26 @@
 <template>
-  <div class="container-fluid homepage animate__animated animate__fadeInDown" v-if="boardGames">
-    <div class="row justify-content-center">
-    <div class="col-md-8 my-2">
-<div class="card text-bg-dark">
-  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi2.wp.com%2Fboingboing.net%2Fwp-content%2Fuploads%2F2021%2F08%2F71bH2DiJ1GL._AC_SL1500_.jpg%3Ffit%3D1%26resize%3D620%252C4000%26ssl%3D1&f=1&nofb=1&ipt=a18a2dfe6ab58605658288c925b7a946a422bb6b1479125d5383ab6edfcafbac&ipo=images" class="card-img" alt="...">
-  <div class="card-img-overlay">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small>Last updated 3 mins ago</small></p>
-  </div>
-</div>
+  <div class="container-fluid bg-c1 animate__animated animate__fadeInDown" v-if="boardGames">
+ 
+    <div class="row">
+  
+      <div
+        class="col-md-2 "
+      >
+      <div class="mt-2">
 
-    </div>
+        <h5 class="filterBy">  Filter By</h5>
+      </div>
 
-      <div class="col-md-12">
-     
+
+
+   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Categories
+</button>
+
+      </div>
+
+      <div class="col-md-10">
+       
 
         <div class="row mx-2">
           <TransitionGroup
@@ -115,6 +121,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.filterBy{
+  font-weight: 900;
+}
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }

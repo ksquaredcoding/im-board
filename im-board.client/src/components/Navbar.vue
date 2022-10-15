@@ -37,7 +37,7 @@
   </nav> -->
 
   <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage" >
-    <div class="col-md d-flex">
+    <div class=" col-md-2 d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
 
@@ -46,25 +46,26 @@
         <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm">
           Create Group
         </a>
-        <!-- <GroupForm /> -->
-
         <router-link :to="{name: 'Account'}">
-
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
         </router-link>
       </div>
       <!-- TODO END -->
     </div>
-    <div class="col-md d-flex justify-content-center">
+    <div class="col-md-8 d-flex justify-content-center align-items-center">
+      
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center">
           <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-          <p class=" mb-0 ms-2 navbar-title justify-content-center">I'm Game</p>
+          <p class=" mb-0 mx-2 navbar-title justify-content-center">I'm Game</p>
         </div>
       </router-link>
-    </div>
+      <Searchbar/>
 
-    <div class="col-md d-flex flex-row-reverse">
+    </div>
+    
+    
+    <div class="col-md-2 d-flex flex-row-reverse">
       <!-- TODO make into component -->
       <div class="pe-3  d-flex d-none d-sm-block">
 
@@ -90,6 +91,7 @@ import { AppState } from "../AppState.js";
 import { AuthService } from "../services/AuthService.js";
 import Login from './Login.vue';
 import GroupForm from "./GroupPage/GroupForm.vue";
+import Searchbar from "./BoardGame/Searchbar.vue";
 export default {
   setup() {
     return {
@@ -101,7 +103,7 @@ export default {
       },
     };
   },
-  components: { Login, GroupForm },
+  components: { Login, GroupForm, Searchbar },
 };
 </script>
 

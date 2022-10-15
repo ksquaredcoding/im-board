@@ -1,5 +1,13 @@
 <template>
-  <div class="filters container-fluid">
+
+
+  <!-- ------- -->
+ 
+
+<div class="offcanvas  offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-backdrop="true">
+ 
+  <div class="offcanvas-body">
+      <div class="filters container">
     <div class="row">
       <div class="col-md-12 ">
  <h4 >Categories</h4>
@@ -35,6 +43,10 @@
   
     <div></div>
   </div>
+
+   
+  </div>
+</div>
 </template>
 
 <script>
@@ -102,6 +114,10 @@ try {
 <style lang="scss" scoped>
 // input.checkBox {
 // }
+
+.offcanvas{
+width: 200px;
+}
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;

@@ -5,6 +5,7 @@ import { ActiveBoardGameVideo } from '../models/BoardGame/ActiveBoardGameVideo.j
 import { AppState } from '../AppState.js';
 import { ABGReviews } from '../models/BoardGame/ABGReviews.js';
 import { ActiveBoardGamePrice } from '../models/BoardGame/ActiveBoardGamePrice.js';
+import { router } from "../router.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
@@ -46,6 +47,7 @@ class AtlasGamesService {
         name: name,
       },
     });
+    router.push({name:'Search'})
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);
   }

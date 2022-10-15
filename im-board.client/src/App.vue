@@ -5,7 +5,7 @@
   <main>
     <router-view />
   </main>
-
+<Filters />
  <GroupForm/>
   <EditBanner/>
   <EditName/>
@@ -25,6 +25,7 @@ import GroupForm from "./components/GroupPage/GroupForm.vue"
 import EditBanner from "./components/AccountProfilePage/EditBanner.vue"
 import EditName from "./components/AccountProfilePage/EditName.vue"
 import EditPic from "./components/AccountProfilePage/EditPic.vue"
+import Filters from "./components/BoardGame/Filters.vue"
 
 export default {
   setup() {
@@ -32,7 +33,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, GroupForm, EditBanner, EditName, EditPic }
+  components: { Navbar, GroupForm, EditBanner, EditName, EditPic, Filters }
 }
 </script>
 <style lang="scss">
