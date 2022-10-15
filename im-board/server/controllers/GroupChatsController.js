@@ -23,6 +23,7 @@ export class GroupChatsController extends BaseController {
   }
   async addGroupChat(req, res, next) {
     try {
+      // debugger
       req.body.creatorId = req.userInfo.id;
       const chat = await groupChatsService.addGroupChat(req.body);
       res.send(chat);

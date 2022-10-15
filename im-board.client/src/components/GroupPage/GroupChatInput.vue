@@ -45,7 +45,7 @@ export default {
           const id = route.params.id;
           editable.value.groupId = id;
           await groupChatsService.addGroupChat(editable.value);
-          editable = {};
+          editable.value = {};
         } catch (error) {
           Pop.error(error, "handleChatSubmit");
         }
