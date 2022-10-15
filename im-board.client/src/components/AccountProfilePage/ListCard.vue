@@ -1,7 +1,25 @@
 <template>
-    <div class="cardholder">
-      {{boardGameList?.boardGameName}}
+
+  <div class="card elevation-4 my-2">
+    <img src="https://d2k4q26owzy373.cloudfront.net/700x700/games/empty+box.jpg alt=" class="forcedImg rounded" />
+    <div class="card-body p-1 bg-dark rounded-bottom">
+      <p class="card-title d-flex justify-content-center">
+      <h4>{{boardGameList?.boardGameName}}</h4>
+      </p>
+      <div class="card-text d-flex justify-content-center">
+        Categories:
+      </div>
+      <div class="card-text d-flex justify-content-center">
+        Players:
+      </div>
+      <div class="card-text d-flex justify-content-center">
+        Rating:
+      </div>
+      <p class="d-flex justify-content-center">
+
+      </p>
     </div>
+  </div>
 </template>
 
 
