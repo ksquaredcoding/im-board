@@ -20,10 +20,10 @@ class GroupsService {
     
 
     AppState.activeGroup = group;
+    router.push({ name: 'Group', params: { id: group.id } });
     // AppState.groups = [...AppState.groups, group];
 
     // AppState.activeGroup = group;
-    router.push({ name: 'Group', params: { id: group.id } });
   }
   async removeGroup(groupId) {
     await api.delete(`api/groups/${groupId}`);
