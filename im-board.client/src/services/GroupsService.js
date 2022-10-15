@@ -51,11 +51,6 @@ class GroupsService {
     // console.log(AppState.groupMembers);
   }
 
-  async getListsByGroupId(groupId){
- const res = await api.get(`api/boardgames/${groupId}`);
- console.log(res.data);
-AppState.bgLists = res.data.map(b=> new BGList(b))
-console.log(AppState.bgLists);
-  }
+ 
 }
 export const groupsService = new GroupsService();
