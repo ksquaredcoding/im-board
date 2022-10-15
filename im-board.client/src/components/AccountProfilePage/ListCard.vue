@@ -1,25 +1,28 @@
 <template>
-<div class="hi">
-  <div class="card elevation-4 my-2">
-    <img :src="boardGameList.imgUrl" class="forcedImg rounded img-fluid" />
-    <div class="card-body p-1 bg-dark rounded-bottom">
-      <p class="card-title d-flex justify-content-center">
-      <h4>{{boardGameList?.boardGameName}}</h4>
-      </p>
-      <div class="card-text d-flex justify-content-center">
-        Categories:
-      </div>
-      <div class="card-text d-flex justify-content-center">
-        Players: {{boardGameList.players}}
-      </div>
-      <div class="card-text d-flex justify-content-center">
-        Rating:{{boardGameList.rating.toFixed(2)}}
-      </div>
-      <p class="d-flex justify-content-center">
+  <div class="hi">
+    <div class="card elevation-4 my-2">
+      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGameList?.gameId } }">
+        <img :src="boardGameList.imgUrl" class="forcedImg rounded img-fluid" />
+      </router-link>
+      <div class="card-body p-1 bg-dark rounded-bottom">
+        <p class="card-title d-flex justify-content-center">
+        <h4>{{boardGameList?.boardGameName}}</h4>
+        </p>
+        <div class="card-text d-flex justify-content-center">
+          Categories:
+        </div>
+        <div class="card-text d-flex justify-content-center">
+          Players: {{boardGameList.players}}
+        </div>
+        <div class="card-text d-flex justify-content-center">
+          Rating:{{boardGameList.rating.toFixed(2)}}
+        </div>
+        <p class="d-flex justify-content-center">
 
-      </p>
+        </p>
+      </div>
     </div>
-  </div></div>
+  </div>
 </template>
 
 
@@ -73,7 +76,7 @@ export default {
 
 }
 
-.hi{
+.hi {
   margin-bottom: 25px;
 }
 </style>
