@@ -41,10 +41,17 @@
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
 
-        <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm">
+        <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm" v-if="user.isAuthenticated">
           Create Group
         </a>
-        
+      
+     
+        <button class=" button-49 py-1 px-2 " disabled v-else title="Not Logged In">
+          Create Group
+        </button>
+      
+
+      
       </div><div class="ps-4"><Searchbar/></div>
       <!-- TODO END -->
     </div>
@@ -66,11 +73,11 @@
       <!-- TODO make into component -->
       <div class="pe-3  d-flex d-none d-sm-block">
 
-        <router-link :to="{name: 'Profile'}">
+        <router-link :to="{name: 'Profile'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
         </router-link>
 
-        <router-link :to="{name: 'Account'}">
+        <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
         </router-link>
 
