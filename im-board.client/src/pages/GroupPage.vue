@@ -1,7 +1,7 @@
 <template>
   <div v-if="!group" class=" ">
-   <div class="row">
-    
+    <div class="row">
+
       <div class="col-md-3 p-0">
         <div class=""></div>
         <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
@@ -9,16 +9,16 @@
         </div>
 
         <div class="col-12 p-2 overflow-auto groupchatbox">
-         
+
         </div>
 
         <div></div>
         <div></div>
- 
+
       </div>
       <div class="col-md-6 overflow-auto gamecardbox">
         <div class="px-1">
-     
+
         </div>
       </div>
 
@@ -26,7 +26,7 @@
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
-    
+
       </div>
     </div>
   </div>
@@ -69,13 +69,12 @@
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
-        <GroupGamesCard />
-        <GroupGamesCard />
-        <GroupGamesCard />
-        <GroupGamesCard />
-        <GroupGamesCard />
-        <GroupGamesCard />
-        <GroupGamesCard />
+
+        <div v-for="g in lists" :key="g.id">
+          <GroupGamesCard :boardGameList="g" />
+
+        </div>
+
       </div>
     </div>
   </div>
@@ -117,13 +116,13 @@ export default {
     }
 
 
-async function getListsByGroupId(){
-  try {
-      await groupsService.getListsByGroupId(route.params.id)
-    } catch (error) {
-      Pop.error(error,'[getListsByGroupId]')
+    async function getListsByGroupId() {
+      try {
+        await groupsService.getListsByGroupId(route.params.id)
+      } catch (error) {
+        Pop.error(error, '[getListsByGroupId]')
+      }
     }
-}
 
 
 
@@ -144,6 +143,7 @@ async function getListsByGroupId(){
 
     return {
       group: computed(() => AppState.activeGroup),
+      lists: computed(() => AppState.bgLists),
       account: computed(() => AppState.account),
       groupOwner: computed(
         () => AppState.activeGroup.creatorId == AppState.account.id
