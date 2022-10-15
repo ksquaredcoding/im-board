@@ -74,11 +74,11 @@
       <div class="pe-3  d-flex d-none d-sm-block">
 
         <router-link :to="{name: 'Profile'}" v-if="user.isAuthenticated">
-          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
+          <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Profile</a>
         </router-link>
 
         <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
-          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
+          <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Account</a>
         </router-link>
 
         <Login />
