@@ -10,10 +10,10 @@
         Categories:
       </div>
       <div class="card-text d-flex justify-content-center">
-        Players:
+        Players: {{boardGameList.players}}
       </div>
       <div class="card-text d-flex justify-content-center">
-        Rating:
+        Rating:{{boardGameList.rating.toFixed(2)}}
       </div>
       <p class="d-flex justify-content-center">
 

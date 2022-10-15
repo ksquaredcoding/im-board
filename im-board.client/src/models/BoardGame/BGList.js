@@ -12,5 +12,6 @@ export class BGList {
     this.listName = data.type
     this.updatedAt = data.updatedAt
     this.imgUrl = data.imgUrl
+    this.players = data.players
   }
 }
