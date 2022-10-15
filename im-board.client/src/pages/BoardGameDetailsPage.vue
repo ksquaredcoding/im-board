@@ -1,25 +1,15 @@
 <template>
   <section class="container" v-if="boardGame">
     <div class="row">
-      <div
-        class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
-      >
+      <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
         <h1>{{ boardGame.name }}</h1>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div
-        class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
-      >
-        <img
-          :src="boardGame.large"
-          alt=""
-          class="img-fluid rounded elevation-3"
-        />
+      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
+        <img :src="boardGame.large" alt="" class="img-fluid rounded elevation-3" />
       </div>
-      <div
-        class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3"
-      >
+      <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="d-flex">
           <b>Number of players : </b>
           <p class="ms-3">{{ boardGame.players }}</p>
@@ -65,19 +55,10 @@
         </div> -->
       </div>
       <div class="row game-images my-3 ms-1">
-        <swiper
-          :slidesPerView="4"
-          :spaceBetween="50"
-          :slidesPerGroup="3"
-          :loop="true"
-          :loopFillGroupWithBlank="true"
+        <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
           :pagination="{
             clickable: true,
-          }"
-          :navigation="true"
-          :modules="modules"
-          class="mySwiper"
-        >
+          }" :navigation="true" :modules="modules" class="mySwiper">
           <swiper-slide class="my-2" v-for="i in images">
             <ActiveBoardGameImages :images="i" />
           </swiper-slide>
@@ -100,7 +81,9 @@
         </div>
 
         <div class="hi">
-          <div class="mt-5"><h1>Purchase game at ..</h1></div>
+          <div class="mt-5">
+            <h1>Purchase game at ..</h1>
+          </div>
           <div class="row justify-content-center prices bg-c4 text-dark mb-5">
             <div v-for="p in prices" :key="p.id" class="col-md-6">
               <ABGPrices :price="p" />
@@ -115,13 +98,7 @@
   </section>
 
   <!-- MODAL -->
-  <div
-    class="modal fade"
-    id="activeImage"
-    tabindex="-1"
-    aria-labelledby="activeImageLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <img :src="modalImage" alt="" class="rounded elevation-2 customSize" />
