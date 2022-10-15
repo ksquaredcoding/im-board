@@ -26,8 +26,7 @@
 
       <div class="ms-2">
 
-        <button class="btn p-0 px-1 btn-warning mt-1" type="submit"><i
-            class="fs-5  mdi mdi-plus text-dark"></i></button>
+        <button class="btn p-0 px-1 bg-c6 mt-1 add" type="submit"><i class="fs-5  mdi mdi-plus text-dark"></i></button>
       </div>
 
     </form>
@@ -101,8 +100,8 @@ export default {
             name: props.boardGameOnHomePage.name,
             imgUrl: props.boardGameOnHomePage.largeImage,
             rating: props.boardGameOnHomePage.average_user_rating,
-            players:props.boardGameOnHomePage.players,
-            playTime:props.boardGameOnHomePage.playtime,
+            players: props.boardGameOnHomePage.players,
+            playTime: props.boardGameOnHomePage.playtime,
             type: editable.value
           }
           await listsService.addGameToList(formData)
@@ -120,5 +119,10 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.add:hover {
+  transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
+}
 </style>
