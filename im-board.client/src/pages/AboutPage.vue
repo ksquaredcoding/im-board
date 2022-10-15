@@ -12,8 +12,29 @@
       </div>
     </div>
   </div> -->
-  <div class="aboutPage">
+  <div class="container mt-5 d-flex">
+    <div>
+      <p class="t1 text-darj text-shadow3d border-1">
+        Who <br />
+        We <br />
+        Are.
+      </p>
+    </div>
 
+    <div class="p-5">
+      <h5  class="message">
+        We <b>LOVE</b> board games! far deeper than the cliche  <i class="mdi mdi-format-quote-open fs-3"></i> because they're
+        fun<i class="mdi mdi-format-quote-close fs-3"></i>. We believe they are capable of authentically building
+        relationships and genuine community with friends and strangers. We chose
+        to create an app that can display the vast variety of different
+        boardgames as well as bring friends together where they can share common
+        board game interest and plan game nights together to challenge
+        themselves, build memories, and bring more joy and laughter to their
+        lives.
+      </h5>
+    </div>
+
+    <div></div>
   </div>
 </template>
 
@@ -28,6 +49,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.message{
+  letter-spacing: 0.07em;
+  line-height: 2.5em;
+}
+.text-shadow3d {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+.t1 {
+  font-size: 60pt;
+  font-family: sans-serif;
+}
 .cardSection {
   max-height: 50vh;
 }

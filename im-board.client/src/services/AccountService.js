@@ -27,7 +27,7 @@ class AccountService {
     const res = await api.get('/account/boardgames');
     // console.log(res.data, 'getting my lists');
     AppState.bgLists = res.data.map((b) => new BGList(b));
-    // console.log(AppState.bgLists);
+    console.log(AppState.bgLists);
   }
 
   async editAccount(formData) {

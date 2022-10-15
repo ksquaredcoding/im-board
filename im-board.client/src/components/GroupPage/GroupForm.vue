@@ -21,7 +21,7 @@
                   />
                 </div>
                 <div class="mt-3 inputBox">
-                  <input type="url" class=" " v-model="editable.coverImg" required aria-required="true" />
+                  <input type="url" class=" " v-model="editable.coverImg" required aria-required="true" 7 />
                   <span>CoverImg</span>
                 </div>
               </div>

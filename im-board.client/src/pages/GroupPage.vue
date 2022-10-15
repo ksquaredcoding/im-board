@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="group-page container animate__animated animate__fadeInRight " v-else>
+  <div class="group-page  animate__animated animate__fadeInRight " v-else>
     <div class="row">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <div class="col-md-3 p-0">

@@ -24,8 +24,8 @@
         </div>
         <div class="col-md-12 d-flex justify-content-center ">
   
-          <img :src="account.picture" alt="" height="150" width="150"
-            class="eum rounded-circle mt-2 icon position-relative">
+          <img :src="account.picture" alt=""
+            class="eum rounded-circle mt-2 icon position-relative forcedImg">
           <button class="btn editprofilepic position-absolute" data-bs-toggle="modal" data-bs-target="#editProfilePic"><i
               class="mdi mdi-circle-edit-outline fs-3 py-1 bg-c6 rounded-circle ps-2 pe-2" alt=""
               title="Edit Profile Picture"></i></button>
@@ -164,7 +164,7 @@ export default {
     })
     return {
       account: computed(() => AppState.account),
-      groups: computed(() => AppState.groupMemberShip),
+      groups: computed(() => AppState.groupMemberShips),
       bgLists: computed(() => AppState.bgLists),
       wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
       favList: computed(() => AppState.bgLists.filter(f => f.listName == "favorite")),
@@ -176,7 +176,11 @@ export default {
 </script>
 
 <style scoped>
-
+.forcedImg{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
