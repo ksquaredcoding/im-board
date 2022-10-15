@@ -4,13 +4,14 @@
       <button
         @click="addGroupMember()"
         class="btn btn-info btn-lg"
-        v-if="!alreadyAMember"
+        v-if="!groupOwner"
       >
+ 
         Join Group
       </button>
-      <button @click="leaveGroup()" class="btn btn-info btn-lg" v-else>
+      <!-- <button @click="leaveGroup()" class="btn btn-info btn-lg" v-else>
         Leave Group
-      </button>
+      </button> -->
       <div class="">
         <!-- ------------ -->
         <button @click="removeGroup()" class="btn btn-danger btn-lg" v-if="groupOwner">
