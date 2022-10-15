@@ -5,12 +5,7 @@
       <div class="row">
         <div class="d-flex justify-content-between">
           <div class="p-2 mt-2 ms-1">Add post. . .</div>
-          <button
-            class="btn bg-c6 mx-2 my-2 rounded-pill"
-            type="submit"
-            aria-label="Submit Post"
-            title="Submit"
-          >
+          <button class="btn bg-c6 mx-2 my-2 rounded-pill" type="submit" aria-label="Submit Post" title="Submit">
             Post
           </button>
         </div>
@@ -18,14 +13,8 @@
       <div class="text-start d-flex justify-content-center">
         <div class="">
           <div class="form-group text-center m-1">
-            <textarea
-              class="p-2 rounded w-100"
-              rows="2"
-              v-model="editable.body"
-              cols="150"
-              placeholder=""
-              name="postcontent"
-            ></textarea>
+            <textarea class="p-2 rounded w-100" rows="2" v-model="editable.body" cols="150" placeholder=""
+              name="postcontent"></textarea>
           </div>
         </div>
         <div></div>
@@ -44,7 +33,7 @@ import Pop from "../../utils/Pop.js";
 
 export default {
   setup() {
-    const editable = ref({});
+    let editable = ref({});
     const route = useRoute();
     return {
       editable,
@@ -66,4 +55,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
