@@ -14,7 +14,11 @@
     </div>
 
       <div class="col-md-12">
-     
+      <div class="row">
+        <div class="col-md-3" v-for="f in forumPosts" :key="f.id">
+          <ForumPosts :forumPost="f"   />
+        </div>
+      </div>
 
         <div class="row mx-2">
           <TransitionGroup
@@ -57,6 +61,7 @@ import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
+import ForumPosts from "../components/ForumPosts.vue";
 
 export default {
   setup() {
@@ -69,8 +74,18 @@ export default {
       }
     }
 
+    async  function getForumPosts(){
+  try {
+      await atlasGamesService.getForumPosts() 
+    } catch (error) {
+      Pop.error(error,'[getForumPosts]')
+    }
+}
+
+
     onMounted(() => {
       getBoardGames();
+      getForumPosts()
       AppState.skip = 0
       // window.addEventListener('scroll', handleScroll)
     });
@@ -87,6 +102,7 @@ export default {
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
+      forumPosts: computed(()=> AppState.forumPosts),
 
       async  getMoreBoardGames() {
         try {
@@ -107,10 +123,9 @@ export default {
 
 
 
-
     };
   },
-  components: { Filters, Searchbar, BoardGameCard, PresetFilterBar },
+  components: { Filters, Searchbar, BoardGameCard, PresetFilterBar, ForumPosts },
 };
 </script>
 

@@ -6,6 +6,7 @@ import { AppState } from '../AppState.js';
 import { ABGReviews } from '../models/BoardGame/ABGReviews.js';
 import { ActiveBoardGamePrice } from '../models/BoardGame/ActiveBoardGamePrice.js';
 import { router } from "../router.js";
+import { ForumPost } from "../models/ForumPost.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
@@ -17,8 +18,8 @@ class AtlasGamesService {
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    console.log(res.data);
-    console.log(AppState.boardgames);
+    // console.log(res.data);
+    // console.log(AppState.boardgames);
   }
 
   async getBoardGamesOnScroll() {
@@ -70,7 +71,7 @@ class AtlasGamesService {
         order_by: query,
       },
     });
-    console.log(res.data.games);
+    // console.log(res.data.games);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
@@ -84,7 +85,7 @@ class AtlasGamesService {
         // gt_min_age: count, //	Greater than the provided minimum recommended player age. The example will return 11 or more.
       },
     });
-    console.log(res.data.games);
+    // console.log(res.data.games);
     // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
@@ -165,10 +166,13 @@ class AtlasGamesService {
     const res = await atlasApi.get('api/forum', {
       params: {
         client_id: '2I6DeypMLL',
-        
+limit:10,
+news:true
       },
     });
-    console.log(res);
+    console.log(res.data);
+    AppState.forumPosts = res.data.posts.map(f => new ForumPost(f))
+console.log(AppState.forumPosts);
   }
 }
 export const atlasGamesService = new AtlasGamesService();
