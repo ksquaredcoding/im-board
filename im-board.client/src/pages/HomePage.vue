@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid homepage animate__animated animate__fadeInDown" v-if="boardGames">
     <div class="row justify-content-center">
-    <div class="col-md-8 my-2">
+    <div class="col-md-11 my-2">
 <div class="card text-bg-dark">
-  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi2.wp.com%2Fboingboing.net%2Fwp-content%2Fuploads%2F2021%2F08%2F71bH2DiJ1GL._AC_SL1500_.jpg%3Ffit%3D1%26resize%3D620%252C4000%26ssl%3D1&f=1&nofb=1&ipt=a18a2dfe6ab58605658288c925b7a946a422bb6b1479125d5383ab6edfcafbac&ipo=images" class="card-img" alt="...">
+  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images" class="card-img" alt="...">
   <div class="card-img-overlay">
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">Fall In Love With BoardGames</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small>Last updated 3 mins ago</small></p>
   </div>
@@ -115,6 +115,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.card-title{
+  font-size: 50pt;
+  font-weight: 700;
+    text-shadow: 2px 2px 0px rgba(190, 205, 208, 0.92);
+}
+.card-img{
+  height: 300px;
+  object-fit: cover;
+ 
+    box-shadow: inset 0 0 10px 10px #000;
+}
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
