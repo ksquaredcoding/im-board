@@ -6,6 +6,8 @@ export const BoardGameSchema = new Schema(
   {
     name: { type: String, required: true },
     gameId: { type: String, required: true },
+    players: { type: String },
+    playTime: { type: String },
     type: {
       type: String,
       required: true,
