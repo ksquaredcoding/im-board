@@ -32,20 +32,12 @@
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-12 p-2 overflow-auto groupchatbox">
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
-          <GroupChatCard />
+        <div class="col-12 p-2 overflow-auto groupchatbox bg-dark">
+          <div class="row" v-for="c in chats" :key="c.id">
+            <Chat :chat="c" />
+          </div>
         </div>
         <GroupChatInput />
-
       </div>
       <div class="col-md-6 overflow-auto gamecardbox">
         <div class="px-1">
@@ -86,6 +78,7 @@ import { computed } from "@vue/reactivity";
 import { groupMembersService } from "../services/GroupMembersService.js";
 import { listsService } from "../services/ListsService.js";
 import { groupChatsService } from "../services/GroupChatsService.js";
+import Chat from "../components/GroupPage/Chat.vue";
 
 export default {
   setup() {
@@ -136,6 +129,7 @@ export default {
     // });
 
     return {
+      chats: computed(() => AppState.groupChats),
       group: computed(() => AppState.activeGroup),
       lists: computed(() => AppState.bgLists),
       account: computed(() => AppState.account),
@@ -158,6 +152,7 @@ export default {
     GroupChatInput,
     GroupGamesCard,
     GroupForm,
+    Chat,
   },
 };
 </script>
