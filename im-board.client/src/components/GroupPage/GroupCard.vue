@@ -4,7 +4,7 @@
       :style="{backgroundImage: `url(${group.group.coverImg})`}">
       <!-- <img :src="group?.group.coverImg" class="card-img" alt="..." /> -->
       <div class="card-img-overlay text-shadow">
-        <h3 class="card-title">{{ group?.group.name }}</h3>
+        <h3 class="card-title p-3 text-center">{{ group?.group.name }}</h3>
         <h1 class="text-c6"></h1>
         <p class="card-text"></p>
       </div>
@@ -72,5 +72,9 @@ export default {
   overflow: hidden;
   max-width: auto;
   max-height: 16rem;
+}
+
+.card-title {
+  background-color: #1e262293;
 }
 </style>
