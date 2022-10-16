@@ -1,7 +1,7 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
 
-  <div class="account Page container-fluid ">
+  <div class="account Page container-fluid " v-if="account">
     <!-- animate__animated animate__fadeInLeft -->
     <!-- <div class="row">
       <div class="col-md-12">

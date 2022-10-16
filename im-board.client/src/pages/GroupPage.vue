@@ -1,17 +1,20 @@
 <template>
-  <div v-if="!group " class=" animate__animated animate__fadeOut">
+  <div v-if="!group" class="animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
-  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
+  <div
+    class="group-page animate__animated animate__fadeInRight container-fluid"
+    v-else
+  >
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
-      <div class="col-md-3 ">
+      <div class="col-md-3">
         <div class=""></div>
         <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-12  ms-2 overflow-auto groupchatbox bg-dark">
+        <div class="col-12 ms-2 overflow-auto groupchatbox bg-dark">
           <div class="col-md-12" v-for="c in chats" :key="c.id">
             <Chat :chat="c" />
           </div>
@@ -27,7 +30,7 @@
         </div>
       </div>
 
-      <div class="col-md-3  overflow-auto gamecardbox bg-dark pt-2">
+      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
@@ -38,7 +41,6 @@
       </div>
     </div>
   </div>
-
 </template>
 <script>
 import GroupChatCard from "../components/GroupPage/GroupChatCard.vue";
@@ -59,6 +61,7 @@ import { groupMembersService } from "../services/GroupMembersService.js";
 import { listsService } from "../services/ListsService.js";
 import { groupChatsService } from "../services/GroupChatsService.js";
 import Chat from "../components/GroupPage/Chat.vue";
+import { gameNightsService } from "../services/GameNightsService.js";
 
 export default {
   setup() {
@@ -93,12 +96,21 @@ export default {
         Pop.error(error, "[getListsByGroupId]");
       }
     }
+    async function getGroupGameNights() {
+      try {
+        await gameNightsService.getGroupGameNights(route.params.id);
+      } catch (error) {
+    
+        Pop.error(error,'[groupGameNights]');
+      }
+    }
 
     onMounted(() => {
       getGroupById();
       getGroupMembersByGroupId();
       getListsByGroupId();
       getGroupChatsByGroupId();
+      getGroupGameNights()
     });
 
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
@@ -137,11 +149,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
-
- ::-webkit-scrollbar{
-  display:none
- }
+::-webkit-scrollbar {
+  display: none;
+}
 .groupchatbox {
   height: 80vh;
 }

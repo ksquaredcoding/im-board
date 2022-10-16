@@ -16,6 +16,8 @@ export const AppState = reactive({
 
   /** @type {import('./models/GroupChat.js').GroupChat[]} */
   groupChats: [],
+  /** @type {import('./models/GameNight.js').GameNight[]} */
+  groupGameNights: [],
 
   /** @type {import('./models/GroupMembership.js').GroupMemberShip | null} */
   activeGroup: null,
