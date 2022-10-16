@@ -1,11 +1,12 @@
-import { AppState } from '../AppState.js';
-import { Account } from '../models/Account.js';
-import { GroupMembers } from '../models/GroupMember.js';
-import { api } from './AxiosService.js';
+import { AppState } from "../AppState.js";
+import { Account } from "../models/Account.js";
+import { GroupMembers } from "../models/GroupMember.js";
+import { router } from "../router.js";
+import { api } from "./AxiosService.js";
 
 class GroupMembersService {
   async addGroupMember(groupId) {
-    const res = await api.post('/api/groupmembers', { groupId });
+    const res = await api.post("/api/groupmembers", { groupId });
 
     AppState.groupMembers = [
       new GroupMembers(res.data),
@@ -14,21 +15,22 @@ class GroupMembersService {
     // console.log(AppState.groupMembers);
   }
 
-  async leaveGroup(groupMemberId,newAccountId) {
-
-let res 
- let owner = AppState.groupMembers.find(g => g.accountId == AppState.account.id)
-if (owner) {
-  res = await api.delete(`api/groupmembers/${groupMemberId}`,newAccountId);
-} else {
-   res = await api.delete(`api/groupmembers/${groupMemberId}`);
-    // console.log(res.data);
-    AppState.groupMembers = AppState.groupMembers.filter(
-      (g) => g.id !== groupMemberId
+  async leaveGroup(groupMemberId, newAccountId) {
+    let res;
+    let owner = AppState.groupMembers.find(
+      (g) => g.accountId == AppState.account.id
     );
-}
-   
-   
+    if (owner) {
+      res = await api.delete(`api/groupmembers/${groupMemberId}`, newAccountId);
+    } else {
+      res = await api.delete(`api/groupmembers/${groupMemberId}`);
+      // console.log(res.data);
+      AppState.groupMembers = AppState.groupMembers.filter(
+        (g) => g.id !== groupMemberId
+      );
+    }
+
+    router.push({name: 'Account'})
   }
 }
 export const groupMembersService = new GroupMembersService();
