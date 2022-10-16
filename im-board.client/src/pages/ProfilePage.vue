@@ -1,5 +1,5 @@
 <template>
-  <div class="animate__animated animate__fadeOut">
+  <div class="animate__animated animate__fadeOut" v-if="!profile">
     <div class="loader"></div>
   </div>
 
