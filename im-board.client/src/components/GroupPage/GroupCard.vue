@@ -4,9 +4,14 @@
       :style="{backgroundImage: `url(${group.group.coverImg})`}">
       <!-- <img :src="group?.group.coverImg" class="card-img" alt="..." /> -->
       <div class="card-img-overlay text-shadow">
-        <h3 class="card-title p-3 text-center rounded-2">{{ group?.group.name }}</h3>
-        <h1 class="text-c6"></h1>
-        <p class="card-text"></p>
+        <h3 class="card-title p-2 text-center rounded-1 "><u>{{ group?.group.name }}</u></h3>
+        <div class="card-title text-center p-1 rounded-1 elevation-3">
+          <p class="card-text fs-5 fw-1">Owner:{{group.group.creator.name}}</p>
+          <p v-if="group.group.groupMemberIds.length == 1">{{group.group.groupMemberIds.length}}
+            Member
+          </p>
+          <p v-else>{{group.group.groupMemberIds.length}} Members</p>
+        </div>
       </div>
     </div>
   </router-link>
