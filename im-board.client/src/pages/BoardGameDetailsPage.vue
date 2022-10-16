@@ -7,7 +7,7 @@
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
       <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
-        <img :src="boardGame.large" alt="" class="img-fluid rounded elevation-3" />
+        <img :src="boardGame.large" alt="" class="img-fluid rounded " />
       </div>
       <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="d-flex">
