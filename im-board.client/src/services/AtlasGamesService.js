@@ -22,22 +22,22 @@ class AtlasGamesService {
     console.log(AppState.boardgames);
   }
 
-async getBoardGamesByDiscount(){
-      const res = await atlasApi.get('/api/search', {
-        params: {
-          client_id: '2I6DeypMLL',
-          limit: 6,
-          gt_discount: 0.5
-        },
-      });
+  async getBoardGamesByDiscount() {
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+        limit: 6,
+        gt_discount: 0.5
+      },
+    });
 
-AppState.discountBoardGames = res.data.games.map(b=> new BoardGame(b))
-      // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+    AppState.discountBoardGames = res.data.games.map(b => new BoardGame(b))
+    // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-}
+  }
 
-  async getBoardGamesByPopularity(){
-        const res = await atlasApi.get('/api/search', {
+  async getBoardGamesByPopularity() {
+    const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
         limit: 50,
@@ -45,7 +45,7 @@ AppState.discountBoardGames = res.data.games.map(b=> new BoardGame(b))
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-  router.push({name:'Search'})
+    router.push({ name: 'Search' })
   }
 
   async getBoardGamesOnScroll() {
@@ -165,7 +165,7 @@ AppState.discountBoardGames = res.data.games.map(b=> new BoardGame(b))
     AppState.activeBoardGameVideos = res.data.videos.map(
       (a) => new ActiveBoardGameVideo(a)
     );
-    // console.log(AppState.activeBoardGameVideos);
+    console.log(AppState.activeBoardGameVideos);
   }
 
   async getBoardGameReviewsByGameId(id) {
@@ -192,16 +192,16 @@ AppState.discountBoardGames = res.data.games.map(b=> new BoardGame(b))
     const res = await atlasApi.get('api/forum', {
       params: {
         client_id: '2I6DeypMLL',
-limit:10,
-news:true
+        limit: 10,
+        news: true
       },
     });
     // console.log(res.data);
     AppState.forumPosts = res.data.posts.map(f => new ForumPost(f))
-// console.log(AppState.forumPosts);
+    // console.log(AppState.forumPosts);
   }
 
- 
+
 }
 
 
