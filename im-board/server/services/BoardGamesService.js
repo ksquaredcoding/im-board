@@ -15,9 +15,7 @@ class BoardGamesService {
   }
   async getBoardGamesByAccountId(accountId) {
     const games = await dbContext.BoardGames.find({ accountId }).populate(
-      "account",
-      "name picture"
-    );
+      "account");
     return games;
   }
 
