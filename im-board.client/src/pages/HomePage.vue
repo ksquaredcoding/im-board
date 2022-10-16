@@ -4,8 +4,8 @@
     v-if="boardGames"
   >
     <div class="row justify-content-center">
-      <div class="col-md-11 my-2">
-        <div class="card text-bg-dark">
+      <div class="col-md-11 my-2 ">
+        <div class="card text-bg-dark ">
           <img
             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images"
             class="card-img"
@@ -24,8 +24,8 @@
       </div>
       <div class="row mx-2 my-5">
         <div class="col-md-12">
-          <div @click="searchPopular()" class="hoverable">
-            <h2 class="rowTitle"><u> Popular Board Games</u></h2>
+          <div @click="searchPopular()" class="hoverable hvr-sweep-to-right ">
+            <h2 class="rowTitle p-1">Popular Board Games</h2>
           </div>
         </div>
         <TransitionGroup
@@ -33,7 +33,7 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2" v-for="b in boardGames" :key="b.id">
+          <div class="col-md-2 mt-4" v-for="b in boardGames" :key="b.id">
             <BoardGameCard :boardGame="b" />
           </div>
         </TransitionGroup>
@@ -41,8 +41,8 @@
  
           <div class="row mx-2 my-5">
         <div class="col-md-12">
-          <div @click="searchPopular()" class="hoverable">
-            <h2 class="rowTitle"><u> Games On Discount</u></h2>
+          <div @click="searchPopular()" class="hoverable ">
+            <h2 class="rowTitle">Games On Discount</h2>
           </div>
         </div>
         <TransitionGroup
@@ -50,7 +50,7 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2" v-for="d in discountBoardGames" :key="d.id">
+          <div class="col-md-2 mt-4" v-for="d in discountBoardGames" :key="d.id">
             <BoardGameCard :boardGame="d" />
           </div>
         </TransitionGroup>
@@ -187,6 +187,7 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
 </script>
 
 <style scoped lang="scss">
+
 .rowTitle {
   font-weight: 700;
 }
