@@ -2,7 +2,7 @@
 
      <div class=" bg-transparent card my-2 " v-if="boardGame">
      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"> 
-      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative"  />
+      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative" @error="badImg" />
 </router-link>
       
       <div class="card-body p-1 mt-2 bg-dark rounded">
@@ -59,7 +59,10 @@ export default {
     setup(props) {
    const  route = useRoute()
         return {
-
+ badImg(event) {
+        event.target.src =
+          'https://scontent-fml2-1.xx.fbcdn.net/v/t39.30808-6/285341017_491972112936262_428169449585977605_n.png?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=luxW5EmZWc8AX_7Q3Ng&_nc_ht=scontent-fml2-1.xx&oh=00_AT_-9bi9Fn51koLGEax6amFRkok4JRe8L2X4z88qiPA4OA&oe=635181DB';
+      },
 
 
           route

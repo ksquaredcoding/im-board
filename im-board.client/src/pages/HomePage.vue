@@ -5,22 +5,7 @@
   >
     <div class="row justify-content-center">
       <div class="col-md-11 my-2 ">
-        <div class="card text-bg-dark ">
-          <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images"
-            class="card-img"
-            alt="..."
-          />
-          <div class="card-img-overlay">
-            <h5 class="card-title">Fall In Love With BoardGames</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-          </div>
-        </div>
+      <HomePageBanner/>
       </div>
 
 
@@ -35,7 +20,7 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2 mt-4" v-for="b in boardGames" :key="b.id">
+          <div class="col-md-2 mt-5 mb-2 "  v-for="b in boardGames" :key="b.id">
             <BoardGameCard :boardGame="b" />
           </div>
         </TransitionGroup>
@@ -52,12 +37,12 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2 mt-4" v-for="d in discountBoardGames" :key="d.id">
+          <div class="col-md-2 mt-5 mb-2" v-for="d in discountBoardGames" :key="d.id">
             <BoardGameCard :boardGame="d" />
           </div>
         </TransitionGroup>
       </div>
-      <div class="col-md-12">
+  
         <div class="col-md-12 mt-2 ms-3 ">
            <div  class="hoverable hvr-sweep-to-left p-1">
            <h3>
@@ -74,10 +59,10 @@
         </div>
 
         <div class="row horizontal-scrollable">
-          <div class="col-md-3" v-for="f in forumPosts" :key="f.id">
+          <div class="col-md-3 mt-5 mb-2" v-for="f in forumPosts" :key="f.id">
             <ForumPosts :forumPost="f" />
           </div>
-        </div>
+   
       </div>
     </div>
    
@@ -88,7 +73,7 @@
 </div>
       <div class="row horizontal-scrollable ">
      
-        <Articles/>
+        <Articles  />
       </div>
     
       <!-- <button @click="getMoreBoardGames()" class="btn btn-danger">
@@ -107,8 +92,9 @@ import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
-import ForumPosts from '../components/ForumPosts.vue';
-import Articles from "../components/GroupPage/Articles.vue";
+import ForumPosts from '../components/AtlasGamesForumPosts.vue';
+import Articles from "../components/Articles.vue";
+import HomePageBanner from "../components/HomePageBanner.vue";
 
 export default {
   setup() {
@@ -190,7 +176,8 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
     BoardGameCard,
     PresetFilterBar,
     ForumPosts,
-    Articles
+    Articles,
+    HomePageBanner
 },
 };
 </script>

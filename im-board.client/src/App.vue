@@ -8,6 +8,8 @@
 <footer class="p-2 bg-dark mt-1">
   <div>
       <button class="btn btn-dark">
+        <a href="#" v-if="route.name == 'Home'">Return To Top</a>
+        <a href="#Search" v-else-if="route.name=='Search'">Return To Top</a>
         <a href="#">Return To Top</a>
       </button>
   </div>
@@ -32,10 +34,13 @@ import EditBanner from "./components/AccountProfilePage/EditBanner.vue"
 import EditName from "./components/AccountProfilePage/EditName.vue"
 import EditPic from "./components/AccountProfilePage/EditPic.vue"
 import Filters from "./components/BoardGame/FiltersSideBar.vue"
+import { useRoute } from "vue-router"
 
 export default {
   setup() {
+    const route = useRoute()
     return {
+      route,
       appState: computed(() => AppState)
     }
   },

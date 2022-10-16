@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="col-md-3"  v-for="a in articles">
+  <div class="col-md-3 mt-5"  v-for="a in articles">
     <div class="bg-transparent card my-2">
       <img :src="a.coverImg" alt=""
         class="forcedImg rounded" />
@@ -23,9 +23,9 @@
 <script>
 import { computed } from '@vue/reactivity';
 import { useRoute } from 'vue-router';
-import { AppState } from '../../AppState.js';
-import { BoardGame } from '../../models/BoardGame/BoardGame.js';
-import { BoardGameCategory } from '../../models/BoardGame/BoardGameCategory.js';
+import { AppState } from '../AppState.js';
+import { BoardGame } from '../models/BoardGame/BoardGame.js';
+import { BoardGameCategory } from '../models/BoardGame/BoardGameCategory.js';
 
 
 export default {
