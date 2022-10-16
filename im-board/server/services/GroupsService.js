@@ -6,7 +6,7 @@ class GroupsService {
   async getMyGroups(accountId) {
     // debugger
     const groups = await dbContext.GroupMembers.find({ accountId })
-      .populate("group", "name coverImg")
+      .populate("group", "name coverImg groupMemberIds")
       .populate({path: 'group', populate:{path:'creator', select: 'name picture'}})
       // .populate("profile", "name picture");
     if (!groups) {
