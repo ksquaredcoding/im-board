@@ -1,4 +1,4 @@
-import { reactive } from "vue";
+import { reactive } from 'vue';
 
 // NOTE AppState is a reactive object to contain app level data
 export const AppState = reactive({
@@ -48,64 +48,93 @@ export const AppState = reactive({
 
   /** @type {import('./models/BoardGame/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
   activeBoardGamePrices: [],
-  
+
   /** @type {import('./models/BoardGame/ABGReviews.js').ABGReviews[]} */
   activeBoardGameReviews: [],
-  
+
   /** @type {import('./models/ForumPost.js').ForumPost[]} */
   forumPosts: [],
-  
-  
+
   /** @type {import('./models/BoardGame/BGCategories.js').BGCategories[]} */
-bgCategories:[],
-
-
+  bgCategories: [],
 
   activeCategoryFilters: [],
   categories: [
-    { name: "CardGame", id: "eX8uuNlQkQ" },
-    { name: "Fantasy", id: "ZTneo8TaIO" },
-    { name: "Economic", id: "N0TkEGfEsF" },
-    { name: "Scifi", id: "3B3QpKvXD3" },
-    { name: "City Building", id: "ODWOjWAJj3" },
-    { name: "Party Game", id: "X8J7RM6dxX" },
-    { name: "Adventure", id: "KUBCKBkGxV" },
-    { name: "Bluffing", id: "PinhJrhnxU" },
-    { name: "Dice", id: "mavSOM8vjH" },
-    { name: "Horror", id: "cAIkk5aLdQ" },
-    { name: "Puzzle", id: "WVMOS3s2pb" },
-    { name: "Cooperative", id: "ge8pIhEUGE" },
-    { name: "Wargame", id: "jX8asGGR6o" },
-    { name: "Word game", id: "rHvAx4hH2f" },
+    { name: 'CardGame', id: 'eX8uuNlQkQ' },
+    { name: 'Fantasy', id: 'ZTneo8TaIO' },
+    { name: 'Economic', id: 'N0TkEGfEsF' },
+    { name: 'Scifi', id: '3B3QpKvXD3' },
+    { name: 'City Building', id: 'ODWOjWAJj3' },
+    { name: 'Party Game', id: 'X8J7RM6dxX' },
+    { name: 'Adventure', id: 'KUBCKBkGxV' },
+    { name: 'Bluffing', id: 'PinhJrhnxU' },
+    { name: 'Dice', id: 'mavSOM8vjH' },
+    { name: 'Horror', id: 'cAIkk5aLdQ' },
+    { name: 'Puzzle', id: 'WVMOS3s2pb' },
+    { name: 'Cooperative', id: 'ge8pIhEUGE' },
+    { name: 'Wargame', id: 'jX8asGGR6o' },
+    { name: 'Word game', id: 'rHvAx4hH2f' },
   ],
 
   order_By: [
-    { name: "rank" },
-    { name: "year_published" },
-    { name: "name" },
-    { name: "min_age" },
-    { name: "min_playtime" },
-    { name: "max_playtime" },
-    { name: "min_players" },
-    { name: "max_players" },
-    { name: "price" },
-    { name: "discount" },
+    { name: 'rank' },
+    { name: 'year_published' },
+    { name: 'name' },
+    { name: 'min_age' },
+    { name: 'min_playtime' },
+    { name: 'max_playtime' },
+    { name: 'min_players' },
+    { name: 'max_players' },
+    { name: 'price' },
+    { name: 'discount' },
   ],
 
+  articles: [
+    {
+      name: 'Heres why dice were invented',
+      coverImg:
+        'https://www.grunge.com/img/gallery/heres-why-dice-were-invented/intro-1656601577.webp',
+      url: 'https://www.grunge.com/912859/heres-why-dice-were-invented/',
+      credit: '',
+    },
+    {
+      name: 'The Complete History of Board Games',
+      coverImg:
+        'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
+      url: 'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
+      credit: 'Byron November 17, 2019',
+    },
 
-articles:[
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-  {name:'', coverImg:'', url:''},
-],
+    {
+      name: '6 Fun Facts About the Original Jumanji',
+      coverImg:
+        'https://www.sheknows.com/wp-content/uploads/2018/08/pd50yqoqpnwixdnavxuf.jpeg',
+      url: 'https://www.sheknows.com/entertainment/articles/1137378/fun-facts-about-the-original-jumanji/',
+      credit: 'Samantha Puc December 18, 2017',
+    },
+
+    {
+      name: 'The Most Popular Types of Board Games: Board Game Genres, Explained',
+      coverImg:
+        'https://whatnerd.com/wp-content/uploads/2020/05/board-game-types-genres-explained-featured.jpg',
+      url: 'https://www.grunge.com/912859/heres-why-dice-were-invented/',
+      credit: 'Joel Lee March 10, 2021',
+    },
+
+    {
+      name: 'Why Do Board Games Matter?',
+      coverImg:
+        'https://lovethynerd.com/wp-content/uploads/2019/02/Among-The-Stars-822x675.jpg?x99318',
+      url: 'https://lovethynerd.com/why-do-board-games-matter/',
+      credit: 'Mike Perna February 18, 2021',
+    },
+    {
+      name: '',
+      coverImg: '',
+      url: '',
+      credit: '',
+    },
+  ],
 
   // rank, price, discount, reddit_week_count, reddit_day_count, name, year_publisher, min_age, min_playtime, max_playtime, min_players, max_players
 

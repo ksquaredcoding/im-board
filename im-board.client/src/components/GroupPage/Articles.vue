@@ -2,23 +2,24 @@
 
 
 
-  <div class="col-md-2">
+  <div class="col-md-3"  v-for="a in articles">
     <div class="bg-transparent card my-2">
-      <img src="https://www.grunge.com/img/gallery/heres-why-dice-were-invented/intro-1656601577.webp" alt=""
+      <img :src="a.coverImg" alt=""
         class="forcedImg rounded" />
 
       <div class="card-body p-1  bg-dark rounded">
-        <a href="https://www.grunge.com/912859/heres-why-dice-were-invented/">
+        <a :href="a.url">
 
-          <h6 class="text-light">Heres why dice were invented</h6>
+          <h6 class="text-light">{{a.name}}</h6>
         </a>
+        <small>{{a.credit}}</small>
       </div>
     </div>
 
   </div>
 
 
-  <div class="col-md-2">
+  <!-- <div class="col-md-2">
     <div class="bg-transparent card my-2">
       <img src="https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg" alt=""
         class="forcedImg rounded" />
@@ -65,7 +66,7 @@
         class="forcedImg rounded" />
 
       <div class="card-body p-1  bg-dark rounded">
-        <a href="ttps://www.grunge.com/912859/heres-why-dice-were-invented/">
+        <a href="https://www.grunge.com/912859/heres-why-dice-were-invented/">
 
           <h6 class="text-light">The Most Popular Types of Board Games: Board Game Genres, Explained
             <br>
@@ -96,7 +97,7 @@
     </div>
 
   </div>
-
+ -->
 
 
 
@@ -117,7 +118,7 @@ export default {
     return {
       route,
       //  categories : props.boardGame.categories.map(b=> new BoardGameCategory(b)),
-
+articles : computed(()=> AppState.articles)
       //TODO SORTING BOARD GAME CATEGORIES TO SHOW ON THE HOMEPAGE CARD
       //NEED TO MATCH THE ID AND FIND THE NAME ATTACHED
     };

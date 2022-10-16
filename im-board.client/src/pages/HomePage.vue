@@ -75,17 +75,15 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-start">
-      <div class="row">
+   
+      <div class="row horizontal-scrollable ">
         <Articles/>
       </div>
-      <button class="btn btn-dark">
-        <a href="#">Return To Top</a>
-      </button>
+    
       <!-- <button @click="getMoreBoardGames()" class="btn btn-danger">
         Load More
       </button> -->
-    </div>
+  
   </div>
 </template>
 

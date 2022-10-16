@@ -5,7 +5,13 @@
   <main>
     <router-view />
   </main>
-
+<footer class="p-2 bg-dark mt-1">
+  <div>
+      <button class="btn btn-dark">
+        <a href="#">Return To Top</a>
+      </button>
+  </div>
+</footer>
 <GroupForm/>
   <EditBanner/>
   <EditName/>
