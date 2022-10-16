@@ -15,25 +15,40 @@
         </div>
 
       </div>
-
+     <div class="row mx-2 my-5">
       <div class="col-md-12">
-        <div class="row horizontal-scrollable">
-         
-          <div class="col-md-3" v-for="f in forumPosts" :key="f.id">
-            <ForumPosts :forumPost="f" />
-          </div>
-        </div>
+        
+        <button @click="searchPopular()">
 
-        <div class="row mx-2">
+          <h1 class="rowTitle">Popular Board Games</h1>
+        </button>
+    
+      
+      </div>
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
-            <div class="col-md-3" v-for="b in boardGames" :key="b.id">
+            <div class="col-md-2" v-for="b in boardGames" :key="b.id">
               <BoardGameCard :boardGame="b" />
 
             </div>
 
           </TransitionGroup>
         </div>
+      <div class="col-md-12">
+            <div class="col-md-12 mt-2 ms-3">
+          <h5>Articles from  <img src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png" alt="" height="30">  <b class="text-primary lighten-10">
+            Board Game Atlas
+          </b> </h5>
+         </div>
+
+        <div class="row horizontal-scrollable  ">
+     
+          <div class="col-md-3" v-for="f in forumPosts" :key="f.id">
+            <ForumPosts :forumPost="f" />
+          </div>
+        </div>
+
+   
       </div>
     </div>
     <div class="row justify-content-start">
@@ -122,7 +137,13 @@ export default {
         }
       },
 
-
+async searchPopular(){
+  try {
+      await atlasGamesService.getBoardGamesByPopularity()
+    } catch (error) {
+      Pop.error(error,'[searchPopular]')
+    }
+}
 
     };
   },
@@ -131,6 +152,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.rowTitle{
+  font-weight: 700;
+
+}
 .horizontal-scrollable {
   border-radius: 4px;
 

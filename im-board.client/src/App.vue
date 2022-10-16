@@ -38,6 +38,35 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+*::-webkit-scrollbar {
+  width: 13px;
+  width: 13px;
+}
+*::-webkit-scrollbar-track {
+
+  background-color: #2c2c2f;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-track:hover {
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-track:active {
+ 
+}
 
 
+*::-webkit-scrollbar-thumb {
+  width: 100px;
+  border-radius: 10px;
+ background: linear-gradient(to bottom right, #a8dba8, #0B486B);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  width: 100px;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
+}
 </style>

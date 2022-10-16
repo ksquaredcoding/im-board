@@ -1,5 +1,5 @@
 <template>
-  <div class="container animate__animated animate__fadeInDown" v-if="boardGames">
+  <div class="container animate__animated animate__fadeIn" v-if="boardGames">
  
     <div class="row justify-content-end">
       <div class="col-md-10  border-bottom border-secondary border-3 rounded-bottom  ">

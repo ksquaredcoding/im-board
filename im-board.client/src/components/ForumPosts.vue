@@ -7,7 +7,10 @@
       <p class="card-title d-flex justify-content-center">
         <a class="text-light" :href="forumPost.postUrl" target="_blank">
 
-          <h4>{{ forumPost.title}}</h4>
+          <div>
+
+            <h6>{{ forumPost.title}}</h6>
+          </div>
 
         </a>
 
