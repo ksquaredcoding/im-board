@@ -8,10 +8,10 @@
 
   <div class="account Page container-fluid " v-else>
 
-    <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account.coverImg})`}">
+    <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${profile.account.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">
-        <img :src="account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
-          v-if="account.picture">
+        <img :src="profile.account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
+          v-if="profile.account.picture">
         <div class="d-flex justify-content-center eum rounded-circle mt-2 icon text-dark" v-else>
           <div class="spinner-border" role="status">
 
@@ -24,7 +24,7 @@
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">{{account.name}}</div>
+      <div class="col-md d-flex justify-content-center username">{{profile.account.name}}</div>
       <div class="col-md d-flex justify-content-end">
 
         <router-link :to="{name: 'Account'}">
@@ -142,7 +142,8 @@ export default {
       bgLists: computed(() => AppState.bgLists),
       wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
       favList: computed(() => AppState.bgLists.filter(f => f.listName == "favorite")),
-      ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned"))
+      ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned")),
+      profile: computed(() => AppState.profile)
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard }
