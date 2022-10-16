@@ -13,8 +13,8 @@ class AccountService {
     } catch (err) { }
   }
 
-  async getMyGroups(id) {
-    const res = await api.get(`/account/groups/${id}`);
+  async getMyGroups() {
+    const res = await api.get(`/account/groups/`);
     console.log('getMyGroups', res.data);
     // console.log(AppState.account.id);
     AppState.groupMemberShips = res.data.map((g) => new GroupMemberShip(g));
@@ -22,12 +22,27 @@ class AccountService {
 
     console.log(AppState.groupMemberShips);
   }
+  async getProfileGroups(id) {
+    const res = await api.get(`/account/groups/${id}`);
+    // console.log('getProfileGroups', res.data);
+    // console.log(AppState.account.id);
+    AppState.groupMemberShips = res.data.map((g) => new GroupMemberShip(g));
+    // AppState.groups = res.data.map((g) => new Group(g));
 
-  async getMyLists(id) {
-    const res = await api.get(`/account/boardgames/${id}`);
+    // console.log(AppState.groupMemberShips);
+  }
+
+  async getMyLists() {
+    const res = await api.get(`/account/boardgames/`);
     // console.log(res.data, 'getting my lists');
     AppState.bgLists = res.data.map((b) => new BGList(b));
     // console.log(AppState.bgLists);
+  }
+  async getProfileLists(id) {
+    const res = await api.get(`/account/boardgames/${id}`);
+    console.log(res.data, 'getting profile lists');
+    AppState.bgLists = res.data.map((b) => new BGList(b));
+    console.log(AppState.bgLists);
   }
 
   async editAccount(formData) {

@@ -1,5 +1,5 @@
 <template>
-  <!-- TEST PUTTING COMMENT TUNG -->
+ 
   <div v-if="!account " class=" animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
@@ -8,10 +8,10 @@
 
   <div class="account Page container-fluid " v-else>
 
-    <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${profile.account.coverImg})`}">
+    <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account?.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">
-        <img :src="profile.account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
-          v-if="profile.account.picture">
+        <img :src="account?.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
+          v-if="account?.picture">
         <div class="d-flex justify-content-center eum rounded-circle mt-2 icon text-dark" v-else>
           <div class="spinner-border" role="status">
 
@@ -24,7 +24,7 @@
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">{{profile.account.name}}</div>
+      <div class="col-md d-flex justify-content-center username">{{account?.name}}</div>
       <div class="col-md d-flex justify-content-end">
 
         <router-link :to="{name: 'Account'}">
@@ -116,25 +116,25 @@ import { useRoute } from "vue-router"
 export default {
   setup() {
     const route = useRoute()
-    async function getMyGroups() {
+    async function getProfileGroups() {
       try {
-        await accountService.getMyGroups(route.params.id);
+        await accountService.getProfileGroups(route.params.id);
       }
       catch (error) {
         Pop.error(error, "[getMyGroups]");
       }
     }
-    async function getMyLists() {
+    async function getProfileLists() {
       try {
-        await accountService.getMyLists(route.params.id)
+        await accountService.getProfileLists(route.params.id)
       } catch (error) {
         console.error('[get my lists]', error)
         Pop.error(error)
       }
     }
     onMounted(() => {
-      getMyGroups(),
-        getMyLists()
+      getProfileGroups(),
+        getProfileLists()
     })
     return {
       account: computed(() => AppState.account),

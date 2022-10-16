@@ -14,6 +14,7 @@ export class BGList {
     this.imgUrl = data.imgUrl
     this.players = data.players
     this.playTime=data.playTime
+    this.account = new Account(data.account)
   }
 }
 
