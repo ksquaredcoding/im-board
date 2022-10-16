@@ -9,9 +9,6 @@ export class AccountController extends BaseController {
   constructor() {
     super("/account");
     this.router
-    .get("/:accountId", this.getUserProfile)
-    .get("/boardgames/:id", this.getProfileBoardGames)
-    .get("/groups/:id", this.getProfileGroups)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
       .get("/boardgames", this.getAccountLists)
@@ -57,24 +54,7 @@ export class AccountController extends BaseController {
   }
 
   // TODO account boardGame
-  async getProfileBoardGames(req, res, next) {
-    try {
-      const boardGames = await boardGamesService.getBoardGamesByAccountId(
-        req.params.id
-      );
-      res.send(boardGames);
-    } catch (error) {
-      next(error);
-    }
-  }
-  async getProfileGroups(req, res, next) {
-    try {
-      const groups = await groupsService.getMyGroups(req.params.id);
-      res.send(groups);
-    } catch (error) {
-      next(error);
-    }
-  }
+ 
   async editMyAccount(req, res, next) {
     try {
       const account = await accountService.updateAccount(
