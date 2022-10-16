@@ -143,7 +143,7 @@ export default {
   setup() {
     async function getMyGroups() {
       try {
-        await accountService.getMyGroups();
+        await accountService.getMyGroups(this.account.id);
       }
       catch (error) {
         Pop.error(error, "[getMyGroups]");
@@ -151,7 +151,7 @@ export default {
     }
     async function getMyLists() {
       try {
-        await accountService.getMyLists()
+        await accountService.getMyLists(this.account.id)
       } catch (error) {
         console.error('[get my lists]', error)
         Pop.error(error)

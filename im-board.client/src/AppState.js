@@ -27,6 +27,8 @@ export const AppState = reactive({
   bgLists: [],
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   boardgames: [],
+  /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
+  discountBoardGames: [],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   scrollBoardGames: [],

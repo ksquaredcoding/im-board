@@ -22,6 +22,20 @@ class AtlasGamesService {
     // console.log(AppState.boardgames);
   }
 
+async getBoardGamesByDiscount(){
+      const res = await atlasApi.get('/api/search', {
+        params: {
+          client_id: '2I6DeypMLL',
+          limit: 6,
+          gt_discount: 0.5
+        },
+      });
+
+AppState.discountBoardGames = res.data.map(b=> new BoardGame(b))
+      // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+
+}
+
   async getBoardGamesByPopularity(){
         const res = await atlasApi.get('/api/search', {
       params: {
