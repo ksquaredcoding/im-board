@@ -11,14 +11,14 @@
                   <img :src="editable.coverImg" alt="" class="forcedImg smallerImg mt-2 Img1 bg-light opacity-25" />
                 </div>
                 <div class="mt-3 inputBox">
-                  <input type="url" class="bg-light opacity-50 " v-model="editable.coverImg" required
+                  <input type="url" class="bg-light text-dark opacity-50 " v-model="editable.coverImg" required
                     aria-required="true" />
                   <span class="font">CoverImg</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <input type="text" class="bg-light opacity-50" v-model="editable.name" aria-required="true"
+                  <input type="text" class="bg-light opacity-50 text-dark" v-model="editable.name" aria-required="true"
                     required />
                   <span class="font">Group Name</span>
                 </div>
