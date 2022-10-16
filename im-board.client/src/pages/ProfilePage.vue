@@ -1,10 +1,21 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
-  <div class="account Page container-fluid animate__animated animate__fadeInUp">
+   <div v-if="!account " class=" animate__animated animate__fadeOut">
+    <div class="loader"></div>
+  </div>
+
+
+
+  <div class="account Page container-fluid " v-else>
 
     <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">
-        <img :src="account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon">
+        <img :src="account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon" v-if="account.picture">
+   <div class="d-flex justify-content-center eum rounded-circle mt-2 icon text-dark" v-else>
+  <div class="spinner-border" role="status">
+   
+  </div>
+</div>
       </div>
     </div>
 
@@ -26,7 +37,7 @@
     <div class="row">
 
     </div>
-    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
+    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
 
       <div class="col-md bg-grey ms-2">
         <div class="row bg-c4">

@@ -1,32 +1,11 @@
 <template>
-  <div v-if="!group" class=" ">
-    <div class="row">
-      <div class="col-md-3 p-0">
-        <div class=""></div>
-        <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
-          <h4>Group Chat</h4>
-        </div>
-
-        <div class="col-12 p-2 overflow-auto groupchatbox"></div>
-
-        <div></div>
-        <div></div>
-      </div>
-      <div class="col-md-6 overflow-auto gamecardbox">
-        <div class="px-1"></div>
-      </div>
-
-      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
-        <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
-          <h4>Group Games</h4>
-        </div>
-      </div>
-    </div>
+  <div v-if="!group " class=" animate__animated animate__fadeOut">
+    <div class="loader"></div>
   </div>
-  <div class="group-page animate__animated animate__fadeInRight" v-else>
-    <div class="row">
+  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
+    <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
-      <div class="col-md-3 p-0">
+      <div class="col-md-3 ">
         <div class=""></div>
         <div class="bg-dark rounded px-2 py-2 my-2 text-center m-3">
           <h4>Group Chat</h4>
@@ -39,7 +18,7 @@
         </div>
         <GroupChatInput />
       </div>
-      <div class="col-md-6 overflow-auto gamecardbox">
+      <div class="col-md-5 overflow-auto gamecardbox mx-5">
         <div class="px-1">
           <GameNightCard />
           <GameNightCard />
@@ -48,7 +27,7 @@
         </div>
       </div>
 
-      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
+      <div class="col-md-3  overflow-auto gamecardbox bg-dark pt-2">
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
@@ -157,6 +136,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
+
+ ::-webkit-scrollbar{
+  display:none
+ }
 .groupchatbox {
   height: 80vh;
 }
