@@ -14,8 +14,8 @@ export class AccountController extends BaseController {
       .get("/:accountId", this.getUserProfile)
       .get("/boardgames", this.getAccountLists)
       .get("/groups", this.getAccountGroups)
-      .get("/boardgames/:id", this.getAccountBoardGames)
-      .get("/groups/:id", this.getMyGroups)
+      .get("/boardgames/:id", this.getProfileBoardGames)
+      .get("/groups/:id", this.getProfileGroups)
       .put("", this.editMyAccount);
   }
 
@@ -56,7 +56,7 @@ export class AccountController extends BaseController {
   }
 
   // TODO account boardGame
-  async getAccountBoardGames(req, res, next) {
+  async getProfileBoardGames(req, res, next) {
     try {
       const boardGames = await boardGamesService.getBoardGamesByAccountId(
         req.params.id
@@ -66,7 +66,7 @@ export class AccountController extends BaseController {
       next(error);
     }
   }
-  async getMyGroups(req, res, next) {
+  async getProfileGroups(req, res, next) {
     try {
       const groups = await groupsService.getMyGroups(req.params.id);
       res.send(groups);
