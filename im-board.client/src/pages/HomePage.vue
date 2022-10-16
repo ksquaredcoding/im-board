@@ -17,7 +17,8 @@
       </div>
 
       <div class="col-md-12">
-        <div class="row">
+        <div class="row horizontal-scrollable">
+         
           <div class="col-md-3" v-for="f in forumPosts" :key="f.id">
             <ForumPosts :forumPost="f" />
           </div>
@@ -130,6 +131,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.horizontal-scrollable {
+  border-radius: 4px;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
 .card-title {
   font-size: 50pt;
   font-weight: 700;
