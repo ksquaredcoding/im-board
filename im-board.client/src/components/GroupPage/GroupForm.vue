@@ -119,7 +119,7 @@ import Pop from "../../utils/Pop.js";
 import { AppState } from "../../AppState.js";
 import { useRoute } from "vue-router";
 export default {
-  setup(props) {
+  setup() {
     const route = useRoute();
     const editable = ref({});
     return {

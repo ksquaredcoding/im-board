@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container-fluid homepage animate__animated animate__fadeInDown"
+    class="container-fluid px-3 homepage animate__animated animate__fadeInDown"
     v-if="boardGames"
   >
     <div class="row justify-content-center">
@@ -38,6 +38,23 @@
           </div>
         </TransitionGroup>
       </div>
+ 
+          <div class="row mx-2 my-5">
+        <div class="col-md-12">
+          <div @click="searchPopular()" class="hoverable">
+            <h2 class="rowTitle"><u> Popular Board Games</u></h2>
+          </div>
+        </div>
+        <TransitionGroup
+          name="custom-classes"
+          enterActiveClass="animate__zoomIn animate__animated"
+          leaveActiveClass="animate__zoomOut animate__animated"
+        >
+          <div class="col-md-2" v-for="b in boardGames" :key="b.id">
+            <BoardGameCard :boardGame="b" />
+          </div>
+        </TransitionGroup>
+      </div>
       <div class="col-md-12">
         <div class="col-md-12 mt-2 ms-3">
           <h5>
@@ -59,12 +76,15 @@
       </div>
     </div>
     <div class="row justify-content-start">
+      <div class="row">
+        <Articles/>
+      </div>
       <button class="btn btn-dark">
         <a href="#">Return To Top</a>
       </button>
-      <button @click="getMoreBoardGames()" class="btn btn-danger">
+      <!-- <button @click="getMoreBoardGames()" class="btn btn-danger">
         Load More
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
@@ -79,6 +99,7 @@ import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
 import ForumPosts from '../components/ForumPosts.vue';
+import Articles from "../components/GroupPage/Articles.vue";
 
 export default {
   setup() {
@@ -91,9 +112,7 @@ export default {
       }
     }
 
-    async function getBoardGamesByPrice(){
-      
-    }
+
 
     async function getForumPosts() {
       try {
@@ -105,6 +124,7 @@ export default {
 
     onMounted(() => {
       getBoardGames();
+ 
       // getBoardGamesByPrice()
       getForumPosts();
       AppState.skip = 0;
@@ -153,7 +173,8 @@ export default {
     BoardGameCard,
     PresetFilterBar,
     ForumPosts,
-  },
+    Articles
+},
 };
 </script>
 

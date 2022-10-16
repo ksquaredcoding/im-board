@@ -1,4 +1,4 @@
-import { atlasApi } from './AxiosService.js';
+import { atlasApi, serpApi } from './AxiosService.js';
 import { BoardGame } from '../models/BoardGame/BoardGame.js';
 import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
 import { ActiveBoardGameVideo } from '../models/BoardGame/ActiveBoardGameVideo.js';
@@ -182,9 +182,13 @@ limit:10,
 news:true
       },
     });
-    console.log(res.data);
+    // console.log(res.data);
     AppState.forumPosts = res.data.posts.map(f => new ForumPost(f))
-console.log(AppState.forumPosts);
+// console.log(AppState.forumPosts);
   }
+
+ 
 }
+
+
 export const atlasGamesService = new AtlasGamesService();

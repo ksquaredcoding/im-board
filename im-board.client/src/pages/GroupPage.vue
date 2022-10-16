@@ -38,6 +38,7 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
 import GroupChatCard from "../components/GroupPage/GroupChatCard.vue";

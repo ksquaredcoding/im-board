@@ -6,7 +6,7 @@
     <router-view />
   </main>
 
- <GroupForm/>
+
   <EditBanner/>
   <EditName/>
   <EditPic/>
@@ -44,7 +44,7 @@ export default {
 }
 *::-webkit-scrollbar-track {
 
-  background-color: #2c2c2f;
+  background-color: #ffff;
   cursor: pointer;
 }
 
@@ -53,7 +53,7 @@ export default {
 }
 
 *::-webkit-scrollbar-track:active {
- 
+
 }
 
 
