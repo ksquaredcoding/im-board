@@ -1,4 +1,4 @@
-import { atlasApi, serpApi } from './AxiosService.js';
+import { atlasApi } from './AxiosService.js';
 import { BoardGame } from '../models/BoardGame/BoardGame.js';
 import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
 import { ActiveBoardGameVideo } from '../models/BoardGame/ActiveBoardGameVideo.js';
