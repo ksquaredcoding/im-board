@@ -36,44 +36,48 @@
     </div>
   </nav> -->
 
-  <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage" >
+  <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage">
     <div class=" col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
 
-        <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm" v-if="user.isAuthenticated">
+        <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm"
+          v-if="user.isAuthenticated">
           Create Group
         </a>
-      
-     
+
+
         <button class=" button-49 py-1 px-2 " disabled v-else title="Not Logged In">
           Create Group
         </button>
-      
 
-      
-      </div><div class="ps-4"><Searchbar/></div>
+
+
+      </div>
+      <div class="ps-4">
+        <Searchbar />
+      </div>
       <!-- TODO END -->
     </div>
-    
+
     <div class="col-md d-flex justify-content-center align-items-center">
-      
+
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center">
           <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
           <p class=" mb-0 mx-2 navbar-title justify-content-center">I'm Game</p>
         </div>
       </router-link>
-     
+
 
     </div>
-   
-    
+
+
     <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
       <div class="pe-3  d-flex d-none d-sm-block">
 
-        <router-link :to="{name: 'Profile'}" v-if="user.isAuthenticated">
+        <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Profile</a>
         </router-link>
 

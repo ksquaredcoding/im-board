@@ -1,4 +1,4 @@
-<template>
+<template v-if="group">
   <div class="col-md-11 banner elevation-3" :style="{backgroundImage: `url(${group.coverImg})`}">
     <div class="logicButtons d-flex">
       <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
@@ -29,8 +29,14 @@
         <div>
           <span><small class="text-shadow">Members</small></span>
           <div class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar">
-            <img :src="g.profile.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
-              class="rounded-circle box-shadow mx-1 profile-img" v-for="g in groupMember" :key="g.id" />
+
+
+            <router-link :to="{name: 'Profile', params:{id: g.accountId}}" v-for="g in groupMember" :key="g.id">
+
+              <img :src="g.profile.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
+                class="rounded-circle box-shadow mx-1 profile-img" />
+
+            </router-link>
           </div>
         </div>
       </div>

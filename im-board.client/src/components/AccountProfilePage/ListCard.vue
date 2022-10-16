@@ -18,7 +18,8 @@
           Rating:{{boardGameList.rating.toFixed(2)}}
         </div>
 
-        <i class="mdi mdi-close text-danger selectable rounded-3" @click="removeGameFromList()"></i>
+        <i class="mdi mdi-close text-danger selectable rounded-3" @click="removeGameFromList()"
+          v-if="account.id == boardGameList.accountId"></i>
 
       </div>
     </div>
@@ -27,6 +28,8 @@
 
 
 <script>
+import { computed } from "@vue/reactivity"
+import { AppState } from "../../AppState.js"
 import { BGList } from "../../models/BoardGame/BGList.js"
 import { listsService } from "../../services/ListsService.js"
 import { logger } from "../../utils/Logger.js"
@@ -41,7 +44,7 @@ export default {
   },
   setup(props) {
     return {
-
+      account: computed(() => AppState.account),
       async removeGameFromList() {
         try {
           const yes = await Pop.confirm('remove from this list?')

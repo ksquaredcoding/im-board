@@ -50,7 +50,7 @@
       </div>
       <div class="col-md d-flex justify-content-end">
 
-        <router-link :to="{name: 'Profile'}">
+        <router-link :to="{name: 'Profile',params:{id: user.id }}">
           <button class="btn rounded-circle editbtn"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
               title="Save Changes"></i></button>
         </router-link>
@@ -163,6 +163,7 @@ export default {
     })
     return {
       account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       groups: computed(() => AppState.groupMemberShips),
       bgLists: computed(() => AppState.bgLists),
       wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
