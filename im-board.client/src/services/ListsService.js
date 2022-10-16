@@ -14,6 +14,13 @@ class ListsService {
     AppState.bgLists = res.data.map((b) => new BGList(b));
     // console.log(AppState.bgLists);
   }
+
+  async removeGameFromList(listId) {
+    await api.delete(`api/boardgames/${listId}`)
+
+    AppState.bgLists = AppState.bgLists.filter(b => b.listId != listId)
+
+  }
 }
 
 export const listsService = new ListsService();

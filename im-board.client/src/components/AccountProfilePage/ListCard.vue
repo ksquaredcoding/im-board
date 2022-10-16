@@ -17,9 +17,9 @@
         <div class="card-text d-flex justify-content-center">
           Rating:{{boardGameList.rating.toFixed(2)}}
         </div>
-        <p class="d-flex justify-content-center">
 
-        </p>
+        <i class="mdi mdi-close text-danger selectable rounded-3" @click="removeGameFromList()"></i>
+
       </div>
     </div>
   </div>
@@ -29,6 +29,7 @@
 <script>
 import { BGList } from "../../models/BoardGame/BGList.js"
 import { listsService } from "../../services/ListsService.js"
+import { logger } from "../../utils/Logger.js"
 import Pop from "../../utils/Pop.js"
 
 export default {
@@ -43,7 +44,10 @@ export default {
 
       async removeGameFromList() {
         try {
-          await listsService.removeGameFromList()
+          const yes = await Pop.confirm('remove from this list?')
+          if (!yes) { return }
+          // console.log(props.boardGameList.gameId, props.boardGameList.listId);
+          await listsService.removeGameFromList(props.boardGameList.listId)
         } catch (error) {
           console.error('[RemoveGame]', error)
           Pop.error(error)
