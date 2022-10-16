@@ -1,52 +1,38 @@
 <template>
-
-
   <!-- ------- -->
- 
 
-<div class="offcanvas  offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-bs-backdrop="true">
- 
-  <div class="offcanvas-body">
-      <div class="filters container">
+  <div class="filters container">
     <div class="row">
-      <div class="col-md-12 ">
- <h4 >Categories</h4>
-      <div
-      class="list-group-item inputBox d-flex"
-      v-for="category in categories"
-      :key="category.id"
-    >
-      <input
-        class="checkBox"
-        type="checkbox"
-        :value="category.id"
-        :checked="category.checked"
-        :id="category.name"
-        @change="checkBoxMethod($event)"
-      />
-      <label for="card-game" class="ms-2">{{ category.name }}</label>
-</div>
-  <h4 class="mt-3">Players</h4>
-  <form @submit.prevent="getBoardGamesByPlayer_Age_Playtime()">
-   <div class="form-group">
-<input type="checkbox" required >
-<label >  <small >  Minimum Players</small></label>
-<input  type="number" class="form-control" id="DataList">
-
+      <div class="col-md-12">
+        <h4>Categories</h4>
+        <div
+          class="list-group-item inputBox d-flex"
+          v-for="category in categories"
+          :key="category.id"
+        >
+          <input
+            class="checkBox"
+            type="checkbox"
+            :value="category.id"
+            :checked="category.checked"
+            :id="category.name"
+            @change="checkBoxMethod($event)"
+          />
+          <label for="card-game" class="ms-2">{{ category.name }}</label>
+        </div>
+        <h4 class="mt-3">Players</h4>
+        <form @submit.prevent="getBoardGamesByPlayer_Age_Playtime()">
+          <div class="form-group">
+            <input type="checkbox" required />
+            <label> <small> Minimum Players</small></label>
+            <input type="number" class="form-control" id="DataList" />
+          </div>
+          <button class="btn btn-sm btn-success">submit</button>
+        </form>
       </div>
-      <button class="btn btn-sm btn-success">submit</button>
-  </form>
-   
-    </div>
     </div>
     <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
-  
-    <div></div>
   </div>
-
-   
-  </div>
-</div>
 </template>
 
 <script>
@@ -93,19 +79,13 @@ export default {
         }
       },
 
-
-
-      
-
-async getBoardGamesByPlayer_Age_Playtime(count){
-try {   
-    await atlasGamesService.getBoardGamesByMinimumPlayers(count)
-  } catch (error) {
-    Pop.error(error,'[getBoardGamesByPlayer_Age_Playtime]')
-  }
-}
-
-
+      async getBoardGamesByPlayer_Age_Playtime(count) {
+        try {
+          await atlasGamesService.getBoardGamesByMinimumPlayers(count);
+        } catch (error) {
+          Pop.error(error, '[getBoardGamesByPlayer_Age_Playtime]');
+        }
+      },
     };
   },
 };
@@ -115,8 +95,8 @@ try {
 // input.checkBox {
 // }
 
-.offcanvas{
-width: 200px;
+.offcanvas {
+  width: 200px;
 }
 .text-shadow {
   color: aliceblue;

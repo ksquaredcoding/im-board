@@ -1,25 +1,16 @@
 <template>
-  <div class="container-fluid bg-c1 animate__animated animate__fadeInDown" v-if="boardGames">
+  <div class="container animate__animated animate__fadeInDown" v-if="boardGames">
  
-    <div class="row">
-  
-      <div
-        class="col-md-2 "
-      >
-      <div class="mt-2">
-
-        <h5 class="filterBy">  Filter By</h5>
+    <div class="row justify-content-end">
+      <div class="col-md-10  border-bottom border-secondary border-3 rounded-bottom  ">
+<h3 class="searchText">Search For Your BoardGames</h3>
+<p class=" ">we would be surprised if we didn't have it listed here...</p>
       </div>
-
-
-
-   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Categories
-</button>
-
-      </div>
-
-      <div class="col-md-10">
+  <div class="col-md-3">
+    Place HOlder
+  </div>
+    
+      <div class="col-md-9">
        
 
         <div class="row mx-2">
@@ -121,7 +112,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.searchText{
+  font-size: 40px;
+  font-weight: 900;
+}
 .filterBy{
   font-weight: 900;
 }

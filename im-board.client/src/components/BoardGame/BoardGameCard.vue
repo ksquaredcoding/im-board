@@ -1,37 +1,39 @@
 <template>
-    <div class="card elevation-4 my-2" v-if="boardGame">
+
+     <div class=" bg-transparent card my-2" v-if="boardGame">
      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"> 
       <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded"  />
 </router-link>
       
-      <div class="card-body p-1 bg-dark rounded-bottom">
+      <div class="card-body p-1 bg-dark rounded">
         <p class="card-title d-flex justify-content-center">
-           <h4>{{ boardGame?.name }}</h4>
+           <h5 class="text-decoration-underline">{{ boardGame?.name }}</h5>
         </p>
-        <div class="card-text d-flex justify-content-center">
+        <!-- <div class="card-text d-flex justify-content-center">
           Categories: 
-        </div>
+        </div> -->
         <div class="card-text d-flex justify-content-center">
           Players: {{ boardGame?.players}}
         </div>
         <div class="card-text d-flex justify-content-center">
           Rating: {{ boardGame?.average_user_rating.toFixed(2) }} of 5
         </div>
-        <div class="addToList">
+        <!-- <div class="addToList">
             <p class="d-flex justify-content-center " >
           <AddToList :boardGameOnHomePage="boardGame" />
         </p>
-        </div>
+        </div> -->
       
       </div>
     </div>
     <div v-else>🦆</div>
-  
+
 
 </template>
 
 <script>
 import { computed } from "@vue/reactivity";
+import { useRoute } from "vue-router";
 import { AppState } from "../../AppState.js";
 import { BoardGame } from '../../models/BoardGame/BoardGame.js';
 import { BoardGameCategory } from "../../models/BoardGame/BoardGameCategory.js";
@@ -42,8 +44,9 @@ export default {
     boardGame: { type: BoardGame, required: true },
     },
     setup(props) {
-    
+   const  route = useRoute()
         return {
+          route
       //  categories : props.boardGame.categories.map(b=> new BoardGameCategory(b)),
   
    //TODO SORTING BOARD GAME CATEGORIES TO SHOW ON THE HOMEPAGE CARD

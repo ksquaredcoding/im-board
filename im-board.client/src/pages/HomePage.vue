@@ -171,12 +171,7 @@ export default {
   font-family: 'Baloo 2', cursive;
 }
 
-.homepage {
-  min-height: 90vh;
-  background-image: url(../assets/img/karthik-balakrishnan-NrS53eUKgiE-unsplash.jpg);
-  background-attachment: fixed;
-  background-position: center;
-}
+
 
 .scrollableY {
   max-height: 79vh;

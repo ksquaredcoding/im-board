@@ -63,8 +63,6 @@ export default {
           if (!AppState.account.id) {
             return AuthService.loginWithPopup()
           }
-
-
           let formData = {
             gameId: this.boardGame.id,
             name: this.boardGame.name,
@@ -76,14 +74,9 @@ export default {
             playTime: this.boardGame.playtime,
             type: editable.value
           }
-          const test = await listsService.addGameToList(formData)
-          //Test
-          if (test) {
-
+        await listsService.addGameToList(formData)
             Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
-          } else {
-            Pop.error('Already Have This On This List')
-          }
+    
         } catch (error) {
 
           Pop.error(`You already have This One Added to This List!`)
