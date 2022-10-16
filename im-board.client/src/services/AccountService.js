@@ -15,7 +15,7 @@ class AccountService {
 
   async getMyGroups() {
     const res = await api.get('/account/groups');
-    console.log('Account:', res.data);
+    console.log('getMyGroups', res.data);
     // console.log(AppState.account.id);
     // AppState.groupMemberShips = res.data.map((g) => new GroupMemberShip(g));
     // AppState.groups = res.data.map((g) => new Group(g));
