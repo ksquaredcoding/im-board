@@ -70,5 +70,22 @@ export const AppState = reactive({
     { name: 'Wargame', id: 'jX8asGGR6o' },
     { name: 'Word game', id: 'rHvAx4hH2f' },
   ],
+
+
+order_By:[
+{name:'rank'},
+{name:'year_published'},
+{name:'name'},
+{name:'min_age'},
+{name:'min_playtime'},
+{name:'max_playtime'},
+{name:'min_players'},
+{name:'max_players'},
+{name:'price'},
+{name:'discount'},
+],
+
+// rank, price, discount, reddit_week_count, reddit_day_count, name, year_publisher, min_age, min_playtime, max_playtime, min_players, max_players
+
   skip: 0,
 });

@@ -30,5 +30,7 @@ export class BoardGame {
     this.artists = data.artists;
     this.commentary = data.commentary;
     this.discount = data.discount
+    this.retailPrice = data.msrp_text;
+ 
   }
 }

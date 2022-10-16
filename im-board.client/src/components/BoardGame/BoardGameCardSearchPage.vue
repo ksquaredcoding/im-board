@@ -5,38 +5,35 @@
       <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative"  />
 </router-link>
       
-      <div class="card-body p-1 mt-2 bg-dark rounded">
+      <div class="card-body p-1 mt-2  rounded">
        <span class="text-center">
 
          <h6 class="text-decoration-underline text-wrap">{{ boardGame?.name }}</h6>
        </span>
         
-        <!-- <div class="card-text d-flex justify-content-center">
-          Categories: 
-        </div> -->
+    
         <div class="card-text d-flex justify-content-center">
           <i class="mdi mdi-account"></i>
          {{ boardGame?.players}}
         </div>
-        <div class="card-text d-flex justify-content-center">
-       <i class="mdi mdi-star text-warning"></i>    {{ boardGame?.average_user_rating.toFixed(2) }} 
-
-        </div>
+      
         <div class="d-flex justify-content-center">
           <img src="https://cdn-icons-png.flaticon.com/512/2178/2178616.png" alt="" height="15">
-          ${{boardGame.price}}
+         <p> ${{boardGame.price}}</p>
+           <small class="text-decoration-line-through opacity-75 ms-3">
+              {{boardGame.retailPrice}}
+        </small>
+      
           
+        </div>
+        <div class="d-flex justify-content-center">
+       
         </div>
         <div class="d-flex justify-content-center discount  " v-if="(boardGame.discount*100) >= 45">
          {{(boardGame.discount*100).toFixed(0)}} <i class="mdi mdi-percent"></i> <p>off</p>
 
         </div>
-        <!-- <div class="addToList">
-            <p class="d-flex justify-content-center " >
-          <AddToList :boardGameOnHomePage="boardGame" />
-        </p>
-        </div> -->
-      
+     
       </div>
     </div>
     <div v-else>🦆</div>
