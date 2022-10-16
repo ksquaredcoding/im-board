@@ -5,7 +5,7 @@ import BaseController from '../utils/BaseController'
 
 export class ProfilesController extends BaseController {
   constructor() {
-    super("api/profiles");
+    super("/profiles");
     this.router
       .get("", this.getProfiles)
       .get("/:id", this.getProfile)

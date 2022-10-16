@@ -120,19 +120,20 @@ import GroupForm from "../components/GroupPage/GroupForm.vue";
 import ListCard from "../components/AccountProfilePage/ListCard.vue";
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
 import { useRoute } from "vue-router";
+import { profilesService } from "../services/ProfilesService.js";
 export default {
   setup() {
     const route = useRoute();
     async function getProfileGroups() {
       try {
-        await accountService.getProfileGroups(route.params.id);
+        await profilesService.getProfileGroups(route.params.id);
       } catch (error) {
         Pop.error(error, "[getMyGroups]");
       }
     }
     async function getProfileLists() {
       try {
-        await accountService.getProfileLists(route.params.id);
+        await profilesService.getProfileLists(route.params.id);
       } catch (error) {
         console.error("[get my lists]", error);
         Pop.error(error);
@@ -140,7 +141,7 @@ export default {
     }
     async function getUserProfile() {
       try {
-        await accountService.getUserProfile(route.params.id);
+        await profilesService.getUserProfile(route.params.id);
       } catch (error) {
         Pop.error(error, "[getProfile]");
       }
@@ -148,7 +149,8 @@ export default {
 
     onMounted(() => {
       getUserProfile();
-      getProfileGroups(), getProfileLists();
+      getProfileGroups();
+      getProfileLists();
     });
     return {
       account: computed(() => AppState.account),

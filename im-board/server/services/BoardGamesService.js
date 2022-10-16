@@ -8,14 +8,16 @@ class BoardGamesService {
       groupId
     );
     const lists = await dbContext.BoardGames.find({
-      accountId: accounts.map((g) => g.accountId), type: 'owned'
+      accountId: accounts.map((g) => g.accountId),
+      type: "owned",
     });
     return lists;
     // return accounts;
   }
   async getBoardGamesByAccountId(accountId) {
     const games = await dbContext.BoardGames.find({ accountId }).populate(
-      "account");
+      "account"
+    );
     return games;
   }
 
