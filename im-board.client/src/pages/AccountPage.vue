@@ -158,8 +158,8 @@ export default {
       }
     }
     onMounted(() => {
-      getMyGroups(),
-        getMyLists()
+      getMyGroups()
+        // getMyLists()
     })
     return {
       account: computed(() => AppState.account),
