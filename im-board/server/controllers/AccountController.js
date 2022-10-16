@@ -9,13 +9,13 @@ export class AccountController extends BaseController {
   constructor() {
     super("/account");
     this.router
+    // .get("/:accountId", this.getUserProfile)
+    // .get("/boardgames/:id", this.getProfileBoardGames)
+    // .get("/groups/:id", this.getProfileGroups)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
-      .get("/:accountId", this.getUserProfile)
       .get("/boardgames", this.getAccountLists)
       .get("/groups", this.getAccountGroups)
-      .get("/boardgames/:id", this.getProfileBoardGames)
-      .get("/groups/:id", this.getProfileGroups)
       .put("", this.editMyAccount);
   }
 
@@ -48,7 +48,8 @@ export class AccountController extends BaseController {
   }
   async getAccountGroups(req, res, next) {
     try {
-      const groups = await groupsService.getMyGroups(req.userInfo.id);
+      req.body.accountId = req.userInfo.id
+      const groups = await groupsService.getMyGroups(req.body.accountId);
       res.send(groups);
     } catch (error) {
       next(error);

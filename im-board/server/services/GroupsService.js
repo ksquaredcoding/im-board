@@ -26,8 +26,8 @@ class GroupsService {
       accountId
     );
     // const chats = await groupChatsService.getGroupChatsByGroupId(groupId);
-// const chats = await groupChatsService.getGroupChatsByGroupId(groupId)
-const chats = await dbContext.GroupChats.find({groupId})
+    // const chats = await groupChatsService.getGroupChatsByGroupId(groupId)
+    const chats = await dbContext.GroupChats.find({ groupId });
     if (group.creatorId.toString() !== accountId) {
       throw new Forbidden("only the creator can delete this group");
     }
