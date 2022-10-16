@@ -25,7 +25,7 @@ import GroupForm from "./components/GroupPage/GroupForm.vue"
 import EditBanner from "./components/AccountProfilePage/EditBanner.vue"
 import EditName from "./components/AccountProfilePage/EditName.vue"
 import EditPic from "./components/AccountProfilePage/EditPic.vue"
-import Filters from "./components/BoardGame/Filters.vue"
+import Filters from "./components/BoardGame/FiltersSideBar.vue"
 
 export default {
   setup() {

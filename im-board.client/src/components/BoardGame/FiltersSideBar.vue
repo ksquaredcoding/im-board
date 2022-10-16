@@ -1,5 +1,21 @@
 <template>
-  <!-- ------- -->
+
+<div>
+  <span class="mb-2">
+
+    <h3>Deals</h3>
+  </span>
+<div class="mt-2 flex-column">
+  <button @click.prevent="searchByLT_Price()" class="btn ">Under 20$</button>
+  <button class="btn ">Over 50% off</button>
+ 
+</div>
+</div>
+
+
+
+
+
 
   <!-- <div class="filters container">
     <div class="row">
@@ -27,10 +43,18 @@
   </div> -->
 
 
-   <div class="filters container">
-    <div class="row">
-      <div class="col-md-12">
-        <h4>Categories</h4>
+  <div class="accordion  " id="accordionFlushExample">
+  <div class="accordion-item ">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Categories
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+
+    <div class="row scrollableY p-2">
+      <div class="col-md-12 ">
+     
         <div
           class="list-group-item inputBox d-flex"
           v-for="category in categories"
@@ -45,12 +69,19 @@
             @change="checkBoxMethod($event)"
           />
           <label for="card-game" class="ms-2">{{ category.name }}</label>
-        </div>
+       
         
       </div>
     </div>
     <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
   </div>
+    </div>
+  </div>
+
+
+</div>
+
+  
 </template>
 
 <script>
@@ -97,13 +128,13 @@ export default {
         }
       },
 
-      async getBoardGamesByPlayer_Age_Playtime(count) {
-        try {
-          await atlasGamesService.getBoardGamesByMinimumPlayers(count);
-        } catch (error) {
-          Pop.error(error, '[getBoardGamesByPlayer_Age_Playtime]');
-        }
-      },
+async searchByLT_Price(){
+  try {
+      await atlasGamesService.getBoardGamesByPrice()
+    } catch (error) {
+      Pop.error(error,'[searchByLT_Price]')
+    }
+}
     };
   },
 };
@@ -113,6 +144,11 @@ export default {
 // input.checkBox {
 // }
 
+.scrollableY{
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 50vh;
+}
 .offcanvas {
   width: 200px;
 }

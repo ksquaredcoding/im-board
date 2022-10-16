@@ -92,6 +92,21 @@ bgCategories:[],
     { name: "discount" },
   ],
 
+
+articles:[
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+  {name:'', coverImg:'', url:''},
+],
+
   // rank, price, discount, reddit_week_count, reddit_day_count, name, year_publisher, min_age, min_playtime, max_playtime, min_players, max_players
 
   skip: 0,

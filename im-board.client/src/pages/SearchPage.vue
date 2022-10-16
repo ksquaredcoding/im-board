@@ -54,7 +54,7 @@
 import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
 import Pop from '../utils/Pop.js';
-import Filters from '../components/BoardGame/Filters.vue';
+import Filters from '../components/BoardGame/FiltersSideBar.vue';
 import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
@@ -104,6 +104,7 @@ async function getCategoryList(){
       },
       async getBoardGamesByCategories(category) {
         try {
+
           await atlasGamesService.getBoardGamesByCategories(category);
         } catch (error) {
           Pop.error(error, '[getBoardGamesByCategories]');
