@@ -1,10 +1,10 @@
-import { atlasApi } from './AxiosService.js';
-import { BoardGame } from '../models/BoardGame/BoardGame.js';
-import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
-import { ActiveBoardGameVideo } from '../models/BoardGame/ActiveBoardGameVideo.js';
-import { AppState } from '../AppState.js';
-import { ABGReviews } from '../models/BoardGame/ABGReviews.js';
-import { ActiveBoardGamePrice } from '../models/BoardGame/ActiveBoardGamePrice.js';
+import { atlasApi } from "./AxiosService.js";
+import { BoardGame } from "../models/BoardGame/BoardGame.js";
+import { ActiveBoardGameImage } from "../models/BoardGame/ActiveBoardGameImage.js";
+import { ActiveBoardGameVideo } from "../models/BoardGame/ActiveBoardGameVideo.js";
+import { AppState } from "../AppState.js";
+import { ABGReviews } from "../models/BoardGame/ABGReviews.js";
+import { ActiveBoardGamePrice } from "../models/BoardGame/ActiveBoardGamePrice.js";
 import { router } from "../router.js";
 import { ForumPost } from "../models/ForumPost.js";
 import { BGList } from "../models/BoardGame/BGList.js";
@@ -12,12 +12,37 @@ import { BGCategories } from "../models/BoardGame/BGCategories.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
+<<<<<<< HEAD
 
 
   async getBoardGames() {
     const res = await atlasApi.get('/api/search', {
+=======
+  async getBoardGamesAll(editable) {
+    const res = await atlasApi.get("/api/search", {
+>>>>>>> 7d74cc9 (ommit)
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
+        limit: 6,
+        gt_discount: editable.value.gt_discount,
+        lt_year_published: editable.value.yearPublished,
+        limit: editable.value.limit,
+        skip: editable.value.skip,
+        fuzzy_match: true,
+        name: editable.value.name,
+        categories: editable.value.categories,
+        order_by: editable.value.orderBy,
+        min_playtime: editable.value.minPlayTime,
+      },
+    });
+    console.log(res.data);
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+    console.log(AppState.boardgames);
+  }
+  async getBoardGames() {
+    const res = await atlasApi.get("/api/search", {
+      params: {
+        client_id: "2I6DeypMLL",
         limit: 6,
       
       },
@@ -27,10 +52,12 @@ class AtlasGamesService {
     // console.log(AppState.boardgames);
   }
 
+  async;
+
   async getBoardGamesByDiscount() {
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         limit: 6,
         gt_discount: 0.5,
       },
@@ -53,28 +80,27 @@ class AtlasGamesService {
 
   }
   async getBoardGamesByPopularity() {
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         limit: 50,
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-    router.push({ name: 'Search' });
+    router.push({ name: "Search" });
   }
 
   async getBoardGamesByYear(minYear) {
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         limit: 50,
         lt_year_published: minYear,
         // gt_year_published: maxYear
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-
   }
 
   async getBoardGamesOnScroll() {
@@ -82,9 +108,9 @@ class AtlasGamesService {
     AppState.skip += limit;
     let skip = AppState.skip;
     AppState.skip += limit;
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         limit: limit,
         skip: skip,
       },
@@ -95,34 +121,34 @@ class AtlasGamesService {
       ...AppState.scrollBoardGames,
     ];
   }
-  async getBoardGamesByQuery(name = '') {
-    const res = await atlasApi.get('/api/search', {
+  async getBoardGamesByQuery(name = "") {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         fuzzy_match: true,
         name: name,
       },
     });
-    router.push({ name: 'Search' });
+    router.push({ name: "Search" });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);
   }
 
-  async getBoardGamesByCategories(categories = '') {
+  async getBoardGamesByCategories(categories = "") {
     console.log(categories);
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         categories: categories,
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
-  async getBoardGamesByOrder_By(query = '') {
-    const res = await atlasApi.get('/api/search', {
+  async getBoardGamesByOrder_By(query = "") {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         order_by: query,
       },
     });
@@ -131,9 +157,9 @@ class AtlasGamesService {
   }
 
   async getBoardGamesByPlayTime(count) {
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         min_playtime: count,
       },
     });
@@ -142,9 +168,9 @@ class AtlasGamesService {
   }
 
   async getBoardGamesByMinimumPlayers(count) {
-    const res = await atlasApi.get('/api/search', {
+    const res = await atlasApi.get("/api/search", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         min_players: count,
       },
     });
@@ -156,7 +182,7 @@ class AtlasGamesService {
     AppState.activeBoardGame = null;
     const res = await atlasApi.get(`/api/search?${id}`, {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         ids: id,
       },
     });
@@ -168,7 +194,7 @@ class AtlasGamesService {
   async getBoardGameImagesByGameId(id) {
     const res = await atlasApi.get(`api/game/images?`, {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         game_id: id,
       },
     });
@@ -179,9 +205,9 @@ class AtlasGamesService {
     // console.log(AppState.activeBoardGameImages);
   }
   async getBoardGamePricesByGameId(id) {
-    const res = await atlasApi.get('api/game/prices?', {
+    const res = await atlasApi.get("api/game/prices?", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         game_id: id,
       },
     });
@@ -192,9 +218,9 @@ class AtlasGamesService {
     // console.log(AppState.activeBoardGamePrices);
   }
   async getBoardGameVideosByGameId(id) {
-    const res = await atlasApi.get('api/game/videos?', {
+    const res = await atlasApi.get("api/game/videos?", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         game_id: id,
       },
     });
@@ -206,9 +232,9 @@ class AtlasGamesService {
   }
 
   async getBoardGameReviewsByGameId(id) {
-    const res = await atlasApi.get('api/reviews', {
+    const res = await atlasApi.get("api/reviews", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         game_id: id,
         include_summary: true,
         description_required: true,
@@ -223,6 +249,7 @@ class AtlasGamesService {
     // console.log(AppState.activeBoardGameReviews);
   }
 
+<<<<<<< HEAD
 
 
 async getBoardGameCategoriesList(){
@@ -235,13 +262,25 @@ async getBoardGameCategoriesList(){
   AppState.bgCategories = res.data.categories.map(b => new BGCategories(b))
   // console.log(AppState.bgCategories);
 }
+=======
+  async getBoardGameCategoriesList() {
+    const res = await atlasApi.get("api/game/categories", {
+      params: {
+        client_id: "2I6DeypMLL",
+      },
+    });
+    console.log(res.data);
+    AppState.bgCategories = res.data.categories.map((b) => new BGCategories(b));
+    console.log(AppState.bgCategories);
+  }
+>>>>>>> 7d74cc9 (ommit)
 
   // SECTION FORUM POSTS ---------------------------!SECTION
 
   async getForumPosts() {
-    const res = await atlasApi.get('api/forum', {
+    const res = await atlasApi.get("api/forum", {
       params: {
-        client_id: '2I6DeypMLL',
+        client_id: "2I6DeypMLL",
         limit: 10,
         news: true,
       },
@@ -251,6 +290,5 @@ async getBoardGameCategoriesList(){
     // console.log(AppState.forumPosts);
   }
 }
-
 
 export const atlasGamesService = new AtlasGamesService();
