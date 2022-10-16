@@ -1,73 +1,74 @@
 <template>
-  <div class="container-fluid homepage animate__animated animate__fadeInDown" v-if="boardGames">
+  <div
+    class="container-fluid homepage animate__animated animate__fadeInDown"
+    v-if="boardGames"
+  >
     <div class="row justify-content-center">
       <div class="col-md-11 my-2">
         <div class="card text-bg-dark">
           <img
             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images"
-            class="card-img" alt="...">
+            class="card-img"
+            alt="..."
+          />
           <div class="card-img-overlay">
             <h5 class="card-title">Fall In Love With BoardGames</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
             <p class="card-text"><small>Last updated 3 mins ago</small></p>
           </div>
         </div>
-
       </div>
-     <div class="row mx-2 my-5">
-      <div class="col-md-12">
-        
-        <button @click="searchPopular()">
-
-          <h1 class="rowTitle">Popular Board Games</h1>
-        </button>
-    
-      
-      </div>
-          <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__zoomOut animate__animated">
-            <div class="col-md-2" v-for="b in boardGames" :key="b.id">
-              <BoardGameCard :boardGame="b" />
-
-            </div>
-
-          </TransitionGroup>
+      <div class="row mx-2 my-5">
+        <div class="col-md-12">
+          <div @click="searchPopular()" class="hoverable">
+            <h2 class="rowTitle"><u> Popular Board Games</u></h2>
+          </div>
         </div>
+        <TransitionGroup
+          name="custom-classes"
+          enterActiveClass="animate__zoomIn animate__animated"
+          leaveActiveClass="animate__zoomOut animate__animated"
+        >
+          <div class="col-md-2" v-for="b in boardGames" :key="b.id">
+            <BoardGameCard :boardGame="b" />
+          </div>
+        </TransitionGroup>
+      </div>
       <div class="col-md-12">
-            <div class="col-md-12 mt-2 ms-3">
-          <h5>Articles from  <img src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png" alt="" height="30">  <b class="text-primary lighten-10">
-            Board Game Atlas
-          </b> </h5>
-         </div>
+        <div class="col-md-12 mt-2 ms-3">
+          <h5>
+            Articles from
+            <img
+              src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
+              alt=""
+              height="30"
+            />
+            <b class="text-primary lighten-10"> Board Game Atlas </b>
+          </h5>
+        </div>
 
-        <div class="row horizontal-scrollable  ">
-     
+        <div class="row horizontal-scrollable">
           <div class="col-md-3" v-for="f in forumPosts" :key="f.id">
             <ForumPosts :forumPost="f" />
           </div>
         </div>
-
-   
       </div>
     </div>
     <div class="row justify-content-start">
       <button class="btn btn-dark">
-
         <a href="#">Return To Top</a>
       </button>
       <button @click="getMoreBoardGames()" class="btn btn-danger">
         Load More
       </button>
-
     </div>
   </div>
 </template>
-<TransitionGroup
-  name="custom-classes"
-  enterActiveClass="animate__zoomIn animate__animated"
-  leaveActiveClass="animate__zoomOut animate__animated"
-></TransitionGroup>
+
 <script>
 import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
@@ -77,7 +78,7 @@ import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
-import ForumPosts from "../components/ForumPosts.vue";
+import ForumPosts from '../components/ForumPosts.vue';
 
 export default {
   setup() {
@@ -90,19 +91,23 @@ export default {
       }
     }
 
+    async function getBoardGamesByPrice(){
+      
+    }
+
     async function getForumPosts() {
       try {
-        await atlasGamesService.getForumPosts()
+        await atlasGamesService.getForumPosts();
       } catch (error) {
-        Pop.error(error, '[getForumPosts]')
+        Pop.error(error, '[getForumPosts]');
       }
     }
 
-
     onMounted(() => {
       getBoardGames();
-      getForumPosts()
-      AppState.skip = 0
+      // getBoardGamesByPrice()
+      getForumPosts();
+      AppState.skip = 0;
       // window.addEventListener('scroll', handleScroll)
     });
 
@@ -112,8 +117,6 @@ export default {
     // }
     // getMoreBoardGames()
     // }
-
-
 
     return {
       editable,
@@ -126,9 +129,7 @@ export default {
         } catch (error) {
           Pop.error(error, '[getBoardGames]');
         }
-      }
-      ,
-
+      },
       async getBoardGamesByCategories(category) {
         try {
           await atlasGamesService.getBoardGamesByCategories(category);
@@ -137,24 +138,28 @@ export default {
         }
       },
 
-async searchPopular(){
-  try {
-      await atlasGamesService.getBoardGamesByPopularity()
-    } catch (error) {
-      Pop.error(error,'[searchPopular]')
-    }
-}
-
+      async searchPopular() {
+        try {
+          await atlasGamesService.getBoardGamesByPopularity();
+        } catch (error) {
+          Pop.error(error, '[searchPopular]');
+        }
+      },
     };
   },
-  components: { Filters, Searchbar, BoardGameCard, PresetFilterBar, ForumPosts },
+  components: {
+    Filters,
+    Searchbar,
+    BoardGameCard,
+    PresetFilterBar,
+    ForumPosts,
+  },
 };
 </script>
 
 <style scoped lang="scss">
-.rowTitle{
+.rowTitle {
   font-weight: 700;
-
 }
 .horizontal-scrollable {
   border-radius: 4px;
@@ -205,8 +210,6 @@ async searchPopular(){
   padding: 10px;
   font-family: 'Baloo 2', cursive;
 }
-
-
 
 .scrollableY {
   max-height: 79vh;
