@@ -5,8 +5,8 @@ export const AppState = reactive({
   user: {},
   /** @type {import('./models/Account.js').Account} */
   account: {},
-
-
+  /** @type {import('./models/Account.js').Account | null} */
+  activeProfile: null,
 
   /** @type {import('./models/GroupMembership.js').GroupMemberShip[]} */
   groupMemberShips: [],
@@ -55,37 +55,36 @@ export const AppState = reactive({
 
   activeCategoryFilters: [],
   categories: [
-    { name: 'CardGame', id: 'eX8uuNlQkQ' },
-    { name: 'Fantasy', id: 'ZTneo8TaIO' },
-    { name: 'Economic', id: 'N0TkEGfEsF' },
-    { name: 'Scifi', id: '3B3QpKvXD3' },
-    { name: 'City Building', id: 'ODWOjWAJj3' },
-    { name: 'Party Game', id: 'X8J7RM6dxX' },
-    { name: 'Adventure', id: 'KUBCKBkGxV' },
-    { name: 'Bluffing', id: 'PinhJrhnxU' },
-    { name: 'Dice', id: 'mavSOM8vjH' },
-    { name: 'Horror', id: 'cAIkk5aLdQ' },
-    { name: 'Puzzle', id: 'WVMOS3s2pb' },
-    { name: 'Cooperative', id: 'ge8pIhEUGE' },
-    { name: 'Wargame', id: 'jX8asGGR6o' },
-    { name: 'Word game', id: 'rHvAx4hH2f' },
+    { name: "CardGame", id: "eX8uuNlQkQ" },
+    { name: "Fantasy", id: "ZTneo8TaIO" },
+    { name: "Economic", id: "N0TkEGfEsF" },
+    { name: "Scifi", id: "3B3QpKvXD3" },
+    { name: "City Building", id: "ODWOjWAJj3" },
+    { name: "Party Game", id: "X8J7RM6dxX" },
+    { name: "Adventure", id: "KUBCKBkGxV" },
+    { name: "Bluffing", id: "PinhJrhnxU" },
+    { name: "Dice", id: "mavSOM8vjH" },
+    { name: "Horror", id: "cAIkk5aLdQ" },
+    { name: "Puzzle", id: "WVMOS3s2pb" },
+    { name: "Cooperative", id: "ge8pIhEUGE" },
+    { name: "Wargame", id: "jX8asGGR6o" },
+    { name: "Word game", id: "rHvAx4hH2f" },
   ],
 
+  order_By: [
+    { name: "rank" },
+    { name: "year_published" },
+    { name: "name" },
+    { name: "min_age" },
+    { name: "min_playtime" },
+    { name: "max_playtime" },
+    { name: "min_players" },
+    { name: "max_players" },
+    { name: "price" },
+    { name: "discount" },
+  ],
 
-order_By:[
-{name:'rank'},
-{name:'year_published'},
-{name:'name'},
-{name:'min_age'},
-{name:'min_playtime'},
-{name:'max_playtime'},
-{name:'min_players'},
-{name:'max_players'},
-{name:'price'},
-{name:'discount'},
-],
-
-// rank, price, discount, reddit_week_count, reddit_day_count, name, year_publisher, min_age, min_playtime, max_playtime, min_players, max_players
+  // rank, price, discount, reddit_week_count, reddit_day_count, name, year_publisher, min_age, min_playtime, max_playtime, min_players, max_players
 
   skip: 0,
 });
