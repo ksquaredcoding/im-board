@@ -10,6 +10,8 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
+      .get('/boardgames' ,this.getAccountLists)
+      .get('/groups', this.getAccountGroups)
       .get("/boardgames/:id", this.getAccountBoardGames)
       .get("/groups/:id", this.getMyGroups)
       .put('', this.editMyAccount)
@@ -25,6 +27,24 @@ export class AccountController extends BaseController {
       // 
     }
   }
+   async getAccountLists(req, res, next){
+    try{
+      const lists = await boardGamesService.getBoardGamesByAccountId(req.userInfo.id)
+   res.send(lists)
+    }
+    catch (error) {
+    next(error)
+    }
+    }
+     async getAccountGroups(req, res, next){
+      try{
+        const groups = await groupsService.getMyGroups(req.userInfo.id)
+     res.send(groups)
+      }
+      catch (error) {
+      next(error)
+      }
+      }
 
   // TODO account boardGame
   async getAccountBoardGames(req, res, next) {
