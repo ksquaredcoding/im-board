@@ -43,6 +43,7 @@ class AccountService {
     console.log(res.data, 'getting profile lists');
     AppState.bgLists = res.data.map((b) => new BGList(b));
     console.log(AppState.bgLists);
+    // console.log(AppState.bgLists.account.name);
   }
 
   async editAccount(formData) {

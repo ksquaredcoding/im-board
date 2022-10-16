@@ -1,12 +1,12 @@
 <template>
  
-  <div v-if="!account " class=" animate__animated animate__fadeOut">
+  <div  class=" animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
 
 
 
-  <div class="account Page container-fluid " v-else>
+  <div class="account Page container-fluid ">
 
     <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account?.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">
@@ -24,7 +24,7 @@
     </div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">{{account?.name}}</div>
+      <div class="col-md d-flex justify-content-center username">{{account.name}}</div>
       <div class="col-md d-flex justify-content-end">
 
         <router-link :to="{name: 'Account'}">
