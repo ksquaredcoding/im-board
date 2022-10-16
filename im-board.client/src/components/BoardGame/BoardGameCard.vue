@@ -6,7 +6,7 @@
 </router-link>
       
       <div class="card-body p-1 mt-2 bg-dark rounded">
-       <span class="text-center">
+       <span class="text-center" title="Game title">
 
          <h6 class="text-decoration-underline text-wrap">{{ boardGame?.name }}</h6>
        </span>
@@ -14,20 +14,20 @@
         <!-- <div class="card-text d-flex justify-content-center">
           Categories: 
         </div> -->
-        <div class="card-text d-flex justify-content-center">
+        <div class="card-text d-flex justify-content-center" title="Recommended Players">
           <i class="mdi mdi-account"></i>
          {{ boardGame?.players}}
         </div>
-        <div class="card-text d-flex justify-content-center">
+        <div class="card-text d-flex justify-content-center" title="Average User Rating">
        <i class="mdi mdi-star text-warning"></i>    {{ boardGame?.average_user_rating.toFixed(2) }} 
 
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" title="Price">
           <img src="https://cdn-icons-png.flaticon.com/512/2178/2178616.png" alt="" height="15">
           ${{boardGame.price}}
           
         </div>
-        <div class="d-flex justify-content-center discount  " v-if="(boardGame.discount*100) >= 45">
+        <div class="d-flex justify-content-center discount  " v-if="(boardGame.discount*100) >= 45" title="Discounted Percent">
          {{(boardGame.discount*100).toFixed(0)}} <i class="mdi mdi-percent"></i> <p>off</p>
 
         </div>

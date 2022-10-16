@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container-fluid px-3 homepage animate__animated animate__fadeInDown"
+    class="container-fluid px-3 homepage animate__animated animate__fadeInLeft"
     v-if="boardGames"
   >
     <div class="row justify-content-center">
@@ -22,6 +22,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="row mx-2 my-5">
         <div class="col-md-12">
           <div @click="searchPopular()" class="hoverable hvr-sweep-to-right ">
@@ -41,8 +43,8 @@
  
           <div class="row mx-2 my-5">
         <div class="col-md-12">
-          <div @click="searchPopular()" class="hoverable ">
-            <h2 class="rowTitle">Games On Discount</h2>
+          <div @click="searchPopular()" class="hoverable hvr-sweep-to-right">
+            <h2 class="rowTitle p-1">Games On Discount</h2>
           </div>
         </div>
         <TransitionGroup
@@ -56,8 +58,9 @@
         </TransitionGroup>
       </div>
       <div class="col-md-12">
-        <div class="col-md-12 mt-2 ms-3">
-          <h5>
+        <div class="col-md-12 mt-2 ms-3 ">
+           <div  class="hoverable hvr-sweep-to-left p-1">
+           <h3>
             Articles from
             <img
               src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
@@ -65,7 +68,9 @@
               height="30"
             />
             <b class="text-primary lighten-10"> Board Game Atlas </b>
-          </h5>
+          </h3>
+          </div>
+          
         </div>
 
         <div class="row horizontal-scrollable">
@@ -76,7 +81,13 @@
       </div>
     </div>
    
+      <div class="col-md-12 mt-4 mb-2">
+          <div class=" hvr-sweep-to-left ">
+            <h2 class="rowTitle p-1">Articles we feel you'd enjoy</h2>
+          </div>
+</div>
       <div class="row horizontal-scrollable ">
+     
         <Articles/>
       </div>
     

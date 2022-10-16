@@ -1,7 +1,6 @@
 <template>
 
 
-
   <div class="col-md-3"  v-for="a in articles">
     <div class="bg-transparent card my-2">
       <img :src="a.coverImg" alt=""
@@ -17,88 +16,6 @@
     </div>
 
   </div>
-
-
-  <!-- <div class="col-md-2">
-    <div class="bg-transparent card my-2">
-      <img src="https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg" alt=""
-        class="forcedImg rounded" />
-
-      <div class="card-body p-1  bg-dark rounded">
-        <a href="https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg">
-
-          <h6 class="text-light">The Complete History of Board Games
-            Byron
-            November 17, 2019</h6>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="col-md-2">
-    <div class="bg-transparent card my-2">
-      <img src="https://www.sheknows.com/wp-content/uploads/2018/08/pd50yqoqpnwixdnavxuf.jpeg" alt=""
-        class="forcedImg rounded" />
-
-      <div class="card-body p-1  bg-dark rounded">
-        <a href="https://www.sheknows.com/entertainment/articles/1137378/fun-facts-about-the-original-jumanji/">
-
-          <h6 class="text-light">16 Fun Facts About the Original Jumanji
-            Samantha Puc
-
-            by SAMANTHA PUC
-
-            Plus Icon
-
-            DECEMBER 18, 2017 AT 1:00PM PM EST</h6>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="col-md-2">
-    <div class="bg-transparent card my-2">
-      <img src="https://whatnerd.com/wp-content/uploads/2020/05/board-game-types-genres-explained-featured.jpg" alt=""
-        class="forcedImg rounded" />
-
-      <div class="card-body p-1  bg-dark rounded">
-        <a href="https://www.grunge.com/912859/heres-why-dice-were-invented/">
-
-          <h6 class="text-light">The Most Popular Types of Board Games: Board Game Genres, Explained
-            <br>
-
-            BY
-            JOEL LEE
-            MAR 10, 2021
-          </h6>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-md-2">
-    <div class="bg-transparent card my-2">
-      <img src="https://lovethynerd.com/wp-content/uploads/2019/02/Among-The-Stars-822x675.jpg?x99318" alt=""
-        class="forcedImg rounded" />
-
-      <div class="card-body p-1  bg-dark rounded">
-        <a href="https://lovethynerd.com/why-do-board-games-matter/" target="_blank">
-
-          <h6 class="text-light">Why Do Board Games Matter?
-            By Mike Perna FEB 18,2021
-          </h6>
-        </a>
-      </div>
-    </div>
-
-  </div>
- -->
-
 
 
 </template>

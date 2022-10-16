@@ -79,9 +79,9 @@ class AtlasGamesService {
         limit: 50,
       },
     });
+    router.push({ name: "Search" });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-    router.push({ name: "Search" });
   }
 
   async getBoardGamesByYear(minYear) {

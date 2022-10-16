@@ -102,7 +102,7 @@ export const AppState = reactive({
       coverImg:
         'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
       url: 'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
-      credit: 'Byron November 17, 2019',
+      credit: 'Byron Nov 17, 2019',
     },
 
     {
@@ -110,7 +110,7 @@ export const AppState = reactive({
       coverImg:
         'https://www.sheknows.com/wp-content/uploads/2018/08/pd50yqoqpnwixdnavxuf.jpeg',
       url: 'https://www.sheknows.com/entertainment/articles/1137378/fun-facts-about-the-original-jumanji/',
-      credit: 'Samantha Puc December 18, 2017',
+      credit: 'Samantha Puc Dec 18, 2017',
     },
 
     {
@@ -118,7 +118,7 @@ export const AppState = reactive({
       coverImg:
         'https://whatnerd.com/wp-content/uploads/2020/05/board-game-types-genres-explained-featured.jpg',
       url: 'https://www.grunge.com/912859/heres-why-dice-were-invented/',
-      credit: 'Joel Lee March 10, 2021',
+      credit: 'Joel Lee Mar 10, 2021',
     },
 
     {
@@ -126,7 +126,7 @@ export const AppState = reactive({
       coverImg:
         'https://lovethynerd.com/wp-content/uploads/2019/02/Among-The-Stars-822x675.jpg?x99318',
       url: 'https://lovethynerd.com/why-do-board-games-matter/',
-      credit: 'Mike Perna February 18, 2021',
+      credit: 'Mike Perna Feb 18, 2021',
     },
     {
       name: 'Board games for your health and well-being',
@@ -134,6 +134,20 @@ export const AppState = reactive({
         'https://www.mcmasteroptimalaging.org/images/default-source/blog-post-images/istock-988544644.tmb-blogpost.jpg?Culture=en&sfvrsn=1c230cd6_6',
       url: 'https://www.mcmasteroptimalaging.org/blog/detail/blog/2020/12/16/board-games-for-your-health-and-well-being',
       credit: 'McMaster University Dec 16, 2020  ',
+    },
+    {
+      name: '35 Best Board Games for Kids That the Whole Family Will Enjoy',
+      coverImg:
+        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gh-021022-kid-board-games-1644597723.png?crop=1.00xw:1.00xh;0,0&resize=980:*',
+      url: 'https://www.goodhousekeeping.com/childrens-products/board-games/g32475624/best-board-games-for-kids/',
+      credit: ' Marisa Lascala Aug 31, 2022',
+    },
+    {
+      name: 'Add to your dice collection, one of our favorite places',
+      coverImg:
+        'https://wyrmwoodgames.wpenginepowered.com/wp-content/uploads/2022/08/Prismatic-7-Set-v2-scaled.jpg',
+      url: 'https://wyrmwoodgaming.com/dice-collection/',
+      credit: 'wyrmwoodgaming.com',
     },
   ],
 
