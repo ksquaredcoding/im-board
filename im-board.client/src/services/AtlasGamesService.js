@@ -7,6 +7,8 @@ import { ABGReviews } from '../models/BoardGame/ABGReviews.js';
 import { ActiveBoardGamePrice } from '../models/BoardGame/ActiveBoardGamePrice.js';
 import { router } from "../router.js";
 import { ForumPost } from "../models/ForumPost.js";
+import { BGList } from "../models/BoardGame/BGList.js";
+import { BGCategories } from "../models/BoardGame/BGCategories.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
@@ -27,13 +29,12 @@ class AtlasGamesService {
       params: {
         client_id: '2I6DeypMLL',
         limit: 6,
-        gt_discount: 0.5
+        gt_discount: 0.5,
       },
     });
 
-    AppState.discountBoardGames = res.data.games.map(b => new BoardGame(b))
+    AppState.discountBoardGames = res.data.games.map((b) => new BoardGame(b));
     // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-
   }
 
   async getBoardGamesByPopularity() {
@@ -45,12 +46,22 @@ class AtlasGamesService {
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-    router.push({ name: 'Search' })
+    router.push({ name: 'Search' });
   }
 
+  async getBoardGamesByYear(minYear) {
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+        limit: 50,
+        lt_year_published: minYear,
+        // gt_year_published: maxYear
+      },
+    });
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
+  }
 
-  
   async getBoardGamesOnScroll() {
     let limit = 20;
     AppState.skip += limit;
@@ -104,26 +115,26 @@ class AtlasGamesService {
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
-  async getBoardGamesByPlayTime(count){
-       const res = await atlasApi.get('/api/search', {
-         params: {
-           client_id: '2I6DeypMLL',
-          min_playtime : count
-         },
-       });
-       console.log(res.data.games);
-       AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+  async getBoardGamesByPlayTime(count) {
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+        min_playtime: count,
+      },
+    });
+    console.log(res.data.games);
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
   async getBoardGamesByMinimumPlayers(count) {
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
-        min_players: count
+        min_players: count,
       },
     });
-    console.log(res.data.games)
-    AppState.boardgames= res.data.games.map((b) => new BoardGame(b));
+    console.log(res.data.games);
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
   async getBoardGameDetailsById(id) {
@@ -197,6 +208,19 @@ class AtlasGamesService {
     // console.log(AppState.activeBoardGameReviews);
   }
 
+
+
+async getBoardGameCategoriesList(){
+  const res = await atlasApi.get('api/game/categories', {
+    params: {
+      client_id: '2I6DeypMLL',
+    },
+  });
+  console.log(res.data);
+  AppState.bgCategories = res.data.categories.map(b => new BGCategories(b))
+  console.log(AppState.bgCategories);
+}
+
   // SECTION FORUM POSTS ---------------------------!SECTION
 
   async getForumPosts() {
@@ -204,15 +228,13 @@ class AtlasGamesService {
       params: {
         client_id: '2I6DeypMLL',
         limit: 10,
-        news: true
+        news: true,
       },
     });
     // console.log(res.data);
-    AppState.forumPosts = res.data.posts.map(f => new ForumPost(f))
+    AppState.forumPosts = res.data.posts.map((f) => new ForumPost(f));
     // console.log(AppState.forumPosts);
   }
-
-
 }
 
 

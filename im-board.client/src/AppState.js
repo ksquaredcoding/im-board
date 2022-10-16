@@ -46,12 +46,18 @@ export const AppState = reactive({
 
   /** @type {import('./models/BoardGame/ActiveBoardGamePrice.js').ActiveBoardGamePrice[]} */
   activeBoardGamePrices: [],
-
+  
   /** @type {import('./models/BoardGame/ABGReviews.js').ABGReviews[]} */
   activeBoardGameReviews: [],
-
+  
   /** @type {import('./models/ForumPost.js').ForumPost[]} */
   forumPosts: [],
+  
+  
+  /** @type {import('./models/BoardGame/BGCategories.js').BGCategories[]} */
+bgCategories:[],
+
+
 
   activeCategoryFilters: [],
   categories: [

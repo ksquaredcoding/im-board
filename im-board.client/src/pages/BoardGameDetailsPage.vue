@@ -1,15 +1,21 @@
 <template>
   <section class="container" v-if="boardGame">
     <div class="row">
-      <div class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
+      <div
+        class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
+      >
         <h1>{{ boardGame.name }}</h1>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
-        <img :src="boardGame.large" alt="" class="img-fluid rounded " />
+      <div
+        class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
+      >
+        <img :src="boardGame.large" alt="" class="img-fluid rounded" />
       </div>
-      <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
+      <div
+        class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3"
+      >
         <div class="d-flex">
           <b>Number of players : </b>
           <p class="ms-3">{{ boardGame.players }}</p>
@@ -24,7 +30,7 @@
         </div>
         <div class="d-flex">
           <b>Categories:</b>
-          <p>dummy data</p>
+          <p>{{ boardGame.categories.id}}</p>
         </div>
         <div class="d-flex">
           <b>Primary Publisher:</b>
@@ -55,10 +61,19 @@
         </div> -->
       </div>
       <div class="row game-images my-3 ms-1">
-        <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
+        <swiper
+          :slidesPerView="4"
+          :spaceBetween="50"
+          :slidesPerGroup="3"
+          :loop="true"
+          :loopFillGroupWithBlank="true"
           :pagination="{
             clickable: true,
-          }" :navigation="true" :modules="modules" class="mySwiper">
+          }"
+          :navigation="true"
+          :modules="modules"
+          class="mySwiper"
+        >
           <swiper-slide class="my-2" v-for="i in images">
             <ActiveBoardGameImages :images="i" />
           </swiper-slide>
@@ -94,16 +109,27 @@
           <ActiveBoardGameVideos :video="v" />
         </div> -->
 
-        <iframe width="1424" height="612" src="https://www.youtube.com/embed/Dfq4dRPHIAM"
-          title="Underrated MVP! | Top 15 Mythic | Dominaria United Draft | MTG Arena | Twitch Replay" frameborder="0"
+        <iframe
+          width="1424"
+          height="612"
+          src="https://www.youtube.com/embed/Dfq4dRPHIAM"
+          title="Underrated MVP! | Top 15 Mythic | Dominaria United Draft | MTG Arena | Twitch Replay"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </section>
 
   <!-- MODAL -->
-  <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="activeImage"
+    tabindex="-1"
+    aria-labelledby="activeImageLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <img :src="modalImage" alt="" class="rounded elevation-2 customSize" />
@@ -197,6 +223,7 @@ export default {
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage),
+     
     };
   },
   components: {

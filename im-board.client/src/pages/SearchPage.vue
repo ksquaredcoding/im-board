@@ -11,7 +11,9 @@
           </p>
         </div>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-3">
+      
+      </div>
       <div class="col-md-9 d-flex">
 
     <!-- TODO MORE FILTERS HERE -->
@@ -20,7 +22,9 @@
 
 
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <Filters/>
+      </div>
       <div class="col-md-9">
         <div class="row mx-2">
           <TransitionGroup
@@ -69,8 +73,15 @@ export default {
     //     Pop.error(error, '[getBoardGames]');
     //   }
     // }
-
+async function getCategoryList(){
+  try {
+      await atlasGamesService.getBoardGameCategoriesList()
+    } catch (error) {
+      Pop.error(error,'[getCategoryList]')
+    }
+}
     onMounted(() => {
+      getCategoryList()
       // AppState.skip = 0;
       // window.addEventListener('scroll', handleScroll)
     });
