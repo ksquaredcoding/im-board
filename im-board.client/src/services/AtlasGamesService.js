@@ -12,15 +12,8 @@ import { BGCategories } from "../models/BoardGame/BGCategories.js";
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
-<<<<<<< HEAD
-
-
-  async getBoardGames() {
-    const res = await atlasApi.get('/api/search', {
-=======
   async getBoardGamesAll(editable) {
     const res = await atlasApi.get("/api/search", {
->>>>>>> 7d74cc9 (ommit)
       params: {
         client_id: "2I6DeypMLL",
         limit: 6,
@@ -249,20 +242,6 @@ class AtlasGamesService {
     // console.log(AppState.activeBoardGameReviews);
   }
 
-<<<<<<< HEAD
-
-
-async getBoardGameCategoriesList(){
-  const res = await atlasApi.get('api/game/categories', {
-    params: {
-      client_id: '2I6DeypMLL',
-    },
-  });
-  // console.log(res.data);
-  AppState.bgCategories = res.data.categories.map(b => new BGCategories(b))
-  // console.log(AppState.bgCategories);
-}
-=======
   async getBoardGameCategoriesList() {
     const res = await atlasApi.get("api/game/categories", {
       params: {
@@ -273,7 +252,6 @@ async getBoardGameCategoriesList(){
     AppState.bgCategories = res.data.categories.map((b) => new BGCategories(b));
     console.log(AppState.bgCategories);
   }
->>>>>>> 7d74cc9 (ommit)
 
   // SECTION FORUM POSTS ---------------------------!SECTION
 
