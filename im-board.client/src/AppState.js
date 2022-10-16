@@ -129,10 +129,11 @@ export const AppState = reactive({
       credit: 'Mike Perna February 18, 2021',
     },
     {
-      name: '',
-      coverImg: '',
-      url: '',
-      credit: '',
+      name: 'Board games for your health and well-being',
+      coverImg:
+        'https://www.mcmasteroptimalaging.org/images/default-source/blog-post-images/istock-988544644.tmb-blogpost.jpg?Culture=en&sfvrsn=1c230cd6_6',
+      url: 'https://www.mcmasteroptimalaging.org/blog/detail/blog/2020/12/16/board-games-for-your-health-and-well-being',
+      credit: 'McMaster University Dec 16, 2020  ',
     },
   ],
 

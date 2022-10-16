@@ -92,10 +92,15 @@ export default {
     const editable = ref('');
     return {
       editable,
+
+
       order_By: computed(() => AppState.order_By),
 
       async searchOrder_By() {
         try {
+
+
+          //  let editable = `https://api.boardgameatlas.com/api/search?name=${this.editable.name}&order_by=${this.editable.order_By}&pretty=true&client_id=2I6DeypMLL`
           await atlasGamesService.getBoardGamesByOrder_By(editable.value);
         } catch (error) {
           Pop.error(error, '[searchOrder_By]');

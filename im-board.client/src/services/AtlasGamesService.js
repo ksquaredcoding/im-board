@@ -135,6 +135,7 @@ class AtlasGamesService {
         categories: categories,
       },
     });
+    console.log(res.data.games);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 

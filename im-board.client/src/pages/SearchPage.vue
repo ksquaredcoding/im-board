@@ -39,15 +39,8 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-start">
-      <button class="btn btn-dark">
-        <a href="#">Return To Top</a>
-      </button>
-      <button @click="getMoreBoardGames()" class="btn btn-danger">
-        Load More
-      </button>
-    </div>
   </div>
+ 
 </template>
 
 <script>
