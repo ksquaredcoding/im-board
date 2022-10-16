@@ -1,6 +1,6 @@
 <template>
 
-     <div class=" bg-transparent card my-2 " v-if="boardGame">
+     <div class=" bg-transparent card my-4 " v-if="boardGame">
      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"> 
       <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative"  />
 </router-link>
