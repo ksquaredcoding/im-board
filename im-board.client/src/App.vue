@@ -6,7 +6,7 @@
     <router-view />
   </main>
 
-
+<GroupForm/>
   <EditBanner/>
   <EditName/>
   <EditPic/>
