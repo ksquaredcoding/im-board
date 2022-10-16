@@ -65,7 +65,7 @@
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center">
           <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-          <p class=" mb-0 mx-2 navbar-title justify-content-center">I'm Game</p>
+          <p class=" mb-0 mx-2 navbar-title justify-content-center"><article>I'm Game</article></p>
         </div>
       </router-link>
 
@@ -135,14 +135,18 @@ a:hover {
   border-bottom-right-radius: 0;
 }
 
-nav {
+
+article {
+  background: linear-gradient(to right,
+      #ffbb00,
+      #ff5e00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; 
+  font-size: 40px;
+  font-weight: bolder;
   font-family: 'Baloo 2', cursive;
 }
-
-.navbar-title {
-  font-size: 40px;
-}
-
 
 @media screen AND (max-width: 768px) {}
 </style>
