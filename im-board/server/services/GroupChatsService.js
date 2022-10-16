@@ -37,7 +37,9 @@ class GroupChatService {
       groupChatData.creatorId
     );
     if (!isMember) {
-      throw new Forbidden("you walked into my trap-card, please join my group first");
+      throw new Forbidden(
+        "you walked into my trap-card, please join my group first"
+      );
     }
     const chat = await dbContext.GroupChats.create(groupChatData);
     await chat.populate("creator", "name picture");

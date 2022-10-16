@@ -1,32 +1,56 @@
 <template>
-  <div class="modal" id="groupForm" tabindex="-1" aria-labelledby="groupFormLabel" aria-hidden="true">
+  <div
+    class="modal"
+    id="groupForm"
+    tabindex="-1"
+    aria-labelledby="groupFormLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
           <!-- -------------------SECTION FORM----------------------------------- -->
           <form @submit.prevent="handleSubmit" class="">
             <div class="row">
-              <div class="col-md-6 ">
+              <div class="col-md-6">
                 <div class="">
-                  <img :src="editable.coverImg" alt="" class="forcedImg smallerImg mt-2 Img1 bg-light opacity-25" />
+                  <img
+                    :src="editable.coverImg"
+                    alt=""
+                    class="forcedImg smallerImg mt-2 Img1 bg-light opacity-25"
+                  />
                 </div>
                 <div class="mt-3 inputBox">
-                  <input type="url" class="bg-light text-dark opacity-50 " v-model="editable.coverImg" required
-                    aria-required="true" />
+                  <input
+                    type="url"
+                    class="bg-light text-dark opacity-50"
+                    v-model="editable.coverImg"
+                    required
+                    aria-required="true"
+                  />
                   <span class="font">CoverImg</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <input type="text" class="bg-light opacity-50 text-dark" v-model="editable.name" aria-required="true"
-                    required />
+                  <input
+                    type="text"
+                    class="bg-light opacity-50 text-dark"
+                    v-model="editable.name"
+                    aria-required="true"
+                    required
+                  />
                   <span class="font">Group Name</span>
                 </div>
               </div>
             </div>
 
             <div class="my-3">
-              <button class="btn btn-success selectable font" type="submit" data-bs-dismiss="modal">
+              <button
+                class="btn btn-success selectable font"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
                 Create Group
               </button>
             </div>
@@ -34,10 +58,7 @@
         </div>
       </div>
     </div>
-
-
   </div>
-
 
   <!-- 
   <div
@@ -90,16 +111,16 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import { ref } from 'vue';
+import { computed } from "@vue/reactivity";
+import { ref } from "vue";
 
-import { groupsService } from '../../services/GroupsService.js';
-import Pop from '../../utils/Pop.js';
-import { AppState } from '../../AppState.js';
+import { groupsService } from "../../services/GroupsService.js";
+import Pop from "../../utils/Pop.js";
+import { AppState } from "../../AppState.js";
 import { useRoute } from "vue-router";
 export default {
   setup(props) {
-    const route = useRoute()
+    const route = useRoute();
     const editable = ref({});
     return {
       route,
@@ -109,20 +130,20 @@ export default {
       async handleSubmit() {
         try {
           await groupsService.createGroup(editable.value);
+          editable.value = {};
         } catch (error) {
-          Pop.error(error, '[handleSubmit(createGroup)]');
+          Pop.error(error, "[handleSubmit(createGroup)]");
         }
       },
-
 
       async handleSubmitForEdit() {
         try {
           await groupsService.editGroup(editable.value);
+          editable.value = {};
         } catch (error) {
-          Pop.error(error, '[handleSubmit(createGroup)]');
+          Pop.error(error, "[handleSubmit(createGroup)]");
         }
       },
-
     };
   },
 };
@@ -212,8 +233,8 @@ export default {
   transition: all 1s ease;
 }
 
-.inputBox2 textarea:valid~span,
-.inputBox2 textarea:focus~span {
+.inputBox2 textarea:valid ~ span,
+.inputBox2 textarea:focus ~ span {
   color: #27132a;
   transform: translateX(10px) translateY(-70px);
   padding: 0 10px;
@@ -254,8 +275,8 @@ export default {
   transition: all 1s ease;
 }
 
-.inputBox input:valid~span,
-.inputBox input:focus~span {
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
   color: #27132a;
   transform: translateX(10px) translateY(-7px);
   padding: 0 10px;
@@ -283,6 +304,6 @@ export default {
 }
 
 .font {
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
 }
 </style>

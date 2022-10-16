@@ -13,7 +13,7 @@
       <div class="text-start d-flex justify-content-center">
         <div class="">
           <div class="form-group text-center m-1">
-            <textarea class="p-2 rounded w-100" rows="2" v-model="editable.body" cols="150" placeholder=""
+            <textarea class="p-2 rounded w-100" rows="2" v-model="editable.body" cols="150" placeholder="" required
               name="postcontent"></textarea>
           </div>
         </div>

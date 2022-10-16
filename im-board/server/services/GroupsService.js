@@ -1,5 +1,6 @@
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
+import { gameNightsService } from "./GameNightsService.js";
 import { groupChatsService } from "./GroupChatsService.js";
 import { groupMembersService } from "./GroupMembersService.js";
 class GroupsService {
@@ -7,14 +8,18 @@ class GroupsService {
     // debugger
     const groups = await dbContext.GroupMembers.find({ accountId })
       .populate("group", "name coverImg groupMemberIds")
-      .populate({path: 'group', populate:{path:'creator', select: 'name picture'}})
-      // .populate("profile", "name picture");
+      .populate({
+        path: "group",
+        populate: { path: "creator", select: "name picture" },
+      });
+    // .populate("profile", "name picture");
     if (!groups) {
       throw new BadRequest("bad or invalid accountId");
     }
     return groups;
   }
   async removeGroup(groupId, accountId) {
+    debugger;
     const group = await this.getGroupById(groupId);
     const member = await groupMembersService.getMemberForGroup(
       groupId,
@@ -31,9 +36,11 @@ class GroupsService {
     // }
     // @ts-ignore
     await member.remove();
-    // @ts-ignore
-    await chats.remove();
     await group.remove();
+    if (chats) {
+      await chats.remove();
+      // @ts-ignore
+    }
     return group;
   }
   async editGroup(groupData, accountId, groupId) {
