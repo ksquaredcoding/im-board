@@ -58,9 +58,7 @@ export default {
   cursor: pointer;
 }
 
-*::-webkit-scrollbar-track:active {
 
-}
 
 
 *::-webkit-scrollbar-thumb {
