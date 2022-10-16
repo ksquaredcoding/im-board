@@ -1,6 +1,6 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
-   <div v-if="!account " class=" animate__animated animate__fadeOut">
+  <div v-if="!account " class=" animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
 
@@ -10,12 +10,13 @@
 
     <div class="row bg-c5 banner eum-ipsum " :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="col-md-12 d-flex justify-content-center ">
-        <img :src="account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon" v-if="account.picture">
-   <div class="d-flex justify-content-center eum rounded-circle mt-2 icon text-dark" v-else>
-  <div class="spinner-border" role="status">
-   
-  </div>
-</div>
+        <img :src="account.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
+          v-if="account.picture">
+        <div class="d-flex justify-content-center eum rounded-circle mt-2 icon text-dark" v-else>
+          <div class="spinner-border" role="status">
+
+          </div>
+        </div>
       </div>
     </div>
 
@@ -111,11 +112,13 @@ import GroupCard from "../components/GroupPage/GroupCard.vue"
 import GroupForm from "../components/GroupPage/GroupForm.vue"
 import ListCard from "../components/AccountProfilePage/ListCard.vue"
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue"
+import { useRoute } from "vue-router"
 export default {
   setup() {
+    const route = useRoute()
     async function getMyGroups() {
       try {
-        await accountService.getMyGroups();
+        await accountService.getMyGroups(route.params.id);
       }
       catch (error) {
         Pop.error(error, "[getMyGroups]");
@@ -123,7 +126,7 @@ export default {
     }
     async function getMyLists() {
       try {
-        await accountService.getMyLists()
+        await accountService.getMyLists(route.params.id)
       } catch (error) {
         console.error('[get my lists]', error)
         Pop.error(error)
@@ -179,7 +182,7 @@ export default {
   overflow-x: hidden;
 }
 
-.editbtn{
+.editbtn {
   background: linear-gradient(to bottom right, #ff6f00, #ff9900);
 }
 
