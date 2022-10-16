@@ -76,7 +76,7 @@ export default {
     }
 
     onMounted(() => {
-   
+    
       AppState.skip = 0
       // window.addEventListener('scroll', handleScroll)
     });

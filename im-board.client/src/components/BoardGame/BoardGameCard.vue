@@ -17,9 +17,12 @@
         <div class="card-text d-flex justify-content-center">
           Rating: {{ boardGame?.average_user_rating.toFixed(2) }} of 5
         </div>
-        <p class="d-flex justify-content-center">
+        <div class="addToList">
+            <p class="d-flex justify-content-center " >
           <AddToList :boardGameOnHomePage="boardGame" />
         </p>
+        </div>
+      
       </div>
     </div>
     <div v-else>🦆</div>
@@ -52,6 +55,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.addToList{
+
+  opacity: 0;
+transition: all 0.5s ease;
+}
+
+.addToList:hover{
+
+  opacity: 100%;
+  transition:  all 0.5s ease;
+}
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
