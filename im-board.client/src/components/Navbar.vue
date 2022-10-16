@@ -41,7 +41,7 @@
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
 
-        <a class="btn button-51 py-1 px-2 mx-2" data-bs-toggle="modal" data-bs-target="#groupForm"
+        <a class="btn button-51 py-1 px-2 mx-2 " data-bs-toggle="modal" data-bs-target="#groupForm"
           v-if="user.isAuthenticated">
           Create Group
         </a>

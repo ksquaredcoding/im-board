@@ -17,9 +17,9 @@ class AtlasGamesService {
         limit: 6,
       },
     });
+    console.log(res.data);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    // console.log(res.data);
-    // console.log(AppState.boardgames);
+    console.log(AppState.boardgames);
   }
 
 async getBoardGamesByDiscount(){
@@ -31,7 +31,7 @@ async getBoardGamesByDiscount(){
         },
       });
 
-AppState.discountBoardGames = res.data.map(b=> new BoardGame(b))
+AppState.discountBoardGames = res.data.games.map(b=> new BoardGame(b))
       // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
 }

@@ -29,5 +29,6 @@ export class BoardGame {
     this.video_links = data.video_links;
     this.artists = data.artists;
     this.commentary = data.commentary;
+    this.discount = data.discount
   }
 }

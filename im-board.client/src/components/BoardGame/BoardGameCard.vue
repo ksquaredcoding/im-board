@@ -1,8 +1,8 @@
 <template>
 
-     <div class=" bg-transparent card my-2 " v-if="boardGame">
+     <div class=" bg-transparent card my-2 hvr-grow " v-if="boardGame">
      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"> 
-      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded"  />
+      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative"  />
 </router-link>
       
       <div class="card-body p-1 mt-2 bg-dark rounded">
@@ -20,11 +20,12 @@
 
         </div>
         <div class="d-flex justify-content-center">
-<span v-for="i in 5">
-       <i class="mdi mdi-star text-warning"></i>
-</span>
-    
-        
+          ${{boardGame.price}}
+          
+        </div>
+        <div class="d-flex justify-content-center discount " >
+         {{(boardGame.discount*100).toFixed(0)}}%
+
         </div>
         <!-- <div class="addToList">
             <p class="d-flex justify-content-center " >
@@ -69,7 +70,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.discount{
+ 
+top: -30px;
+  position: absolute;
+  font-weight: 700;
+  font-size: 20pt;
+  font-style: oblique;
+  color: rgb(240, 69, 69);
+}
 .addToList{
 
   opacity: 0;
@@ -95,21 +104,5 @@ transition: all 0.5s ease;
   object-fit: contain;
 }
 
-.card {
- 
-  border: none;
-  transition: 0.5s ease;
-  
-}
 
-.card:hover{
-
-  transform: scale(1.04);
-  filter: brightness(110%);
-box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-  transition:all 0.5s ease;
-
-
-  
-}
 </style>

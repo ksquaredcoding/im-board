@@ -42,7 +42,7 @@
           <div class="row mx-2 my-5">
         <div class="col-md-12">
           <div @click="searchPopular()" class="hoverable">
-            <h2 class="rowTitle"><u> Popular Board Games</u></h2>
+            <h2 class="rowTitle"><u> Games On Discount</u></h2>
           </div>
         </div>
         <TransitionGroup
@@ -50,8 +50,8 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2" v-for="b in boardGames" :key="b.id">
-            <BoardGameCard :boardGame="b" />
+          <div class="col-md-2" v-for="d in discountBoardGames" :key="d.id">
+            <BoardGameCard :boardGame="d" />
           </div>
         </TransitionGroup>
       </div>
@@ -112,6 +112,13 @@ export default {
       }
     }
 
+    async function getBoardGamesOnDiscount(){
+      try {
+          await atlasGamesService.getBoardGamesByDiscount()
+        } catch (error) {
+          Pop.error(error,'[getBoardGamesOnDiscount]')
+        }
+    }
 
 
     async function getForumPosts() {
@@ -124,7 +131,7 @@ export default {
 
     onMounted(() => {
       getBoardGames();
- 
+ getBoardGamesOnDiscount()
       // getBoardGamesByPrice()
       getForumPosts();
       AppState.skip = 0;
@@ -142,7 +149,7 @@ export default {
       editable,
       boardGames: computed(() => AppState.boardgames),
       forumPosts: computed(() => AppState.forumPosts),
-
+discountBoardGames: computed(()=> AppState.discountBoardGames),
       async getMoreBoardGames() {
         try {
           await atlasGamesService.getBoardGamesOnScroll();
@@ -165,6 +172,7 @@ export default {
           Pop.error(error, '[searchPopular]');
         }
       },
+
     };
   },
   components: {
