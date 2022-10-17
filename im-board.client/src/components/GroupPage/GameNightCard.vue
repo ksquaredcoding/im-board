@@ -7,29 +7,34 @@
             <h2>Upcoming Gamenight</h2>
           </div>
           <div class="d-flex justify-content-center mb-2">
-            <button class="btn bg-c6" @click="attendGamenight(gamenight?.id)">
-              {{ attending ? "unAttend" : "i'm Attending!" }}
+            <button class="btn button-51 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+              v-if="!attending">
+              I'm Attending <i class="bi bi-person-plus-fill"></i>
+            </button>
+            <button class="btn button-52 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+              v-else>
+              UnAttend <i class="bi bi-person-dash-fill"></i>
             </button>
           </div>
           <div class="justify-content-center d-flex">
             <span>
               <p>
                 {{
-                  new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-                    month: "short",
-                    day: "2-digit",
-                    year: "numeric",
-                  })
+                new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+                month: "short",
+                day: "2-digit",
+                year: "numeric",
+                })
                 }}
               </p>
             </span>
             <span class="mx-4">
               <p>
                 {{
-                  new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })
+                new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+                hour: "2-digit",
+                minute: "2-digit",
+                })
                 }}
               </p>
             </span>
@@ -44,14 +49,9 @@
               <h5 class="mt-1">Attending:</h5>
             </div>
             <div class="p-2 bg-c2 text-center">
-              <img
-                :src="g.picture"
-                :alt="g.name"
-                height="55"
-                class="rounded-circle me-1 box-shadow"
-                v-for="g in gamenight?.groupMemberIds"
-                :groupMemberId="g"
-              />
+              <img :src="g.picture" :alt="g.name" height="55" class="rounded-circle me-1 box-shadow"
+                v-for="g in gamenight?.groupMemberIds" :groupMemberId="g"
+                :class="!same ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOut' " />
             </div>
           </div>
         </div>
@@ -96,6 +96,19 @@ export default {
       attending: computed(() =>
         props.gamenight.groupMemberIds.find((g) => g.id == AppState.account.id)
       ),
+      memberGoing: computed(() => {
+        [
+          seeTheSame(groupMembers, props.gamenight.groupMemberIds),
+          seeTheSame(props.gamenight.groupMemberIds, groupMembers)]
+      }),
+      seeTheSame(array1, array2) {
+        return array1.filter(object1 => {
+          return array2.some(object2 => {
+            return object1.id === object2.id;
+          });
+        });
+      },
+      groupMembers: computed(() => AppState.groupMembers),
       async addGameNight() {
         try {
           await gameNightsService.addGameNight(props.gamenight.id);
@@ -105,7 +118,6 @@ export default {
       },
       async attendGamenight(gamenightId) {
         try {
-          // console.log(this.attending);
           await gameNightsService.attendGamenight(gamenightId);
         } catch (error) {
           console.error(error);
