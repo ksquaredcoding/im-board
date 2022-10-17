@@ -7,7 +7,7 @@
         <option value="wish">Wish</option>
       </select>
       <div class="text-center">
-        <button class="btn bg-c1 mt-1" type="submit">Add!</button>
+        <button class="btn button-51 mt-1" type="submit">Add!</button>
       </div>
     </form>
   </div>
