@@ -70,6 +70,13 @@ export default {
   setup(props) {
 
     return {
+      async addGameNight(){
+        try {
+            await 
+          } catch (error) {
+            Pop.error(error)
+          }
+      }
 
     };
   },

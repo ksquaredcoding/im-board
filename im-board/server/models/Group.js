@@ -8,6 +8,7 @@ export const GroupSchema = new Schema(
     groupMemberIds: [{ type: Object, ref: "GroupMember", require: false }],
     coverImg: {
       type: String,
+      required: true,
       default:
         "https://roomescapedc.com/wp-content/uploads/2021/01/board-games-background-min-1920x1078.jpg",
     },
