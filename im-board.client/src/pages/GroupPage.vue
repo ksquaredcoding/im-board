@@ -37,7 +37,6 @@
   </div>
 </template>
 <script>
-import GroupChatCard from "../components/GroupPage/GroupChatCard.vue";
 import GroupBanner from "../components/GroupPage/GroupBanner.vue";
 import GameNightCard from "../components/GroupPage/GameNightCard.vue";
 import GroupChatInput from "../components/GroupPage/GroupChatInput.vue";
@@ -133,7 +132,6 @@ export default {
     };
   },
   components: {
-    GroupChatCard,
     GroupBanner,
     GameNightCard,
     GroupChatInput,

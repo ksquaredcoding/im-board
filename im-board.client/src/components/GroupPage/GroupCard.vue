@@ -6,7 +6,7 @@
       <div class="card-img-overlay text-shadow">
         <h3 class="card-title p-2 text-center rounded-1 "><u>{{ group?.group.name }}</u></h3>
         <div class="card-title text-center p-1 rounded-1 elevation-3">
-          <p class="card-text fs-5 fw-1">Owner:{{group.group.creator.name}}</p>
+          <p class="card-text fs-5 fw-1">Owner: {{group.group.creator.name}}</p>
           <p v-if="group.group.groupMemberIds.length == 1">{{group.group.groupMemberIds.length}}
             Member
           </p>
