@@ -6,13 +6,7 @@
     <router-view />
   </main>
 <footer class="p-2 bg-dark mt-1">
-  <div>
-      <button class="btn btn-dark">
-        <a href="#" v-if="route.name == 'Home'">Return To Top</a>
-        <a href="#Search" v-else-if="route.name=='Search'">Return To Top</a>
-        <a href="#">Return To Top</a>
-      </button>
-  </div>
+ <Footer/>
 </footer>
 <GroupForm/>
   <EditBanner/>
@@ -35,6 +29,7 @@ import EditName from "./components/AccountProfilePage/EditName.vue"
 import EditPic from "./components/AccountProfilePage/EditPic.vue"
 import Filters from "./components/SearchPage/FiltersSideBar.vue"
 import { useRoute } from "vue-router"
+import Footer from "./components/Footer.vue"
 
 export default {
   setup() {
@@ -44,7 +39,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, GroupForm, EditBanner, EditName, EditPic, Filters }
+  components: { Navbar, GroupForm, EditBanner, EditName, EditPic, Filters, Footer }
 }
 </script>
 <style lang="scss">
