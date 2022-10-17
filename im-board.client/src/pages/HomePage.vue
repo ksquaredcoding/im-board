@@ -8,13 +8,13 @@
       <HomePageBanner/>
       </div>
 
-
-      <div class="row mx-2 my-4 ">
-        <div class="col-md-12 ">
+    <div class="col-md-12 ">
           <div @click="searchPopular()" class=" hoverable hvr-sweep-to-right bg-c4 rounded-1 p-3">
             <h2 class="rowTitle p-1">Popular Board Games</h2>
           </div>
         </div>
+      <div class="row mx-2 my-4  horizontal-scrollable">
+    
         <TransitionGroup
           name="custom-classes"
           enterActiveClass="animate__zoomIn animate__animated"
@@ -26,12 +26,14 @@
         </TransitionGroup>
       </div>
  
-          <div class="row mx-2 my-5">
-        <div class="col-md-12">
+      <!-- SECTION  -->
+           <div class="col-md-12">
           <div @click="searchPopular()" class="hoverable hvr-sweep-to-right rounded-1 p-3 bg-c4">
             <h2 class="rowTitle p-1">Games On Discount</h2>
           </div>
         </div>
+          <div class="row mx-2 my-5 horizontal-scrollable">
+   
         <TransitionGroup
           name="custom-classes"
           enterActiveClass="animate__zoomIn animate__animated"

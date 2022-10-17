@@ -46,42 +46,34 @@ class AtlasGamesService {
     console.log(AppState.boardgames);
   }
 
+  // SECTION ---------------- FOR HOME PAGE---------------------
   async getBoardGamesByDiscount() {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 6,
+        limit: 12,
         gt_discount: 0.5,
       },
     });
 
     AppState.discountBoardGames = res.data.games.map((b) => new BoardGame(b));
-    // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+
   }
 
-  // async getBoardGamesByDiscount(){
-  //      const res = await atlasApi.get('/api/search', {
-  //        params: {
-  //          client_id: '2I6DeypMLL',
-  //          limit: 50,
-  //          lt_discount:0.5
-  //        },
-  //      });
-  //      AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-
-  // }
+  
   async getBoardGamesByPopularity() {
  
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 6,
+        limit: 12,
       },
     });
     AppState.popularBoardGames= res.data.games.map((b) => new BoardGame(b));
 
   }
 
+  //-----------------------------!SECTION-----------------------------------------------------------
   async getBoardGamesByYear(minYear) {
     const res = await atlasApi.get("/api/search", {
       params: {
