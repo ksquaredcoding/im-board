@@ -1,5 +1,5 @@
 <template>
-  <section class="container" v-if="boardGame">
+  <div class="container" v-if="boardGame">
     <div class="row">
       <div
         class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
@@ -120,7 +120,7 @@
 
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- MODAL -->
   <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
