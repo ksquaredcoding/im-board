@@ -8,6 +8,11 @@
 @import './secondary.scss';
 
 
+:root{
+  --animate-duration : 600ms
+
+}
+
 body{
   overscroll-behavior: none;
 }
