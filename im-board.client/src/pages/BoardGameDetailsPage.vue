@@ -31,6 +31,10 @@
           <b>Primary Publisher:</b>
           <p class="ms-3">{{ boardGame.primary_publisher }}</p>
         </div>
+        <div class="d-flex">
+          <b>Year Published:</b>
+          <p class="ms-3">{{ boardGame.year_published }}</p>
+        </div>
         <div class="text-center mt-1">
           <b>Average User Rating:</b>
           <p class="">{{ boardGame.average_user_rating.toFixed(2) }}</p>
