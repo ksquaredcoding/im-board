@@ -10,7 +10,11 @@
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
-          <b>{{boardGameList.boardGameName}}</b>
+
+          <router-link class="text-center text-dark"
+            :to="{ name: 'BoardGameDetails', params: { id: boardGameList.gameId} }">
+            <b>{{boardGameList.boardGameName}}</b>
+          </router-link>
         </div>
       </div>
 
