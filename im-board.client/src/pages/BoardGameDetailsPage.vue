@@ -2,20 +2,15 @@
   <section class="container" v-if="boardGame">
     <div class="row">
       <div
-        class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
-      >
+        class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
         <div class="font">{{ boardGame.name }}</div>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
-      <div
-        class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
-      >
+      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
         <img :src="boardGame.large" alt="" class="img-fluid rounded" />
       </div>
-      <div
-        class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3"
-      >
+      <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="d-flex">
           <b>Number of players : </b>
           <p class="ms-3">{{ boardGame.players }}</p>
@@ -61,27 +56,21 @@
         </div> -->
       </div>
       <div class="row game-images my-3 ms-1">
-        <swiper
-          :slidesPerView="4"
-          :spaceBetween="50"
-          :slidesPerGroup="3"
-          :loop="true"
-          :loopFillGroupWithBlank="true"
+        <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
           :pagination="{
             clickable: true,
-          }"
-          :navigation="true"
-          :modules="modules"
-          class="mySwiper"
-        >
+          }" :navigation="true" :modules="modules" class="mySwiper">
           <swiper-slide class="my-2" v-for="i in images">
             <ActiveBoardGameImages :images="i" />
           </swiper-slide>
         </swiper>
       </div>
       <div class="px-5 mt-5 d-flex justify-content-center pt-3">
-        <div class="col-8 gradient-box p-5 my-5 rounded-4"><div class="d-flex justify-content-center"><h3 class="text-center bg-grey p-3 rounded-5">Description</h3></div>
-          
+        <div class="col-8 gradient-box p-5 my-5 rounded-4">
+          <div class="d-flex justify-content-center">
+            <h3 class="text-center bg-grey p-3 rounded-5">Description</h3>
+          </div>
+
           <p class="p-3 bg-grey rounded-5 elevation-4 desctext">
             {{ boardGame?.description_preview }}
           </p>
@@ -89,14 +78,17 @@
       </div>
 
       <div>
+
+        <div v-if="reviews.length > 0">
           <h1>Reviews:</h1>
-        <div class="row review-row">
-          <div class="col-md-6" v-for="r in reviews" :key="r">
-            <ABGReviews :review="r" />
+          <div class="row review-row">
+            <div class="col-md-6" v-for="r in reviews" :key="r">
+              <ABGReviews :review="r" />
+            </div>
           </div>
         </div>
 
-        <div class="hi">
+        <div class="" v-if="prices.length > 0">
           <div class="mt-5">
             <h1>Purchase game at:</h1>
           </div>
@@ -107,16 +99,18 @@
           </div>
         </div>
 
-        <div class="mt-5">
-          <h1>Videos about this game:</h1>
+        <div v-if="videos.length > 0">
+          <div class="mt-5">
+            <h1>Videos about this game:</h1>
+          </div>
+          <div class="row ">
+            <div class="col-md-3" v-for=" v in videos" :key="v.id">
+              <ActiveBoardGameVideos :video="v" />
+            </div>
+          </div>
+
         </div>
-        <div class="row ">
-           <div class="col-md-3" v-for=" v in videos" :key="v.id">
-          <ActiveBoardGameVideos :video="v" />
-        </div>
- 
-        </div>
-      
+
         <!-- <iframe
           width="1424"
           height="612"
@@ -132,13 +126,7 @@
   </section>
 
   <!-- MODAL -->
-  <div
-    class="modal fade"
-    id="activeImage"
-    tabindex="-1"
-    aria-labelledby="activeImageLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <img :src="modalImage" alt="" class="rounded elevation-2 customSize" />
@@ -232,7 +220,7 @@ export default {
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage),
-     
+
     };
   },
   components: {
@@ -320,12 +308,13 @@ p {
   font-size: 70px;
   text-shadow: 2px 2px 0px rgba(231, 239, 240, 0.92);
 }
+
 * {
   font-family: 'Baloo 2', cursive;
 
 }
 
-.desctext{
+.desctext {
   letter-spacing: .05em;
 }
 </style>

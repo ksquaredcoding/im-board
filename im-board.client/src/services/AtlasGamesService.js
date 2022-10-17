@@ -223,7 +223,7 @@ async getBoardGamesByMechanics(mechanics = ""){
     AppState.activeBoardGamePrices = res.data.gameWithPrices.us.map(
       (p) => new ActiveBoardGamePrice(p)
     );
-    // console.log(AppState.activeBoardGamePrices);
+    console.log(AppState.activeBoardGamePrices);
   }
   async getBoardGameVideosByGameId(id) {
     const res = await atlasApi.get("api/game/videos?", {
