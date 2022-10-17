@@ -8,7 +8,7 @@ export class GameNightsController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("/:groupId", this.getGameNightsByGroupId)
-      .get("/:gameNightId", this.getGameNightById)
+      .get("/upcoming/:gameNightId", this.getGameNightById)
       .post("", this.createGameNight)
       .put("/:gameNightId", this.attendGameNight)
       .delete("/group/:groupId", this.removeGameNightsByGroup);

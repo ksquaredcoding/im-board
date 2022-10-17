@@ -84,7 +84,10 @@ class GameNightsService {
     return gameNights;
   }
   async getGameNightById(id) {
-    const gamenight = await dbContext.GameNights.find({ id })
+    const gamenight = await dbContext.GameNights.findById(id)
+    if (!gamenight) {
+      throw new BadRequest("Bad or invalid gamenight id")
+    }
     return gamenight
   }
 }
