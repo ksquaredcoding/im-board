@@ -9,7 +9,7 @@
       </div>
 
 
-      <div class="row mx-2 my-5 horizontal-scrollable">
+      <div class="row mx-2 my-5 ">
         <div class="col-md-12">
           <div @click="searchPopular()" class="hoverable hvr-sweep-to-right ">
             <h2 class="rowTitle p-1">Popular Board Games</h2>
@@ -95,6 +95,7 @@ import { AppState } from '../AppState.js';
 import ForumPosts from '../components/HomePage/AtlasGamesForumPosts.vue';
 import Articles from "../components/HomePage/Articles.vue";
 import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
+import { router } from "../router.js";
 
 export default {
   setup() {
@@ -125,8 +126,8 @@ export default {
     }
 
     onMounted(() => {
-// getBoardGamesByPopularity()
-//  getBoardGamesByDiscount()
+getBoardGamesByPopularity()
+ getBoardGamesByDiscount()
       // getBoardGamesByPrice()
       getForumPosts();
       // AppState.skip = 0;
@@ -162,13 +163,10 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
       },
 
       async searchPopular() {
-        try {
-          await atlasGamesService.getBoardGamesByPopularity();
-        } catch (error) {
-          Pop.error(error, '[searchPopular]');
-        }
+       router.push({name:"Search"})
       },
 
+      
     };
   },
   components: {

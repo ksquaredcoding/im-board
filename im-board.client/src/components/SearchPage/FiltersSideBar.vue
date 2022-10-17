@@ -1,16 +1,29 @@
 <template>
 
+  
 <div class="d-flex flex-column justify-content-center mb-4">
-  <span class="mb-2 d-flex ms-3">
+  <span class="mb-2 d-flex ">
 
-    <h3>Deals</h3>
+<button @click.prevent="searchByPopularity()" class="btn fs-3 ">Popular</button>
   </span>
-<div class="flex-column d-flex">
-  <button @click.prevent="searchByLT_Price()" class="btn ">Under 20$</button>
-  <button @click.prevent="searchByLT_Discount()" class="btn ">Over 50% off</button>
+
+  
+  
 
  
+
 </div>
+
+
+
+
+
+<div class="d-flex flex-column justify-content-center mb-4">
+  <span class="mb-2 d-flex ">
+  <button @click.prevent="searchByLT_Price()" class="btn fs-3 ">Under 20$</button>
+   
+  </span>
+
 </div>
 
 
@@ -201,9 +214,18 @@ try {
   } catch (error) {
     Pop.error(error,'[]')
   }
-}
+},
 
+async searchByPopularity(){
+try {
+    await atlasGamesService.getBoardGames()
+  } catch (error) {
+    Pop.error(error,'[searchByPopularity]')
+  }
+},
+ async searchByLT_Price(){
 
+ }
 
     };
   },

@@ -37,20 +37,20 @@ class AtlasGamesService {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit:6
+        limit:60
       
       },
     });
-    console.log(res.data);
+    // console.log(res.data);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    // console.log(AppState.boardgames);
+    console.log(AppState.boardgames);
   }
 
   async getBoardGamesByDiscount() {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 20,
+        limit: 6,
         gt_discount: 0.5,
       },
     });
@@ -59,19 +59,19 @@ class AtlasGamesService {
     // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
-  async getBoardGamesByDiscount(){
-       const res = await atlasApi.get('/api/search', {
-         params: {
-           client_id: '2I6DeypMLL',
-           limit: 50,
-           lt_discount:0.5
-         },
-       });
-       AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+  // async getBoardGamesByDiscount(){
+  //      const res = await atlasApi.get('/api/search', {
+  //        params: {
+  //          client_id: '2I6DeypMLL',
+  //          limit: 50,
+  //          lt_discount:0.5
+  //        },
+  //      });
+  //      AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-  }
+  // }
   async getBoardGamesByPopularity() {
-    router.push({ name: "Search" });
+ 
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
