@@ -266,6 +266,14 @@ transition: 0.75s ease;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.459);
 }
 
+.horizontal-scrollable {
+  border-radius: 4px;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
 
 
 .scroll-Snap-Container{
