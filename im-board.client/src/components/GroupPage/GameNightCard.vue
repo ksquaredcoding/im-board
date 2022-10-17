@@ -7,8 +7,12 @@
             <h2>Upcoming Gamenight</h2>
           </div>
           <div class="d-flex justify-content-center mb-2">
-            <button class="btn bg-c6" @click="attendGamenight(gamenight?.id)">
-              {{ attending ? "unAttend" : "i'm Attending!" }}
+            <button
+              class="btn"
+              :class="!attending ? 'bg-c6' : 'bg-danger'"
+              @click="attendGamenight(gamenight?.id)"
+            >
+              {{ attending ? "" : "i'm Attending!" }}
             </button>
           </div>
           <div class="justify-content-center d-flex">
