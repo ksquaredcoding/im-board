@@ -7,7 +7,7 @@
   </span>
 <div class="flex-column d-flex">
   <button @click.prevent="searchByLT_Price()" class="btn ">Under 20$</button>
-  <button class="btn ">Over 50% off</button>
+  <button @click.prevent="searchByLT_Discount()" class="btn ">Over 50% off</button>
 
  
 </div>
@@ -188,14 +188,16 @@ export default {
         }
       },
 
-async searchByLT_Price(){
+async searchByLT_Discount(){
   try {
-      await atlasGamesService.getBoardGamesByPrice()
+      await atlasGamesService.getBoardGamesByDiscount()
     } catch (error) {
       Pop.error(error,'[searchByLT_Price]')
     }
 },
-
+async searchByPrice(){
+  
+}
 
 
 

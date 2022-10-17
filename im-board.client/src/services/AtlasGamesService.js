@@ -50,7 +50,7 @@ class AtlasGamesService {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 6,
+        limit: 50,
         gt_discount: 0.5,
       },
     });
@@ -59,12 +59,12 @@ class AtlasGamesService {
     // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
-  async getBoardGamesByPrice(){
+  async getBoardGamesByDiscount(){
        const res = await atlasApi.get('/api/search', {
          params: {
            client_id: '2I6DeypMLL',
            limit: 50,
-           lt_price:20.1
+           lt_discount:0.5
          },
        });
        AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
