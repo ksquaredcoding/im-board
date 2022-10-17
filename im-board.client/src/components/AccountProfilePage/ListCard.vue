@@ -18,8 +18,8 @@
           Rating:{{boardGameList.rating.toFixed(2)}}
         </div>
 
-        <i class="mdi mdi-close text-danger selectable rounded-3" @click="removeGameFromList()"
-          v-if="account.id == boardGameList.accountId"></i>
+        <i class="mdi mdi-close text-danger selectable rounded-3" title="remove game from list"
+          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
 
       </div>
     </div>

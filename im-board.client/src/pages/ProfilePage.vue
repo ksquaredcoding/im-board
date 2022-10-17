@@ -4,20 +4,11 @@
   </div>
 
   <div class="account Page container-fluid">
-    <div
-      class="row bg-c5 banner eum-ipsum"
-      :style="{ backgroundImage: `url(${profile?.coverImg})` }"
-    >
+    <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${profile?.coverImg})` }">
       <div class="col-md-12 d-flex justify-content-center">
-        <img
-          :src="profile?.picture"
-          alt=""
-          height="150"
-          width="150"
-          class="eum rounded-circle mt-2 icon"
-          v-if="profile?.picture"
-        />
-       
+        <img :src="profile?.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
+          v-if="profile?.picture" />
+
       </div>
     </div>
 
@@ -30,11 +21,7 @@
       <div class="col-md d-flex justify-content-end">
         <router-link :to="{ name: 'Account' }">
           <button class="btn rounded-circle editbtn">
-            <i
-              class="ps-1 mdi mdi-account-cog-outline fs-1"
-              alt=""
-              title="Edit Profile"
-            ></i>
+            <i class="ps-1 mdi mdi-account-cog-outline fs-1" alt="" title="Edit Profile"></i>
           </button>
         </router-link>
       </div>
@@ -86,18 +73,17 @@
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
             <div>
-              <i
-                class="mdi mdi-information-outline fs-5"
-                alt=""
-                title="Groups only visisble to you, not other users."
-              ></i>
+              <i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i>
             </div>
           </div>
         </div>
+
         <div class="cardholder">
           <div v-for="g in groups" :key="g.id">
             <GroupCard :group="g" />
           </div>
+
         </div>
       </div>
     </div>

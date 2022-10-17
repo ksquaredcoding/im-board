@@ -18,7 +18,7 @@ class GroupsService {
     const res = await api.post('/api/groups', groupData);
     // console.log(res.data);
     const group = new Group(res.data);
-    
+
 
     AppState.activeGroup = group;
     router.push({ name: 'Group', params: { id: group.id } });
@@ -48,9 +48,9 @@ class GroupsService {
     const res = await api.get(`api/groupmembers/${groupId}`);
     // console.log(res.data);
     AppState.groupMembers = res.data
-    // console.log(AppState.groupMembers);
+    console.log(AppState.groupMembers);
   }
 
- 
+
 }
 export const groupsService = new GroupsService();
