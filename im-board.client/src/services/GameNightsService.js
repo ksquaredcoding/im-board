@@ -16,12 +16,10 @@ class GameNightsService {
       Pop.error('Bad or Invalid GameNight Id')
     }
     await api.put(`api/gamenights/${gamenightId}`)
-    const gamenightIndex = AppState.groupGameNights.findIndex(g => g.id.toString() == gamenightId)
-    const res = api.get(`api/gamenights/upcoming/${gamenightId}`)
-    // const newGamenight = new GameNight(res.data)
-    console.log(res.data);
-    // console.log(newGame);
-    // AppState.groupGameNights.splice(gamenightIndex, 1, newGamenight)
+    const gamenightIndex = AppState.groupGameNights.findIndex(g => g.id == gamenight.id)
+    const res = await api.get(`api/gamenights/upcoming/${gamenightId}`)
+    const newGamenight = new GameNight(res.data)
+    AppState.groupGameNights.splice(gamenightIndex, 1, newGamenight)
   }
 }
 export const gameNightsService = new GameNightsService();
