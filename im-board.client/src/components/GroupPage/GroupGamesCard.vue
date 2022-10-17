@@ -5,7 +5,7 @@
 
 
       <div class="col-md-2 ms-1">
-        <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="search"></i>
+        <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="games in group"></i>
       </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
