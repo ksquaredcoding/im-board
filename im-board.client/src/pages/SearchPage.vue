@@ -5,17 +5,17 @@
   >
     <div class="row justify-content-end g-md-0">
       <div
-        class="col-md-12 border-bottom border-secondary border-3 rounded-bottom"
+        class="col-md-12 border-secondary border-3 rounded-bottom"
       >
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
-          <h3 class="searchText">Search For Your BoardGames</h3>
+          <h3 class="searchText">Search for board games</h3>
           <p class="col-md-4">
             <Searchbar/>
           </p>
         </div>
       </div>
       <div class="col-md-3"></div>
-      <div class="col-md-9 d-flex bg-dark rounded p-2">
+      <div class="col-md-12 d-flex bg-dark rounded p-2 d-flex justify-content-center">
         <!-- TODO MORE FILTERS HERE -->
 
         <FilterBar />
@@ -30,7 +30,7 @@
             enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated"
           >
-            <div class="col-md-3" v-for="b in boardGames" :key="b.id">
+            <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
           </TransitionGroup>

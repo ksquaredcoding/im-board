@@ -13,8 +13,8 @@
         
     
         <div class="card-text d-flex justify-content-center">
-          <i class="mdi mdi-account"></i>
-         {{ boardGame?.players}}
+          <i class="mdi mdi-account fs-5 "></i>
+        <div class="mt-1"> {{ boardGame?.players}}</div>
         </div>
       
         <div class="d-flex justify-content-center">
@@ -76,9 +76,9 @@ export default {
 }
 .discount{
  
-top: -30px;
+top: -25px;
   position: absolute;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16pt;
   font-style: oblique;
   color: rgb(240, 69, 69);

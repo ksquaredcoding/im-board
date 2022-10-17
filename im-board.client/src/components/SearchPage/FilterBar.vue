@@ -69,11 +69,11 @@
 
 
 
- <div class="dropdown bg-transparent">
+ <div class="dropdown bg-transparent ms-2">
   <button type="button" class="btn dropdown-toggle button-52" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
     Year
   </button>
-  <form    class="dropdown-menu px-2" @submit.prevent="searchByYear()">
+  <form    class="dropdown-menu px-2 " @submit.prevent="searchByYear()">
     <div class="mb-3">
       <label for="minYear" class="form-label">Minimum year +</label>
       <input type="number" class="form-control" id="minYear" v-model="editable" min="1970" max="9999">
