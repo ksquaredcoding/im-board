@@ -1,5 +1,5 @@
 <template>
-  <div class="component justify-content-center bg-light price-info my-2 text-center p-3 elevation-1"
+  <div class="component justify-content-center bg-light price-info my-2 text-center p-3 elevation-1 rounded-2"
     v-if="price.in_stock == true">
     <h2 class="font">{{price.store_name}}</h2> 
     <h4>{{price.name}}</h4>
