@@ -2,7 +2,10 @@
   <div v-if="!group" class="animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
-  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
+  <div
+    class="group-page animate__animated animate__fadeInRight container-fluid"
+    v-else
+  >
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <div class="col-md-3">
@@ -11,7 +14,7 @@
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-12 ms-2 overflow-auto groupchatbox bg-dark">
+        <div class="col-12 ms-2 overflow-auto groupchatbox bg-dark rounded">
           <div class="col-md-12" v-for="c in chats" :key="c.id">
             <Chat :chat="c" />
           </div>
@@ -20,17 +23,19 @@
       </div>
       <div class="col-md-5 overflow-auto gamecardbox mx-5">
         <div class="px-1">
+          <GameNightForm />
           <GameNightCard v-for="g in gamenights" :gamenight="g" />
         </div>
       </div>
 
-      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2">
+      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2 mt-2 rounded">
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
-
-        <div v-for="g in lists" :key="g.id">
-          <GroupGamesCard :boardGameList="g" />
+        <div class="mt-2">
+          <div v-for="g in lists" :key="g.id" class="mt-4">
+            <GroupGamesCard :boardGameList="g" />
+          </div>
         </div>
       </div>
     </div>
@@ -55,6 +60,7 @@ import { listsService } from "../services/ListsService.js";
 import { groupChatsService } from "../services/GroupChatsService.js";
 import Chat from "../components/GroupPage/Chat.vue";
 import { gameNightsService } from "../services/GameNightsService.js";
+import GameNightForm from "../components/GroupPage/GameNightForm.vue";
 
 export default {
   setup() {
@@ -93,8 +99,7 @@ export default {
       try {
         await gameNightsService.getGroupGameNights(route.params.id);
       } catch (error) {
-
-        Pop.error(error, '[groupGameNights]');
+        Pop.error(error, "[groupGameNights]");
       }
     }
 
@@ -103,7 +108,7 @@ export default {
       getGroupMembersByGroupId();
       getListsByGroupId();
       getGroupChatsByGroupId();
-      getGroupGameNights()
+      getGroupGameNights();
     });
 
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
@@ -138,6 +143,7 @@ export default {
     GroupGamesCard,
     GroupForm,
     Chat,
+    GameNightForm,
   },
 };
 </script>
@@ -155,7 +161,6 @@ export default {
 }
 
 * {
-  font-family: 'Baloo 2', cursive;
-
+  font-family: "Baloo 2", cursive;
 }
 </style>
