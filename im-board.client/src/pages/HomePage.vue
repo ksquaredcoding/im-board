@@ -4,7 +4,7 @@
     v-if="boardGames"
   >
     <div class="row justify-content-center">
-      <div class="col-md-11 my-2 ">
+      <div class="col-md-12 my-2">
       <HomePageBanner/>
       </div>
 
@@ -45,7 +45,7 @@
   
         <div class="col-md-12 mt-2 ms-3 ">
            <div  class="hoverable hvr-sweep-to-left p-1 rounded-1 p-3 bg-c5">
-           <h3>
+           <h3 class="pt-2">
             <b>Articles from </b>
             <img
               src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
@@ -68,7 +68,7 @@
    
       <div class="col-md-12 mt-4">
           <div class=" hvr-sweep-to-left rounded-1 p-3 bg-c5">
-            <h2 class="rowTitle p-1">More articles you'll enjoy</h2>
+            <h2 class="rowTitle p-1 pt-2">Editor's Choice Articles</h2>
           </div>
 </div>
       <div class="row horizontal-scrollable mb-4">

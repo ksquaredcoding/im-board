@@ -29,9 +29,7 @@
             </div>
             <div class="d-flex">
               <p class="card-text p-4 rounded-4">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                Welcome to I'm Game! A site for board gamers, by board gamers. 
               </p>
             </div>
           </div>
