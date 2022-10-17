@@ -23,9 +23,9 @@ class ProfilesService {
   }
   async getUserProfile(id) {
     const res = await api.get(`/profiles/${id}`);
-    console.log(res.data);
+    // console.log(res.data);
     AppState.activeProfile = new Account(res.data);
-    console.log(AppState.activeProfile);
+    // console.log(AppState.activeProfile);
   }
   // super("api/profiles");
   // this.router

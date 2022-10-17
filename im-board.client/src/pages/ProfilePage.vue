@@ -19,7 +19,7 @@
         {{ profile?.name }}
       </div>
       <div class="col-md d-flex justify-content-end">
-        <router-link :to="{ name: 'Account' }">
+        <router-link :to="{ name: 'Account' }" v-if="account.id == profile.id">
           <button class="btn rounded-circle editbtn">
             <i class="ps-1 mdi mdi-account-cog-outline fs-1" alt="" title="Edit Profile"></i>
           </button>
@@ -68,7 +68,7 @@
       </div>
 
       <!-- NOTE group card start -->
-      <div class="col-md mx-3 bg-grey" v-if="user.id == profile.id ">
+      <div class="col-md mx-3 bg-grey" v-if="account.id == profile.id">
         <div class="row bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
