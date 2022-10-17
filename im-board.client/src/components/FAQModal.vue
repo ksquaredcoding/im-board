@@ -9,12 +9,51 @@
         <h1 class="modal-title fs-5" id="FAQLabel">Site Tour</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body container-fluid text-light bg-dark">
+<div class="row">
+  <div class="col-md-12 d-flex mt-2 mb-4">
+    <span>
+
+      <a class="btn button-51 py-1 px-2 mx-2 " 
+          >
+       Create Group
+         </a>
+    </span>
+
+<div class=" d-flex align-items-center justify-content-center">
+<img src="https://cdn-icons-png.flaticon.com/512/6096/6096669.png" alt="" height="40" class="mx-4">
+<p>Start a group to invite your friends to and share your owned list of board games</p>
+</div>
+  </div>
+
+  <div class="col-md-8">
+    <img src="../assets/img/FAQ1.png" alt="" class="img-fluid rounded ">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/6096/6096669.png" alt="" height="40" class="">
+  </div>
+  <div class="col-md-4">
+     <img src="../assets/img/FAQ2.png" alt="" class="img-fluid rounded border-2 border-light ">
+  </div>
+</div>
+
    
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer bg-dark text-light">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+  
       </div>
     </div>
   </div>
@@ -22,17 +61,14 @@
 </template>
 
 <script>
+import GroupForm from "./GroupPage/GroupForm.vue";
+
 export default {
-  props: {
-
-  },
-
-  setup(props) {
-
-    return {
-
-    };
-  },
+    props: {},
+    setup(props) {
+        return {};
+    },
+    components: {GroupForm }
 };
 </script>
 
@@ -51,5 +87,15 @@ export default {
   object-fit: cover;
 }
 
+img{
+  transition: all 0.75s ease;
+}
+
+img:hover {
+  transform: scale(1.01);
+  transition: all 0.75s ease;
+  filter: saturate(110%);
+  filter: brightness(105%);
+}
 
 </style>

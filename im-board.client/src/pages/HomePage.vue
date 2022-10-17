@@ -20,8 +20,8 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2 mt-5 mb-2 "  v-for="b in boardGames" :key="b.id">
-            <BoardGameCard :boardGame="b" />
+          <div class="col-md-2 mt-5 mb-2 "  v-for="p in popularBoardGames" :key="p.id">
+            <BoardGameCard :boardGame="p" />
           </div>
         </TransitionGroup>
       </div>
@@ -99,20 +99,20 @@ import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
 export default {
   setup() {
     const editable = ref('');
-    async function getBoardGames() {
+    async function getBoardGamesByDiscount() {
       try {
-        await atlasGamesService.getBoardGames();
+        await atlasGamesService.getBoardGamesByDiscount();
       } catch (error) {
         Pop.error(error, '[getBoardGames]');
       }
     }
 
-    async function getBoardGamesOnDiscount(){
+     async function getBoardGamesByPopularity() {
       try {
-          await atlasGamesService.getBoardGamesByDiscount()
-        } catch (error) {
-          Pop.error(error,'[getBoardGamesOnDiscount]')
-        }
+        await atlasGamesService.getBoardGamesByPopularity();
+      } catch (error) {
+        Pop.error(error, '[getBoardGames]');
+      }
     }
 
 
@@ -125,8 +125,8 @@ export default {
     }
 
     onMounted(() => {
-      getBoardGames();
- getBoardGamesOnDiscount()
+getBoardGamesByPopularity()
+ getBoardGamesByDiscount()
       // getBoardGamesByPrice()
       getForumPosts();
       // AppState.skip = 0;
@@ -142,6 +142,7 @@ export default {
 
     return {
       editable,
+      popularBoardGames: computed(()=> AppState.popularBoardGames),
       boardGames: computed(() => AppState.boardgames),
       forumPosts: computed(() => AppState.forumPosts),
 discountBoardGames: computed(()=> AppState.discountBoardGames),

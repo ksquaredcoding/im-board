@@ -31,6 +31,8 @@ export const AppState = reactive({
   boardgames: [],
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   discountBoardGames: [],
+  /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
+  popularBoardGames:[],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   PaginationPendingBoardGames: [],

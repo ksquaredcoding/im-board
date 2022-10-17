@@ -5,9 +5,9 @@
   <main>
     <router-view />
   </main>
-<footer class="p-2 bg-dark mt-1">
+<!-- <footer class="p-2 bg-dark mt-1">
  <Footer/>
-</footer>
+</footer> -->
 <GroupForm/>
   <EditBanner/>
   <EditName/>

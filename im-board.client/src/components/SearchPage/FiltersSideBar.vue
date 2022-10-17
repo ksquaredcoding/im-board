@@ -235,7 +235,7 @@ try {
   object-fit: cover;
 }
 button:active{
-  background-color: red;
+
 }
 
 button:focus{
