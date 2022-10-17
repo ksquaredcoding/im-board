@@ -28,13 +28,14 @@
 
         <div>
           <span><small class="text-shadow">Members</small></span>
-          <div class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar">
+          <div
+            class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
 
 
             <router-link :to="{name: 'Profile', params:{id: g.accountId}}" v-for="g in groupMember" :key="g.id">
 
               <img :src="g.profile?.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
-                class="rounded-circle box-shadow mx-1 profile-img" />
+                class="rounded-circle box-shadow m-1 profile-img" />
 
             </router-link>
           </div>
