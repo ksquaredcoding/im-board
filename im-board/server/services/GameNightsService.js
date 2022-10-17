@@ -29,8 +29,9 @@ class GameNightsService {
     );
 
     // @ts-ignore
+    // debugger;
     let attending = gameNight.groupMemberIdsAttending.find(
-      (m) => m._id == groupMember.accountId
+      (m) => m._id.toString() == groupMember.accountId
     );
     // TODO why is this an array within an array?!
     if (!attending) {
@@ -39,13 +40,14 @@ class GameNightsService {
       await gameNight.save();
       return gameNight;
     }
-    gameNight.groupMemberIdsAttending =
-      // @ts-ignore
-      gameNight.groupMemberIdsAttending.filter(
-        (m) => m.accountId.toString() !== groupMember.accountId.toString()
-      );
+    let place = gameNight.groupMemberIdsAttending.findIndex(g => g._id == userId);
+    gameNight.groupMemberIdsAttending.splice(place, 1);
+    // gameNight.groupMemberIdsAttending =
+    //   gameNight.groupMemberIdsAttending.filter(
+    //     (m) => m._id.toString() !== userId
+    //   );
     await gameNight.save();
-    return attending;
+    return gameNight;
   }
   async createGameNight(gameNightData, accountId) {
     // gameNightData -= gameNightData.gameId;
