@@ -48,10 +48,9 @@
             <div class="bg-c4 text-center p-1">
               <h5 class="mt-1">Attending:</h5>
             </div>
-            <div class="p-2 bg-c2 text-center">
+            <div class="p-2 bg-c2 text-center" v-if="gamenight?.groupMemberIds">
               <img :src="g.picture" :alt="g.name" height="55" class="rounded-circle me-1 box-shadow"
-                v-for="g in gamenight?.groupMemberIds" :groupMemberId="g"
-                :class="!same ? 'animate__animated animate__fadeIn' : 'animate__animated animate__fadeOut' " />
+                v-for="g in gamenight?.groupMemberIds" :groupMemberId="g" />
             </div>
           </div>
         </div>
@@ -108,7 +107,7 @@ export default {
           });
         });
       },
-      groupMembers: computed(() => AppState.groupMembers),
+
       async addGameNight() {
         try {
           await gameNightsService.addGameNight(props.gamenight.id);
