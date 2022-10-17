@@ -71,13 +71,13 @@ class AtlasGamesService {
 
   }
   async getBoardGamesByPopularity() {
+    router.push({ name: "Search" });
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
         limit: 60,
       },
     });
-    router.push({ name: "Search" });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
   }
@@ -113,6 +113,7 @@ class AtlasGamesService {
     ];
   }
   async getBoardGamesByQuery(name = "") {
+    router.push({ name: "Search" });
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
@@ -121,7 +122,6 @@ class AtlasGamesService {
       },
     });
 
-    router.push({ name: "Search" });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);
   }
@@ -160,7 +160,7 @@ async getBoardGamesByMechanics(mechanics = ""){
         order_by: query,
       },
     });
-    // console.log(res.data.games);
+    console.log(res.data.games);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 

@@ -4,14 +4,14 @@
   <div class="d-flex align-items-center">
     <small>Order By</small>
     <select
-      v-model="editable"
+    v-model="editable"
       class="form-select bg-transparent border-0 "
       aria-label="Default select example"
       @click.prevent="searchOrder_By()"
     >
    
       <option value=""></option>
-      <option :value="o.name" v-for="o in order_By">{{ o.name }}</option>
+      <option  :value="o.name" v-for="o in order_By" :key="o.id">{{ o.name }}</option>
     </select>
   </div>
 
@@ -99,8 +99,6 @@ export default {
       async searchOrder_By() {
         try {
 
-
-      
           await atlasGamesService.getBoardGamesByOrder_By(editable.value);
         } catch (error) {
           Pop.error(error, '[searchOrder_By]');

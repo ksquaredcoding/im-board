@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container-fluid px-3 homepage animate__animated animate__fadeInLeft"
+    class="container-fluid px-4 homepage animate__animated animate__fadeInLeft"
     v-if="boardGames"
   >
     <div class="row justify-content-center">
