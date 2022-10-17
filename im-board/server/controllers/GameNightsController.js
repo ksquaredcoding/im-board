@@ -8,6 +8,7 @@ export class GameNightsController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("/:groupId", this.getGameNightsByGroupId)
+      .get("/:gameNightId", this.getGameNightById)
       .post("", this.createGameNight)
       .put("/:gameNightId", this.attendGameNight);
   }
@@ -19,6 +20,14 @@ export class GameNightsController extends BaseController {
       res.send(gameNights);
     } catch (error) {
       next(error);
+    }
+  }
+  async getGameNightById(req, res, next) {
+    try {
+      const gamenight = await gameNightsService.getGameNightById(req.params.gameNightId)
+      res.send(gamenight)
+    } catch (error) {
+      next(error)
     }
   }
   async createGameNight(req, res, next) {

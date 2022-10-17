@@ -75,6 +75,9 @@ class GameNightsService {
     // TODO populate on anything???
     return gameNights;
   }
-  //
+  async getGameNightById(id) {
+    const gamenight = await dbContext.GameNights.find({ id })
+    return gamenight
+  }
 }
 export const gameNightsService = new GameNightsService();
