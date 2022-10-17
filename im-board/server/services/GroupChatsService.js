@@ -3,6 +3,15 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupMembersService } from "./GroupMembersService.js";
 
 class GroupChatService {
+  async removeChatsByGroup(groupId) {
+    // debugger;
+    let chats = await dbContext.GroupChats.find({groupId}).remove()
+    //  chats = chats.filter((c) => c.groupId != groupId);
+    //  await chats.save()
+
+    // await chats.map((e) => e.save());
+    return chats;
+  }
   async removeGroupChat(groupChatId, accountId) {
     // @ts-ignore
     const chat = await this.getGroupChatById(groupChatId);

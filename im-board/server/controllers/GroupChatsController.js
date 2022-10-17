@@ -9,7 +9,18 @@ export class GroupChatsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("/:groupId", this.getGroupChatsByGroupId)
       .post("", this.addGroupChat)
-      .delete("/:groupChatId", this.removeGroupChat);
+      .delete("/:groupChatId", this.removeGroupChat)
+      .delete("/group/:groupId", this.removeChatsByGroup);
+  }
+  async removeChatsByGroup(req, res, next) {
+    try {
+      const chats = await groupChatsService.removeChatsByGroup(
+        req.params.groupId
+      );
+      res.send(chats);
+    } catch (error) {
+      next(error);
+    }
   }
   async getGroupChatsByGroupId(req, res, next) {
     try {

@@ -27,7 +27,6 @@ class GroupsService {
     );
     // const chats = await groupChatsService.getGroupChatsByGroupId(groupId);
     // const chats = await groupChatsService.getGroupChatsByGroupId(groupId)
-    const chats = await dbContext.GroupChats.find({ groupId });
     if (group.creatorId.toString() !== accountId) {
       throw new Forbidden("only the creator can delete this group");
     }
@@ -36,12 +35,13 @@ class GroupsService {
     //   throw new Forbidden("this group still has members!");
     // }
     // @ts-ignore
+    // if (chats) {
+    //   await chats.deleteMany({ groupId });
+    //   // @ts-ignore
+    // }
+    await groupChatsService.removeChatsByGroup(groupId);
     await member.remove();
     await group.remove();
-    if (chats) {
-      // await chats.remove();
-      // @ts-ignore
-    }
     return group;
   }
   async editGroup(groupData, accountId, groupId) {
