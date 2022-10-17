@@ -22,7 +22,7 @@
         </div>
         <div class="d-flex">
           <b> Playtime:</b>
-          <p class="ms-3">{{ boardGame.playtime }}</p>
+          <p class="ms-3">{{ boardGame.playtime }} mins</p>
         </div>
         <div class="d-flex">
           <b>Ages:</b>
@@ -83,7 +83,7 @@
         <div class="col-8 gradient-box p-5 my-5 rounded-4"><div class="d-flex justify-content-center"><h3 class="text-center bg-grey p-3 rounded-5">Description</h3></div>
           
           <p class="p-3 bg-grey rounded-5 elevation-4 desctext">
-            {{ boardGame.description_preview }}
+            {{ boardGame?.description_preview }}
           </p>
         </div>
       </div>
@@ -126,6 +126,7 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe> -->
+
       </div>
     </div>
   </section>
@@ -291,7 +292,7 @@ p {
 }
 
 .info {
-  background-color: #a8dba8c4;
+  background-color: #dbdbdbd7;
 }
 
 .hi {
@@ -317,6 +318,7 @@ p {
 .font {
   font-weight: 600;
   font-size: 70px;
+  text-shadow: 2px 2px 0px rgba(231, 239, 240, 0.92);
 }
 * {
   font-family: 'Baloo 2', cursive;
