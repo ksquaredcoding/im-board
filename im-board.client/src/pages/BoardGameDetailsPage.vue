@@ -2,7 +2,7 @@
   <section class="container" v-if="boardGame">
     <div class="row">
       <div
-        class="col-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
+        class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
       >
         <div class="font">{{ boardGame.name }}</div>
       </div>
@@ -287,11 +287,11 @@ p {
 }
 
 .list-button {
-  background-color: #79bd9a;
+  background-color: #8adab0;
 }
 
 .info {
-  background-color: #79bd9a70;
+  background-color: #a8dba8c4;
 }
 
 .hi {
