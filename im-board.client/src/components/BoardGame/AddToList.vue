@@ -74,12 +74,9 @@ export default {
             playTime: this.boardGame.playtime,
             type: editable.value
           }
-        await listsService.addGameToList(formData)
-            Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!  
-            
-            ${AppState.boardgames}
-            `)
-    
+          await listsService.addGameToList(formData)
+          Pop.success(`You Added ${this.boardGame.name} to ${editable.value} list!`)
+
         } catch (error) {
 
           Pop.error(`You already have This One Added to This List!`)
