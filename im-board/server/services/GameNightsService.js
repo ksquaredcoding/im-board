@@ -11,6 +11,7 @@ class GameNightsService {
     return gameNights;
   }
   async attendGameNight(userId, gameNightId) {
+    // debugger;
     const gameNight = await dbContext.GameNights.findById(gameNightId);
     if (!gameNight) {
       throw new BadRequest("bad GameNightId");
@@ -23,24 +24,13 @@ class GameNightsService {
       (g) => g.accountId.toString() == userId
     );
 
-    // const thisMember = await groupMembersService.getMemberForGroup(
-    //   groupMember.groupId.toString(),
-    //   groupMember.accountId.toString()
-    // );
-    // thisMember.populate("profile", "name picture");
-
-    // const member = await dbContext.GroupMembers.findOne({
-    //   groupId: groupMember.groupId.toString(),
-    //   accountId: groupMember.accountId.toString(),
-    // });
-    // await member.populate("profile", "name picture");
     const member = await profileService.getProfileById(
       groupMember.accountId.toString()
     );
 
     // @ts-ignore
     let attending = gameNight.groupMemberIdsAttending.find(
-      (m) => m.accountId == groupMember.accountId.toString()
+      (m) => m._id == groupMember.accountId
     );
     // TODO why is this an array within an array?!
     if (!attending) {
@@ -55,7 +45,7 @@ class GameNightsService {
         (m) => m.accountId.toString() !== groupMember.accountId.toString()
       );
     await gameNight.save();
-    return gameNight;
+    return attending;
   }
   async createGameNight(gameNightData, accountId) {
     // gameNightData -= gameNightData.gameId;
@@ -84,11 +74,11 @@ class GameNightsService {
     return gameNights;
   }
   async getGameNightById(id) {
-    const gamenight = await dbContext.GameNights.findById(id)
+    const gamenight = await dbContext.GameNights.findById(id);
     if (!gamenight) {
-      throw new BadRequest("Bad or invalid gamenight id")
+      throw new BadRequest("Bad or invalid gamenight id");
     }
-    return gamenight
+    return gamenight;
   }
 }
 export const gameNightsService = new GameNightsService();
