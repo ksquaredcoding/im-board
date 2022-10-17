@@ -7,27 +7,29 @@
             <h2>Upcoming Gamenight</h2>
           </div>
           <div class="d-flex justify-content-center mb-2">
-            <button class="btn bg-c6" @click="attendGamenight(gamenight?.id)">I'm Attending!</button>
+            <button class="btn bg-c6" @click="attendGamenight(gamenight?.id)">
+              {{ attending ? "unAttend" : "i'm Attending!" }}
+            </button>
           </div>
           <div class="justify-content-center d-flex">
             <span>
               <p>
                 {{
-                new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-                month: "short",
-                day: "2-digit",
-                year: "numeric",
-                })
+                  new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+                    month: "short",
+                    day: "2-digit",
+                    year: "numeric",
+                  })
                 }}
               </p>
             </span>
             <span class="mx-4">
               <p>
                 {{
-                new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-                hour: "2-digit",
-                minute: "2-digit",
-                })
+                  new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
                 }}
               </p>
             </span>
@@ -42,8 +44,14 @@
               <h5 class="mt-1">Attending:</h5>
             </div>
             <div class="p-2 bg-c2 text-center">
-              <img :src="g.picture" :alt="g.name" height="55" class="rounded-circle me-1 box-shadow"
-                v-for="g in gamenight?.groupMemberIds" :groupMemberId="g" />
+              <img
+                :src="g.picture"
+                :alt="g.name"
+                height="55"
+                class="rounded-circle me-1 box-shadow"
+                v-for="g in gamenight?.groupMemberIds"
+                :groupMemberId="g"
+              />
             </div>
           </div>
         </div>
@@ -72,7 +80,9 @@
 </template>
 
 <script>
+import { computed } from "@vue/reactivity";
 import { next } from "dom7";
+import { AppState } from "../../AppState.js";
 import { gameNightsService } from "../../services/GameNightsService.js";
 import Pop from "../../utils/Pop.js";
 
@@ -83,6 +93,9 @@ export default {
 
   setup(props) {
     return {
+      attending: computed(() =>
+        props.gamenight.groupMemberIds.find((g) => g.id == AppState.account.id)
+      ),
       async addGameNight() {
         try {
           await gameNightsService.addGameNight(props.gamenight.id);
@@ -92,12 +105,13 @@ export default {
       },
       async attendGamenight(gamenightId) {
         try {
-          await gameNightsService.attendGamenight(gamenightId)
+          // console.log(this.attending);
+          await gameNightsService.attendGamenight(gamenightId);
         } catch (error) {
-          console.error(error)
-          Pop.error(error.message)
+          console.error(error);
+          Pop.error(error.message);
         }
-      }
+      },
     };
   },
 };
