@@ -12,11 +12,11 @@
       </div>
       <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="d-flex">
-          <b>Number of players : </b>
+          <i class="bi bi-person-fill"></i>
           <p class="ms-3">{{ boardGame.players }}</p>
         </div>
         <div class="d-flex">
-          <b> Playtime:</b>
+          <i class="bi bi-clock-fill"></i>
           <p class="ms-3">{{ boardGame.playtime }} mins</p>
         </div>
         <div class="d-flex">
