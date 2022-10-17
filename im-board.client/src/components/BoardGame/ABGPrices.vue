@@ -1,13 +1,14 @@
 <template>
-  <div class="component justify-content-center bg-light price-info my-2 text-center p-3 elevation-1"
+  <div class="component justify-content-center bg-light price-info my-2 text-center p-3 elevation-1 rounded-2"
     v-if="price.in_stock == true">
-    <h2>{{price.store_name}}</h2>
+    <h2 class="font">{{price.store_name}}</h2> 
+    <h4>{{price.name}}</h4>
     <div class="d-flex text-center justify-content-center gap-3">
       <p><b>Price:</b> {{price.price_text}}</p>
-      <div>{{price.name}}</div>
+     
       <p><b>Updated:</b> {{price.updated_at_ago}}</p>
     </div>
-    <a class="btn bg-c6 elevation-5" :href="price.url" target="_blank">Buy here!</a>
+    <a class="btn button-51 elevation-5" :href="price.url" target="_blank">Buy here!</a>
   </div>
 </template>
 
@@ -32,4 +33,9 @@ export default {
 .price-info {
   background-color: rgb(225, 241, 217);
 }
+
+.font{
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+  }
 </style>

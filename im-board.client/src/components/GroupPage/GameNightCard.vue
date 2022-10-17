@@ -42,9 +42,8 @@
               <h5 class="mt-1">Attending:</h5>
             </div>
             <div class="p-2 bg-c2 text-center">
-              <img :src="gamenight?.groupMemberIds.creator.picture" :alt="gamenight?.groupMemberIds.creator.name"
-                height="55" class="rounded-circle me-1 box-shadow" v-for="g in gamenight?.groupMemberIds"
-                :groupMemberId="g" />
+              <img :src="g.picture" :alt="g.name" height="55" class="rounded-circle me-1 box-shadow"
+                v-for="g in gamenight?.groupMemberIds" :groupMemberId="g" />
             </div>
           </div>
         </div>

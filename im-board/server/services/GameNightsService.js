@@ -23,12 +23,20 @@ class GameNightsService {
       (g) => g.accountId.toString() == userId
     );
 
-    const member = await dbContext.GroupMembers.find({
-      accountId: groupMember.accountId.toString(),
-      groupId: groupMember.groupId.toString(),
-    }).populate("profile", "name picture");
+    // const thisMember = await groupMembersService.getMemberForGroup(
+    //   groupMember.groupId.toString(),
+    //   groupMember.accountId.toString()
+    // );
+    // thisMember.populate("profile", "name picture");
 
-    const thisMember = await groupMembersService.getMemberForGroup();
+    // const member = await dbContext.GroupMembers.findOne({
+    //   groupId: groupMember.groupId.toString(),
+    //   accountId: groupMember.accountId.toString(),
+    // });
+    // await member.populate("profile", "name picture");
+    const member = await profileService.getProfileById(
+      groupMember.accountId.toString()
+    );
 
     // @ts-ignore
     let attending = gameNight.groupMemberIdsAttending.find(

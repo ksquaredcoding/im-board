@@ -10,7 +10,8 @@ export class GameNightsController extends BaseController {
       .get("/:groupId", this.getGameNightsByGroupId)
       .get("/:gameNightId", this.getGameNightById)
       .post("", this.createGameNight)
-      .put("/:gameNightId", this.attendGameNight);
+      .put("/:gameNightId", this.attendGameNight)
+      .delete("/group/:groupId", this.removeGameNightsByGroup);
   }
   async getGameNightsByGroupId(req, res, next) {
     try {
@@ -49,6 +50,16 @@ export class GameNightsController extends BaseController {
         req.params.gameNightId
       );
       res.send(gameNight);
+    } catch (error) {
+      next(error);
+    }
+  }
+  async removeGameNightsByGroup(req, res, next) {
+    try {
+      const nights = await gameNightsService.removeGameNightsByGroup(
+        req.params.groupId
+      );
+      res.send(nights);
     } catch (error) {
       next(error);
     }
