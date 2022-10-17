@@ -6,7 +6,7 @@
   <div class="account Page container-fluid">
     <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${profile?.coverImg})` }">
       <div class="col-md-12 d-flex justify-content-center">
-        <img :src="profile?.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon"
+        <img :src="profile?.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon forcedImg"
           v-if="profile?.picture" />
 
       </div>
@@ -160,6 +160,12 @@ export default {
   background-size: cover;
   background-position: center center;
   /* background-image: url(https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80); */
+}
+
+.forcedImg {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
 .icon {
