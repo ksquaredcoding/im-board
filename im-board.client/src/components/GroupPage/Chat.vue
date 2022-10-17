@@ -1,5 +1,4 @@
 <template>
-  
   <div class="chatContainer container animate__animated animate__fadeInRight">
     <div class="row">
       <div class="col-12">
@@ -7,18 +6,23 @@
           class="d-flex gap-1 justify-content-end"
           v-if="chat?.creatorId == account?.id"
         >
-          <div class="bg-primary rounded-3  p-2" :class="!account? 'bg-success' :'bg-c1 '">
+          <div
+            class="bg-primary rounded-3 p-2"
+            :class="!account ? 'bg-success' : 'bg-c1 '"
+          >
             <span class="">{{ chat.body }}</span>
-          
           </div>
         </div>
 
-
-        <div class="d-flex gap-1 justify-content-start animate__animated animate__fadeInLeft" v-else>
+        <div
+          class="d-flex gap-1 justify-content-start animate__animated animate__fadeInLeft"
+          v-else
+        >
           <div class="bg-primary rounded p-2 my-2">
             <img
               :src="chat.creator.picture"
-              alt=""
+              :alt="chat.creator.name"
+              :title="chat.creator.name"
               class="rounded-circle me-2"
               height="20"
             />

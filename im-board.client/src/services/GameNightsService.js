@@ -17,7 +17,7 @@ class GameNightsService {
     }
     await api.put(`api/gamenights/${gamenightId}`)
     const gamenightIndex = AppState.groupGameNights.findIndex(g => g.id.toString() == gamenightId)
-    const res = api.get(`api/gamenights/${gamenightId}`)
+    const res = api.get(`api/gamenights/upcoming/${gamenightId}`)
     // const newGamenight = new GameNight(res.data)
     console.log(res.data);
     // console.log(newGame);
