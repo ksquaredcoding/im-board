@@ -3,8 +3,13 @@ import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 import { groupMembersService } from "./GroupMembersService.js";
 import { groupsService } from "./GroupsService.js";
+import { profileService } from "./ProfileService.js";
 
 class GameNightsService {
+  async removeGameNightsByGroup(groupId) {
+    let gameNights = await dbContext.GameNights.find({ groupId }).remove();
+    return gameNights;
+  }
   async attendGameNight(userId, gameNightId) {
     const gameNight = await dbContext.GameNights.findById(gameNightId);
     if (!gameNight) {
@@ -17,7 +22,13 @@ class GameNightsService {
     const groupMember = groupMembers.find(
       (g) => g.accountId.toString() == userId
     );
-    // let isMember = await groupMembersService.getMemberForGroup
+
+    const member = await dbContext.GroupMembers.find({
+      accountId: groupMember.accountId.toString(),
+      groupId: groupMember.groupId.toString(),
+    }).populate("profile", "name picture");
+
+    const thisMember = await groupMembersService.getMemberForGroup();
 
     // @ts-ignore
     let attending = gameNight.groupMemberIdsAttending.find(
@@ -26,7 +37,7 @@ class GameNightsService {
     // TODO why is this an array within an array?!
     if (!attending) {
       // @ts-ignore
-      gameNight.groupMemberIdsAttending.push(groupMember);
+      gameNight.groupMemberIdsAttending.push(member);
       await gameNight.save();
       return gameNight;
     }
@@ -67,4 +78,3 @@ class GameNightsService {
   //
 }
 export const gameNightsService = new GameNightsService();
-

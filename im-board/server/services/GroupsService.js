@@ -19,7 +19,7 @@ class GroupsService {
     return groups;
   }
   async removeGroup(groupId, accountId) {
-    debugger;
+    // debugger;
     const group = await this.getGroupById(groupId);
     const member = await groupMembersService.getMemberForGroup(
       groupId,
@@ -39,6 +39,7 @@ class GroupsService {
     //   await chats.deleteMany({ groupId });
     //   // @ts-ignore
     // }
+    await gameNightsService.removeGameNightsByGroup(groupId);
     await groupChatsService.removeChatsByGroup(groupId);
     await member.remove();
     await group.remove();
