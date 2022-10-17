@@ -17,19 +17,16 @@
 <script>
 import { computed } from '@vue/reactivity';
 import { useRoute } from 'vue-router';
-import { AppState } from '../AppState.js';
-import { BoardGame } from '../models/BoardGame/BoardGame.js';
-import { BoardGameCategory } from '../models/BoardGame/BoardGameCategory.js';
+import { AppState } from '../../AppState.js';
 
 export default {
-  setup(props) {
+  setup() {
     const route = useRoute();
     return {
       route,
-      //  categories : props.boardGame.categories.map(b=> new BoardGameCategory(b)),
+
       articles: computed(() => AppState.articles),
-      //TODO SORTING BOARD GAME CATEGORIES TO SHOW ON THE HOMEPAGE CARD
-      //NEED TO MATCH THE ID AND FIND THE NAME ATTACHED
+
     };
   },
 };

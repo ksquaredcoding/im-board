@@ -87,14 +87,14 @@
 import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
 import Pop from '../utils/Pop.js';
-import Filters from '../components/BoardGame/FiltersSideBar.vue';
+import Filters from '../components/SearchPage/FiltersSideBar.vue';
 import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 
-import ForumPosts from '../components/AtlasGamesForumPosts.vue';
-import Articles from "../components/Articles.vue";
-import HomePageBanner from "../components/HomePageBanner.vue";
+import ForumPosts from '../components/HomePage/AtlasGamesForumPosts.vue';
+import Articles from "../components/HomePage/Articles.vue";
+import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
 
 export default {
   setup() {

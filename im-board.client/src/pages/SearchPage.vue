@@ -44,15 +44,15 @@
 import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
 import Pop from '../utils/Pop.js';
-import Filters from '../components/BoardGame/FiltersSideBar.vue';
+import Filters from '../components/SearchPage/FiltersSideBar.vue';
 import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 
-import BGCardSearchPage from '../components/BoardGame/BoardGameCardSearchPage.vue';
-import BoardGameCardSearchPage from '../components/BoardGame/BoardGameCardSearchPage.vue';
-import FilterBar from '../components/BoardGame/FilterBar.vue';
-import FiltersSideBar from "../components/BoardGame/FiltersSideBar.vue";
+import BGCardSearchPage from '../components/SearchPage/BoardGameCardSearchPage.vue';
+import BoardGameCardSearchPage from '../components/SearchPage/BoardGameCardSearchPage.vue';
+import FilterBar from '../components/SearchPage/FilterBar.vue';
+import FiltersSideBar from "../components/SearchPage/FiltersSideBar.vue";
 
 export default {
   setup() {

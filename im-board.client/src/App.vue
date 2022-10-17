@@ -33,7 +33,7 @@ import GroupForm from "./components/GroupPage/GroupForm.vue"
 import EditBanner from "./components/AccountProfilePage/EditBanner.vue"
 import EditName from "./components/AccountProfilePage/EditName.vue"
 import EditPic from "./components/AccountProfilePage/EditPic.vue"
-import Filters from "./components/BoardGame/FiltersSideBar.vue"
+import Filters from "./components/SearchPage/FiltersSideBar.vue"
 import { useRoute } from "vue-router"
 
 export default {

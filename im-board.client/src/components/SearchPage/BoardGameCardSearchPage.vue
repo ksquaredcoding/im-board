@@ -47,7 +47,7 @@ import { useRoute } from "vue-router";
 import { AppState } from "../../AppState.js";
 import { BoardGame } from '../../models/BoardGame/BoardGame.js';
 import { BoardGameCategory } from "../../models/BoardGame/BoardGameCategory.js";
-import AddToList from "./AddToList.vue";
+import AddToList from "../BoardGame/AddToList.vue";
 
 export default {
     props: {
