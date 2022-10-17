@@ -9,8 +9,8 @@
       >
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
           <h3 class="searchText">Search For Your BoardGames</h3>
-          <p class=" ">
-            we would be surprised if we didn't have it listed here...
+          <p class="col-md-4">
+            <Searchbar/>
           </p>
         </div>
       </div>

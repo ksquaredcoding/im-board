@@ -44,8 +44,8 @@
   </div> -->
 
 
-  <div class="accordion  " id="accordionFlushExample">
-  <div class="accordion-item ">
+  <div class="accordion pb-3 " id="accordionFlushExample">
+  <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed button-50" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         Categories

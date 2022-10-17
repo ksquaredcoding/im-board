@@ -88,7 +88,8 @@
           </div>
         </div>
 
-        <div class="" v-if="prices.length > 0">
+        <div class="d-flex justify-content-center">
+        <div class="col-md-10" v-if="prices.length > 0">
           <div class="mt-5">
             <h1>Purchase game at:</h1>
           </div>
@@ -97,7 +98,7 @@
               <ABGPrices :price="p" />
             </div>
           </div>
-        </div>
+        </div></div>
 
         <div v-if="videos.length > 0">
           <div class="mt-5">
