@@ -120,6 +120,7 @@ class AtlasGamesService {
         name: name,
       },
     });
+    
     router.push({ name: "Search" });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);

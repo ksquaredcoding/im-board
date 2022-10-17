@@ -25,7 +25,8 @@
                     type="url"
                     class="bg-light text-dark opacity-50"
                     v-model="editable.coverImg"
-         
+           required 
+           aria-required="true"
                   />
                   <span class="font">CoverImg</span>
                 </div>
@@ -36,7 +37,8 @@
                     type="text"
                     class="bg-light opacity-50 text-dark"
                     v-model="editable.name"
-           
+           required 
+           aria-required="true"
                   />
                   <span class="font">Group Name</span>
                 </div>

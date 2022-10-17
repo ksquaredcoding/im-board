@@ -104,7 +104,7 @@ export const AppState = reactive({
       name: 'The Complete History of Board Games',
       coverImg:
         'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
-      url: 'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
+      url: 'https://geekgeargalore.com/boardgames/history-of-board-games/',
       credit: 'Byron Nov 17, 2019',
     },
 
@@ -120,7 +120,7 @@ export const AppState = reactive({
       name: 'The Most Popular Types of Board Games: Board Game Genres, Explained',
       coverImg:
         'https://whatnerd.com/wp-content/uploads/2020/05/board-game-types-genres-explained-featured.jpg',
-      url: 'https://www.grunge.com/912859/heres-why-dice-were-invented/',
+      url: 'https://whatnerd.com/board-game-genres-explained/',
       credit: 'Joel Lee Mar 10, 2021',
     },
 

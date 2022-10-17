@@ -1,23 +1,17 @@
 <template>
+  <div class="col-md-3 mt-5" v-for="a in articles">
+    <a :href="a.url" target="_blank">
+      <div class="bg-transparent card my-2">
+        <img :src="a.coverImg" alt="" class="forcedImg rounded" />
 
+        <div class="card-body p-1 bg-dark rounded">
+          <h6 class="text-light">{{ a.name }}</h6>
 
-  <div class="col-md-3 mt-5"  v-for="a in articles">
-    <div class="bg-transparent card my-2">
-      <img :src="a.coverImg" alt=""
-        class="forcedImg rounded" />
-
-      <div class="card-body p-1  bg-dark rounded">
-        <a :href="a.url">
-
-          <h6 class="text-light">{{a.name}}</h6>
-        </a>
-        <small>{{a.credit}}</small>
+          <small>{{ a.credit }}</small>
+        </div>
       </div>
-    </div>
-
+    </a>
   </div>
-
-
 </template>
 
 <script>
@@ -27,20 +21,17 @@ import { AppState } from '../AppState.js';
 import { BoardGame } from '../models/BoardGame/BoardGame.js';
 import { BoardGameCategory } from '../models/BoardGame/BoardGameCategory.js';
 
-
 export default {
-
   setup(props) {
     const route = useRoute();
     return {
       route,
       //  categories : props.boardGame.categories.map(b=> new BoardGameCategory(b)),
-articles : computed(()=> AppState.articles)
+      articles: computed(() => AppState.articles),
       //TODO SORTING BOARD GAME CATEGORIES TO SHOW ON THE HOMEPAGE CARD
       //NEED TO MATCH THE ID AND FIND THE NAME ATTACHED
     };
   },
-
 };
 </script>
 

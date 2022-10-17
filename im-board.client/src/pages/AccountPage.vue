@@ -1,7 +1,11 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
+    <div class="animate__animated animate__fadeOut" v-if="!account">
+    <div class="loader"></div>
+  </div>
 
-  <div class="account Page container-fluid " v-if="account">
+
+  <div class="account Page container-fluid " v-else>
     <!-- animate__animated animate__fadeInLeft -->
     <!-- <div class="row">
       <div class="col-md-12">

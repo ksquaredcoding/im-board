@@ -17,12 +17,7 @@
           class="eum rounded-circle mt-2 icon"
           v-if="profile?.picture"
         />
-        <div
-          class="d-flex justify-content-center eum rounded-circle mt-2 icon text-dark"
-          v-else
-        >
-          <div class="spinner-border" role="status"></div>
-        </div>
+       
       </div>
     </div>
 

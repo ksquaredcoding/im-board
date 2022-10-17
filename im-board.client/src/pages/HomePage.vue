@@ -91,7 +91,7 @@ import Filters from '../components/BoardGame/FiltersSideBar.vue';
 import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
-import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
+
 import ForumPosts from '../components/AtlasGamesForumPosts.vue';
 import Articles from "../components/Articles.vue";
 import HomePageBanner from "../components/HomePageBanner.vue";
@@ -174,7 +174,7 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
     Filters,
     Searchbar,
     BoardGameCard,
-    PresetFilterBar,
+  
     ForumPosts,
     Articles,
     HomePageBanner

@@ -48,7 +48,7 @@ import Filters from '../components/BoardGame/FiltersSideBar.vue';
 import Searchbar from '../components/BoardGame/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
-import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
+
 import BGCardSearchPage from '../components/BoardGame/BoardGameCardSearchPage.vue';
 import BoardGameCardSearchPage from '../components/BoardGame/BoardGameCardSearchPage.vue';
 import FilterBar from '../components/BoardGame/FilterBar.vue';
@@ -115,7 +115,7 @@ export default {
     Filters,
     Searchbar,
     BoardGameCard,
-    PresetFilterBar,
+
     BGCardSearchPage,
     BoardGameCardSearchPage,
     FilterBar,

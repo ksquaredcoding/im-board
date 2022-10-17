@@ -28,6 +28,7 @@ export default {
       async getBoardGamesByQuery() {
         try {
           await atlasGamesService.getBoardGamesByQuery(editable.value)
+          editable.value = ''
         } catch (error) {
 
         }
