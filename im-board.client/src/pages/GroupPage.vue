@@ -2,10 +2,7 @@
   <div v-if="!group" class="animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
-  <div
-    class="group-page animate__animated animate__fadeInRight container-fluid"
-    v-else
-  >
+  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <div class="col-md-3">
@@ -23,10 +20,7 @@
       </div>
       <div class="col-md-5 overflow-auto gamecardbox mx-5">
         <div class="px-1">
-          <GameNightCard />
-          <GameNightCard />
-          <GameNightCard />
-          <GameNightCard />
+          <GameNightCard v-for="g in gamenights" :gamenight="g" />
         </div>
       </div>
 
@@ -100,8 +94,8 @@ export default {
       try {
         await gameNightsService.getGroupGameNights(route.params.id);
       } catch (error) {
-    
-        Pop.error(error,'[groupGameNights]');
+
+        Pop.error(error, '[groupGameNights]');
       }
     }
 
@@ -125,6 +119,7 @@ export default {
       group: computed(() => AppState.activeGroup),
       lists: computed(() => AppState.bgLists),
       account: computed(() => AppState.account),
+      gamenights: computed(() => AppState.groupGameNights),
       groupOwner: computed(
         () => AppState.activeGroup.creatorId == AppState.account.id
       ),
@@ -152,6 +147,7 @@ export default {
 ::-webkit-scrollbar {
   display: none;
 }
+
 .groupchatbox {
   height: 80vh;
 }
