@@ -33,7 +33,7 @@ export const AppState = reactive({
   discountBoardGames: [],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
-  scrollBoardGames: [],
+  PaginationPendingBoardGames: [],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame | null} */
   activeBoardGame: null,
@@ -55,10 +55,13 @@ export const AppState = reactive({
   /** @type {import('./models/ForumPost.js').ForumPost[]} */
   forumPosts: [],
 
-  /** @type {import('./models/BoardGame/BGCategories.js').BGCategories[]} */
+  /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */
   bgCategories: [],
+  /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */
+  bgMechanics: [],
 
   activeCategoryFilters: [],
+  activeMechanicsFilters: [],
   categories: [
     { name: 'CardGame', id: 'eX8uuNlQkQ' },
     { name: 'Fantasy', id: 'ZTneo8TaIO' },

@@ -41,7 +41,7 @@
       aria-label="Default select example"
       @click="searchByPlayTime()"
     >
-  <option value="10">10min</option>
+  <option  value="10">10min</option>
   <option value="15">15min</option>
   <option value="20">20min</option>
   <option value="25">25min</option>
@@ -100,7 +100,7 @@ export default {
         try {
 
 
-          //  let editable = `https://api.boardgameatlas.com/api/search?name=${this.editable.name}&order_by=${this.editable.order_By}&pretty=true&client_id=2I6DeypMLL`
+      
           await atlasGamesService.getBoardGamesByOrder_By(editable.value);
         } catch (error) {
           Pop.error(error, '[searchOrder_By]');

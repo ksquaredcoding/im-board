@@ -8,7 +8,8 @@ import { ActiveBoardGamePrice } from "../models/BoardGame/ActiveBoardGamePrice.j
 import { router } from "../router.js";
 import { ForumPost } from "../models/ForumPost.js";
 import { BGList } from "../models/BoardGame/BGList.js";
-import { BGCategories } from "../models/BoardGame/BGCategories.js";
+import {  BGCategoriesAndMechanics } from "../models/BoardGame/BGCategories&Mechanics.js";
+
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
   //fuzzy_match
@@ -32,7 +33,7 @@ class AtlasGamesService {
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     console.log(AppState.boardgames);
   }
-  async getBoardGames() {
+  async getBoardGames(search) {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
@@ -40,12 +41,10 @@ class AtlasGamesService {
       
       },
     });
-    // console.log(res.data);
+    console.log(res.data);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(AppState.boardgames);
   }
-
-  async;
 
   async getBoardGamesByDiscount() {
     const res = await atlasApi.get("/api/search", {
@@ -59,7 +58,6 @@ class AtlasGamesService {
     AppState.discountBoardGames = res.data.games.map((b) => new BoardGame(b));
     // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
-
 
   async getBoardGamesByPrice(){
        const res = await atlasApi.get('/api/search', {
@@ -76,7 +74,7 @@ class AtlasGamesService {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 50,
+        limit: 60,
       },
     });
     router.push({ name: "Search" });
@@ -88,9 +86,9 @@ class AtlasGamesService {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 50,
+        limit: 60,
         lt_year_published: minYear,
-        // gt_year_published: maxYear
+        
       },
     });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
@@ -133,11 +131,26 @@ class AtlasGamesService {
       params: {
         client_id: "2I6DeypMLL",
         categories: categories,
+        limit:60
       },
     });
     console.log(res.data.games);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
+
+async getBoardGamesByMechanics(mechanics = ""){
+  console.log(mechanics);
+  const res = await atlasApi.get('/api/search', {
+    params: {
+      client_id: '2I6DeypMLL',
+      mechanics: mechanics,
+      limit:60
+    },
+  });
+  // console.log(res.data.games);
+  AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+}
+
 
   async getBoardGamesByOrder_By(query = "") {
     const res = await atlasApi.get("/api/search", {
@@ -249,10 +262,25 @@ class AtlasGamesService {
         client_id: "2I6DeypMLL",
       },
     });
-    console.log(res.data);
-    AppState.bgCategories = res.data.categories.map((b) => new BGCategories(b));
-    console.log(AppState.bgCategories);
+    // console.log(res.data);
+    AppState.bgCategories= res.data.categories.map((b) => new BGCategoriesAndMechanics(b));
+    // console.log(AppState.bgCategories);
   }
+
+
+  async getBoardGameMechanicsList() {
+    const res = await atlasApi.get("api/game/mechanics", {
+      params: {
+        client_id: "2I6DeypMLL",
+      },
+    });
+    // console.log(res.data);
+    AppState.bgMechanics = res.data.mechanics.map((b) => new BGCategoriesAndMechanics(b));
+    // console.log(AppState.bgMechanics);
+  }
+
+
+
 
   // SECTION FORUM POSTS ---------------------------!SECTION
 

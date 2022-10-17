@@ -1,5 +1,5 @@
-import { BGCategories } from "./BGCategories.js";
-import { BoardGameCategory } from "./BoardGameCategory.js";
+import {  BGCategoriesAndMechanics } from "./BGCategories&Mechanics.js";
+
 
 export class BoardGame {
   constructor(data) {
@@ -12,7 +12,8 @@ export class BoardGame {
     this.largeImage = data.images.large;
     this.description_preview = data.description_preview; //not text but HTML
     this.description = data.description;
-    this.categories = new BGCategories(data.categories)
+    this.categories = new BGCategoriesAndMechanics(data.categories)
+    this.mechanics = new BGCategoriesAndMechanics(data.mechanics)
     // this.categories = data.categories.map(d=> new BoardGameCategory(d)); //is array
     this.faq = data.faq; // not text but HTML
     this.official_url = data.official_url;

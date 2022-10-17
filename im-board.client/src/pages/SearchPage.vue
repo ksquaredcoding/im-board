@@ -1,5 +1,8 @@
 <template>
-  <div class="container animate__animated animate__fadeInRight" v-if="boardGames">
+  <div
+    class="container animate__animated animate__fadeInRight"
+    v-if="boardGames"
+  >
     <div class="row justify-content-end g-md-0">
       <div
         class="col-md-12 border-bottom border-secondary border-3 rounded-bottom"
@@ -11,19 +14,14 @@
           </p>
         </div>
       </div>
-      <div class="col-md-3">
-      
-      </div>
+      <div class="col-md-3"></div>
       <div class="col-md-9 d-flex">
+        <!-- TODO MORE FILTERS HERE -->
 
-    <!-- TODO MORE FILTERS HERE -->
-
-<FilterBar/>
-
-
+        <FilterBar />
       </div>
       <div class="col-md-3">
-        <Filters/>
+        <FiltersSideBar/>
       </div>
       <div class="col-md-9">
         <div class="row mx-2">
@@ -40,7 +38,6 @@
       </div>
     </div>
   </div>
- 
 </template>
 
 <script>
@@ -54,7 +51,8 @@ import { AppState } from '../AppState.js';
 import PresetFilterBar from '../components/BoardGame/PresetFilterBar.vue';
 import BGCardSearchPage from '../components/BoardGame/BoardGameCardSearchPage.vue';
 import BoardGameCardSearchPage from '../components/BoardGame/BoardGameCardSearchPage.vue';
-import FilterBar from "../components/BoardGame/FilterBar.vue";
+import FilterBar from '../components/BoardGame/FilterBar.vue';
+import FiltersSideBar from "../components/BoardGame/FiltersSideBar.vue";
 
 export default {
   setup() {
@@ -66,15 +64,24 @@ export default {
     //     Pop.error(error, '[getBoardGames]');
     //   }
     // }
-async function getCategoryList(){
-  try {
-      await atlasGamesService.getBoardGameCategoriesList()
-    } catch (error) {
-      Pop.error(error,'[getCategoryList]')
+    async function getCategoryList() {
+      try {
+        await atlasGamesService.getBoardGameCategoriesList();
+      } catch (error) {
+        Pop.error(error, '[getCategoryList]');
+      }
     }
-}
+
+    async function getMechanicsList() {
+      try {
+        await atlasGamesService.getBoardGameMechanicsList();
+      } catch (error) {
+        Pop.error(error, '[getMechanicsList]');
+      }
+    }
     onMounted(() => {
-      getCategoryList()
+      getCategoryList();
+      getMechanicsList();
       // AppState.skip = 0;
       // window.addEventListener('scroll', handleScroll)
     });
@@ -90,14 +97,13 @@ async function getCategoryList(){
 
       async getMoreBoardGames() {
         try {
-          await atlasGamesService.getBoardGamesOnScroll();
+          await atlasGamesService.getBoardGamesByCategories();
         } catch (error) {
           Pop.error(error, '[getBoardGames]');
         }
       },
       async getBoardGamesByCategories(category) {
         try {
-
           await atlasGamesService.getBoardGamesByCategories(category);
         } catch (error) {
           Pop.error(error, '[getBoardGamesByCategories]');
@@ -112,7 +118,8 @@ async function getCategoryList(){
     PresetFilterBar,
     BGCardSearchPage,
     BoardGameCardSearchPage,
-    FilterBar
+    FilterBar,
+    FiltersSideBar
 },
 };
 </script>
