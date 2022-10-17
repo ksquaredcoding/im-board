@@ -9,9 +9,9 @@
       </div>
 
 
-      <div class="row mx-2 my-5 ">
-        <div class="col-md-12">
-          <div @click="searchPopular()" class="hoverable hvr-sweep-to-right ">
+      <div class="row mx-2 my-4 ">
+        <div class="col-md-12 ">
+          <div @click="searchPopular()" class=" hoverable hvr-sweep-to-right bg-c4 rounded-1 p-3">
             <h2 class="rowTitle p-1">Popular Board Games</h2>
           </div>
         </div>
@@ -20,7 +20,7 @@
           enterActiveClass="animate__zoomIn animate__animated"
           leaveActiveClass="animate__zoomOut animate__animated"
         >
-          <div class="col-md-2 mt-5 mb-2 "  v-for="p in popularBoardGames" :key="p.id">
+          <div class="col-md-2 mt-3 mb-2 "  v-for="p in popularBoardGames" :key="p.id">
             <BoardGameCard :boardGame="p" />
           </div>
         </TransitionGroup>
@@ -28,7 +28,7 @@
  
           <div class="row mx-2 my-5">
         <div class="col-md-12">
-          <div @click="searchPopular()" class="hoverable hvr-sweep-to-right">
+          <div @click="searchPopular()" class="hoverable hvr-sweep-to-right rounded-1 p-3 bg-c4">
             <h2 class="rowTitle p-1">Games On Discount</h2>
           </div>
         </div>
@@ -44,9 +44,9 @@
       </div>
   
         <div class="col-md-12 mt-2 ms-3 ">
-           <div  class="hoverable hvr-sweep-to-left p-1">
+           <div  class="hoverable hvr-sweep-to-left p-1 rounded-1 p-3 bg-c5">
            <h3>
-            Articles from
+            <b>Articles from </b>
             <img
               src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
               alt=""
@@ -58,7 +58,7 @@
           
         </div>
 
-        <div class="row horizontal-scrollable">
+        <div class="row horizontal-scrollable ">
           <div class="col-md-3 mt-5 mb-2" v-for="f in forumPosts" :key="f.id">
             <ForumPosts :forumPost="f" />
           </div>
@@ -66,12 +66,12 @@
       </div>
     </div>
    
-      <div class="col-md-12 mt-4 mb-2">
-          <div class=" hvr-sweep-to-left ">
-            <h2 class="rowTitle p-1">Articles we feel you'd enjoy</h2>
+      <div class="col-md-12 mt-4">
+          <div class=" hvr-sweep-to-left rounded-1 p-3 bg-c5">
+            <h2 class="rowTitle p-1">More articles you'll enjoy</h2>
           </div>
 </div>
-      <div class="row horizontal-scrollable ">
+      <div class="row horizontal-scrollable mb-4">
      
         <Articles  />
       </div>
@@ -182,7 +182,6 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
 </script>
 
 <style scoped lang="scss">
-
 .rowTitle {
   font-weight: 700;
 }
