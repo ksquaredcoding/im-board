@@ -12,7 +12,7 @@
               :class="!attending ? 'bg-c6' : 'bg-danger'"
               @click="attendGamenight(gamenight?.id)"
             >
-              {{ attending ? "" : "i'm Attending!" }}
+              {{ attending ? "not going" : "Attend?" }}
             </button>
           </div>
           <div class="justify-content-center d-flex">
@@ -48,14 +48,29 @@
               <h5 class="mt-1">Attending:</h5>
             </div>
             <div class="p-2 bg-c2 text-center">
-              <img
+              <router-link
+                :to="{ name: 'Profile', params: { id: g.id } }"
+                v-for="g in gamenight?.groupMemberIds"
+                :key="g.id"
+              >
+                <img
+                  :src="g.picture"
+                  :alt="g.name"
+                  :title="g.name"
+                  height="45"
+                  width="45"
+                  class="rounded-circle box-shadow m-1 profile-img"
+                />
+              </router-link>
+              <!-- <img
                 :src="g.picture"
                 :alt="g.name"
-                height="55"
+                height="45"
+                width="45"
                 class="rounded-circle me-1 box-shadow"
                 v-for="g in gamenight?.groupMemberIds"
                 :groupMemberId="g"
-              />
+              /> -->
             </div>
           </div>
         </div>
