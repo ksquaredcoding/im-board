@@ -18,8 +18,13 @@
           Rating:{{boardGameList.rating.toFixed(2)}}
         </div>
 
-        <i class="mdi mdi-close text-danger selectable rounded-3" title="remove game from list"
-          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
+        <div v-if="route.name == 'Account'">
+
+          <i class="mdi mdi-close text-danger selectable rounded-3 fs-3" title="remove game from list"
+            @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
+        </div>
+
+
 
       </div>
     </div>
@@ -29,6 +34,7 @@
 
 <script>
 import { computed } from "@vue/reactivity"
+import { useRoute, useRouter } from "vue-router"
 import { AppState } from "../../AppState.js"
 import { BGList } from "../../models/BoardGame/BGList.js"
 import { listsService } from "../../services/ListsService.js"
@@ -43,8 +49,11 @@ export default {
     }
   },
   setup(props) {
+    const route = useRoute()
     return {
       account: computed(() => AppState.account),
+      route,
+      // routeAccount: computed(() => route.name == "account"),
       async removeGameFromList() {
         try {
           const yes = await Pop.confirm('remove from this list?')
