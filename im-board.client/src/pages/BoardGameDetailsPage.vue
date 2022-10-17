@@ -305,7 +305,7 @@ p {
 
 .font {
   font-weight: 600;
-  font-size: 70px;
+  font-size: 50px;
   text-shadow: 2px 2px 0px rgba(231, 239, 240, 0.92);
 }
 
