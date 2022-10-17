@@ -1,6 +1,7 @@
 <template>
   <div class="ActiveBoardGameVideo">
-    <iframe width="1424" height="612" :src="video.url"
+    <iframe :src="video.url"
+    class="rounded"
       title="Claire Saffitz Makes CHOCOLATE CHIP COOKIES | Dessert Person" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>

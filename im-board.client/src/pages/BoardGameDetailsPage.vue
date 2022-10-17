@@ -105,11 +105,15 @@
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-3" v-for=" v in videos" :key="v.id">
-          <ActiveBoardGameVideos :video="v" />
-        </div> -->
 
-        <iframe
+        <div class="row ">
+           <div class="col-md-3" v-for=" v in videos" :key="v.id">
+          <ActiveBoardGameVideos :video="v" />
+        </div>
+ 
+        </div>
+      
+        <!-- <iframe
           width="1424"
           height="612"
           src="https://www.youtube.com/embed/Dfq4dRPHIAM"
@@ -117,7 +121,7 @@
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-        ></iframe>
+        ></iframe> -->
       </div>
     </div>
   </section>
