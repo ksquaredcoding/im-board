@@ -7,12 +7,13 @@ export class GroupChat {
     this.creatorId = data.creatorId;
     this.body = data.body;
     this.creator = new Account(data.creator);
-    this.createdExactTime= data.createdAt
+    this.createdExactTime = data.createdAt
     this.createdAt = new Date(data.createdAt).toLocaleDateString("en-Us", {
       year: "2-digit",
       month: "short",
       day: "2-digit",
-      hour: 'numeric'
+      hour: 'numeric',
+      minute: 'numeric',
     });
   }
 }
