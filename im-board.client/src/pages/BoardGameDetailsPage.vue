@@ -2,9 +2,9 @@
   <section class="container" v-if="boardGame">
     <div class="row">
       <div
-        class="col-12 bg-c4 text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
+        class="col-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
       >
-        <h1>{{ boardGame.name }}</h1>
+        <div class="font">{{ boardGame.name }}</div>
       </div>
       <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
       </div> -->
@@ -79,16 +79,17 @@
           </swiper-slide>
         </swiper>
       </div>
-      <div class="px-5 mt-5">
-        <div class="col-12 bg-c2 p-5 my-5 rounded-4">
-          <h3 class="text-center">Description</h3>
-          <p class="p-3 bg-grey rounded-5 elevation-4">
+      <div class="px-5 mt-5 d-flex justify-content-center pt-3">
+        <div class="col-8 gradient-box p-5 my-5 rounded-4"><div class="d-flex justify-content-center"><h3 class="text-center bg-grey p-3 rounded-5">Description</h3></div>
+          
+          <p class="p-3 bg-grey rounded-5 elevation-4 desctext">
             {{ boardGame.description_preview }}
           </p>
         </div>
       </div>
 
       <div>
+          <h1>Reviews:</h1>
         <div class="row review-row">
           <div class="col-md-6" v-for="r in reviews" :key="r">
             <ABGReviews :review="r" />
@@ -97,15 +98,18 @@
 
         <div class="hi">
           <div class="mt-5">
-            <h1>Purchase game at ..</h1>
+            <h1>Purchase game at:</h1>
           </div>
-          <div class="row justify-content-center prices bg-c4 text-dark mb-5">
+          <div class="row justify-content-center prices gradient-box text-dark mb-5">
             <div v-for="p in prices" :key="p.id" class="col-md-6">
               <ABGPrices :price="p" />
             </div>
           </div>
         </div>
 
+        <div class="mt-5">
+          <h1>Videos about this game:</h1>
+        </div>
         <div class="row ">
            <div class="col-md-3" v-for=" v in videos" :key="v.id">
           <ActiveBoardGameVideos :video="v" />
@@ -298,7 +302,7 @@ p {
 .prices {
   height: 350px;
   overflow: auto;
-  border: #3b8686 solid 10px;
+  // border: #3b8686 solid 10px;
 }
 
 .reviews {
@@ -308,5 +312,18 @@ p {
 .desc {
   padding-left: 300px;
   padding-right: 300px;
+}
+
+.font {
+  font-weight: 600;
+  font-size: 70px;
+}
+* {
+  font-family: 'Baloo 2', cursive;
+
+}
+
+.desctext{
+  letter-spacing: .05em;
 }
 </style>

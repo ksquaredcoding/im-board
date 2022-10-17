@@ -32,6 +32,14 @@ a {
   text-decoration: none;
 }
 
+.gradient-box{
+  background: #79bd9a linear-gradient(22deg, #cff09e, #a8dba8, #79bd9a, #3b8686, #0B486B) fixed;
+}
+
+.gradient-box2{
+  background: #ffbb00 linear-gradient(22deg,  #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006,) fixed;
+}
+
 //------------ BUTTON 50 -----------------
 
 .button-50 
