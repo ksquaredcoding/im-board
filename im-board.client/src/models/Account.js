@@ -3,7 +3,7 @@ export class Account {
     this.id = data.id || data._id;
     this.email = data.email;
     this.name = data.name;
-    this.picture = data.picture;
+    this.picture = data.picture; //TODO add default for broken link images
     // TODO add additional properties if needed
 
     this.coverImg = data.coverImg;
