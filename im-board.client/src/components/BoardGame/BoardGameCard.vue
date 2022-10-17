@@ -9,7 +9,7 @@
       <span class="text-center" title="Game title">
 
         <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }">
-          <h6 class="text-decoration-underline text-wrap">{{ boardGame?.name }}</h6>
+          <h6 class="text-decoration-underline text-wrap text-white">{{ boardGame?.name }}</h6>
         </router-link>
       </span>
 
