@@ -125,8 +125,8 @@ export default {
     }
 
     onMounted(() => {
-getBoardGamesByPopularity()
- getBoardGamesByDiscount()
+// getBoardGamesByPopularity()
+//  getBoardGamesByDiscount()
       // getBoardGamesByPrice()
       getForumPosts();
       // AppState.skip = 0;
