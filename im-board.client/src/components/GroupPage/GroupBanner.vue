@@ -165,4 +165,9 @@ export default {
 .name {
   font-size: 45px;
 }
+
+* {
+  font-family: 'Baloo 2', cursive;
+
+}
 </style>

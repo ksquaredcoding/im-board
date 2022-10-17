@@ -155,4 +155,9 @@ export default {
 .gamecardbox {
   height: 113vh;
 }
+
+* {
+  font-family: 'Baloo 2', cursive;
+
+}
 </style>
