@@ -29,8 +29,8 @@
         <div class="d-flex justify-content-center">
        
         </div>
-        <div class="d-flex justify-content-center discount  " v-if="(boardGame.discount*100) >= 45">
-         {{(boardGame.discount*100).toFixed(0)}} <i class="mdi mdi-percent"></i> <p>off</p>
+        <div class="d-flex justify-content-center discount  " >
+         {{(boardGame.discount*100).toFixed(0)}} <small>%off</small>
 
         </div>
      
@@ -78,8 +78,8 @@ export default {
  
 top: -30px;
   position: absolute;
-  font-weight: 700;
-  font-size: 20pt;
+  font-weight: 300;
+  font-size: 16pt;
   font-style: oblique;
   color: rgb(240, 69, 69);
 }
