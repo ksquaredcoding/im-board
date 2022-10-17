@@ -68,7 +68,7 @@
       </div>
 
       <!-- NOTE group card start -->
-      <div class="col-md mx-3 bg-grey">
+      <div class="col-md mx-3 bg-grey" v-if="user.id == profile.id ">
         <div class="row bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
@@ -83,9 +83,9 @@
           <div v-for="g in groups" :key="g.id">
             <GroupCard :group="g" />
           </div>
-
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -135,6 +135,7 @@ export default {
     });
     return {
       account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       groups: computed(() => AppState.groupMemberShips),
       bgLists: computed(() => AppState.bgLists),
       wishList: computed(() =>
