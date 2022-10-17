@@ -1,9 +1,9 @@
 import { AppState } from '../AppState.js';
 import { Account } from '../models/Account.js';
-import { ActiveGroup } from '../models/ActiveGroup.js';
+import { ActiveGroup } from '../models/GroupsAndGameNight/ActiveGroup.js';
 import { BGList } from "../models/BoardGame/BGList.js";
-import { Group } from '../models/Group.js';
-import { GroupMemberShip } from '../models/GroupMembership.js';
+import { Group } from '../models/GroupsAndGameNight/Group.js';
+import { GroupMemberShip } from '../models/GroupsAndGameNight/GroupMembership.js';
 import { router } from '../router.js';
 import { api } from './AxiosService.js';
 

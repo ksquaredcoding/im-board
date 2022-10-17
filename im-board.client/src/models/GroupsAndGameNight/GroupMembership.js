@@ -1,4 +1,4 @@
-import { Account } from './Account.js';
+import { Account } from '../Account.js';
 import { Group } from "./Group.js";
 
 export class GroupMemberShip {

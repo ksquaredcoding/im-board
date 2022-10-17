@@ -1,5 +1,5 @@
 import { AppState } from "../AppState.js";
-import { GroupChat } from "../models/GroupChat.js";
+import { GroupChat } from "../models/GroupsAndGameNight/GroupChat.js";
 import { api } from "./AxiosService.js";
 
 class GroupChatsService {

@@ -6,7 +6,7 @@ import { AppState } from "../AppState.js";
 import { ABGReviews } from "../models/BoardGame/ABGReviews.js";
 import { ActiveBoardGamePrice } from "../models/BoardGame/ActiveBoardGamePrice.js";
 import { router } from "../router.js";
-import { ForumPost } from "../models/ForumPost.js";
+import { ForumPost } from "../models/BoardGame/ForumPost.js";
 import { BGList } from "../models/BoardGame/BGList.js";
 import {  BGCategoriesAndMechanics } from "../models/BoardGame/BGCategories&Mechanics.js";
 
@@ -120,7 +120,7 @@ class AtlasGamesService {
         name: name,
       },
     });
-    
+
     router.push({ name: "Search" });
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);

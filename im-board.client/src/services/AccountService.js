@@ -1,7 +1,7 @@
 import { AppState } from '../AppState';
 import { Account } from '../models/Account.js';
 import { BGList } from '../models/BoardGame/BGList.js';
-import { GroupMemberShip } from '../models/GroupMembership.js';
+import { GroupMemberShip } from '../models/GroupsAndGameNight/GroupMembership.js';
 import { logger } from '../utils/Logger';
 import { api } from './AxiosService';
 

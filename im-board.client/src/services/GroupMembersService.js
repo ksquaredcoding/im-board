@@ -1,6 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Account } from "../models/Account.js";
-import { GroupMembers } from "../models/GroupMember.js";
+import { GroupMembers } from "../models/GroupsAndGameNight/GroupMember.js";
 import { router } from "../router.js";
 import { api } from "./AxiosService.js";
 

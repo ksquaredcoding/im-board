@@ -1,5 +1,5 @@
 import { AppState } from "../AppState.js";
-import { GameNight } from "../models/GameNight.js";
+import { GameNight } from "../models/GroupsAndGameNight/GameNight.js";
 import { api } from "./AxiosService.js";
 
 class GameNightsService {

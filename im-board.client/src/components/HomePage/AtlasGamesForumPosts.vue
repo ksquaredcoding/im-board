@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ForumPost } from '../../models/ForumPost.js';
+import { ForumPost } from '../../models/BoardGame/ForumPost.js';
 
 export default {
   props: {

@@ -8,21 +8,21 @@ export const AppState = reactive({
   /** @type {import('./models/Account.js').Account | null} */
   activeProfile: null,
 
-  /** @type {import('./models/GroupMembership.js').GroupMemberShip[]} */
+  /** @type {import('./models/GroupsAndGameNight/GroupMembership.js').GroupMemberShip[]} */
   groupMemberShips: [],
 
-  /** @type {import('./models/Group.js').Group[]} */
+  /** @type {import('./models/GroupsAndGameNight/Group.js').Group[]} */
   groups: [],
 
-  /** @type {import('./models/GroupChat.js').GroupChat[]} */
+  /** @type {import('./models/GroupsAndGameNight/GroupChat.js').GroupChat[]} */
   groupChats: [],
-  /** @type {import('./models/GameNight.js').GameNight[]} */
+  /** @type {import('./models/GroupsAndGameNight/GameNight.js').GameNight[]} */
   groupGameNights: [],
 
-  /** @type {import('./models/GroupMembership.js').GroupMemberShip | null} */
+  /** @type {import('./models/GroupsAndGameNight/GroupMembership.js').GroupMemberShip | null} */
   activeGroup: null,
 
-  /** @type {import('./models/GroupMember.js').GroupMember[]} */
+  /** @type {import('./models/GroupsAndGameNight/GroupMember.js').GroupMember[]} */
   groupMembers: [],
 
   /** @type {import('./models/BoardGame/BGList.js').BGList[]} */
@@ -52,7 +52,7 @@ export const AppState = reactive({
   /** @type {import('./models/BoardGame/ABGReviews.js').ABGReviews[]} */
   activeBoardGameReviews: [],
 
-  /** @type {import('./models/ForumPost.js').ForumPost[]} */
+  /** @type {import('./models/BoardGame/ForumPost.js').ForumPost[]} */
   forumPosts: [],
 
   /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */

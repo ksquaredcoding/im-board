@@ -19,8 +19,8 @@
 
 <script>
 import { AppState } from '../../AppState.js';
-import { GroupMemberShip } from '../../models/GroupMembership.js';
-import { Group } from '../../models/Group.js';
+import { GroupMemberShip } from '../../models/GroupsAndGameNight/GroupMembership.js';
+import { Group } from '../../models/GroupsAndGameNight/Group.js';
 export default {
   props: {
     group: { type: GroupMemberShip, required: true },

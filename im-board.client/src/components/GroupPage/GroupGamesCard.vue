@@ -35,7 +35,7 @@
 import { computed } from "@vue/reactivity";
 import { AppState } from "../../AppState.js";
 import { BGList } from "../../models/BoardGame/BGList.js";
-import { GroupMembers } from "../../models/GroupMember.js";
+import { GroupMembers } from "../../models/GroupsAndGameNight/GroupMember.js";
 
 export default {
   props: {
