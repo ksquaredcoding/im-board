@@ -1,6 +1,6 @@
 <template>
   <!-- TEST PUTTING COMMENT TUNG -->
-    <div class="animate__animated animate__fadeOut" v-if="!account">
+  <div class="animate__animated animate__fadeOut" v-if="!account">
     <div class="loader"></div>
   </div>
 

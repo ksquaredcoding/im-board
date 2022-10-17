@@ -5,14 +5,15 @@
 
 
       <div class="col-md-2 ms-1">
-        <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="search"></i>
+        <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="games in group"></i>
       </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
 
           <router-link class="text-center text-dark"
-            :to="{ name: 'BoardGameDetails', params: { id: boardGameList.gameId} }">
+            :to="{ name: 'BoardGameDetails', params: { id: boardGameList.gameId} }"
+            title="go to this games detail's page">
             <b>{{boardGameList.boardGameName}}</b>
           </router-link>
         </div>

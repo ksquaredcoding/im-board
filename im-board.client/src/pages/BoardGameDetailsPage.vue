@@ -1,5 +1,5 @@
 <template>
-  <section class="container" v-if="boardGame">
+  <div class="container" v-if="boardGame">
     <div class="row">
       <div
         class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
@@ -93,16 +93,17 @@
         </div>
 
         <div class="d-flex justify-content-center">
-        <div class="col-md-10" v-if="prices.length > 0">
-          <div class="mt-5">
-            <h1>Purchase game at:</h1>
-          </div>
-          <div class="row justify-content-center prices gradient-box text-dark mb-5">
-            <div v-for="p in prices" :key="p.id" class="col-md-6">
-              <ABGPrices :price="p" />
+          <div class="col-md-10" v-if="prices.length > 0">
+            <div class="mt-5">
+              <h1>Purchase game at:</h1>
+            </div>
+            <div class="row justify-content-center prices gradient-box text-dark mb-5">
+              <div v-for="p in prices" :key="p.id" class="col-md-6">
+                <ABGPrices :price="p" />
+              </div>
             </div>
           </div>
-        </div></div>
+        </div>
 
         <div v-if="videos.length > 0">
           <div class="mt-5">
@@ -116,19 +117,10 @@
 
         </div>
 
-        <!-- <iframe
-          width="1424"
-          height="612"
-          src="https://www.youtube.com/embed/Dfq4dRPHIAM"
-          title="Underrated MVP! | Top 15 Mythic | Dominaria United Draft | MTG Arena | Twitch Replay"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
 
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- MODAL -->
   <div class="modal fade" id="activeImage" tabindex="-1" aria-labelledby="activeImageLabel" aria-hidden="true">
@@ -225,7 +217,6 @@ export default {
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage),
-
     };
   },
   components: {
