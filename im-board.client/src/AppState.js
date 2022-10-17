@@ -62,21 +62,38 @@ export const AppState = reactive({
 
   activeCategoryFilters: [],
   activeMechanicsFilters: [],
-  categories: [
-    { name: 'CardGame', id: 'eX8uuNlQkQ' },
-    { name: 'Fantasy', id: 'ZTneo8TaIO' },
-    { name: 'Economic', id: 'N0TkEGfEsF' },
-    { name: 'Scifi', id: '3B3QpKvXD3' },
-    { name: 'City Building', id: 'ODWOjWAJj3' },
-    { name: 'Party Game', id: 'X8J7RM6dxX' },
-    { name: 'Adventure', id: 'KUBCKBkGxV' },
-    { name: 'Bluffing', id: 'PinhJrhnxU' },
-    { name: 'Dice', id: 'mavSOM8vjH' },
-    { name: 'Horror', id: 'cAIkk5aLdQ' },
-    { name: 'Puzzle', id: 'WVMOS3s2pb' },
-    { name: 'Cooperative', id: 'ge8pIhEUGE' },
-    { name: 'Wargame', id: 'jX8asGGR6o' },
-    { name: 'Word game', id: 'rHvAx4hH2f' },
+  // categories: [
+  //   { name: 'CardGame', id: 'eX8uuNlQkQ' },
+  //   { name: 'Fantasy', id: 'ZTneo8TaIO' },
+  //   { name: 'Economic', id: 'N0TkEGfEsF' },
+  //   { name: 'Scifi', id: '3B3QpKvXD3' },
+  //   { name: 'City Building', id: 'ODWOjWAJj3' },
+  //   { name: 'Party Game', id: 'X8J7RM6dxX' },
+  //   { name: 'Adventure', id: 'KUBCKBkGxV' },
+  //   { name: 'Bluffing', id: 'PinhJrhnxU' },
+  //   { name: 'Dice', id: 'mavSOM8vjH' },
+  //   { name: 'Horror', id: 'cAIkk5aLdQ' },
+  //   { name: 'Puzzle', id: 'WVMOS3s2pb' },
+  //   { name: 'Cooperative', id: 'ge8pIhEUGE' },
+  //   { name: 'Wargame', id: 'jX8asGGR6o' },
+  //   { name: 'Word game', id: 'rHvAx4hH2f' },
+  // ],
+
+  homePageBannerUrls: [
+    {
+      url: 'https://biblio.uottawa.ca/sites/biblio.uottawa.ca/files/2019_-_game_collection.jpg',
+    },
+
+    {
+      url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images',
+    },
+    {
+      url: 'http://gticket.quai10.be/image.aspx?img=movies_photo/30100/jumanji3.jpg',
+    },
+    {
+      url: 'https://awesomespace.nl/wp-content/uploads/sites/14/2015/12/game-night-board.jpg',
+    },
+  
   ],
 
   order_By: [
