@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="col-md-3"></div>
-      <div class="col-md-9 d-flex">
+      <div class="col-md-9 d-flex bg-dark rounded p-2">
         <!-- TODO MORE FILTERS HERE -->
 
         <FilterBar />

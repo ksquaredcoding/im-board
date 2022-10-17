@@ -265,6 +265,24 @@ transition: 0.75s ease;
 .text-shadow2{
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.459);
 }
+
+
+
+.scroll-Snap-Container{
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+section{
+  height: 95vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+scroll-snap-align:  start;
+}
+
 // ---------------------!SECTION---------------------------
 
 input,

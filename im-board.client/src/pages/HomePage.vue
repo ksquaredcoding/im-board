@@ -9,7 +9,7 @@
       </div>
 
 
-      <div class="row mx-2 my-5">
+      <div class="row mx-2 my-5 horizontal-scrollable">
         <div class="col-md-12">
           <div @click="searchPopular()" class="hoverable hvr-sweep-to-right ">
             <h2 class="rowTitle p-1">Popular Board Games</h2>
@@ -129,7 +129,7 @@ export default {
  getBoardGamesOnDiscount()
       // getBoardGamesByPrice()
       getForumPosts();
-      AppState.skip = 0;
+      // AppState.skip = 0;
       // window.addEventListener('scroll', handleScroll)
     });
 
@@ -243,6 +243,14 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
   overflow-x: hidden;
 }
 
+.scrollableX{
+ border-radius: 4px;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
 .presetfilters {
   background-color: #2c2c2fe7;
 }

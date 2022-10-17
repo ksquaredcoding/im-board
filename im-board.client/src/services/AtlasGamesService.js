@@ -33,11 +33,11 @@ class AtlasGamesService {
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     console.log(AppState.boardgames);
   }
-  async getBoardGames(search) {
+  async getBoardGames() {
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 6,
+        limit:1
       
       },
     });

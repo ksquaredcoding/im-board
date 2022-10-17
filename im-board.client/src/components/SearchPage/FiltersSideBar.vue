@@ -47,7 +47,7 @@
   <div class="accordion pb-3 " id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed button-50" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      <button class="accordion-button collapsed button-50 focus " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         Categories
       </button>
     </h2>
@@ -85,7 +85,7 @@
   <div class="accordion  " id="accordionFlushExample2">
   <div class="accordion-item ">
     <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed button-50" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+      <button class="accordion-button collapsed button-52 focus" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
        Mechanics
       </button>
     </h2>
@@ -196,7 +196,11 @@ async searchByLT_Discount(){
     }
 },
 async searchByPrice(){
-  
+try {
+    await atlasGamesService.getBoardGamesByPrice()
+  } catch (error) {
+    Pop.error(error,'[]')
+  }
 }
 
 
@@ -230,4 +234,18 @@ async searchByPrice(){
   width: 300px;
   object-fit: cover;
 }
+button:active{
+  background-color: red;
+}
+
+button:focus{
+  color: rgb(31, 28, 28);
+
+ background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
+
+
+}
+
+
+
 </style>
