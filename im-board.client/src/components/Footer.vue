@@ -5,10 +5,11 @@
         © 2022 I'm Game, Inc
       </p>
 
-      <i class="mdi mdi-google-maps text-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+      <i class="mdi mdi-google-maps text-warning selectable" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        title="support your local game stores!"></i>
 
       <a href="/"
-        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32">
           <use xlink:href="#bootstrap"></use>
         </svg>
