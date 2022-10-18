@@ -31,47 +31,6 @@
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
 
-      <!-- <div>
-      <div class="col-md bg-grey ms-2">
-        <div class="row bg-c4">
-          <div class="col d-flex justify-content-center pt-2">
-            <h1>Favorites</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in favList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-
-      <div class="col-md bg-grey mx-3">
-        <div class="row bg-c4">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h1>Wishlist</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in wishList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-
-      <div class="col-md bg-grey">
-        <div class="row bg-c4">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h1>Games I own</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in ownedList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-</div> -->
-
       <div class="col-md-3 ms-3 bg-grey" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
@@ -92,7 +51,7 @@
 
 
       <!-- NOTE games card start -->
-      <div class="col-md mx-3 bg-grey" v-if="account?.id == profile?.id">
+      <div class="col-md mx-3 bg-grey">
         <!-- NOTE Problem starts here.... -->
         <div class="container-fluid">
           <div class=" bg-c3">
@@ -197,24 +156,6 @@ export default {
       profile: computed(() => AppState.activeProfile),
       bgLists: computed(() => AppState.bgLists.filter(b => filterBg.value ? b.listName == filterBg.value : true)),
 
-      // filterFav() {
-
-      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == "favorite")
-      // },
-
-      // filterWish() {
-
-      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == "wish")
-      // },
-
-      // filterOwned() {
-
-      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == "owned")
-      // }
-
-      // filterList(type = '') {
-      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == type)
-      // }
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard },
@@ -272,3 +213,45 @@ export default {
   transition: 0.75s ease;
 }
 </style>
+
+
+      <!-- <div>
+      <div class="col-md bg-grey ms-2">
+        <div class="row bg-c4">
+          <div class="col d-flex justify-content-center pt-2">
+            <h1>Favorites</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in favList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md bg-grey mx-3">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Wishlist</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in wishList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md bg-grey">
+        <div class="row bg-c4">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h1>Games I own</h1>
+          </div>
+        </div>
+        <div class="cardholder">
+          <span v-for="b in ownedList" :key="b.id">
+            <ListCard :boardGameList="b" />
+          </span>
+        </div>
+      </div>
+</div> -->
