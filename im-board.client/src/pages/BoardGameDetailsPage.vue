@@ -59,15 +59,10 @@
           <p class="p-3">{{boardGame.description_preview}}</p>
         </div> -->
       </div>
-      <div class="row game-images my-3 ms-1">
-        <swiper :slidesPerView="4" :spaceBetween="50" :slidesPerGroup="3" :loop="true" :loopFillGroupWithBlank="true"
-          :pagination="{
-            clickable: true,
-          }" :navigation="true" :modules="modules" class="mySwiper">
-          <swiper-slide class="my-2" v-for="i in images">
-            <ActiveBoardGameImages :images="i" />
-          </swiper-slide>
-        </swiper>
+      <div class="row game-images my-3 ms-1 horizontal-scroll">
+
+        <ActiveBoardGameImages :images="i" v-for="i in images" />
+
       </div>
       <div class="px-5 mt-5 d-flex justify-content-center pt-3">
         <div class="col-8 gradient-box p-5 my-5 rounded-4">
@@ -256,6 +251,16 @@ p {
 .price-row {
   height: 20rem;
   overflow: auto;
+}
+
+.horizontal-scroll {
+  border-radius: 4px;
+  max-height: 30rem;
+  height: 30rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 .review-row {
