@@ -9,14 +9,14 @@
           </p>
         </div>
       </div>
-
-      <div class="col-md-12 d-flex bg-dark rounded p-2 d-flex justify-content-center">
-
+   
+      <div class="col-md-12 d-flex bg-dark rounded p-4 d-flex justify-content-center">
+ 
 
         <FilterBar />
       </div>
-
-      <div class="col-md-12">
+    
+      <div class="col-md-9">
         <div class="row mx-2">
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
@@ -48,13 +48,7 @@ import FiltersSideBar from "../components/SearchPage/FiltersSideBar.vue";
 export default {
   setup() {
     const editable = ref('');
-    // async function getBoardGames() {
-    //   try {
-    //     await atlasGamesService.getBoardGames();
-    //   } catch (error) {
-    //     Pop.error(error, '[getBoardGames]');
-    //   }
-    // }
+ 
     async function getCategoryList() {
       try {
         await atlasGamesService.getBoardGameCategoriesList();
@@ -73,34 +67,12 @@ export default {
     onMounted(() => {
       getCategoryList();
       getMechanicsList();
-      // AppState.skip = 0;
-      // window.addEventListener('scroll', handleScroll)
-      AppState.queryFilter = ''
     });
-    // async function handleScroll(){
-    //  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
 
-    // }
-    // getMoreBoardGames()
-    // }
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
 categories: computed(()=>AppState.bgCategories),
-      async getMoreBoardGames() {
-        try {
-          await atlasGamesService.getBoardGamesByCategories();
-        } catch (error) {
-          Pop.error(error, '[getBoardGames]');
-        }
-      },
-      async getBoardGamesByCategories(category) {
-        try {
-          await atlasGamesService.getBoardGamesByCategories(category);
-        } catch (error) {
-          Pop.error(error, '[getBoardGamesByCategories]');
-        }
-      },
     };
   },
   components: {

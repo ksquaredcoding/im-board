@@ -13,7 +13,9 @@
     </a>
   </div>
 </template>
-
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
 <script>
 import { computed } from '@vue/reactivity';
 import { useRoute } from 'vue-router';
@@ -25,7 +27,7 @@ export default {
     return {
       route,
 
-      articles: computed(() => AppState.articles),
+      articles: computed(() => AppState.articles.sort(()=> Math.random() - 0.5),)
 
     };
   },
