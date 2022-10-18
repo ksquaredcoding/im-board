@@ -5,36 +5,17 @@
         <div class="accordion pb-3" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
-              <button
-                class="accordion-button collapsed button-50 focus"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne"
-                aria-expanded="false"
-                aria-controls="flush-collapseOne"
-              >
+              <button class="accordion-button collapsed button-50 focus" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                 Categories
               </button>
             </h2>
-            <div
-              id="flush-collapseOne"
-              class="accordion-collapse collapse bg-dark"
-              aria-labelledby="flush-headingOne"
-              data-bs-parent="#accordionFlushExample"
-            >
+            <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
               <div class="row scrollableY p-2">
                 <div class="col-md-12">
-                  <div
-                    class="list-group-item inputBox d-flex"
-                    v-for="c in categories"
-                    :key="c.id"
-                  >
-                    <input
-                      class="checkBox"
-                      type="checkbox"
-                      v-model="c.id"
-                      :id="c.name"
-                    />
+                  <div class="list-group-item inputBox d-flex" v-for="c in categories" :key="c.id">
+                    <input class="checkBox" type="checkbox" v-model="c.id" :id="c.name" />
                     <label for="card-game" class="ms-2">{{ c.name }}</label>
                   </div>
                 </div>
@@ -48,36 +29,17 @@
         <div class="accordion" id="accordionFlushExample2">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingTwo">
-              <button
-                class="accordion-button collapsed button-52 focus"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseTwo"
-                aria-expanded="false"
-                aria-controls="flush-collapseTwo"
-              >
+              <button class="accordion-button collapsed button-52 focus" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                 Mechanics
               </button>
             </h2>
-            <div
-              id="flush-collapseTwo"
-              class="accordion-collapse collapse bg-dark"
-              aria-labelledby="flush-headingTwo"
-              data-bs-parent="#accordionFlushExample2"
-            >
+            <div id="flush-collapseTwo" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample2">
               <div class="row scrollableY p-2">
                 <div class="col-md-12">
-                  <div
-                    class="list-group-item inputBox d-flex"
-                    v-for="m in mechanics"
-                    :key="m.id"
-                  >
-                    <input
-                      class="checkBox"
-                      type="checkbox"
-                      :value="m.id"
-                      :id="m.name"
-                    />
+                  <div class="list-group-item inputBox d-flex" v-for="m in mechanics" :key="m.id">
+                    <input class="checkBox" type="checkbox" :value="m.id" :id="m.name" />
                     <label for="card-game" class="ms-2">{{ m.name }}</label>
                   </div>
                 </div>
@@ -90,45 +52,27 @@
 
       <div class="col-md-6">
         <div>
-            <form @submit.prevent="searchByCoolMethod()" class="d-flex">
-          <div class="form-control">
-            <label for="playerCount">PlayerCount</label>
-            <input
-              type="number"
-              min="1"
-              max="10"
-              name="playerCount"
-              v-model="playerCount"
-            />
-          </div>
-          <div class="form-control">
-            <label for="playerCount">PlayTime</label>
-            <input
-              type="number"
-              min="5"
-              max="60"
-              name="playTime"
-              v-model="playTime"
-            />
-          </div>
+          <form @submit.prevent="searchByCoolMethod()" class="d-flex">
+            <div class="form-control">
+              <label for="playerCount">PlayerCount</label>
+              <input type="number" min="1" max="10" name="playerCount" v-model="playerCount" />
+            </div>
+            <div class="form-control">
+              <label for="playerCount">PlayTime</label>
+              <input type="number" min="5" max="60" name="playTime" v-model="playTime" />
+            </div>
 
-          <div class="form-control d-flex">
-            <label for="minYear" class="form-label">Minimum year </label>
-            <input
-              type="number"
-              class="form-control"
-              id="minYear"
-              v-model="lt_year_published"
-              min="1950"
-              max="9999"
-            />
-          </div>
+            <div class="form-control d-flex">
+              <label for="minYear" class="form-label">Minimum year </label>
+              <input type="number" class="form-control" id="minYear" v-model="gt_year_published" min="1950"
+                max="9999" />
+            </div>
 
-          <div></div>
-          <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
-        </form>
+            <div></div>
+            <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
+          </form>
         </div>
-      
+
       </div>
     </div>
   </div>
@@ -145,21 +89,21 @@ export default {
   setup() {
     const playerCount = ref('');
     const playTime = ref('');
-    const lt_year_published = ref('');
+    const gt_year_published = ref('');
 
     return {
       playerCount,
       playTime,
-      lt_year_published,
+      gt_year_published,
       categories: computed(() => AppState.activeCategoryFilters),
       mechanics: computed(() => AppState.activeMechanicsFilters),
 
 
       async searchByCoolMethod() {
         try {
-          let search = `gt_max_players=${playerCount.value-1}`;
-          let search2 = `lt_max_playtime=${playTime.value+1}`;
-          let search3 = `gt_year_published=${lt_year_published.value-1}`;
+          let search = `gt_max_players=${playerCount.value - 1}`;
+          let search2 = `lt_max_playtime=${playTime.value + 1}`;
+          let search3 = `gt_year_published=${gt_year_published.value - 1}`;
           AppState.queryFilter = [
             ...AppState.queryFilter,
             search,
