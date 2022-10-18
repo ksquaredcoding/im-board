@@ -16,7 +16,7 @@
               class="rounded-circle me-2 profilePic " height="20" width="20" />
             <span class="">{{ chat.body }}</span>
           </div>
-          <span class="mt-2 time">{{chat.createdAt}}</span>
+          <span class="mt-3 time">{{chat.createdAt}}</span>
         </div>
       </div>
     </div>
@@ -45,11 +45,11 @@ export default {
   opacity: 60%;
   font-size: 12px;
 }
+
 .profilePic:hover {
   transform: scale(1.04);
   transition: all 0.75s ease;
   filter: saturate(120%);
   filter: brightness(120%);
 }
-
 </style>
