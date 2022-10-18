@@ -6,12 +6,14 @@
       <div class="card-img-overlay text-shadow">
         <h3 class="card-title p-2 text-center rounded-1 "><u>{{ group?.group.name }}</u></h3>
         <div class="card-title text-center p-1 rounded-1 elevation-3">
-          <p class="card-text fs-5 fw-1">Owner: {{group.group.creator.name}}</p>
-          <p v-if="group.group.groupMemberIds.length == 1">{{group.group.groupMemberIds.length}}
+
+          <div class="card-text fs-5">Owner: {{group.group.creator.name}}</div>
+          <div v-if="group.group.groupMemberIds.length == 1">{{group.group.groupMemberIds.length}}
             Member
-          </p>
-          <p v-else>{{group.group.groupMemberIds.length}} Members</p>
+          </div>
+          <div v-else>{{group.group.groupMemberIds.length}} Members</div>
         </div>
+        
       </div>
     </div>
   </router-link>
@@ -83,5 +85,10 @@ export default {
 .card-title {
   background-color: #1e262293;
   transform: translateY(-15px);
+  font-weight: 700;
+}
+
+*{
+  font-family: "Baloo 2", cursive;
 }
 </style>
