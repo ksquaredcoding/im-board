@@ -40,6 +40,7 @@
         </div>
 
         <div class="col-md-6">
+          
           <div class="d-flex">
             <div class="form-control">
               <label for="playerCount">PlayerCount</label>
