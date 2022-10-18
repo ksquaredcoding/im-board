@@ -8,25 +8,27 @@ export class BoardGamesController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getBoardGamesByAccountId)
-      .get('/:groupId', this.getListByGroupId)
+      .get("/:groupId", this.getListByGroupId)
       .post("", this.addBoardGameToList)
       .delete("/:boardGameId", this.removeBoardGameFromList);
   }
   // TODO
 
-   async getListByGroupId(req, res, next){
-    try{
-      const lists = await boardGamesService.getListByGroupId(req.params.groupId)
-   res.send(lists)
+  async getListByGroupId(req, res, next) {
+    try {
+      const lists = await boardGamesService.getListByGroupId(
+        req.params.groupId
+      );
+      res.send(lists);
+    } catch (error) {
+      next(error);
     }
-    catch (error) {
-    next(error)
-    }
-    }
+  }
   async getBoardGamesByAccountId(req, res, next) {
     try {
       const boardGames = await boardGamesService.getBoardGamesByAccountId(
-        req.userInfo.id);
+        req.userInfo.id
+      );
       res.send(boardGames);
     } catch (error) {
       next(error);
@@ -45,7 +47,8 @@ export class BoardGamesController extends BaseController {
   async removeBoardGameFromList(req, res, next) {
     try {
       const boardGame = await boardGamesService.removeBoardGameFromList(
-        req.params.boardGameId, req.userInfo.id
+        req.params.boardGameId,
+        req.userInfo.id
       );
       res.send(boardGame);
     } catch (error) {

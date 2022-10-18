@@ -28,8 +28,6 @@ class GameNightsService {
       groupMember.accountId.toString()
     );
 
-    // @ts-ignore
-    // debugger;
     let attending = gameNight.groupMemberIdsAttending.find(
       (m) => m._id.toString() == groupMember.accountId
     );
@@ -40,12 +38,10 @@ class GameNightsService {
       await gameNight.save();
       return gameNight;
     }
-    let place = gameNight.groupMemberIdsAttending.findIndex(g => g._id == userId);
+    let place = gameNight.groupMemberIdsAttending.findIndex(
+      (g) => g._id == userId
+    );
     gameNight.groupMemberIdsAttending.splice(place, 1);
-    // gameNight.groupMemberIdsAttending =
-    //   gameNight.groupMemberIdsAttending.filter(
-    //     (m) => m._id.toString() !== userId
-    //   );
     await gameNight.save();
     return gameNight;
   }

@@ -12,6 +12,38 @@
               placeholder="pick a game or enter game info"
               name="game"
             />
+            <label for="game">what do you want to play?</label>
+            <input
+              type="url"
+              class="form-control"
+              v-model="editable.game"
+              placeholder="pick a game or enter game info"
+              name="game"
+            />
+            <label for="game">what do you want to play?</label>
+            <input
+              type="url"
+              class="form-control"
+              v-model="editable.game"
+              placeholder="pick a game or enter game info"
+              name="game"
+            />
+            <label for="game">what do you want to play?</label>
+            <input
+              type="url"
+              class="form-control"
+              v-model="editable.game"
+              placeholder="pick a game or enter game info"
+              name="game"
+            />
+            <label for="game">what do you want to play?</label>
+            <input
+              type="url"
+              class="form-control"
+              v-model="editable.game"
+              placeholder="pick a game or enter game info"
+              name="game"
+            />
             <div class="d-flex justify-content-end">
               <button class="btn btn-sm my-1 btn-primary">pick a game</button>
 
