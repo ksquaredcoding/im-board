@@ -72,7 +72,7 @@
       </div>
 </div> -->
 
-      <div class="col-md-3 mx-3 bg-grey" v-if="account?.id == profile?.id">
+      <div class="col-md-3 ms-3 bg-grey" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
@@ -91,22 +91,25 @@
       </div>
 
 
-      <!-- NOTE group card start -->
-      <div class="col-md-8 mx-3 bg-grey" v-if="account?.id == profile?.id">
+      <!-- NOTE games card start -->
+      <div class="col-md mx-3 bg-grey" v-if="account?.id == profile?.id">
+        <!-- NOTE Problem starts here.... -->
+        <div class="container-fluid">
         <div class=" bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Games</h2>
-            <div>
-              <i class="mdi mdi-information-outline fs-5" alt=""
-                title="Groups only visisble to you, not other users."></i>
-            </div>
-            <b class="mt-2 ms-5 d-flex justify-content-between">
-              <p>Fav|</p>
-              <p>Wish</p>
-              <p>|Owned</p>
-            </b>
+            
           </div>
         </div>
+        <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
+          <div class="ms-3"><input type="checkbox" id="Fave" name="Fave" value="fave">
+<label for="vehicle1" class="ms-1">Fave</label></div>
+<div class="ms-3"><input type="checkbox" id="Wishlist" name="Wishlist" value="wishlist">
+<label for="vehicle2" class="ms-1">Wishlist</label></div>
+<div class="ms-3"><input type="checkbox" id="Owned" name="Owned" value="owned">
+<label for="vehicle3" class="ms-1">Owned</label></div>
+
+            </b></div>
 
         <div class="cardholder ">
           <div class="row">
@@ -115,7 +118,7 @@
               <GroupGamesCard :boardGameList="g" />
             </div>
           </div>
-        </div>
+        </div></div>
       </div>
 
     </div>
@@ -125,8 +128,6 @@
 <script>
 import { computed, onMounted } from "vue";
 import { AppState } from "../AppState";
-import { accountService } from "../services/AccountService.js";
-import { groupsService } from "../services/GroupsService.js";
 import Pop from "../utils/Pop.js";
 import GroupCard from "../components/GroupPage/GroupCard.vue";
 import GroupForm from "../components/GroupPage/GroupForm.vue";
