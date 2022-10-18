@@ -65,7 +65,9 @@
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center">
           <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" id="gameLogo" />
-          <p class=" mb-0 mx-2 navbar-title justify-content-center"><article>I'm Game</article></p>
+          <p class=" mb-0 mx-2 navbar-title justify-content-center">
+          <article>I'm Game</article>
+          </p>
         </div>
       </router-link>
 
@@ -95,7 +97,7 @@
       <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
     </div>
   </nav>
-   <!-- <GroupForm/> -->
+  <!-- <GroupForm/> -->
 </template>
 
 <script>
@@ -104,7 +106,7 @@ import { AppState } from "../AppState.js";
 import { AuthService } from "../services/AuthService.js";
 import Login from './Login.vue';
 import GroupForm from "./GroupPage/GroupForm.vue";
-import Searchbar from "./BoardGame/Searchbar.vue";
+import Searchbar from "./SearchPage/Searchbar.vue";
 export default {
   setup() {
     return {
@@ -142,7 +144,7 @@ article {
       #ff5e00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center; 
+  text-align: center;
   font-size: 40px;
   font-weight: bolder;
   font-family: 'Baloo 2', cursive;

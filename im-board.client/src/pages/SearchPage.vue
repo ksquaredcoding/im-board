@@ -1,33 +1,25 @@
 <template>
-  <div
-    class="container-fluid px-3 animate__animated animate__fadeInRight"
-    v-if="boardGames"
-  >
+  <div class="container-fluid px-3 animate__animated animate__fadeInRight" v-if="boardGames">
     <div class="row justify-content-end g-md-0">
-      <div
-        class="col-md-12 border-secondary border-3 rounded-bottom"
-      >
+      <div class="col-md-12 border-secondary border-3 rounded-bottom">
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
           <h3 class="searchText">Search for board games</h3>
           <p class="col-md-4">
-            <Searchbar/>
+            <Searchbar />
           </p>
         </div>
       </div>
-   
+
       <div class="col-md-12 d-flex bg-dark rounded p-2 d-flex justify-content-center">
- 
+
 
         <FilterBar />
       </div>
-    
+
       <div class="col-md-12">
         <div class="row mx-2">
-          <TransitionGroup
-            name="custom-classes"
-            enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__zoomOut animate__animated"
-          >
+          <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
+            leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
@@ -43,7 +35,7 @@ import { onMounted, ref, computed } from 'vue';
 import { atlasGamesService } from '../services/AtlasGamesService.js';
 import Pop from '../utils/Pop.js';
 import Filters from '../components/SearchPage/FiltersSideBar.vue';
-import Searchbar from '../components/BoardGame/Searchbar.vue';
+import Searchbar from '../components/SearchPage/Searchbar.vue';
 import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 
@@ -129,9 +121,11 @@ categories: computed(()=>AppState.bgCategories),
   font-size: 40px;
   font-weight: 900;
 }
+
 .filterBy {
   font-weight: 900;
 }
+
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -145,6 +139,7 @@ categories: computed(()=>AppState.bgCategories),
   transform: translateX(20px);
   opacity: 0;
 }
+
 .searchcol {
   height: 90.7vh;
 }
@@ -171,6 +166,7 @@ categories: computed(()=>AppState.bgCategories),
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .presetfilters {
   background-color: #2c2c2fe7;
 }
