@@ -5,11 +5,11 @@
       <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative" @error="badImg" />
     </router-link>
 
-    <div class="card-body p-1 mt-2 bg-dark rounded">
+    <div class="card-body p-1 mt-2 bg-grey rounded">
       <span class="text-center" title="Game title">
 
         <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }">
-          <h6 class="text-decoration-underline text-wrap text-white">{{ boardGame?.name }}</h6>
+          <h5 class="text-decoration-underline text-wrap text-dark">{{ boardGame?.name }}</h5>
         </router-link>
       </span>
 
