@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid">
+         <form @submit.prevent="searchByCoolMethod()" >
     <div class="row">
       <div class="col-md-3">
         <div class="accordion pb-3" id="accordionFlushExample">
@@ -14,8 +15,8 @@
               data-bs-parent="#accordionFlushExample">
               <div class="row scrollableY p-2">
                 <div class="col-md-12">
-                  <div class="list-group-item inputBox d-flex" v-for="c in categories" :key="c.id">
-                    <input class="checkBox" type="checkbox" v-model="c.id" :id="c.name" />
+                  <div class="list-group-item inputBox d-flex" v-for="c in categories" :key="c.id" id="CategoryDiv">
+                    <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
                     <label for="card-game" class="ms-2">{{ c.name }}</label>
                   </div>
                 </div>
@@ -37,9 +38,10 @@
             <div id="flush-collapseTwo" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample2">
               <div class="row scrollableY p-2">
+                
                 <div class="col-md-12">
                   <div class="list-group-item inputBox d-flex" v-for="m in mechanics" :key="m.id">
-                    <input class="checkBox" type="checkbox" :value="m.id" :id="m.name" />
+                    <input class="checkBox" type="checkbox"   :value="m.id" v-model="filters2" />
                     <label for="card-game" class="ms-2">{{ m.name }}</label>
                   </div>
                 </div>
@@ -51,8 +53,8 @@
       </div>
 
       <div class="col-md-6">
-        <div>
-          <form @submit.prevent="searchByCoolMethod()" class="d-flex">
+        <div class="d-flex">
+     
             <div class="form-control">
               <label for="playerCount">PlayerCount</label>
               <input type="number" min="1" max="10" name="playerCount" v-model="playerCount" />
@@ -70,11 +72,12 @@
 
             <div></div>
             <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
-          </form>
+       
         </div>
 
       </div>
     </div>
+       </form>
   </div>
 </template>
 
@@ -85,30 +88,38 @@ import { ref } from 'vue';
 import Pop from '../../utils/Pop.js';
 import { atlasGamesService } from '../../services/AtlasGamesService.js';
 
+
 export default {
   setup() {
     const playerCount = ref('');
     const playTime = ref('');
     const gt_year_published = ref('');
-
+   const filters1 = ref([])
+const filters2 = ref([])
     return {
+      filters1,filters2,
       playerCount,
       playTime,
       gt_year_published,
-      categories: computed(() => AppState.activeCategoryFilters),
-      mechanics: computed(() => AppState.activeMechanicsFilters),
+      categories: computed(() => AppState.bgCategories),
+      mechanics: computed(() => AppState.bgMechanics),
 
 
       async searchByCoolMethod() {
         try {
-          let search = `gt_max_players=${playerCount.value - 1}`;
-          let search2 = `lt_max_playtime=${playTime.value + 1}`;
-          let search3 = `gt_year_published=${gt_year_published.value - 1}`;
+
+let categories= `categories=${filters1.value}`
+let mechanics = `mechanics=${filters2.value}`
+
+          let search = `gt_max_players=${playerCount.value }`;
+          let search2 = `lt_max_playtime=${playTime.value }`;
+          let search3 = `gt_year_published=${gt_year_published.value }`;
           AppState.queryFilter = [
             ...AppState.queryFilter,
             search,
             search2,
             search3,
+            categories,mechanics
           ];
 
           let finalSearch = AppState.queryFilter.join('&');
@@ -118,7 +129,7 @@ export default {
           AppState.queryFilter = [];
           console.log(AppState.queryFilter);
         } catch (error) {
-          Pop.error(error, '[searchByPlayerCount');
+          Pop.error(error, '[Cool Search Method]');
         }
       },
 

@@ -26,6 +26,18 @@
       
           
         </div>
+        <div>
+            <small class="o ms-3">
+              playtime
+              {{boardGame.playtime}}min
+        </small>
+      
+            <small class="o ms-3">
+           year   {{boardGame.year_published}}
+        </small>
+      
+          
+        </div>
         <div class="d-flex justify-content-center">
        
         </div>

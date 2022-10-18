@@ -16,7 +16,7 @@
       </div>
    
       <div class="col-md-12 d-flex bg-dark rounded p-2 d-flex justify-content-center">
-    
+ 
 
         <FilterBar />
       </div>
@@ -52,6 +52,7 @@ import BoardGameCardSearchPage from '../components/SearchPage/BoardGameCardSearc
 import FilterBar from '../components/SearchPage/FilterBar.vue';
 import FiltersSideBar from "../components/SearchPage/FiltersSideBar.vue";
 
+
 export default {
   setup() {
     const editable = ref('');
@@ -78,8 +79,8 @@ export default {
       }
     }
     onMounted(() => {
-      // getCategoryList();
-      // getMechanicsList();
+      getCategoryList();
+      getMechanicsList();
       // AppState.skip = 0;
       // window.addEventListener('scroll', handleScroll)
       AppState.queryFilter = ''
@@ -93,7 +94,7 @@ export default {
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
-
+categories: computed(()=>AppState.bgCategories),
       async getMoreBoardGames() {
         try {
           await atlasGamesService.getBoardGamesByCategories();
@@ -114,11 +115,11 @@ export default {
     Filters,
     Searchbar,
     BoardGameCard,
-
     BGCardSearchPage,
     BoardGameCardSearchPage,
     FilterBar,
-    FiltersSideBar
+    FiltersSideBar,
+
 },
 };
 </script>
