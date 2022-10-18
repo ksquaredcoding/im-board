@@ -32,7 +32,7 @@ export default {
   border: 0;
   transition: all 0.5s ease;
   .card-title {
-    font-size: 50pt;
+    font-size: 40pt;
     font-weight: 700;
     text-shadow: 2px 2px 0px rgba(190, 205, 208, 0.92);
     background-color: #79bd9add;
@@ -46,9 +46,9 @@ export default {
     letter-spacing: 0.06em;
   }
   .card-img {
-    height: 300px;
+    height: 200px;
     object-fit: cover;
-
+object-position: center;
     box-shadow: inset 0 0 10px 10px #000;
   }
 }
