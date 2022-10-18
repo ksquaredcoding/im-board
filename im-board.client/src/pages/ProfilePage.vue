@@ -95,30 +95,37 @@
       <div class="col-md mx-3 bg-grey" v-if="account?.id == profile?.id">
         <!-- NOTE Problem starts here.... -->
         <div class="container-fluid">
-        <div class=" bg-c3">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Games</h2>
-            
+          <div class=" bg-c3">
+            <div class="col-md d-flex justify-content-center pt-2">
+              <h2>Games</h2>
+
+            </div>
           </div>
-        </div>
-        <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
-          <div class="ms-3"><input type="checkbox" id="Fave" name="Fave" value="fave">
-<label for="vehicle1" class="ms-1">Fave</label></div>
-<div class="ms-3"><input type="checkbox" id="Wishlist" name="Wishlist" value="wishlist">
-<label for="vehicle2" class="ms-1">Wishlist</label></div>
-<div class="ms-3"><input type="checkbox" id="Owned" name="Owned" value="owned">
-<label for="vehicle3" class="ms-1">Owned</label></div>
+          <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
+              <div class="ms-3"><input type="checkbox" id="Fave" name="Fave" value="fave"
+                  @click="filterList('favorite')">
+                <label for="vehicle1" class="ms-1">Fave</label>
+              </div>
+              <div class="ms-3"><input type="checkbox" id="Wishlist" name="Wishlist" value="wishlist"
+                  @click="filterList('wish')">
+                <label for="vehicle2" class="ms-1">Wishlist</label>
+              </div>
+              <div class="ms-3"><input type="checkbox" id="Owned" name="Owned" value="owned"
+                  @click="filterList('owned')">
+                <label for="vehicle3" class="ms-1">Owned</label>
+              </div>
 
             </b></div>
 
-        <div class="cardholder ">
-          <div class="row">
-            <div class="col-md-4 " v-for="g in bgLists" :key="g.id">
+          <div class="cardholder ">
+            <div class="row">
+              <div class="col-md-4 " v-for="g in bgLists" :key="g.id">
 
-              <GroupGamesCard :boardGameList="g" />
+                <GroupGamesCard :boardGameList="g" />
+              </div>
             </div>
           </div>
-        </div></div>
+        </div>
       </div>
 
     </div>
@@ -181,6 +188,12 @@ export default {
         AppState.bgLists.filter((o) => o.listName == "owned")
       ),
       profile: computed(() => AppState.activeProfile),
+
+
+
+      filterList(type = '') {
+        AppState.bgLists = AppState.bgLists.filter(l => l.listName == type)
+      }
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard },

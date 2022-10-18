@@ -12,6 +12,24 @@ class ProfilesService {
     // console.log(AppState.bgLists);
     // console.log(AppState.bgLists.account.name);
   }
+
+  // async getListsByType(type = '', id) {
+  //   let res
+  //   if (type) {
+  //     res = await api.get(`/profiles/boardgames/${id}`, {
+  //       params: {
+  //         type: type
+  //       }
+  //     })
+  //   } else {
+  //     res = await api.get(`/profiles/boardgames/${id}`)
+
+  //   }
+  //   AppState.bgLists = res.data.map((b) => new BGList(b));
+  //   console.log(AppState.bgLists);
+  // }
+
+
   async getProfileGroups(id) {
     const res = await api.get(`/profiles/groups/${id}`);
     // console.log("getProfileGroups", res.data);
