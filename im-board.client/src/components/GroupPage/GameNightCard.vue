@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-2 pt-1">
+ 
     <div class="GameNightCard bg-dark card my-2 gameNightBg elevation-3">
       <div class="row justify-content-center">
         <div class="col-md-8 rounded bg-c4 m-2 upcomingGameNight">
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-6 p-0 ps-3">
           <div class="card m-2 noborder">
-            <div class="bg-c4 text-center p-1 rounded-top">
+            <div class="bg-c4 text-center  rounded-top">
               <h5 class="mt-1">Attending:</h5>
             </div>
             <div
@@ -89,11 +89,11 @@
             <div class="bg-c4 text-center p-1 rounded-top">
               <h5 class="mt-1">Playing:</h5>
             </div>
-            <div class="gameImg">
+            <div class="gameImg p-2 rounded-bottom">
               <div class="d-flex justify-content-center">
                 <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
                   <router-link
-                    class="text-center text-dark"
+                    class="text-center text-dark "
                     :to="{
                       name: 'BoardGameDetails',
                       params: { id: gamenight.gameId.id },
@@ -109,7 +109,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>

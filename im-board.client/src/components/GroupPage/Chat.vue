@@ -1,5 +1,5 @@
 <template>
-  <div class="chatContainer container animate__animated animate__fadeInRigh ">
+  <div class="chatContainer container animate__animated animate__fadeIn ">
     <div class="row">
       <div class="col-12">
         <div class="d-flex gap-1 justify-content-end pt-2 pb-2" v-if="chat?.creatorId == account?.id">
