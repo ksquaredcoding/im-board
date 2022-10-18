@@ -33,9 +33,9 @@
                 class="checkBox"
                 type="checkbox"
                 :value="category.id"
-                :checked="category.checked"
+            
                 :id="category.name"
-                @change="checkBoxMethodForCategory($event)"
+               
               />
               <label for="card-game" class="ms-2">{{ category.name }}</label>
             </div>
@@ -105,14 +105,32 @@ export default {
 
   setup(props) {
     const editable = ref('');
+     const categoryArray= []
+const mechanicArray=[]
     return {
       categories: computed(() => AppState.bgCategories),
       mechanics: computed(() => AppState.bgMechanics),
       categoryFilters: computed(() => AppState.activeCategoryFilters),
       mechanicFilters: computed(() => AppState.activeMechanicsFilters),
 
-
+categoryArray,
+mechanicArray,
       editable,
+
+
+
+async pushToQuerySearch(){
+ 
+
+
+
+},
+
+
+
+
+
+
 
       async checkBoxMethodForMechanics(event) {
         try {
@@ -130,6 +148,17 @@ export default {
           Pop.error(error, '[checkBoxMethod]');
         }
       },
+
+
+
+
+
+
+
+
+
+
+
       async checkBoxMethodForCategory(event) {
         try {
           if (event.target.checked) {

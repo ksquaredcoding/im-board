@@ -34,13 +34,13 @@ class AtlasGamesService {
     console.log(AppState.boardgames);
   }
 
-  
-  async getBoardGames() {
-    const res = await atlasApi.get("/api/search", {
+
+  async getBoardGames(query='') {
+    const res = await atlasApi.get(`api/search?${query}`, {
       params: {
         client_id: "2I6DeypMLL",
-        limit:60
-      
+        limit:60,
+
       },
     });
     // console.log(res.data);

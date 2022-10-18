@@ -66,6 +66,7 @@ export const AppState = reactive({
 
 
 queryFilter:[],
+
   activeCategoryFilters: [],
   activeMechanicsFilters: [],
   // categories: [

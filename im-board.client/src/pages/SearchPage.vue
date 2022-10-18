@@ -21,7 +21,7 @@
         <FilterBar />
       </div>
       <div class="col-md-3">
-        <FiltersSideBar/>
+     
       </div>
       <div class="col-md-9">
         <div class="row mx-2">
