@@ -26,6 +26,7 @@ class AtlasGamesService {
     });
     // console.log(res.data);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+   
     console.log(AppState.boardgames);
   }
 
@@ -211,7 +212,7 @@ async getBoardGamesByMechanics(mechanics = ""){
     });
     // console.log(res.data);
     AppState.bgCategories= res.data.categories.map((b) => new BGCategoriesAndMechanics(b));
-    console.log(AppState.bgCategories);
+    // console.log(AppState.bgCategories);
   }
 
 
@@ -223,7 +224,7 @@ async getBoardGamesByMechanics(mechanics = ""){
     });
     // console.log(res.data);
     AppState.bgMechanics = res.data.mechanics.map((b) => new BGCategoriesAndMechanics(b));
-    console.log(AppState.bgMechanics);
+    // console.log(AppState.bgMechanics);
   }
 
 

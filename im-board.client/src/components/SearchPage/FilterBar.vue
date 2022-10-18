@@ -8,7 +8,7 @@
               aria-expanded="false">
               Categories
             </button>
-            <div class="row scrollable-y p-2 dropdown-menu bg-dark">
+            <div class="row scrollableY p-2 dropdown-menu bg-dark">
               <div class="col-md-12">
                 <div class="dropdown-item inputBox d-flex text-light" v-for="c in categories" :key="c.id"
                   id="CategoryDiv">
@@ -27,7 +27,7 @@
                 aria-expanded="false">
                 Mechanics
               </button>
-              <div class="row scrollable-y p-2 dropdown-menu bg-dark">
+              <div class="row scrollableY p-2 dropdown-menu bg-dark">
                 <div class="col-md-12">
                   <div class="dropdown-item inputBox d-flex text-light" v-for="m in mechanics" :key="m.id">
                     <input class="checkBox" type="checkbox" :value="m.id" v-model="filters2" />
@@ -113,7 +113,9 @@ export default {
           let finalSearch = AppState.queryFilter.join('&');
           console.log(AppState.queryFilter.join('&'));
           await atlasGamesService.getBoardGames(finalSearch);
-
+if (AppState.boardgames <=0) {
+  Pop.toast('Refine your search please')
+} else
           AppState.queryFilter = [];
           console.log(AppState.queryFilter);
         } catch (error) {
@@ -161,6 +163,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.scrollableY{
+  height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;

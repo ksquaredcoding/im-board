@@ -36,7 +36,7 @@
     </div>
   </nav> -->
 
-  <nav class="navbar navbar-dark bg-dark px-3  " data-bs-target="#topOfPage">
+  <nav class="navbar  navbar-dark bg-dark px-3  " data-bs-target="#topOfPage">
     <div class=" col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
@@ -95,6 +95,50 @@
     <div class="col-12 d-flex justify-content-between g-2 d-md-none">
       <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
       <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
+    </div>
+
+
+     <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarText">
+      
+
+
+    <div class="col-md d-flex flex-row-reverse">
+      <!-- TODO make into component -->
+      <div class="pe-3  d-flex d-none d-sm-block">
+
+        <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
+          <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Profile</a>
+        </router-link>
+
+        <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
+          <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Account</a>
+        </router-link>
+
+        <Login />
+      </div>
+      <!-- TODO END -->
+    </div>
+
+    <div class="col-12 d-flex justify-content-between g-2 d-md-none">
+      <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
+      <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
+    </div>
+
+
+
+
     </div>
   </nav>
   <!-- <GroupForm/> -->
