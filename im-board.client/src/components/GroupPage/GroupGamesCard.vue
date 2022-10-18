@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-light pb-2 m-2 noborder bg-img" :style="{backgroundImage: `url(${boardGameList.imgUrl})`}">
+  <div class="bg-light pb-2 m-2 noborder bg-img rounded" :style="{backgroundImage: `url(${boardGameList.imgUrl})`}">
 
     <div class="row">
 
 
       <div class="col-md-2 ms-1">
-        <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="games in group"></i>
+        <!-- <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="games in group"></i> -->
       </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
