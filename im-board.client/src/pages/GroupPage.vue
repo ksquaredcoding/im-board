@@ -2,10 +2,7 @@
   <div v-if="!group" class="animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
-  <div
-    class="group-page animate__animated animate__fadeInRight container-fluid"
-    v-else
-  >
+  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <div class="col-md-3">
@@ -91,6 +88,7 @@ export default {
     async function getGroupChatsByGroupId() {
       try {
         await groupChatsService.getGroupChatsByGroupId(route.params.id);
+
       } catch (error) {
         Pop.error(error, "[getListsByGroupId]");
       }
