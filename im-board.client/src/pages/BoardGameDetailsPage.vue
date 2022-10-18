@@ -43,13 +43,16 @@
             </div>
           </div>
           <div class="col-md-6">
+
+            <div v-if="boardGame?.average_learning_complexity > 0">
             <div class="d-flex">
               <b>Average User Rating:</b>
               <p class="ms-2">
                 {{ boardGame?.average_user_rating.toFixed(2) }} <b>/</b> 5
               </p>
-            </div>
+            </div></div>
 
+            <div v-if="boardGame?.average_learning_complexity > 0">
             <div class="d-flex">
               <b>Average Complexity:</b>
               <p class="ms-2">
@@ -57,7 +60,8 @@
                 <b>/</b> 5
               </p>
             </div>
-
+            </div>
+            
             <div class="d-flex">
               <b>Ranking:</b>
               <p class="ms-2">#{{ boardGame?.rank }}</p>
