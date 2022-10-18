@@ -26,8 +26,12 @@
         </router-link>
       </div>
     </div>
-    <div class="row"></div>
+
+
+
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
+
+      <!-- <div>
       <div class="col-md bg-grey ms-2">
         <div class="row bg-c4">
           <div class="col d-flex justify-content-center pt-2">
@@ -66,10 +70,10 @@
           </span>
         </div>
       </div>
+</div> -->
 
-      <!-- NOTE group card start -->
-      <div class="col-md mx-3 bg-grey" v-if="account?.id == profile?.id">
-        <div class="row bg-c3">
+      <div class="col-md-3 mx-3 bg-grey" v-if="account?.id == profile?.id">
+        <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
             <div>
@@ -82,6 +86,34 @@
         <div class="cardholder">
           <div v-for="g in groups" :key="g.id">
             <GroupCard :group="g" />
+          </div>
+        </div>
+      </div>
+
+
+      <!-- NOTE group card start -->
+      <div class="col-md-8 mx-3 bg-grey" v-if="account?.id == profile?.id">
+        <div class=" bg-c3">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h2>Games</h2>
+            <div>
+              <i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i>
+            </div>
+            <b class="mt-2 ms-5 d-flex justify-content-between">
+              <p>Fav|</p>
+              <p>Wish</p>
+              <p>|Owned</p>
+            </b>
+          </div>
+        </div>
+
+        <div class="cardholder ">
+          <div class="row">
+            <div class="col-md-4 " v-for="g in bgLists" :key="g.id">
+
+              <GroupGamesCard :boardGameList="g" />
+            </div>
           </div>
         </div>
       </div>

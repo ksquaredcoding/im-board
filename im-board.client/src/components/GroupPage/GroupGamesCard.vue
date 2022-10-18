@@ -69,7 +69,7 @@ export default {
 }
 
 .bg-img {
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 
