@@ -9,7 +9,7 @@
       </div>
 
     <div class="col-md-12 ">
-          <div @click="searchPopular()" class=" hoverable hvr-sweep-to-right bg-c4 rounded-1 p-3">
+          <div  class=" hvr-sweep-to-right bg-c4 rounded-1 p-3">
             <h2 class="rowTitle p-1">Popular Board Games</h2>
           </div>
         </div>
@@ -28,7 +28,7 @@
  
       <!-- SECTION  -->
            <div class="col-md-12">
-          <div @click="searchPopular()" class="hoverable hvr-sweep-to-right rounded-1 p-3 bg-c4">
+          <div class=" hvr-sweep-to-right rounded-1 p-3 bg-c4">
             <h2 class="rowTitle p-1">Games On Discount</h2>
           </div>
         </div>
