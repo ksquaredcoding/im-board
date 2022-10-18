@@ -4,22 +4,36 @@
       <div class="col-md-8">
         <form>
           <div>
-            <label for="resume">Resume:</label>
+            <label for="game">what do you want to play?</label>
             <input
               type="url"
               class="form-control"
               v-model="editable.game"
-              name="resume"
+              placeholder="pick a game or enter game info"
+              name="game"
+            />
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-sm my-1 btn-primary">pick a game</button>
+
+            </div>
+          </div>
+          <div>
+            <label for="time">pick a time</label>
+            <input
+              type="datetime-local"
+              class="form-control"
+              v-model="editable.StartDate"
+              name="time"
             />
           </div>
           <div>
-            <label for="bio">Bio:</label>
+            <label for="bio">location:</label>
             <textarea
               type="text"
               class="form-control"
-              v-model="editable.bio"
+              v-model="editable.location"
               name="bio"
-              rows="4"
+              rows="1"
               style="resize: none"
             ></textarea>
           </div>
