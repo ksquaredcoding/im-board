@@ -17,30 +17,33 @@
 
       <div class="row">
 <div class="col-md-6">
-        <div class="d-flex">
-          <b>Ages:</b>
-          <p class="ms-2">{{boardGame.min_age}}+</p>
-        </div>
 
-        <div class="d-flex">
+<div class="d-flex">
           <b>Categories:</b>
           <p  class="ms-2">{{boardGame.categories.id}}</p>
         </div>
 
         <div class="d-flex">
-          <b>Primary Publisher:</b>
+          <b>Ages:</b>
+          <p class="ms-2">{{boardGame.min_age}}+</p>
+        </div>
+
+        
+
+        <div class="d-flex">
+          <b>Publisher:</b>
           <p class="ms-2">{{boardGame.primary_publisher}}</p>
         </div>
 </div>
 <div class="col-md-6">
         <div class="d-flex">
           <b>Average User Rating:</b>
-          <p class="ms-2">{{boardGame.average_user_rating.toFixed(2)}}</p>
+          <p class="ms-2">{{boardGame.average_user_rating.toFixed(2)}} <b>/</b> 5</p>
         </div>
 
         <div class="d-flex">
           <b>Average Complexity:</b>
-          <p class="ms-2">{{boardGame.average_learning_complexity.toFixed(2)}}</p>
+          <p class="ms-2">{{boardGame.average_learning_complexity.toFixed(2)}} <b>/</b> 5</p>
         </div>
 
         <div class="d-flex">
@@ -75,19 +78,6 @@
         <ActiveBoardGameImages :images="i" v-for="i in images" />
 
       </div>
-
-<!-- NOTE saving this in case i need it later - molly -->
-      <!-- <div class="px-5 mt-5 d-flex justify-content-center pt-3">
-        <div class="col-8 gradient-box p-5 my-5 rounded-4">
-          <div class="d-flex justify-content-center">
-            <h3 class="text-center bg-grey p-3 rounded-5">Description</h3>
-          </div>
-
-          <p class="p-3 bg-grey rounded-5 elevation-4 desctext">
-            {{ boardGame?.description_preview }}
-          </p>
-        </div>
-      </div> -->
 
 
       <div>
@@ -282,7 +272,7 @@ p {
 }
 
 .game-images {
-  height: 25vh;
+  height: 30vh;
 }
 
 .game-img {
