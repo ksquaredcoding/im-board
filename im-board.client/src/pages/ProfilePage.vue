@@ -103,6 +103,10 @@
           </div>
           <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
               <div class="ms-3">
+                <input type="button" id="all" name="All" value="all" @click="filterBg = ''">
+                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
+              </div>
+              <div class="ms-3">
                 <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'">
                 <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
               </div>
