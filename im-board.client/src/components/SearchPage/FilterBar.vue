@@ -43,10 +43,20 @@
         <div class="col-md-6">
 
           <div class="d-flex">
-            <div class="form-control">
+            <!-- <div class="form-control">
               <label for="playerCount">PlayerCount</label>
               <input type="number" min="1" max="10" name="playerCount" v-model="playerCount" />
-            </div>
+            </div> -->
+            <label for="playerCount">Player Count: </label>
+            <select class="form-select" aria-label="Select Number of Players" v-model="playerCount" id="playerCount">
+              <option selected>{{playerCount}}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6+</option>
+            </select>
             <div class="form-control">
               <label for="playerCount">PlayTime</label>
               <input type="number" min="5" max="60" name="playTime" v-model="playTime" />
@@ -69,7 +79,7 @@ import { atlasGamesService } from '../../services/AtlasGamesService.js';
 
 export default {
   setup() {
-    const playerCount = ref('');
+    const playerCount = ref('Any');
     const playTime = ref('');
 
     const filters1 = ref([]);
