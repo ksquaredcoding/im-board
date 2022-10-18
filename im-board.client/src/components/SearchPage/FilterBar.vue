@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-3">
         <div class="accordion pb-3" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-3">
         <!-- ------------------------------------- -->
         <div class="accordion" id="accordionFlushExample2">
           <div class="accordion-item">
@@ -88,9 +88,11 @@
         </div>
       </div>
 
-      <div class="col-md-2">
-        <form @submit.prevent="searchByCoolMethod()">
+      <div class="col-md-6">
+        <div>
+            <form @submit.prevent="searchByCoolMethod()" class="d-flex">
           <div class="form-control">
+            <label for="playerCount">PlayerCount</label>
             <input
               type="number"
               min="1"
@@ -98,9 +100,9 @@
               name="playerCount"
               v-model="playerCount"
             />
-            <label for="playerCount">PlayerCount/Max 10</label>
           </div>
           <div class="form-control">
+            <label for="playerCount">PlayTime</label>
             <input
               type="number"
               min="5"
@@ -108,7 +110,6 @@
               name="playTime"
               v-model="playTime"
             />
-            <label for="playerCount">PlayTime/Max is 60 min</label>
           </div>
 
           <div class="form-control d-flex">
@@ -126,6 +127,8 @@
           <div></div>
           <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
         </form>
+        </div>
+      
       </div>
     </div>
   </div>

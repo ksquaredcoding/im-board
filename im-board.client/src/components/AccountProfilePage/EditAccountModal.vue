@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" id="editBanner" tabindex="-1" aria-labelledby="bannerFormLabel" aria-hidden="true">
+  <div class="modal fade" id="editBanner" tabindex="-1" aria-labelledby="bannerFormLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
@@ -7,16 +7,16 @@
           <form @submit.prevent="handleSubmit" class="">
             <div class="row">
               <div class="col-md-8">
-                <div>
-                  <label for="profilebanner">Profile Banner Url:</label>
+                <div class="mt-3 inputBox">
+               <span>CoverImg</span>
                   <input type="url" v-model="editable.coverImg" required name="coverImg">
                 </div>
-                 <div>
-                  <label for="username">New Username:</label>
+                 <div class="mt-3 inputBox">
+                <span>UserName</span>
                   <input type="text" v-model="editable.name" required name="Username">
                 </div>
-                <div>
-                  <label for="profilepic">New Profile Picture</label>
+                <div class="mt-3 inputBox">
+                 <span>Profile Picture</span>
                   <input type="url" v-model="editable.picture" required name="Profile Picture">
                 </div>
               </div>
@@ -34,6 +34,8 @@
 
 
   </div>
+
+
 </template>
 
 

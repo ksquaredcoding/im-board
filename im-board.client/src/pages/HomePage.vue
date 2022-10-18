@@ -45,7 +45,7 @@
         </TransitionGroup>
       </div>
   
-        <div class="col-md-12 mt-2 ms-3 ">
+        <div class="col-md-12 mt-2  ">
            <div  class="hoverable hvr-sweep-to-left p-1 rounded-1 p-3 bg-c5">
            <h3 class="pt-2">
             <b>Articles from </b>

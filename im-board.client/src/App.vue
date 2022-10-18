@@ -27,7 +27,7 @@ import { computed } from 'vue';
 import { AppState } from './AppState';
 import Navbar from './components/Navbar.vue';
 import GroupForm from './components/GroupPage/GroupForm.vue';
-import EditBanner from './components/AccountProfilePage/EditBanner.vue';
+import EditBanner from './components/AccountProfilePage/EditAccountModal.vue';
 import EditName from './components/AccountProfilePage/EditName.vue';
 import EditPic from './components/AccountProfilePage/EditPic.vue';
 import Filters from './components/SearchPage/FiltersSideBar.vue';

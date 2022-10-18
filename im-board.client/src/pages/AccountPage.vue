@@ -10,18 +10,13 @@
  
     <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="">
-        <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
-            class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
-            title="Edit Account"></i></button>
+       
         <!-- <EditBanner /> -->
       </div>
       <div class="col-md-12 d-flex justify-content-center ">
 
         <img v-if="account?.picture" :src="account?.picture" alt="" class="eum rounded-circle mt-2 icon position-relative forcedImg">
-        <button class="btn editprofilepic position-absolute" data-bs-toggle="modal" data-bs-target="#editProfilePic"><i
-            class="mdi mdi-circle-edit-outline fs-3 py-1 rounded-circle editbtn ps-2 pe-2" alt=""
-            title="Edit Profile Picture"></i></button>
-        <!-- <EditPic /> -->
+       
       </div>
     </div>
 
@@ -35,14 +30,11 @@
           {{account.name}}
         </h1>
 
-        <button class="btn" data-bs-toggle="modal" data-bs-target="#editName"><i
-            class="mdi mdi-circle-edit-outline fs-3 py-1 rounded-circle editbtn ps-2 pe-2" alt=""
-            title="Edit Username"></i></button>
-        <!-- <EditName /> -->
-
       </div>
       <div class="col-md d-flex justify-content-end">
-
+ <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
+            class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
+            title="Edit Account"></i></button>
         <router-link :to="{name: 'Profile',params:{id: user.id }}">
           <button class="btn rounded-circle editbtn"><i class="ps-1 mdi mdi-account-check-outline fs-1" alt=""
               title="Save Changes"></i></button>
@@ -121,13 +113,13 @@
 import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import { accountService } from "../services/AccountService.js"
-import { groupsService } from "../services/GroupsService.js"
+
 import Pop from "../utils/Pop.js"
 import GroupCard from "../components/GroupPage/GroupCard.vue"
 import GroupForm from "../components/GroupPage/GroupForm.vue"
 import ListCard from "../components/AccountProfilePage/ListCard.vue"
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue"
-import EditBanner from "../components/AccountProfilePage/EditBanner.vue"
+import EditBanner from "../components/AccountProfilePage/EditAccountModal.vue"
 import { Account } from "../models/Account.js"
 import EditName from "../components/AccountProfilePage/EditName.vue"
 import EditPic from "../components/AccountProfilePage/EditPic.vue"

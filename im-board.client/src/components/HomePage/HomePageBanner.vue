@@ -55,7 +55,7 @@ export default {
 
 .card:hover {
   transition: all 0.5s ease;
-  transform: scale(1.01);
+
   filter: contrast(105%);
   filter: brightness(105%);
 }

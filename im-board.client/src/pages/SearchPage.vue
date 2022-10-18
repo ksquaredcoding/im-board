@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container animate__animated animate__fadeInRight"
+    class="container-fluid px-3 animate__animated animate__fadeInRight"
     v-if="boardGames"
   >
     <div class="row justify-content-end g-md-0">
@@ -14,16 +14,14 @@
           </p>
         </div>
       </div>
-      <div class="col-md-3"></div>
+   
       <div class="col-md-12 d-flex bg-dark rounded p-2 d-flex justify-content-center">
-        <!-- TODO MORE FILTERS HERE -->
+    
 
         <FilterBar />
       </div>
-      <div class="col-md-3">
-     
-      </div>
-      <div class="col-md-9">
+    
+      <div class="col-md-12">
         <div class="row mx-2">
           <TransitionGroup
             name="custom-classes"
