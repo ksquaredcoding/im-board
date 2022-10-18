@@ -26,7 +26,7 @@ import EditName from './components/AccountProfilePage/EditName.vue';
 import EditPic from './components/AccountProfilePage/EditPic.vue';
 import Filters from './components/SearchPage/FiltersSideBar.vue';
 import { useRoute } from 'vue-router';
-import Footer from './components/Footer.vue';
+import Footer from './components/FooterFooter.vue';
 import GoogleMapModal from './components/GoogleMapModal.vue';
 import FAQModal from './components/FAQModal.vue';
 

@@ -1,20 +1,29 @@
 <template>
-  <div class="container-fluid px-4 homepage animate__animated animate__fadeInLeft" v-if="boardGames">
+  <div
+    class="container-fluid px-4 homepage animate__animated animate__fadeInLeft"
+    v-if="boardGames"
+  >
     <div class="row justify-content-center">
       <div class="col-md-12 my-2">
         <HomePageBanner />
       </div>
 
-      <div class="col-md-12 ">
-        <div class=" hvr-sweep-to-right bg-c4 rounded-1 p-3">
+      <div class="col-md-12">
+        <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
           <h5 class="rowTitle p-1">Popular Board Games</h5>
         </div>
       </div>
-      <div class="row mx-2 my-4  horizontal-scrollable">
-
-        <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-          leaveActiveClass="animate__zoomOut animate__animated">
-          <div class="col-md-2 mt-3 mb-2 " v-for="p in popularBoardGames" :key="p.id">
+      <div class="row mx-2 my-4 horizontal-scrollable">
+        <TransitionGroup
+          name="custom-classes"
+          enterActiveClass="animate__zoomIn animate__animated"
+          leaveActiveClass="animate__zoomOut animate__animated"
+        >
+          <div
+            class="col-md-2 mt-3 mb-2"
+            v-for="p in popularBoardGames"
+            :key="p.id"
+          >
             <BoardGameCard :boardGame="p" />
           </div>
         </TransitionGroup>
@@ -22,53 +31,65 @@
 
       <!-- SECTION  -->
       <div class="col-md-12">
-        <div class=" hvr-sweep-to-right rounded-1 p-3 bg-c4">
+        <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4">
           <h5 class="rowTitle p-1">Games On Discount</h5>
         </div>
       </div>
       <div class="row mx-2 my-5 horizontal-scrollable">
-
-        <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-          leaveActiveClass="animate__zoomOut animate__animated">
-          <div class="col-md-2 mt-5 mb-2" v-for="d in discountBoardGames" :key="d.id">
+        <TransitionGroup
+          name="custom-classes"
+          enterActiveClass="animate__zoomIn animate__animated"
+          leaveActiveClass="animate__zoomOut animate__animated"
+        >
+          <div
+            class="col-md-2 mt-5 mb-2"
+            v-for="d in discountBoardGames"
+            :key="d.id"
+          >
             <BoardGameCard :boardGame="d" />
           </div>
         </TransitionGroup>
       </div>
 
-      <div class="col-md-12 mt-2  ">
-        <div class="hoverable hvr-sweep-to-left p-1 rounded-1 p-3 bg-c5">
+<RowSeperate/>
+
+
+
+
+
+      <div class="col-md-12 mt-2">
+        <div class="hoverable hvr-sweep-to-left  rounded-1 p-2 bg-c5">
           <h5 class="pt-2">
             <b>Articles from </b>
-            <img src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png" alt="" height="30" />
+            <img
+              src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
+              alt=""
+              height="30"
+            />
             <b class="text-primary lighten-10"> Board Game Atlas </b>
           </h5>
         </div>
-
       </div>
 
-      <div class="row horizontal-scrollable ">
+      <div class="row horizontal-scrollable">
         <div class="col-md-3 mt-5 mb-2" v-for="f in forumPosts" :key="f.id">
           <ForumPosts :forumPost="f" />
         </div>
-
       </div>
     </div>
 
     <div class="col-md-12 mt-4">
-      <div class=" hvr-sweep-to-left rounded-1 p-3 bg-c5">
+      <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
         <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
       </div>
     </div>
     <div class="row horizontal-scrollable mb-4">
-
       <Articles />
     </div>
 
     <!-- <button @click="getMoreBoardGames()" class="btn btn-danger">
         Load More
       </button> -->
-
   </div>
 </template>
 
@@ -82,9 +103,11 @@ import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
 import { AppState } from '../AppState.js';
 
 import ForumPosts from '../components/HomePage/AtlasGamesForumPosts.vue';
-import Articles from "../components/HomePage/Articles.vue";
-import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
-import { router } from "../router.js";
+import Articles from '../components/HomePage/Articles.vue';
+import HomePageBanner from '../components/HomePage/HomePageBanner.vue';
+import { router } from '../router.js';
+import RowSeperator from "../components/HomePage/RowSeperate.vue";
+import RowSeperate from "../components/HomePage/RowSeperate.vue";
 
 export default {
   setup() {
@@ -97,14 +120,13 @@ export default {
       }
     }
 
-     async function getBoardGamesByPopularity() {
+    async function getBoardGamesByPopularity() {
       try {
         await atlasGamesService.getBoardGamesByPopularity();
       } catch (error) {
         Pop.error(error, '[getBoardGames]');
       }
     }
-
 
     async function getForumPosts() {
       try {
@@ -115,8 +137,8 @@ export default {
     }
 
     onMounted(() => {
-getBoardGamesByPopularity()
- getBoardGamesByDiscount()
+      getBoardGamesByPopularity();
+      getBoardGamesByDiscount();
       // getBoardGamesByPrice()
       getForumPosts();
       // AppState.skip = 0;
@@ -132,10 +154,12 @@ getBoardGamesByPopularity()
 
     return {
       editable,
-      popularBoardGames: computed(()=> AppState.popularBoardGames),
+      popularBoardGames: computed(() => AppState.popularBoardGames),
       boardGames: computed(() => AppState.boardgames),
-      forumPosts: computed(() => AppState.forumPosts),
-discountBoardGames: computed(()=> AppState.discountBoardGames),
+      forumPosts: computed(() =>
+        AppState.forumPosts.sort(() => Math.random() - 0.5)
+      ),
+      discountBoardGames: computed(() => AppState.discountBoardGames),
       async getMoreBoardGames() {
         try {
           await atlasGamesService.getBoardGamesOnScroll();
@@ -152,20 +176,19 @@ discountBoardGames: computed(()=> AppState.discountBoardGames),
       },
 
       async searchPopular() {
-       router.push({name:"Search"})
+        router.push({ name: 'Search' });
       },
-
-      
     };
   },
   components: {
     Filters,
     Searchbar,
     BoardGameCard,
-  
     ForumPosts,
     Articles,
-    HomePageBanner
+    HomePageBanner,
+    RowSeperator,
+    RowSeperate
 },
 };
 </script>

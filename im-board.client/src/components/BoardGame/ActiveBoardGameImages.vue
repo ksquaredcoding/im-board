@@ -4,6 +4,8 @@
     class="forcedImg rounded elevation-2">
 
 </template>
+
+
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";

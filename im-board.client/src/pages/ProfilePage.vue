@@ -4,11 +4,19 @@
   </div>
 
   <div class="account Page container-fluid">
-    <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${profile?.coverImg})` }">
+    <div
+      class="row bg-c5 banner eum-ipsum"
+      :style="{ backgroundImage: `url(${profile?.coverImg})` }"
+    >
       <div class="col-md-12 d-flex justify-content-center">
-        <img :src="profile?.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon forcedImg"
-          v-if="profile?.picture" />
-
+        <img
+          :src="profile?.picture"
+          alt=""
+          height="150"
+          width="150"
+          class="eum rounded-circle mt-2 icon forcedImg"
+          v-if="profile?.picture"
+        />
       </div>
     </div>
 
@@ -19,25 +27,32 @@
         {{ profile?.name }}
       </div>
       <div class="col-md d-flex justify-content-end">
-        <router-link :to="{ name: 'Account' }" v-if="account?.id == profile?.id">
+        <router-link
+          :to="{ name: 'Account' }"
+          v-if="account?.id == profile?.id"
+        >
           <button class="btn rounded-circle editbtn">
-            <i class="ps-1 mdi mdi-account-cog-outline fs-1" alt="" title="Edit Profile"></i>
+            <i
+              class="ps-1 mdi mdi-account-cog-outline fs-1"
+              alt=""
+              title="Edit Profile"
+            ></i>
           </button>
         </router-link>
       </div>
     </div>
 
-
-
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-
       <div class="col-md-3 ms-3 bg-grey" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
             <div>
-              <i class="mdi mdi-information-outline fs-5" alt=""
-                title="Groups only visisble to you, not other users."></i>
+              <i
+                class="mdi mdi-information-outline fs-5"
+                alt=""
+                title="Groups only visisble to you, not other users."
+              ></i>
             </div>
           </div>
         </div>
@@ -49,78 +64,95 @@
         </div>
       </div>
 
-
       <!-- NOTE games card start -->
       <div class="col-md mx-3 bg-grey">
         <!-- NOTE Problem starts here.... -->
         <div class="container-fluid">
-          <div class=" bg-c3">
+          <div class="bg-c3">
             <div class="col-md d-flex justify-content-center pt-2">
               <h2>Games</h2>
-
             </div>
           </div>
-          <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
-              <div class="ms-3">
+          <div class="row justify-content-center">
+            <b class="mb-2 mt-2 d-flex justify-content-center">
+              <!-- <div class="ms-3">
                 <input type="button" id="all" name="All" value="all" @click="filterBg = ''">
+               
+              </div> -->
+              <div class="ms-3">
+                <input
+                  type="button"
+                  id="Fave"
+                  name="Fave"
+                  value="fave"
+                  @click="filterBg = 'favorite'"
+                />
                 <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
               </div>
               <div class="ms-3">
-                <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'">
-                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
-              </div>
-              <div class="ms-3">
-                <input type="button" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'">
+                <input
+                  type="button"
+                  id="Wishlist"
+                  name="Wishlist"
+                  value="wishlist"
+                  @click="filterBg = 'wish'"
+                />
                 <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
               </div>
               <div class="ms-3">
-                <input type="button" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'">
+                <input
+                  type="button"
+                  id="Owned"
+                  name="Owned"
+                  value="owned"
+                  @click="filterBg = 'owned'"
+                />
                 <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
               </div>
+            </b>
+          </div>
 
-            </b></div>
-
-          <div class="cardholder ">
+          <div class="cardholder">
             <div class="row">
-              <div class="col-md-4 " v-for="g in bgLists" :key="g.id">
+              <div class="col-md-4" v-for="g in bgLists" :key="g.id">
                 <GroupGamesCard :boardGameList="g" />
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import { computed, onMounted, ref } from "vue";
-import { AppState } from "../AppState";
-import Pop from "../utils/Pop.js";
-import GroupCard from "../components/GroupPage/GroupCard.vue";
-import GroupForm from "../components/GroupPage/GroupForm.vue";
-import ListCard from "../components/AccountProfilePage/ListCard.vue";
-import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
-import { useRoute } from "vue-router";
-import { profilesService } from "../services/ProfilesService.js";
+import { computed, onMounted, ref } from 'vue';
+import { AppState } from '../AppState';
+import Pop from '../utils/Pop.js';
+import GroupCard from '../components/GroupPage/GroupCard.vue';
+import GroupForm from '../components/GroupPage/GroupForm.vue';
+import ListCard from '../components/AccountProfilePage/ListCard.vue';
+import GroupGamesCard from '../components/GroupPage/GroupGamesCard.vue';
+import { useRoute } from 'vue-router';
+import { profilesService } from '../services/ProfilesService.js';
 export default {
   setup() {
-    const filterBg = ref('')
+    const filterBg = ref('');
     const route = useRoute();
-    const editable = ref('')
+    const editable = ref('');
     async function getProfileGroups() {
       try {
         await profilesService.getProfileGroups(route.params.id);
       } catch (error) {
-        Pop.error(error, "[getMyGroups]");
+        Pop.error(error, '[getMyGroups]');
       }
     }
     async function getProfileLists() {
       try {
         await profilesService.getProfileLists(route.params.id);
+   
       } catch (error) {
-        console.error("[get my lists]", error);
+        console.error('[get my lists]', error);
         Pop.error(error);
       }
     }
@@ -128,7 +160,7 @@ export default {
       try {
         await profilesService.getUserProfile(route.params.id);
       } catch (error) {
-        Pop.error(error, "[getProfile]");
+        Pop.error(error, '[getProfile]');
       }
     }
 
@@ -145,17 +177,21 @@ export default {
       groups: computed(() => AppState.groupMemberShips),
       // bgLists: computed(() => AppState.bgLists),
       wishList: computed(() =>
-        AppState.bgLists.filter((w) => w.listName == "wish")
+        AppState.bgLists.filter((w) => w.listName == 'wish')
       ),
       favList: computed(() =>
-        AppState.bgLists.filter((f) => f.listName == "favorite")
+        AppState.bgLists.filter((f) => f.listName == 'favorite')
       ),
       ownedList: computed(() =>
-        AppState.bgLists.filter((o) => o.listName == "owned")
+        AppState.bgLists.filter((o) => o.listName == 'owned')
       ),
       profile: computed(() => AppState.activeProfile),
-      bgLists: computed(() => AppState.bgLists.filter(b => filterBg.value ? b.listName == filterBg.value : true)),
 
+      bgLists: computed(() =>
+        AppState.bgLists.filter((b) =>
+          filterBg.value ? b.listName == filterBg.value : true
+        )
+      ),
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard },
@@ -191,7 +227,7 @@ export default {
 
 .username {
   font-size: 3rem;
-  font-family: "Baloo 2", cursive;
+  font-family: 'Baloo 2', cursive;
   font-weight: 600;
 }
 
@@ -214,8 +250,7 @@ export default {
 }
 </style>
 
-
-      <!-- <div>
+<!-- <div>
       <div class="col-md bg-grey ms-2">
         <div class="row bg-c4">
           <div class="col d-flex justify-content-center pt-2">

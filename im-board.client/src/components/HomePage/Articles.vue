@@ -27,7 +27,7 @@ export default {
     return {
       route,
 
-      articles: computed(() => AppState.articles.sort(()=> Math.random() - 0.5),)
+      articles: computed(() => AppState.articles.sort(()=> Math.random() - 0.5))
 
     };
   },
@@ -56,7 +56,7 @@ export default {
 .forcedImg {
   height: 170px;
   width: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .card {
