@@ -2,7 +2,7 @@
   <div class="chatContainer container animate__animated animate__fadeInRigh ">
     <div class="row">
       <div class="col-12">
-        <div class="d-flex gap-1 justify-content-end " v-if="chat?.creatorId == account?.id">
+        <div class="d-flex gap-1 justify-content-end pt-2 pb-2" v-if="chat?.creatorId == account?.id">
 
           <span class="mt-2 time">{{chat.createdAt}}</span>
           <div class="bg-primary rounded-3 p-2" :class="!account ? 'bg-success' : 'bg-c1 '">

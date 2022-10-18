@@ -1,5 +1,5 @@
 <template v-if="group">
-  <div class="col-md-11 banner elevation-3" :style="{backgroundImage: `url(${group.coverImg})`}">
+  <div class="col-md-12 rounded-0 banner elevation-3" :style="{backgroundImage: `url(${group.coverImg})`}">
     <div class="logicButtons d-flex">
       <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group

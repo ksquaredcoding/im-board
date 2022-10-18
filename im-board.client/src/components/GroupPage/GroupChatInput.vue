@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-dark rounded">
+  <div class="bg-dark rounded ms-2">
     <form @submit.prevent="handleSubmit">
       <div class="bg-grey p-2"></div>
       <div class="row">
