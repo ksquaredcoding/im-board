@@ -157,9 +157,9 @@ export default {
 
       async searchByCoolMethod() {
         try {
-          let search = `min_players=${playerCount.value}`;
-          let search2 = `min_playtime=${playTime.value}`;
-          let search3 = `lt_year_published=${lt_year_published.value}`;
+          let search = `gt_max_players=${playerCount.value-1}`;
+          let search2 = `lt_max_playtime=${playTime.value+1}`;
+          let search3 = `gt_year_published=${lt_year_published.value-1}`;
           AppState.queryFilter = [
             ...AppState.queryFilter,
             search,
