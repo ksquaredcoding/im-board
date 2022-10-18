@@ -8,16 +8,15 @@
 @import './secondary.scss';
 
 
-:root{
-  --animate-duration : 400ms
-
+:root {
+  --animate-duration: 400ms
 }
 
-body{
+body {
   overscroll-behavior: none;
 }
 
-*{
+* {
   font-family: 'Roboto Condensed', sans-serif;
   letter-spacing: .05em;
 }
@@ -37,25 +36,29 @@ a {
   text-decoration: none;
 }
 
-.gradient-box{
+input:placeholder-shown {
+  text-overflow: ellipsis;
+}
+
+.gradient-box {
   background: #79bd9a linear-gradient(22deg, #cff09e, #a8dba8, #79bd9a, #3b8686, #0B486B) fixed;
 }
 
-.gradient-box2{
-  background: #ffbb00 linear-gradient(22deg,  #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006,) fixed;
+.gradient-box2 {
+  background: #ffbb00 linear-gradient(22deg, #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006, ) fixed;
 }
 
-.hover:hover{
-      transform: scale(1.09);
-      filter: brightness(110%);
-      filter: contrast(110%);
-      transition: 0.75s ease;
-    
+.hover:hover {
+  transform: scale(1.09);
+  filter: brightness(110%);
+  filter: contrast(110%);
+  transition: 0.75s ease;
+
 }
+
 //------------ BUTTON 50 -----------------
 
-.button-50 
-{
+.button-50 {
   background: linear-gradient(to bottom right, #cff09e, #3b8686);
   border: 0;
   border-radius: 12px;
@@ -78,20 +81,20 @@ a {
   touch-action: manipulation;
   white-space: nowrap;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-  
+
 }
 
-.button-50:hover{
-  color: #0B486B!important;
-   transform: scale(1.09);
+.button-50:hover {
+  color: #0B486B !important;
+  transform: scale(1.09);
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 1.75s ease;
 }
+
 //------------ BUTTON 51 -----------------
 
-.button-51 
-{
+.button-51 {
   background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
   border: 0;
   border-radius: 12px;
@@ -115,9 +118,10 @@ a {
   white-space: nowrap;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
-.button-51:hover{
-  color: #2c2c2f!important;
-   transform: scale(1.09);
+
+.button-51:hover {
+  color: #2c2c2f !important;
+  transform: scale(1.09);
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 0.75s ease;
@@ -125,8 +129,7 @@ a {
 
 //------------ BUTTON 52 -----------------
 
-.button-52 
-{
+.button-52 {
   background: linear-gradient(to bottom right, #a8dba8, #0B486B);
   border: 0;
   border-radius: 12px;
@@ -143,16 +146,17 @@ a {
   // padding: 0 1rem;
   text-align: center;
   text-decoration: none;
- transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
-.button-52:hover{
-  color: #2c2c2f!important;
-   transform: scale(1.09);
+
+.button-52:hover {
+  color: #2c2c2f !important;
+  transform: scale(1.09);
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 0.75s ease;
@@ -176,7 +180,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   transition: opacity 0.75s, visibility 0.75s;
 }
 
@@ -199,82 +203,85 @@ a {
   from {
     transform: rotate(0turn);
   }
+
   to {
     transform: rotate(1turn);
   }
 }
 
 
-.hoverable{
+.hoverable {
   cursor: pointer;
 }
 
 
-.inset-shadow{
-    box-shadow: inset 0 2px 8px 0 black
+.inset-shadow {
+  box-shadow: inset 0 2px 8px 0 black
 }
 
 
 
-.box-shadow{
-box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .retro-shadow {
-    color: #2c2c2c;
-    background-color: #d5d5d5;
-    letter-spacing: .05em;
-    text-shadow: 
-      4px 4px 0px #d5d5d5, 
-      7px 7px 0px rgba(0, 0, 0, 0.2);
-  }
+  color: #2c2c2c;
+  background-color: #d5d5d5;
+  letter-spacing: .05em;
+  text-shadow:
+    4px 4px 0px #d5d5d5,
+    7px 7px 0px rgba(0, 0, 0, 0.2);
+}
 
- .profile-img {
-transition: 0.75s ease;
+.profile-img {
+  transition: 0.75s ease;
 
- }
- .profile-img:hover{
+}
+
+.profile-img:hover {
   transform: scale(1.09);
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 0.75s ease;
- } 
+}
 
-.game-card{
+.game-card {
   transition: 0.75s ease;
 }
-.game-card:hover{
- transform: scale(1.09);
+
+.game-card:hover {
+  transform: scale(1.09);
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 0.75s ease;
-} 
+}
 
-.text-shadow3d{
- text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 4px 0 #b9b9b9,
-               0 5px 0 #aaa,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
+.text-shadow3d {
+  text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0, 0, 0, .1),
+    0 0 5px rgba(0, 0, 0, .1),
+    0 1px 3px rgba(0, 0, 0, .3),
+    0 3px 5px rgba(0, 0, 0, .2),
+    0 5px 10px rgba(0, 0, 0, .25),
+    0 10px 10px rgba(0, 0, 0, .2),
+    0 20px 20px rgba(0, 0, 0, .15);
 }
 
 
-.text-shadow{
+.text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
   font-weight: bold;
   letter-spacing: 0.08rem
-  
-  /* Second Color  in text-shadow is the blur */
+    /* Second Color  in text-shadow is the blur */
 }
-.text-shadow2{
+
+.text-shadow2 {
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.459);
 }
 
@@ -288,19 +295,20 @@ transition: 0.75s ease;
 }
 
 
-.scroll-Snap-Container{
+.scroll-Snap-Container {
   display: flex;
   overflow: auto;
   scroll-snap-type: x mandatory;
 }
-section{
+
+section {
   height: 95vh;
   min-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
 
-scroll-snap-align:  start;
+  scroll-snap-align: start;
 }
 
 // ---------------------!SECTION---------------------------
@@ -312,6 +320,7 @@ select {
     &:valid {
       border: 1px solid $success;
     }
+
     &:invalid {
       border: 1px solid $danger;
     }
@@ -322,11 +331,3 @@ form:invalid button[type="submit"] {
   filter: grayscale(1);
   pointer-events: none;
 }
-
-
-
-
-
-
-
-
