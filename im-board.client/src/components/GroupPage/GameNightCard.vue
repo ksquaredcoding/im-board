@@ -1,8 +1,8 @@
 <template>
   <div class="pb-2 pt-1">
-    <div class="GameNightCard bg-dark card my-2">
+    <div class="GameNightCard bg-dark card my-2 gameNightBg elevation-3">
       <div class="row justify-content-center">
-        <div class="col-md-8 bg-dark rounded bg-c4 m-2">
+        <div class="col-md-8 rounded bg-c4 m-2 upcomingGameNight ">
           <div class="d-flex justify-content-center mt-2">
             <h2>Upcoming Gamenight</h2>
           </div>
@@ -50,11 +50,11 @@
           </div>
         </div>
         <div class="col-md-6 p-0 ps-3">
-          <div class="card m-2 noborder">
-            <div class="bg-c4 text-center p-1">
+          <div class="card m-2 noborder ">
+            <div class="bg-c4 text-center p-1 rounded-top">
               <h5 class="mt-1">Attending:</h5>
             </div>
-            <div class="p-2 bg-c2 text-center" v-if="gamenight?.groupMemberIds">
+            <div class="p-2 bg-c2 text-center rounded-bottom" v-if="gamenight?.groupMemberIds">
              
 
 
@@ -91,9 +91,9 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 p-0 pe-3">
-          <div class="card m-2 noborder">
-            <div class="bg-c4 text-center p-1">
+        <div class="col-md-6 p-0 pe-3 ">
+          <div class="card m-2 noborder elevation-4 ">
+            <div class="bg-c4 text-center p-1 rounded-top">
               <h5 class="mt-1">Playing:</h5>
             </div>
             <div class="gameImg">
@@ -167,6 +167,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.gameNightBg{
+background-image: url(https://img.freepik.com/free-vector/board-game-astronauts-in-space-boardgame-strategy-kid-cartoon-template_33099-186.jpg);
+background-size: cover;
+background-attachment: fixed;
+background-position: center
+}
+
+
+
+
+
 .bgc3 {
   background-color: rgba(0, 255, 157, 0.364);
 }
