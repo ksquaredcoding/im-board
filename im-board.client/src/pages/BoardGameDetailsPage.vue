@@ -1,70 +1,83 @@
 <template>
   <div class="container" v-if="boardGame">
+    <!-- SECTION start game info -->
     <div class="row">
       <div
         class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
         <div class="font">{{ boardGame.name }}</div>
+        <h><b class="fs-4">{{ boardGame.year_published }} · <i class="bi bi-people-fill fs-4"></i> {{ boardGame.players }} · <i class="bi bi-clock-fill fs-5"></i> {{ boardGame.playtime }} mins</b></h>
       </div>
-      <!-- <div class="col-6 game-img" :style="{backgroundImage: `url(${boardGame.coverImg})`}">
-      </div> -->
+
+      
       <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
         <img :src="boardGame.large" alt="" class="img-fluid rounded" />
       </div>
+
       <div class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3">
-        <div class="d-flex">
-          <i class="bi bi-person-fill"></i>
-          <p class="ms-3">{{ boardGame.players }}</p>
-        </div>
-        <div class="d-flex">
-          <i class="bi bi-clock-fill"></i>
-          <p class="ms-3">{{ boardGame.playtime }} mins</p>
-        </div>
+
+      <div class="row">
+<div class="col-md-6">
         <div class="d-flex">
           <b>Ages:</b>
-          <p class="ms-3">{{ boardGame.min_age }}+</p>
+          <p class="ms-2">{{boardGame.min_age}}+</p>
         </div>
+
         <div class="d-flex">
           <b>Categories:</b>
-          <p>{{ boardGame.categories.id}}</p>
+          <p  class="ms-2">{{boardGame.categories.id}}</p>
         </div>
+
         <div class="d-flex">
           <b>Primary Publisher:</b>
-          <p class="ms-3">{{ boardGame.primary_publisher }}</p>
+          <p class="ms-2">{{boardGame.primary_publisher}}</p>
         </div>
+</div>
+<div class="col-md-6">
         <div class="d-flex">
-          <b>Year Published:</b>
-          <p class="ms-3">{{ boardGame.year_published }}</p>
-        </div>
-        <div class="text-center mt-1">
           <b>Average User Rating:</b>
-          <p class="">{{ boardGame.average_user_rating.toFixed(2) }}</p>
+          <p class="ms-2">{{boardGame.average_user_rating.toFixed(2)}}</p>
         </div>
-        <div class="text-center mt-1">
-          <b>Average Learning Complexity:</b>
-          <p>{{ boardGame.average_learning_complexity.toFixed(2) }}</p>
+
+        <div class="d-flex">
+          <b>Average Complexity:</b>
+          <p class="ms-2">{{boardGame.average_learning_complexity.toFixed(2)}}</p>
         </div>
-        <div class="text-center mt-1">
+
+        <div class="d-flex">
           <b>Ranking:</b>
-          <p>{{ boardGame.rank }}</p>
+          <p class="ms-2">#{{boardGame.rank }}</p>
         </div>
-        <div class="text-center mt-3">
+      </div>
+</div>
+
+<div class="col-md">
+    <div class="p-4 rounded-5  desctext overflow-auto">
+    {{ boardGame?.description_preview }}
+    </div>
+</div>
+        <div class="text-center">
           <b>Add to list</b>
         </div>
         <div class="d-flex justify-content-center">
           <div class="col-3 text-center">
             <AddToList />
           </div>
+
+          
         </div>
-        <!-- <div>
-          <p class="p-3">{{boardGame.description_preview}}</p>
-        </div> -->
       </div>
+</div>
+<!-- SECTION end -->
+
+      
       <div class="row game-images my-3 ms-1 horizontal-scroll">
 
         <ActiveBoardGameImages :images="i" v-for="i in images" />
 
       </div>
-      <div class="px-5 mt-5 d-flex justify-content-center pt-3">
+
+<!-- NOTE saving this in case i need it later - molly -->
+      <!-- <div class="px-5 mt-5 d-flex justify-content-center pt-3">
         <div class="col-8 gradient-box p-5 my-5 rounded-4">
           <div class="d-flex justify-content-center">
             <h3 class="text-center bg-grey p-3 rounded-5">Description</h3>
@@ -74,10 +87,10 @@
             {{ boardGame?.description_preview }}
           </p>
         </div>
-      </div>
+      </div> -->
+
 
       <div>
-
         <div v-if="reviews.length > 0">
           <h1>Reviews:</h1>
           <div class="row review-row">
@@ -114,7 +127,7 @@
 
 
       </div>
-    </div>
+    
   </div>
 
   <!-- MODAL -->
@@ -316,6 +329,8 @@ p {
 }
 
 .desctext {
-  letter-spacing: .05em;
+  font-size: larger;
+  // letter-spacing: .06em;
+  max-height: 40vh;
 }
 </style>
