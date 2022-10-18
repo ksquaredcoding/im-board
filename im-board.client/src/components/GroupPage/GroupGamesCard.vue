@@ -5,11 +5,12 @@
     <div class="row">
 
 
+
       <div class="col-md-2 ms-1 text-danger">
         <!-- <i class="mdi mdi-account-group bg-dark fs-2 rounded-5 ps-2 pe-2" alt="search" title="games in group"></i> -->
-        <i class="mdi mdi-star" v-if="boardGameList.listName == 'favorite' "></i>
+        <!-- <i class="mdi mdi-star" v-if="boardGameList.listName == 'favorite' "></i>
         <i class="mdi mdi-square" v-else-if="boardGameList.listName == 'owned'"></i>
-        <i class="mdi mdi-circle" v-else></i>
+        <i class="mdi mdi-circle" v-else></i> -->
       </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
@@ -21,6 +22,10 @@
             <b class="namefont">{{boardGameList.boardGameName}}</b>
           </router-link>
         </div>
+      </div>
+      <div class="col-md-2" v-if="route.name == 'Account'">
+        <i class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable" title="remove game from list"
+          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
       </div>
 
       <!-- <div class="d-flex justify-content-center">
@@ -43,9 +48,12 @@
 
 <script>
 import { computed } from "@vue/reactivity";
+import { useRoute } from "vue-router";
 import { AppState } from "../../AppState.js";
 import { BGList } from "../../models/BoardGame/BGList.js";
 import { GroupMembers } from "../../models/GroupsAndGameNight/GroupMember.js";
+import { listsService } from "../../services/ListsService.js";
+import Pop from "../../utils/Pop.js";
 
 export default {
   props: {
@@ -60,8 +68,22 @@ export default {
     // }
   },
   setup(props) {
+    const route = useRoute()
     return {
-      member: computed(() => AppState.groupMembers)
+      route,
+      member: computed(() => AppState.groupMembers),
+      account: computed(() => AppState.account),
+      async removeGameFromList() {
+        try {
+          const yes = await Pop.confirm('remove from this list?')
+          if (!yes) { return }
+          // console.log(props.boardGameList.gameId, props.boardGameList.listId);
+          await listsService.removeGameFromList(props.boardGameList.listId)
+        } catch (error) {
+          console.error('[RemoveGame]', error)
+          Pop.error(error)
+        }
+      }
     }
   }
 }

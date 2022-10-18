@@ -11,6 +11,7 @@ class ProfilesService {
     AppState.bgLists = res.data.map((b) => new BGList(b));
     // console.log(AppState.bgLists);
     // console.log(AppState.bgLists.account.name);
+    AppState.bgLists = AppState.bgLists.filter(l => l.listName == "favorite")
   }
 
   // async getListsByType(type = '', id) {
