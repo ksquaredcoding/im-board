@@ -24,7 +24,7 @@ export class BoardGame {
     this.players = data.players;
     this.price = data.price;
     //Had to comment out for when using 4 main sorting buttons, didn't like this one idk
-    this.primary_publisher = data.primary_publisher.name || null ;
+    this.primary_publisher = data.primary_publisher.name || '';
     this.year_published = data.year_published;
     this.average_user_rating = data.average_user_rating;
     this.average_learning_complexity = data.average_learning_complexity;
