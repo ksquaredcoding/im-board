@@ -8,7 +8,7 @@
               aria-expanded="false">
               Categories
             </button>
-            <div class="row scrollable-y p-2 dropdown-menu bg-dark">
+            <div class="row scrollableY p-2 dropdown-menu bg-dark">
               <div class="col-md-12">
                 <div class="dropdown-item inputBox d-flex text-light" v-for="c in categories" :key="c.id"
                   id="CategoryDiv">
@@ -27,7 +27,7 @@
                 aria-expanded="false">
                 Mechanics
               </button>
-              <div class="row scrollable-y p-2 dropdown-menu bg-dark">
+              <div class="row scrollableY p-2 dropdown-menu bg-dark">
                 <div class="col-md-12">
                   <div class="dropdown-item inputBox d-flex text-light" v-for="m in mechanics" :key="m.id">
                     <input class="checkBox" type="checkbox" :value="m.id" v-model="filters2" />
@@ -43,10 +43,20 @@
         <div class="col-md-6">
 
           <div class="d-flex">
-            <div class="form-control">
+            <!-- <div class="form-control">
               <label for="playerCount">PlayerCount</label>
               <input type="number" min="1" max="10" name="playerCount" v-model="playerCount" />
-            </div>
+            </div> -->
+            <label for="playerCount">Player Count: </label>
+            <select class="form-select" aria-label="Select Number of Players" v-model="playerCount" id="playerCount">
+              <option selected>{{playerCount}}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6+</option>
+            </select>
             <div class="form-control">
               <label for="playerCount">PlayTime</label>
               <input type="number" min="5" max="60" name="playTime" v-model="playTime" />
@@ -69,7 +79,7 @@ import { atlasGamesService } from '../../services/AtlasGamesService.js';
 
 export default {
   setup() {
-    const playerCount = ref('');
+    const playerCount = ref('Any');
     const playTime = ref('');
 
     const filters1 = ref([]);
@@ -103,7 +113,9 @@ export default {
           let finalSearch = AppState.queryFilter.join('&');
           console.log(AppState.queryFilter.join('&'));
           await atlasGamesService.getBoardGames(finalSearch);
-
+if (AppState.boardgames <=0) {
+  Pop.toast('Refine your search please')
+} else
           AppState.queryFilter = [];
           console.log(AppState.queryFilter);
         } catch (error) {
@@ -151,6 +163,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.scrollableY{
+  height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
