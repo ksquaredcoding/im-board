@@ -2,21 +2,22 @@
   <!-- TEST PUTTING COMMENT TUNG -->
   <div class="animate__animated animate__fadeOut" v-if="!account">
     <div class="loader"></div>
-   
+
   </div>
 
 
   <div class="account Page container-fluid " v-else>
- 
+
     <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="">
-       
+
         <!-- <EditBanner /> -->
       </div>
       <div class="col-md-12 d-flex justify-content-center ">
 
-        <img v-if="account?.picture" :src="account?.picture" alt="" class="eum rounded-circle mt-2 icon position-relative forcedImg">
-       
+        <img v-if="account?.picture" :src="account?.picture" alt=""
+          class="eum rounded-circle mt-2 icon position-relative forcedImg">
+
       </div>
     </div>
 
@@ -32,7 +33,7 @@
 
       </div>
       <div class="col-md d-flex justify-content-end">
- <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
             class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
             title="Edit Account"></i></button>
         <router-link :to="{name: 'Profile',params:{id: user.id }}">
@@ -44,73 +45,70 @@
       </div>
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
-      <!-- animate__animated animate__fadeInUp -->
-      <div class="col-md bg-grey ms-md-2">
-        <div class="row bg-c4">
-          <div class="col d-flex justify-content-center pt-2">
-            <h1>Favorites</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in favList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
 
-      <div class="col-md bg-grey mx-md-3">
-        <div class="row bg-c4">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h1>Wishlist</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in wishList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-
-      <div class="col-md bg-grey">
-        <div class="row bg-c4">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h1>Games I own</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in ownedList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-
-      <!-- NOTE group card start -->
-      <div class="col-md mx-3 bg-grey">
-        <div class="row bg-c3">
+      <div class="col-md-3 ms-3 bg-grey">
+        <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
-            <div><i class="mdi mdi-information-outline fs-5" alt=""
-                title="Groups only visible to you, not other users."></i></div>
+            <div>
+              <i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i>
+            </div>
           </div>
         </div>
-        <div class="cardholder ">
 
+        <div class="cardholder">
           <div v-for="g in groups" :key="g.id">
             <GroupCard :group="g" />
-
           </div>
         </div>
       </div>
 
+      <div class="col-md mx-3 bg-grey">
+        <!-- NOTE Problem starts here.... -->
+        <div class="container-fluid">
+          <div class=" bg-c3">
+            <div class="col-md d-flex justify-content-center pt-2">
+              <h2>Games</h2>
+
+            </div>
+          </div>
+          <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
+              <div class="ms-3">
+                <input type="button" id="all" name="All" value="all" @click="filterBg = ''">
+                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
+              </div>
+              <div class="ms-3">
+                <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'">
+                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
+              </div>
+              <div class="ms-3">
+                <input type="button" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'">
+                <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
+              </div>
+              <div class="ms-3">
+                <input type="button" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'">
+                <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
+              </div>
+
+            </b></div>
+
+          <div class="cardholder ">
+            <div class="row">
+              <div class="col-md-4 " v-for="g in bgLists" :key="g.id">
+                <GroupGamesCard :boardGameList="g" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
-
-
 </template>
 
 <script>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { AppState } from '../AppState'
 import { accountService } from "../services/AccountService.js"
 
@@ -126,6 +124,7 @@ import EditPic from "../components/AccountProfilePage/EditPic.vue"
 export default {
 
   setup() {
+    const filterBg = ref('')
     async function getMyGroups() {
       try {
         await accountService.getMyGroups();
@@ -147,13 +146,15 @@ export default {
       getMyLists()
     })
     return {
+      filterBg,
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       groups: computed(() => AppState.groupMemberShips),
-      bgLists: computed(() => AppState.bgLists),
+      // bgLists: computed(() => AppState.bgLists),
       wishList: computed(() => AppState.bgLists.filter(w => w.listName == "wish")),
       favList: computed(() => AppState.bgLists.filter(f => f.listName == "favorite")),
-      ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned"))
+      ownedList: computed(() => AppState.bgLists.filter(o => o.listName == "owned")),
+      bgLists: computed(() => AppState.bgLists.filter(b => filterBg.value ? b.listName == filterBg.value : true)),
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard, EditBanner, EditName, EditPic }
