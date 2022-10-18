@@ -1,19 +1,5 @@
 <template>
-  <div class="d-flex flex-column justify-content-center mb-4">
-    <span class="mb-2 d-flex">
-      <button @click.prevent="searchByPopularity()" class="btn fs-3">
-        Popular
-      </button>
-    </span>
-  </div>
 
-  <div class="d-flex flex-column justify-content-center mb-4">
-    <span class="mb-2 d-flex">
-      <button @click.prevent="searchByLT_Price()" class="btn fs-3">
-        Under 20$
-      </button>
-    </span>
-  </div>
 
   <!-- SECTION CATEGORIES ACCORDION -->
   <div class="accordion pb-3" id="accordionFlushExample">
@@ -124,13 +110,10 @@ export default {
       mechanics: computed(() => AppState.bgMechanics),
       categoryFilters: computed(() => AppState.activeCategoryFilters),
       mechanicFilters: computed(() => AppState.activeMechanicsFilters),
-      queryFilter: computed(() => AppState.queryFilter),
+
 
       editable,
 
-
-
-      
       async checkBoxMethodForMechanics(event) {
         try {
           if (event.target.checked) {
