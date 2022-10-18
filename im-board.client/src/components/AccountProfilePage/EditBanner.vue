@@ -11,6 +11,14 @@
                   <label for="profilebanner">Profile Banner Url:</label>
                   <input type="url" v-model="editable.coverImg" required name="coverImg">
                 </div>
+                 <div>
+                  <label for="username">New Username:</label>
+                  <input type="text" v-model="editable.name" required name="Username">
+                </div>
+                <div>
+                  <label for="profilepic">New Profile Picture</label>
+                  <input type="url" v-model="editable.picture" required name="Profile Picture">
+                </div>
               </div>
             </div>
 

@@ -1,171 +1,142 @@
 <template>
-  <div class="container-fluid ">
-<div class="row">
-
-
-<div class="col-md-5">
-    <div class="accordion pb-3" id="accordionFlushExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button
-          class="accordion-button collapsed button-50 focus"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseOne"
-          aria-expanded="false"
-          aria-controls="flush-collapseOne"
-        >
-          Categories
-        </button>
-      </h2>
-      <div
-        id="flush-collapseOne"
-        class="accordion-collapse collapse bg-dark"
-        aria-labelledby="flush-headingOne"
-        data-bs-parent="#accordionFlushExample"
-      >
-        <div class="row scrollableY p-2">
-          <div class="col-md-12">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="accordion pb-3" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button
+                class="accordion-button collapsed button-50 focus"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne"
+                aria-expanded="false"
+                aria-controls="flush-collapseOne"
+              >
+                Categories
+              </button>
+            </h2>
             <div
-              class="list-group-item inputBox d-flex"
-              v-for="c in categories"
-              :key="c.id"
+              id="flush-collapseOne"
+              class="accordion-collapse collapse bg-dark"
+              aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample"
             >
-              <input
-                class="checkBox"
-                type="checkbox"
-             
-            v-model="c.id"
-                :id="c.name"
-               
-              />
-              <label for="card-game" class="ms-2">{{ c.name }}</label>
+              <div class="row scrollableY p-2">
+                <div class="col-md-12">
+                  <div
+                    class="list-group-item inputBox d-flex"
+                    v-for="c in categories"
+                    :key="c.id"
+                  >
+                    <input
+                      class="checkBox"
+                      type="checkbox"
+                      v-model="c.id"
+                      :id="c.name"
+                    />
+                    <label for="card-game" class="ms-2">{{ c.name }}</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="col-md-5">
- 
-  <!-- ------------------------------------- -->
-   <div class="accordion" id="accordionFlushExample2">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingTwo">
-        <button
-          class="accordion-button collapsed button-52 focus"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseTwo"
-          aria-expanded="false"
-          aria-controls="flush-collapseTwo"
-        >
-          Mechanics
-        </button>
-      </h2>
-      <div
-        id="flush-collapseTwo"
-        class="accordion-collapse collapse bg-dark"
-        aria-labelledby="flush-headingTwo"
-        data-bs-parent="#accordionFlushExample2"
-      >
-        <div class="row scrollableY p-2">
-          <div class="col-md-12">
+      <div class="col-md-5">
+        <!-- ------------------------------------- -->
+        <div class="accordion" id="accordionFlushExample2">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button
+                class="accordion-button collapsed button-52 focus"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo"
+                aria-expanded="false"
+                aria-controls="flush-collapseTwo"
+              >
+                Mechanics
+              </button>
+            </h2>
             <div
-              class="list-group-item inputBox d-flex"
-              v-for="m in mechanics"
-              :key="m.id"
+              id="flush-collapseTwo"
+              class="accordion-collapse collapse bg-dark"
+              aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample2"
             >
-              <input
-                class="checkBox"
-                type="checkbox"
-                :value="m.id"
-            
-                :id="m.name"
-        
-              />
-              <label for="card-game" class="ms-2">{{ m.name }}</label>
+              <div class="row scrollableY p-2">
+                <div class="col-md-12">
+                  <div
+                    class="list-group-item inputBox d-flex"
+                    v-for="m in mechanics"
+                    :key="m.id"
+                  >
+                    <input
+                      class="checkBox"
+                      type="checkbox"
+                      :value="m.id"
+                      :id="m.name"
+                    />
+                    <label for="card-game" class="ms-2">{{ m.name }}</label>
+                  </div>
+                </div>
+                <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
+              </div>
             </div>
           </div>
-          <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
         </div>
       </div>
+
+      <div class="col-md-2">
+        <form @submit.prevent="searchByCoolMethod()">
+          <div class="form-control">
+            <input
+              type="number"
+              min="1"
+              max="10"
+              name="playerCount"
+              v-model="playerCount"
+            />
+            <label for="playerCount">PlayerCount/Max 10</label>
+          </div>
+          <div class="form-control">
+            <input
+              type="number"
+              min="5"
+              max="60"
+              name="playTime"
+              v-model="playTime"
+            />
+            <label for="playerCount">PlayTime/Max is 60 min</label>
+          </div>
+
+          <div class="form-control d-flex">
+            <label for="minYear" class="form-label">Minimum year </label>
+            <input
+              type="number"
+              class="form-control"
+              id="minYear"
+              v-model="lt_year_published"
+              min="1950"
+              max="9999"
+            />
+          </div>
+
+          <div></div>
+          <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
+        </form>
+      </div>
     </div>
-  </div> 
-</div>
-
-
-
-<div class="col-md-2">
-   <form @submit.prevent="searchByCoolMethod()">
-      <div class="form-control">
-        <input
-          type="number"
-          min="1"
-          max="10"
-          name="playerCount"
-          v-model="playerCount"
-        />
-        <label for="playerCount">PlayerCount/Max 10</label>
-   
-      </div>
-<div class="form-control">
-        <input
-          type="number"
-          min="5"
-          max="60"
-          name="playTime"
-          v-model="playTime"
-        />
-        <label for="playerCount">PlayTime/Max is 60 min</label>
-
-      </div>
-
-
- <div class="form-control d-flex">
-        <label for="minYear" class="form-label">Minimum year </label>
-        <input
-          type="number"
-          class="form-control"
-          id="minYear"
-          v-model="lt_year_published"
-          min="1950"
-          max="9999"
-        />
- 
-      </div>
-
-
-      <div>
-      </div>
-      <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
-    </form>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-   
   </div>
-
-
 </template>
 
 <script>
 import { computed } from '@vue/reactivity';
 import { AppState } from '../../AppState.js';
-import { ref, watchEffect } from 'vue';
+import { ref } from 'vue';
 import Pop from '../../utils/Pop.js';
 import { atlasGamesService } from '../../services/AtlasGamesService.js';
-
 
 export default {
   setup() {
@@ -177,20 +148,9 @@ export default {
       playerCount,
       playTime,
       lt_year_published,
-categories: computed(()=>AppState.activeCategoryFilters),
-mechanics: computed(()=>AppState.activeMechanicsFilters),
+      categories: computed(() => AppState.activeCategoryFilters),
+      mechanics: computed(() => AppState.activeMechanicsFilters),
 
-
-      async searchOrder_By() {
-        try {
-          this.queryFilter.push(`&order_By=${editable.value}`);
-
-          console.log(this.queryFilter.join(''));
-          // await atlasGamesService.getBoardGamesByOrder_By(editable.value);
-        } catch (error) {
-          Pop.error(error, '[searchOrder_By]');
-        }
-      },
 
       async searchByCoolMethod() {
         try {
@@ -204,9 +164,9 @@ mechanics: computed(()=>AppState.activeMechanicsFilters),
             search3,
           ];
 
-          let finalSearch =  AppState.queryFilter.join('&')
+          let finalSearch = AppState.queryFilter.join('&');
           console.log(AppState.queryFilter.join('&'));
-          await atlasGamesService.getBoardGames(finalSearch)
+          await atlasGamesService.getBoardGames(finalSearch);
 
           AppState.queryFilter = [];
           console.log(AppState.queryFilter);

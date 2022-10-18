@@ -2,33 +2,22 @@
   <!-- TEST PUTTING COMMENT TUNG -->
   <div class="animate__animated animate__fadeOut" v-if="!account">
     <div class="loader"></div>
+   
   </div>
 
 
   <div class="account Page container-fluid " v-else>
-    <!-- animate__animated animate__fadeInLeft -->
-    <!-- <div class="row">
-      <div class="col-md-12">
-        <div>
-          <button class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#groupForm">
-            Create Group
-          </button>
-
-        </div>
-      </div>
-
-    </div> -->
-
+ 
     <div class="row bg-c5 banner eum-ipsum" :style="{backgroundImage: `url(${account.coverImg})`}">
       <div class="">
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner"><i
             class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
-            title="Edit Profile Banner"></i></button>
+            title="Edit Account"></i></button>
         <!-- <EditBanner /> -->
       </div>
       <div class="col-md-12 d-flex justify-content-center ">
 
-        <img :src="account.picture" alt="" class="eum rounded-circle mt-2 icon position-relative forcedImg">
+        <img v-if="account?.picture" :src="account?.picture" alt="" class="eum rounded-circle mt-2 icon position-relative forcedImg">
         <button class="btn editprofilepic position-absolute" data-bs-toggle="modal" data-bs-target="#editProfilePic"><i
             class="mdi mdi-circle-edit-outline fs-3 py-1 rounded-circle editbtn ps-2 pe-2" alt=""
             title="Edit Profile Picture"></i></button>

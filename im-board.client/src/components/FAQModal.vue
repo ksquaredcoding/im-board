@@ -1,7 +1,5 @@
 <template>
-<!-- Button trigger modal -->
 
-<!-- Modal -->
 <div class="modal fade " id="FAQ" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="FAQLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl  ">
     <div class="modal-content">
@@ -35,21 +33,6 @@
      <img src="../assets/img/FAQ2.png" alt="" class="img-fluid rounded border-2 border-light ">
   </div>
 </div>
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
       <div class="modal-footer bg-dark text-light">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -58,7 +41,13 @@
     </div>
   </div>
 </div>
+
 </template>
+
+
+
+
+
 
 <script>
 import GroupForm from "./GroupPage/GroupForm.vue";

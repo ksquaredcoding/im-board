@@ -5,13 +5,16 @@
   <main>
     <router-view />
   </main>
-<footer class="p-2 bg-dark mt-1">
- <Footer/>
-</footer>
-<GroupForm/>
-  <EditBanner/>
-  <EditName/>
-  <EditPic/>
+  <footer class="p-2 bg-dark mt-1">
+    <Footer />
+  </footer>
+  <GroupForm />
+  <EditBanner />
+  <EditName />
+  <EditPic />
+  <GoogleMapModal />
+  <FAQModal />
+
   <!-- <footer>
     <div class="bg-dark text-light text-center p-4">
       Made with 💖 by CodeWorks
@@ -20,36 +23,47 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { AppState } from './AppState'
-import Navbar from './components/Navbar.vue'
-import GroupForm from "./components/GroupPage/GroupForm.vue"
-import EditBanner from "./components/AccountProfilePage/EditBanner.vue"
-import EditName from "./components/AccountProfilePage/EditName.vue"
-import EditPic from "./components/AccountProfilePage/EditPic.vue"
-import Filters from "./components/SearchPage/FiltersSideBar.vue"
-import { useRoute } from "vue-router"
-import Footer from "./components/Footer.vue"
+import { computed } from 'vue';
+import { AppState } from './AppState';
+import Navbar from './components/Navbar.vue';
+import GroupForm from './components/GroupPage/GroupForm.vue';
+import EditBanner from './components/AccountProfilePage/EditBanner.vue';
+import EditName from './components/AccountProfilePage/EditName.vue';
+import EditPic from './components/AccountProfilePage/EditPic.vue';
+import Filters from './components/SearchPage/FiltersSideBar.vue';
+import { useRoute } from 'vue-router';
+import Footer from './components/Footer.vue';
+import GoogleMapModal from './components/GoogleMapModal.vue';
+import FAQModal from './components/FAQModal.vue';
 
 export default {
   setup() {
-    const route = useRoute()
+    const route = useRoute();
     return {
       route,
-      appState: computed(() => AppState)
-    }
+      appState: computed(() => AppState),
+    };
   },
-  components: { Navbar, GroupForm, EditBanner, EditName, EditPic, Filters, Footer }
-}
+  components: {
+    Navbar,
+    GroupForm,
+    EditBanner,
+    EditName,
+    EditPic,
+    Filters,
+    Footer,
+    GoogleMapModal,
+    FAQModal,
+  },
+};
 </script>
 <style lang="scss">
-@import "./assets/scss/main.scss";
+@import './assets/scss/main.scss';
 *::-webkit-scrollbar {
   width: 13px;
   width: 13px;
 }
 *::-webkit-scrollbar-track {
-
   background-color: #ffff;
   cursor: pointer;
 }
@@ -58,13 +72,10 @@ export default {
   cursor: pointer;
 }
 
-
-
-
 *::-webkit-scrollbar-thumb {
   width: 100px;
   border-radius: 10px;
- background: linear-gradient(to bottom right, #a8dba8, #0B486B);
+  background: linear-gradient(to bottom right, #a8dba8, #0b486b);
 }
 
 *::-webkit-scrollbar-thumb:active {
