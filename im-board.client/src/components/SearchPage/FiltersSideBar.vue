@@ -1,139 +1,111 @@
 <template>
+  <div class="d-flex flex-column justify-content-center mb-4">
+    <span class="mb-2 d-flex">
+      <button @click.prevent="searchByPopularity()" class="btn fs-3">
+        Popular
+      </button>
+    </span>
+  </div>
 
-  
-<div class="d-flex flex-column justify-content-center mb-4">
-  <span class="mb-2 d-flex ">
+  <div class="d-flex flex-column justify-content-center mb-4">
+    <span class="mb-2 d-flex">
+      <button @click.prevent="searchByLT_Price()" class="btn fs-3">
+        Under 20$
+      </button>
+    </span>
+  </div>
 
-<button @click.prevent="searchByPopularity()" class="btn fs-3 ">Popular</button>
-  </span>
-
-  
-  
-
- 
-
-</div>
-
-
-
-
-
-<div class="d-flex flex-column justify-content-center mb-4">
-  <span class="mb-2 d-flex ">
-  <button @click.prevent="searchByLT_Price()" class="btn fs-3 ">Under 20$</button>
-   
-  </span>
-
-</div>
-
-
-
-
-
-
-  <!-- <div class="filters container">
-    <div class="row">
-      <div class="col-md-12">
-        <h4>Categories</h4>
-        <div
-          class="list-group-item inputBox d-flex"
-          v-for="category in categories"
-          :key="category.id"
+  <!-- SECTION CATEGORIES ACCORDION -->
+  <div class="accordion pb-3" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button
+          class="accordion-button collapsed button-50 focus"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne"
+          aria-expanded="false"
+          aria-controls="flush-collapseOne"
         >
-          <input
-            class="checkBox"
-            type="checkbox"
-            :value="category.id"
-            :checked="category.checked"
-            :id="category.name"
-            @change="checkBoxMethod($event)"
-          />
-          <label for="card-game" class="ms-2">{{ category.name }}</label>
+          Categories
+        </button>
+      </h2>
+      <div
+        id="flush-collapseOne"
+        class="accordion-collapse collapse bg-dark"
+        aria-labelledby="flush-headingOne"
+        data-bs-parent="#accordionFlushExample"
+      >
+        <div class="row scrollableY p-2">
+          <div class="col-md-12">
+            <div
+              class="list-group-item inputBox d-flex"
+              v-for="category in categories"
+              :key="category.id"
+            >
+              <input
+                class="checkBox"
+                type="checkbox"
+                :value="category.id"
+                :checked="category.checked"
+                :id="category.name"
+                @change="checkBoxMethodForCategory($event)"
+              />
+              <label for="card-game" class="ms-2">{{ category.name }}</label>
+            </div>
+          </div>
         </div>
-        
       </div>
     </div>
+  </div>
+  <!-- !SECTION -->
 
-  </div> -->
-
-
-  <div class="accordion pb-3 " id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed button-50 focus " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        Categories
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-
-    <div class="row scrollableY p-2">
-      <div class="col-md-12 ">
-     
-        <div
-          class="list-group-item inputBox d-flex"
-          v-for="category in categories"
-          :key="category.id"
+  <!-- SECTION MECHANICS ACCORDION-->
+  <div class="accordion" id="accordionFlushExample2">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button
+          class="accordion-button collapsed button-52 focus"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo"
+          aria-expanded="false"
+          aria-controls="flush-collapseTwo"
         >
-          <input
-            class="checkBox"
-            type="checkbox"
-            :value="category.id"
-            :checked="category.checked"
-            :id="category.name"
-            @change="checkBoxMethodForCategory($event)"
-          />
-          <label for="card-game" class="ms-2">{{ category.name }}</label>
-       
-        
+          Mechanics
+        </button>
+      </h2>
+      <div
+        id="flush-collapseTwo"
+        class="accordion-collapse collapse bg-dark"
+        aria-labelledby="flush-headingTwo"
+        data-bs-parent="#accordionFlushExample2"
+      >
+        <div class="row scrollableY p-2">
+          <div class="col-md-12">
+            <div
+              class="list-group-item inputBox d-flex"
+              v-for="m in mechanics"
+              :key="m.id"
+            >
+              <input
+                class="checkBox"
+                type="checkbox"
+                :value="m.id"
+                :checked="m.checked"
+                :id="m.name"
+                @change="checkBoxMethodForMechanics($event)"
+              />
+              <label for="card-game" class="ms-2">{{ m.name }}</label>
+            </div>
+          </div>
+          <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
+        </div>
       </div>
     </div>
-    <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
-  </div>
-    </div>
   </div>
 
-
-</div>
-
-  <div class="accordion  " id="accordionFlushExample2">
-  <div class="accordion-item ">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed button-52 focus" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-       Mechanics
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample2">
-
-    <div class="row scrollableY p-2">
-      <div class="col-md-12 ">
-     
-        <div
-          class="list-group-item inputBox d-flex"
-          v-for="m in mechanics"
-          :key="m.id"
-        >
-          <input
-            class="checkBox"
-            type="checkbox"
-            :value="m.id"
-            :checked="m.checked"
-            :id="m.name"
-            @change="checkBoxMethodForMechanics($event)"
-          />
-          <label for="card-game" class="ms-2">{{ m.name }}</label>
-       
-        
-      </div>
-    </div>
-    <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
-  </div>
-    </div>
-  </div>
-
-
-</div>
-
-  
+  <!-- !SECTION -->
 </template>
 
 <script>
@@ -149,29 +121,23 @@ export default {
     const editable = ref('');
     return {
       categories: computed(() => AppState.bgCategories),
-      mechanics: computed(()=>AppState.bgMechanics),
+      mechanics: computed(() => AppState.bgMechanics),
       categoryFilters: computed(() => AppState.activeCategoryFilters),
-      mechanicFilters:computed(()=>AppState.activeMechanicsFilters),
+      mechanicFilters: computed(() => AppState.activeMechanicsFilters),
+      queryFilter: computed(() => AppState.queryFilter),
+
       editable,
 
-      async getBoardGamesByCategories(category) {
-        try {
-          await atlasGamesService.getBoardGamesByCategories(category);
-        } catch (error) {
-          Pop.error(error, '[getBoardGamesByCategories]');
-        }
-      },
 
+
+      
       async checkBoxMethodForMechanics(event) {
         try {
-  
           if (event.target.checked) {
             this.mechanicFilters.push(event.target.value);
-      
           } else if (!event.target.checked) {
             const index = this.mechanicFilters.indexOf(event.target.value);
             this.mechanicFilters.splice(index, 1);
-         
           }
 
           await atlasGamesService.getBoardGamesByMechanics(
@@ -183,14 +149,11 @@ export default {
       },
       async checkBoxMethodForCategory(event) {
         try {
-  
           if (event.target.checked) {
             this.categoryFilters.push(event.target.value);
-      
           } else if (!event.target.checked) {
             const index = this.categoryFilters.indexOf(event.target.value);
             this.categoryFilters.splice(index, 1);
-         
           }
 
           await atlasGamesService.getBoardGamesByCategories(
@@ -201,42 +164,37 @@ export default {
         }
       },
 
-async searchByLT_Discount(){
-  try {
-      await atlasGamesService.getBoardGamesByDiscount()
-    } catch (error) {
-      Pop.error(error,'[searchByLT_Price]')
-    }
-},
-async searchByPrice(){
-try {
-    await atlasGamesService.getBoardGamesByPrice()
-  } catch (error) {
-    Pop.error(error,'[]')
-  }
-},
+      async searchByLT_Discount(event) {
+        try {
+          this.queryFilter.push(event.target.value);
 
-async searchByPopularity(){
-try {
-    await atlasGamesService.getBoardGames()
-  } catch (error) {
-    Pop.error(error,'[searchByPopularity]')
-  }
-},
- async searchByLT_Price(){
+          await atlasGamesService.getBoardGamesByDiscount();
+        } catch (error) {
+          Pop.error(error, '[searchByLT_Price]');
+        }
+      },
+      async searchByPrice() {
+        try {
+          await atlasGamesService.getBoardGamesByPrice();
+        } catch (error) {
+          Pop.error(error, '[]');
+        }
+      },
 
- }
-
+      async searchByPopularity() {
+        try {
+          await atlasGamesService.getBoardGames();
+        } catch (error) {
+          Pop.error(error, '[searchByPopularity]');
+        }
+      },
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// input.checkBox {
-// }
-
-.scrollableY{
+.scrollableY {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 50vh;
@@ -256,18 +214,9 @@ try {
   width: 300px;
   object-fit: cover;
 }
-button:active{
-
-}
-
-button:focus{
+button:focus {
   color: rgb(31, 28, 28);
 
- background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
-
-
+  background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
 }
-
-
-
 </style>

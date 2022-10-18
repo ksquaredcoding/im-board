@@ -80,10 +80,11 @@ export default {
       }
     }
     onMounted(() => {
-      getCategoryList();
-      getMechanicsList();
+      // getCategoryList();
+      // getMechanicsList();
       // AppState.skip = 0;
       // window.addEventListener('scroll', handleScroll)
+      AppState.queryFilter = ''
     });
     // async function handleScroll(){
     //  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {

@@ -62,6 +62,10 @@ export const AppState = reactive({
   /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */
   bgMechanics: [],
 
+
+
+
+queryFilter:[],
   activeCategoryFilters: [],
   activeMechanicsFilters: [],
   // categories: [

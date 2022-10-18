@@ -33,6 +33,8 @@ class AtlasGamesService {
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     console.log(AppState.boardgames);
   }
+
+  
   async getBoardGames() {
     const res = await atlasApi.get("/api/search", {
       params: {
@@ -56,7 +58,7 @@ class AtlasGamesService {
       },
     });
 
-    AppState.discountBoardGames = res.data.games.map((b) => new BoardGame(b));
+    // AppState.discountBoardGames = res.data.games.map((b) => new BoardGame(b));
 
   }
 
@@ -69,7 +71,7 @@ class AtlasGamesService {
         limit: 12,
       },
     });
-    AppState.popularBoardGames= res.data.games.map((b) => new BoardGame(b));
+    // AppState.popularBoardGames= res.data.games.map((b) => new BoardGame(b));
 
   }
 
