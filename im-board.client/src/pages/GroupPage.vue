@@ -11,7 +11,7 @@
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-12 ms-2 overflow-auto groupchatbox bg-dark rounded">
+        <div class="col-12 ms-2 overflow-auto groupchatbox bg-dark rounded" id="chatbox">
           <div class="col-md-12" v-for="c in chats" :key="c.id">
             <Chat :chat="c" />
           </div>
@@ -101,12 +101,21 @@ export default {
       }
     }
 
+    function scrollToBottom() {
+      let chatbox = document.getElementById('chatbox')
+      if (!chatbox) {
+        return setTimeout(scrollToBottom, 500)
+      }
+      chatbox.scrollTop = 9999
+    }
+
     onMounted(() => {
       getGroupById();
       getGroupMembersByGroupId();
       getListsByGroupId();
       getGroupChatsByGroupId();
       getGroupGameNights();
+      scrollToBottom()
     });
 
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
@@ -150,8 +159,11 @@ export default {
   display: none;
 }
 
+
+
 .groupchatbox {
   height: 80vh;
+  scroll-behavior: smooth;
 }
 
 .gamecardbox {
