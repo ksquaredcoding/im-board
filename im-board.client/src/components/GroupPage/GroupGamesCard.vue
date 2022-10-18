@@ -30,7 +30,7 @@
 
     </div>
 
-    <div class="categorybox border border-dark border-3 rounded mx-5 p-2 mt-2 text-center">
+    <div class="categorybox rounded mx-5 p-2 mt-2 text-center">
       <!-- <div><b>Categories:</b></div> -->
       <div><i class="mdi mdi-account-group fs-5" alt="" title=""></i> {{boardGameList.players}}</div>
       <!-- <div><i class="mdi mdi-clock fs-5" alt="" title=""></i> {{boardGameList.playTime}} mins</div> -->
