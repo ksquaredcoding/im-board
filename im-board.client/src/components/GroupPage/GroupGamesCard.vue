@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-light pb-2 m-2 noborder bg-img rounded" :style="{backgroundImage: `url(${boardGameList.imgUrl})`}">
+  <div class="bg-light pb-2 m-2 noborder bg-img rounded hover" :style="{backgroundImage: `url(${boardGameList.imgUrl})`}">
 
     <div class="row">
 
@@ -9,7 +9,7 @@
       </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
-        <div class="bg-dark rounded-1 fs-5 text-center px-3 py-1 my-1">
+        <div class="titlebox rounded-1 fs-5 text-center px-3 py-1 my-1">
 
           <router-link class="text-center text-dark"
             :to="{ name: 'BoardGameDetails', params: { id: boardGameList.gameId} }"
@@ -26,7 +26,7 @@
 
     </div>
 
-    <div class="bg-c2 border border-dark border-3 rounded mx-5 p-2 mt-2 text-center">
+    <div class="categorybox border border-dark border-3 rounded mx-5 p-2 mt-2 text-center">
       <div><b>Categories:</b></div>
       <div><i class="mdi mdi-account-group fs-5" alt="" title=""></i> {{boardGameList.players}}</div>
       <!-- <div><i class="mdi mdi-clock fs-5" alt="" title=""></i> {{boardGameList.playTime}} mins</div> -->
@@ -81,7 +81,24 @@ export default {
 
 .namefont{
   color: aliceblue;
-    text-shadow: 1px 1px black, 0px 0px 5px #79bd9a; 
+    text-shadow: 1px 1px rgb(24, 24, 24), 0px 0px 5px #d8d8d8; 
     font-family: "Baloo 2", cursive;
 }
+
+.titlebox{
+  background-color: #2c2c2ff0;
+}
+
+.categorybox{
+background-color: #e3e3e3f4;
+color:#2c2c2f;
+}
+
+// .cardmain:hover{
+//       transform: scale(1.09);
+//       filter: brightness(110%);
+//       filter: contrast(110%);
+//       transition: 0.75s ease;
+    
+// }
 </style>

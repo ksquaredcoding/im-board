@@ -4,10 +4,10 @@
       :style="{backgroundImage: `url(${group.group.coverImg})`}">
       <!-- <img :src="group?.group.coverImg" class="card-img" alt="..." /> -->
       <div class="card-img-overlay text-shadow">
-        <h3 class="card-title p-2 text-center rounded-1 "><u>{{ group?.group.name }}</u></h3>
+        <h3 class="card-title p-1 text-center rounded-1 ">{{ group?.group.name }}</h3>
         <div class="card-title text-center p-1 rounded-1 elevation-3">
 
-          <div class="card-text fs-5">Owner: {{group.group.creator.name}}</div>
+          <div class="card-text">Owner: {{group.group.creator.name}}</div>
           <div v-if="group.group.groupMemberIds.length == 1">{{group.group.groupMemberIds.length}}
             Member
           </div>

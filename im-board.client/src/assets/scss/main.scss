@@ -45,6 +45,13 @@ a {
   background: #ffbb00 linear-gradient(22deg,  #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006,) fixed;
 }
 
+.hover:hover{
+      transform: scale(1.09);
+      filter: brightness(110%);
+      filter: contrast(110%);
+      transition: 0.75s ease;
+    
+}
 //------------ BUTTON 50 -----------------
 
 .button-50 
