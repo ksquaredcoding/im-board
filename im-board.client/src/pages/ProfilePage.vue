@@ -102,17 +102,17 @@
             </div>
           </div>
           <div class="row justify-content-center"><b class="mb-2 mt-2 d-flex justify-content-center">
-              <div class="ms-3"><input type="checkbox" id="Fave" name="Fave" value="fave"
-                  @click="filterList('favorite')">
-                <label for="vehicle1" class="ms-1">Fave</label>
+              <div class="ms-3">
+                <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'">
+                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
               </div>
-              <div class="ms-3"><input type="checkbox" id="Wishlist" name="Wishlist" value="wishlist"
-                  @click="filterList('wish')">
-                <label for="vehicle2" class="ms-1">Wishlist</label>
+              <div class="ms-3">
+                <input type="button" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'">
+                <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
               </div>
-              <div class="ms-3"><input type="checkbox" id="Owned" name="Owned" value="owned"
-                  @click="filterList('owned')">
-                <label for="vehicle3" class="ms-1">Owned</label>
+              <div class="ms-3">
+                <input type="button" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'">
+                <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
               </div>
 
             </b></div>
@@ -120,7 +120,6 @@
           <div class="cardholder ">
             <div class="row">
               <div class="col-md-4 " v-for="g in bgLists" :key="g.id">
-
                 <GroupGamesCard :boardGameList="g" />
               </div>
             </div>
@@ -133,7 +132,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { AppState } from "../AppState";
 import Pop from "../utils/Pop.js";
 import GroupCard from "../components/GroupPage/GroupCard.vue";
@@ -144,7 +143,9 @@ import { useRoute } from "vue-router";
 import { profilesService } from "../services/ProfilesService.js";
 export default {
   setup() {
+    const filterBg = ref('')
     const route = useRoute();
+    const editable = ref('')
     async function getProfileGroups() {
       try {
         await profilesService.getProfileGroups(route.params.id);
@@ -174,10 +175,12 @@ export default {
       getProfileLists();
     });
     return {
+      filterBg,
+      editable,
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       groups: computed(() => AppState.groupMemberShips),
-      bgLists: computed(() => AppState.bgLists),
+      // bgLists: computed(() => AppState.bgLists),
       wishList: computed(() =>
         AppState.bgLists.filter((w) => w.listName == "wish")
       ),
@@ -188,12 +191,26 @@ export default {
         AppState.bgLists.filter((o) => o.listName == "owned")
       ),
       profile: computed(() => AppState.activeProfile),
+      bgLists: computed(() => AppState.bgLists.filter(b => filterBg.value ? b.listName == filterBg.value : true)),
 
+      // filterFav() {
 
+      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == "favorite")
+      // },
 
-      filterList(type = '') {
-        AppState.bgLists = AppState.bgLists.filter(l => l.listName == type)
-      }
+      // filterWish() {
+
+      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == "wish")
+      // },
+
+      // filterOwned() {
+
+      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == "owned")
+      // }
+
+      // filterList(type = '') {
+      //   AppState.bgLists = AppState.bgLists.filter(l => l.listName == type)
+      // }
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard },
