@@ -42,7 +42,7 @@
         </div>
 
         <div class="d-flex">
-          <b>Average Complexity:</b>
+          <b>Learning Complexity:</b>
           <p class="ms-2">{{boardGame.average_learning_complexity.toFixed(2)}} <b>/</b> 5</p>
         </div>
 
