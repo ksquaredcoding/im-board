@@ -3,42 +3,18 @@
     <form @submit.prevent="searchByCoolMethod()">
       <div class="row">
         <div class="col-md-3">
-          <div class="accordion  " id="accordionFlushExample">
+          <div class="dropdown" id="dropdown">
             <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button
-                  class="accordion-button collapsed button-50 p-2 focus"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseOne"
-                >
-                  Categories
-                </button>
-              </h2>
-              <div
-                id="flush-collapseOne"
-                class="accordion-collapse collapse bg-dark"
-                aria-labelledby="flush-headingOne"
-                data-bs-parent="#accordionFlushExample"
-              >
-                <div class="row scrollableY p-2">
-                  <div class="col-md-12">
-                    <div
-                      class="list-group-item inputBox d-flex"
-                      v-for="c in categories"
-                      :key="c.id"
-                      id="CategoryDiv"
-                    >
-                      <input
-                        class="checkBox"
-                        type="checkbox"
-                        :value="c.id"
-                        v-model="filters1"
-                      />
-                      <label for="card-game" class="ms-2">{{ c.name }}</label>
-                    </div>
+              <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categories
+              </button>
+              <div class="row scrollableY p-2 dropdown-menu bg-dark">
+                <div class="col-md-12">
+                  <div class="dropdown-item inputBox d-flex bg-dark" v-for="c in categories" :key="c.id"
+                    id="CategoryDiv">
+                    <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
+                    <label for="card-game" class="ms-2">{{ c.name }}</label>
                   </div>
                 </div>
               </div>
@@ -47,44 +23,20 @@
         </div>
         <div class="col-md-3">
           <!-- ------------------------------------- -->
-          <div class="accordion position-absolute" id="accordionFlushExample2">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button
-                  class="accordion-button collapsed button-52 p-2 focus"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseTwo"
-                >
-                  Mechanics
-                </button>
-              </h2>
-              <div
-                id="flush-collapseTwo"
-                class="accordion-collapse collapse bg-dark"
-                aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample2"
-              >
-                <div class="row scrollableY p-2">
-                  <div class="col-md-12">
-                    <div
-                      class="list-group-item inputBox d-flex"
-                      v-for="m in mechanics"
-                      :key="m.id"
-                    >
-                      <input
-                        class="checkBox"
-                        type="checkbox"
-                        :value="m.id"
-                        v-model="filters2"
-                      />
-                      <label for="card-game" class="ms-2">{{ m.name }}</label>
-                    </div>
+          <div class="dropdown" id="dropdown2">
+            <div class="dropdown-item">
+              <button class="dropdown-toggle collapsed button-52 p-2 focus" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Mechanics
+              </button>
+              <div class="row scrollableY p-2 dropdown-menu bg-dark">
+                <div class="col-md-12">
+                  <div class="dropdown-item inputBox d-flex bg-dark" v-for="m in mechanics" :key="m.id">
+                    <input class="checkBox" type="checkbox" :value="m.id" v-model="filters2" />
+                    <label for="card-game" class="ms-2">{{ m.name }}</label>
                   </div>
-                  <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
                 </div>
+                <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
               </div>
             </div>
           </div>
@@ -94,23 +46,11 @@
           <div class="d-flex">
             <div class="form-control">
               <label for="playerCount">PlayerCount</label>
-              <input
-                type="number"
-                min="1"
-                max="10"
-                name="playerCount"
-                v-model="playerCount"
-              />
+              <input type="number" min="1" max="10" name="playerCount" v-model="playerCount" />
             </div>
             <div class="form-control">
               <label for="playerCount">PlayTime</label>
-              <input
-                type="number"
-                min="5"
-                max="60"
-                name="playTime"
-                v-model="playTime"
-              />
+              <input type="number" min="5" max="60" name="playTime" v-model="playTime" />
             </div>
 
             <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
