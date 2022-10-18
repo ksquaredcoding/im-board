@@ -5,10 +5,10 @@
       <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative"  />
 </router-link>
       
-      <div class="card-body p-1 mt-2  rounded">
+      <div class="card-body p-1 mt-2 bg-grey rounded">
        <span class="text-center">
 
-         <h6 class="text-decoration-underline text-wrap">{{ boardGame?.name }}</h6>
+         <h5 class="text-decoration-underline text-wrap">{{ boardGame?.name }}</h5>
        </span>
         
     
@@ -16,7 +16,10 @@
           <i class="mdi mdi-account fs-5 "></i>
         <div class="mt-1"> {{ boardGame?.players}}</div>
         </div>
+      <div class="card-text d-flex justify-content-center" title="Average User Rating">
+        <i class="mdi mdi-star text-warning"></i> {{ boardGame?.average_user_rating.toFixed(2) }}
       
+      </div>
         <div class="d-flex justify-content-center">
           <img src="https://cdn-icons-png.flaticon.com/512/2178/2178616.png" alt="" height="15">
          <p> ${{boardGame.price}}</p>
@@ -41,7 +44,7 @@
         <div class="d-flex justify-content-center">
        
         </div>
-        <div class="d-flex justify-content-center discount  " >
+        <div class="d-flex justify-content-center discount" >
          {{(boardGame.discount*100).toFixed(0)}} <small>%off</small>
 
         </div>
@@ -88,7 +91,7 @@ export default {
 }
 .discount{
  
-top: -25px;
+top: -5px;
   position: absolute;
   font-weight: 500;
   font-size: 16pt;
