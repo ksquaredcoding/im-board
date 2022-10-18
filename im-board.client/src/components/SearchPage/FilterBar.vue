@@ -108,8 +108,8 @@ const filters2 = ref([])
       async searchByCoolMethod() {
         try {
 
-let categories= `categories=${filters1.value}`
-let mechanics = `mechanics=${filters2.value}`
+let categoriesSearch= `categories=${filters1.value}`
+let mechanicsSearch = `mechanics=${filters2.value}`
 
           let search = `gt_max_players=${playerCount.value }`;
           let search2 = `lt_max_playtime=${playTime.value }`;
@@ -119,7 +119,7 @@ let mechanics = `mechanics=${filters2.value}`
             search,
             search2,
             search3,
-            categories,mechanics
+            categoriesSearch,mechanicsSearch
           ];
 
           let finalSearch = AppState.queryFilter.join('&');
