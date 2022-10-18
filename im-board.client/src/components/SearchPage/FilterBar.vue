@@ -8,9 +8,10 @@
               aria-expanded="false">
               Categories
             </button>
-            <div class="row scrollableY p-2 dropdown-menu bg-dark">
+            <div class="row scrollable-y p-2 dropdown-menu bg-dark">
               <div class="col-md-12">
-                <div class="dropdown-item inputBox d-flex bg-dark" v-for="c in categories" :key="c.id" id="CategoryDiv">
+                <div class="dropdown-item inputBox d-flex text-light" v-for="c in categories" :key="c.id"
+                  id="CategoryDiv">
                   <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
                   <label for="card-game" class="ms-2">{{ c.name }}</label>
                 </div>
@@ -26,9 +27,9 @@
                 aria-expanded="false">
                 Mechanics
               </button>
-              <div class="row scrollableY p-2 dropdown-menu bg-dark">
+              <div class="row scrollable-y p-2 dropdown-menu bg-dark">
                 <div class="col-md-12">
-                  <div class="dropdown-item inputBox d-flex bg-dark" v-for="m in mechanics" :key="m.id">
+                  <div class="dropdown-item inputBox d-flex text-light" v-for="m in mechanics" :key="m.id">
                     <input class="checkBox" type="checkbox" :value="m.id" v-model="filters2" />
                     <label for="card-game" class="ms-2">{{ m.name }}</label>
                   </div>
@@ -40,7 +41,7 @@
         </div>
 
         <div class="col-md-6">
-          
+
           <div class="d-flex">
             <div class="form-control">
               <label for="playerCount">PlayerCount</label>
