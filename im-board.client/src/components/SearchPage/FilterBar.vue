@@ -4,18 +4,15 @@
       <div class="row">
         <div class="col-md-3">
           <div class="dropdown" id="dropdown">
-            <div class="accordion-item">
-              <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Categories
-              </button>
-              <div class="row scrollableY p-2 dropdown-menu bg-dark">
-                <div class="col-md-12">
-                  <div class="dropdown-item inputBox d-flex bg-dark" v-for="c in categories" :key="c.id"
-                    id="CategoryDiv">
-                    <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
-                    <label for="card-game" class="ms-2">{{ c.name }}</label>
-                  </div>
+            <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Categories
+            </button>
+            <div class="row scrollableY p-2 dropdown-menu bg-dark">
+              <div class="col-md-12">
+                <div class="dropdown-item inputBox d-flex bg-dark" v-for="c in categories" :key="c.id" id="CategoryDiv">
+                  <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
+                  <label for="card-game" class="ms-2">{{ c.name }}</label>
                 </div>
               </div>
             </div>
