@@ -56,7 +56,7 @@
       <div class="col-md mx-3 bg-grey">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Games</h2>
+            <h2>Game Lists</h2>
           </div>
         </div>
         <div class="row justify-content-center">

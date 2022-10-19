@@ -9,7 +9,7 @@
       <div class="d-flex">
         <h5 class="card-title p-2 rounded-1">Fall In Love With Board Games</h5>
       </div>
-      <div class="d-flex"><p class="card-text p-4 rounded-4"></p></div>
+      <div class="d-flex"><p class="card-text p-4 rounded-4">Welcome to <span class="fs-4">I'm Game</span>! An app for those who have a passion for table top gaming, </p></div>
     </div>
   </div>
 </template>

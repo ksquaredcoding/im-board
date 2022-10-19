@@ -52,7 +52,7 @@
 
         <div class="bg-c3">
           <div class=" d-flex justify-content-center pt-2">
-            <h2>Games</h2>
+            <h2>Game Lists</h2>
           </div>
         </div>
         <div class="row justify-content-center">
