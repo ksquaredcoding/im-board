@@ -9,7 +9,7 @@ export class BoardGame {
     this.large = data.images.large;
     this.name = data.name;
     this.coverImg = data.images.original;
-    this.largeImage = data.images.large;
+    this.largeImage = data.images.large ;
     this.description_preview = data.description_preview; //not text but HTML
     this.description = data.description;
     this.categories = new BGCategoriesAndMechanics(data.categories)

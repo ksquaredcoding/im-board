@@ -2,7 +2,7 @@
 
      <div class=" bg-transparent card my-4 " v-if="boardGame">
      <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"> 
-      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative"  />
+      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative" @error="altImg()" />
 </router-link>
       
       <div class="card-body p-1 mt-2 bg-grey rounded">
@@ -20,19 +20,23 @@
         <i class="mdi mdi-star text-warning"></i> {{ boardGame?.average_user_rating.toFixed(2) }}
       
       </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" v-if="boardGame.price >0 ">
           <img src="https://cdn-icons-png.flaticon.com/512/2178/2178616.png" alt="" height="15">
-         <p> ${{boardGame.price}}</p>
-           <small class="text-decoration-line-through opacity-75 ms-3">
-              {{boardGame.retailPrice}}
+         <p > ${{boardGame.price}}</p>
+           <small class="text-decoration-line-through opacity-75 ms-3 me-1">
+              {{boardGame.retailPrice}} 
         </small>
-      
+      <small class="opacity-75">retail price</small>
+        </div>
+        <div class="d-flex justify-content-center align-items-center" v-else >
+          <img src="https://cdn-icons-png.flaticon.com/512/8634/8634777.png" alt="" height="40" width="40">
+          <p class="mb-0">Currently unavailable</p>
         </div>
 
         <div class="d-flex justify-content-center">
        
         </div>
-        <div class="d-flex justify-content-center discount" >
+        <div class="d-flex justify-content-center discount" v-if="boardGame.discount >0" >
          {{(boardGame.discount*100).toFixed(0)}} <small>%off</small>
 
         </div>
@@ -63,10 +67,7 @@ export default {
 
 
           route
-      //  categories : props.boardGame.categories.map(b=> new BoardGameCategory(b)),
-  
-   //TODO SORTING BOARD GAME CATEGORIES TO SHOW ON THE HOMEPAGE CARD
-  //NEED TO MATCH THE ID AND FIND THE NAME ATTACHED
+
         };
     },
     components: { AddToList }
