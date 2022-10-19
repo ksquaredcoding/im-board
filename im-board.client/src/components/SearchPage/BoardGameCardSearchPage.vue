@@ -8,7 +8,7 @@
         :src="boardGame?.coverImg"
         alt=""
         class="forcedImg rounded position-relative"
-        @error="badImg()"
+        @error="badImg"
       />
     </router-link>
 

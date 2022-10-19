@@ -23,13 +23,17 @@
         <button class="btn btn-primary" @click="incrementSkip('next')" type="button" :disabled="boardGames.length <= 0">
           Next
         </button>
-        <div class="row mx-2">
+        <div class="row mx-2" v-if="boardGames.length >0" >
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
           </TransitionGroup>
+        </div>
+        <div v-else class=" col-md-12 d-flex  flex-column justify-content-center align-items-center">
+          <h1>Currently no results Found</h1>
+          <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="600" height="600">
         </div>
       </div>
     </div>

@@ -12,10 +12,10 @@
       <div class="bg-transparent card my-2">
         <img :src="a.coverImg" alt="" class="forcedImg rounded" />
 
-        <div class="card-body p-1  rounded">
+        <div class="card-body p-1  rounded text-wrap">
           <h6 class="">{{ a.name }}</h6>
 
-          <small>{{ a.credit }}</small>
+          <small class="text-primary darken-10">{{ a.credit }}</small>
         </div>
       </div>
     </a>

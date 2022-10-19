@@ -9,6 +9,7 @@ import { router } from "../router.js";
 import { ForumPost } from "../models/BoardGame/ForumPost.js";
 import { BGList } from "../models/BoardGame/BGList.js";
 import { BGCategoriesAndMechanics } from "../models/BoardGame/BGCategories&Mechanics.js";
+import Pop from "../utils/Pop.js";
 
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
@@ -16,7 +17,7 @@ class AtlasGamesService {
 
   //MAIN ONE USED ON SEARCH PAGE
   async getBoardGames(query = '') {
-
+console.log(query);
     const res = await atlasApi.get(`api/search?${query}`, {
       params: {
         client_id: "2I6DeypMLL",
@@ -91,6 +92,8 @@ class AtlasGamesService {
 
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);
+  
+    console.log(AppState.boardgames);
   }
 
   // async getBoardGamesByCategories(categories = "") {

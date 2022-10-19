@@ -71,99 +71,99 @@ export const AppState = reactive({
 
   homePageBannerUrls: [
     {
-      url: "https://biblio.uottawa.ca/sites/biblio.uottawa.ca/files/2019_-_game_collection.jpg",
+      url: 'https://biblio.uottawa.ca/sites/biblio.uottawa.ca/files/2019_-_game_collection.jpg',
     },
 
     {
-      url: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images",
+      url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftoplayishuman.com%2Fwp-content%2Fuploads%2F2019%2F01%2FIMG_20190130_152747_418.jpg%3Ffit%3D5036%252C2988%26ssl%3D1&f=1&nofb=1&ipt=9e11893fac6ce63d012fa63be477227bf1f90ae9e1d1700105291a01b6d9b874&ipo=images',
     },
     {
-      url: "http://gticket.quai10.be/image.aspx?img=movies_photo/30100/jumanji3.jpg",
+      url: 'http://gticket.quai10.be/image.aspx?img=movies_photo/30100/jumanji3.jpg',
     },
     {
-      url: "https://awesomespace.nl/wp-content/uploads/sites/14/2015/12/game-night-board.jpg",
+      url: 'https://awesomespace.nl/wp-content/uploads/sites/14/2015/12/game-night-board.jpg',
     },
   ],
 
   order_By: [
-    { name: "rank" },
-    { name: "year_published" },
-    { name: "name" },
-    { name: "min_age" },
-    { name: "min_playtime" },
-    { name: "max_playtime" },
-    { name: "min_players" },
-    { name: "max_players" },
-    { name: "price" },
-    { name: "discount" },
+    { name: 'rank' },
+    { name: 'year_published' },
+    { name: 'name' },
+    { name: 'min_age' },
+    { name: 'min_playtime' },
+    { name: 'max_playtime' },
+    { name: 'min_players' },
+    { name: 'max_players' },
+    { name: 'price' },
+    { name: 'discount' },
   ],
 
   articles: [
     {
-      name: "Heres why dice were invented",
+      name: 'Heres why dice were invented',
       coverImg:
-        "https://www.grunge.com/img/gallery/heres-why-dice-were-invented/intro-1656601577.webp",
-      url: "https://www.grunge.com/912859/heres-why-dice-were-invented/",
-      credit: "",
+        'https://www.grunge.com/img/gallery/heres-why-dice-were-invented/intro-1656601577.webp',
+      url: 'https://www.grunge.com/912859/heres-why-dice-were-invented/',
+      credit: ' Alice Minium June 30, 2022',
     },
     {
-      name: "The Complete History of Board Games",
+      name: 'The Complete History of Board Games',
       coverImg:
-        "https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg",
-      url: "https://geekgeargalore.com/boardgames/history-of-board-games/",
-      credit: "Byron Nov 17, 2019",
-    },
-
-    {
-      name: "6 Fun Facts About the Original Jumanji",
-      coverImg:
-        "https://www.sheknows.com/wp-content/uploads/2018/08/pd50yqoqpnwixdnavxuf.jpeg",
-      url: "https://www.sheknows.com/entertainment/articles/1137378/fun-facts-about-the-original-jumanji/",
-      credit: "Samantha Puc Dec 18, 2017",
+        'https://geekgeargalore.com/wp-content/uploads/2019/11/Ancient-Dice.jpg',
+      url: 'https://geekgeargalore.com/boardgames/history-of-board-games/',
+      credit: 'Byron Nov 17, 2019',
     },
 
     {
-      name: "The Most Popular Types of Board Games: Board Game Genres, Explained",
+      name: '6 Fun Facts About the Original Jumanji',
       coverImg:
-        "https://whatnerd.com/wp-content/uploads/2020/05/board-game-types-genres-explained-featured.jpg",
-      url: "https://whatnerd.com/board-game-genres-explained/",
-      credit: "Joel Lee Mar 10, 2021",
+        'https://www.sheknows.com/wp-content/uploads/2018/08/pd50yqoqpnwixdnavxuf.jpeg',
+      url: 'https://www.sheknows.com/entertainment/articles/1137378/fun-facts-about-the-original-jumanji/',
+      credit: 'Samantha Puc Dec 18, 2017',
     },
 
     {
-      name: "Why Do Board Games Matter?",
+      name: 'The Most Popular Types of Board Games: Board Game Genres, Explained',
       coverImg:
-        "https://lovethynerd.com/wp-content/uploads/2019/02/Among-The-Stars-822x675.jpg?x99318",
-      url: "https://lovethynerd.com/why-do-board-games-matter/",
-      credit: "Mike Perna Feb 18, 2021",
+        'https://whatnerd.com/wp-content/uploads/2020/05/board-game-types-genres-explained-featured.jpg',
+      url: 'https://whatnerd.com/board-game-genres-explained/',
+      credit: 'Joel Lee Mar 10, 2021',
+    },
+
+    {
+      name: 'Why Do Board Games Matter?',
+      coverImg:
+        'https://lovethynerd.com/wp-content/uploads/2019/02/Among-The-Stars-822x675.jpg?x99318',
+      url: 'https://lovethynerd.com/why-do-board-games-matter/',
+      credit: 'Mike Perna Feb 18, 2021',
     },
     {
-      name: "Board games for your health and well-being",
+      name: 'Board games for your health and well-being',
       coverImg:
-        "https://www.mcmasteroptimalaging.org/images/default-source/blog-post-images/istock-988544644.tmb-blogpost.jpg?Culture=en&sfvrsn=1c230cd6_6",
-      url: "https://www.mcmasteroptimalaging.org/blog/detail/blog/2020/12/16/board-games-for-your-health-and-well-being",
-      credit: "McMaster University Dec 16, 2020  ",
+        'https://www.mcmasteroptimalaging.org/images/default-source/blog-post-images/istock-988544644.tmb-blogpost.jpg?Culture=en&sfvrsn=1c230cd6_6',
+      url: 'https://www.mcmasteroptimalaging.org/blog/detail/blog/2020/12/16/board-games-for-your-health-and-well-being',
+      credit: 'McMaster University Dec 16, 2020  ',
     },
     {
-      name: "35 Best Board Games for Kids That the Whole Family Will Enjoy",
+      name: '35 Best Board Games for Kids That the Whole Family Will Enjoy',
       coverImg:
-        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gh-021022-kid-board-games-1644597723.png?crop=1.00xw:1.00xh;0,0&resize=980:*",
-      url: "https://www.goodhousekeeping.com/childrens-products/board-games/g32475624/best-board-games-for-kids/",
-      credit: " Marisa Lascala Aug 31, 2022",
+        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gh-021022-kid-board-games-1644597723.png?crop=1.00xw:1.00xh;0,0&resize=980:*',
+      url: 'https://www.goodhousekeeping.com/childrens-products/board-games/g32475624/best-board-games-for-kids/',
+      credit: ' Marisa Lascala Aug 31, 2022',
     },
     {
-      name: "Add to your dice collection, one of our favorite places",
+      name: 'Add to your dice collection, one of our favorite places',
       coverImg:
-        "https://wyrmwoodgames.wpenginepowered.com/wp-content/uploads/2022/08/Prismatic-7-Set-v2-scaled.jpg",
-      url: "https://wyrmwoodgaming.com/dice-collection/",
-      credit: "wyrmwoodgaming.com",
+        'https://wyrmwoodgames.wpenginepowered.com/wp-content/uploads/2022/08/Prismatic-7-Set-v2-scaled.jpg',
+      url: 'https://wyrmwoodgaming.com/dice-collection/',
+      credit: 'wyrmwoodgaming.com',
     },
     {
-      name: "The Game Clue Was Borne of Boredom During WWII Air-Raid Blackouts",
+      name: 'The Game Clue Was Borne of Boredom During WWII Air-Raid Blackouts',
       coverImg:
-        "https://www.history.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_842/MTU3ODc4Njg0NTgyMzU2Mjk3/image-placeholder-title.webp",
-      url: "https://www.history.com/news/clue-game-origin-wwii",
-      credit: "Alice Popovici Aug 29, 2018 ",
+        'https://www.history.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_842/MTU3ODc4Njg0NTgyMzU2Mjk3/image-placeholder-title.webp',
+      url: 'https://www.history.com/news/clue-game-origin-wwii',
+      credit: 'Alice Popovici Aug 29, 2018 ',
     },
   ],
 
@@ -171,5 +171,5 @@ export const AppState = reactive({
   nextPage: 0,
   previousPage: 0,
   itsAMaybe: 9,
-  hopeItWorks: 0
+  hopeItWorks: 0,
 });
