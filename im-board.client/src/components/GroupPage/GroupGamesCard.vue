@@ -1,32 +1,18 @@
 <template>
-  <div
-    class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
-    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }"
-    :title="boardGameList.listName"
-  >
+  <div class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
+    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
     <div class="row">
       <div class="col-md-2 ms-1 text-danger">
-        <div class="btn-group">
-          <i
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            class="mdi mdi-star dropdown-toggle dropdown-toggle-split"
-          ></i>
+        <div class="btn-group" v-if="routeGroup">
+          <i data-bs-toggle="dropdown" aria-expanded="false"
+            class="mdi mdi-star dropdown-toggle dropdown-toggle-split"></i>
 
           <ul class="dropdown-menu" v-if="findGame">
             <div class="d-flex">
               <div v-for="f in findGame" :key="f.accountId">
-                <router-link
-                  :to="{ name: 'Profile', params: { id: f.accountId } }"
-                >
-                  <img
-                    :src="f.account?.picture"
-                    :alt="f.account.name"
-                    :title="f.account.name"
-                    height="30"
-                    width="30"
-                    class="rounded-circle box-shadow m-1 profile-img"
-                  />
+                <router-link :to="{ name: 'Profile', params: { id: f.accountId } }">
+                  <img :src="f.account?.picture" :alt="f.account.name" :title="f.account.name" height="30" width="30"
+                    class="rounded-circle box-shadow m-1 profile-img" />
                 </router-link>
                 <!-- <img
                   :src="f.account?.picture"
@@ -44,41 +30,33 @@
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="titlebox rounded-1 text-center px-3 py-1 my-1">
-          <router-link
-            class="text-center text-dark"
-            :to="{
-              name: 'BoardGameDetails',
-              params: { id: boardGameList.gameId },
-            }"
-            title="go to this games detail's page"
-          >
+          <router-link class="text-center text-dark" :to="{
+            name: 'BoardGameDetails',
+            params: { id: boardGameList.gameId },
+          }" title="go to this games detail's page">
             <b class="namefont">{{ boardGameList.boardGameName }}</b>
           </router-link>
         </div>
       </div>
       <div class="col-md-2" v-if="route.name == 'Account'">
-        <i
-          class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable"
-          title="remove game from list"
-          @click="removeGameFromList()"
-          v-if="account.id == boardGameList.accountId"
-        ></i>
+        <i class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable" title="remove game from list"
+          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
       </div>
     </div>
 
     <div class="d-flex justify-content-center">
-    <div class="categorybox rounded mx-5 p-2 px-5 mt-2 text-center">
-      <div>
-        <i class="mdi mdi-account-group fs-5" alt="" title=""></i>
-        {{ boardGameList.players }}
-      </div>
+      <div class="categorybox rounded mx-5 p-2 px-5 mt-2 text-center">
+        <div>
+          <i class="mdi mdi-account-group fs-5" alt="" title=""></i>
+          {{ boardGameList.players }}
+        </div>
 
-      <div>
-        <i class="mdi mdi-star fs-5 text-c7" alt="" title=""></i>
-        {{ boardGameList.rating.toFixed(2) }} <b>/</b> 5
+        <div>
+          <i class="mdi mdi-star fs-5 text-c7" alt="" title=""></i>
+          {{ boardGameList.rating.toFixed(2) }} <b>/</b> 5
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -101,6 +79,8 @@ export default {
   setup(props) {
     const route = useRoute();
     return {
+      routeGroup: computed(() => route
+        .name == 'Group'),
       route,
 
       member: computed(() => AppState.groupMembers),
