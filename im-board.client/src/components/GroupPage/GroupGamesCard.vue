@@ -1,33 +1,22 @@
 <template>
-  <div
-    class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
-    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }"
-    :title="boardGameList.listName"
-  >
+  <div class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
+    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
     <div class="row">
       <div class="col-md-2 ms-1 text-danger"></div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="titlebox rounded-1 text-center px-3 py-1 my-1">
-          <router-link
-            class="text-center text-dark"
-            :to="{
-              name: 'BoardGameDetails',
-              params: { id: boardGameList.gameId },
-            }"
-            title="go to this games detail's page"
-          >
+          <router-link class="text-center text-dark" :to="{
+            name: 'BoardGameDetails',
+            params: { id: boardGameList.gameId },
+          }" title="go to this games detail's page">
             <b class="namefont">{{ boardGameList.boardGameName }}</b>
           </router-link>
         </div>
       </div>
       <div class="col-md-2" v-if="route.name == 'Account'">
-        <i
-          class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable"
-          title="remove game from list"
-          @click="removeGameFromList()"
-          v-if="account.id == boardGameList.accountId"
-        ></i>
+        <i class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable" title="remove game from list"
+          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
       </div>
     </div>
 
@@ -38,7 +27,7 @@
       </div>
 
       <div>
-        <i class="mdi mdi-star fs-5" alt="" title=""></i>
+        <i class="mdi mdi-star fs-5 text-c6" alt="" title=""></i>
         {{ boardGameList.rating.toFixed(2) }} <b>/</b> 5
       </div>
     </div>
