@@ -2,10 +2,13 @@
   <div class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
     :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
     <div class="row">
-      <div class="col-md-2 ms-1 text-danger"></div>
+      <div class="col-md-2 ms-1 text-danger">
+        <i class="mdi mdi-account-group text-start"></i>
+      </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="titlebox rounded-1 text-center px-3 py-1 my-1">
+
           <router-link class="text-center text-dark" :to="{
             name: 'BoardGameDetails',
             params: { id: boardGameList.gameId },
