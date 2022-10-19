@@ -64,14 +64,14 @@
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" id="Wishlist" name="Wishlist" class="button-50 py-2 filterbtn" value="wishlist"
-                @click="filterBg = 'wish'" />
-              <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
-            </div>
-            <div class="ms-3">
               <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned"
                 @click="filterBg = 'owned'" />
               <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
+            </div>
+            <div class="ms-3">
+              <input type="button" id="Wishlist" name="Wishlist" class="button-50 py-2 filterbtn" value="wishlist"
+                @click="filterBg = 'wish'" />
+              <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
             </div>
           </b>
         </div>
