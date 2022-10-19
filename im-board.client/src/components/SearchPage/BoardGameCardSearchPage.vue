@@ -12,9 +12,16 @@
        </span>
         
     
-        <div class="card-text d-flex justify-content-center">
-          <i class="mdi mdi-account fs-5 "></i>
-        <div class="mt-1"> {{ boardGame?.players}}</div>
+        <div class="card-text d-flex justify-content-center align-items-center">
+          <div class="player-Icon-And-Players  d-flex justify-content-around align-items-center me-3">
+                 <i class="mdi mdi-account fs-5 "></i>
+       <p class="mb-0">  {{ boardGame?.players}} </p> 
+          </div>
+    
+       <div class="  d-flex justify-content-around align-items-center">
+        <i class="mdi mdi-clock fs-5"></i>
+        <p class="mb-0">{{boardGame?.playtime}}  </p>
+       </div>
         </div>
       <div class="card-text d-flex justify-content-center" title="Average User Rating">
         <i class="mdi mdi-star text-warning"></i> {{ boardGame?.average_user_rating.toFixed(2) }}
