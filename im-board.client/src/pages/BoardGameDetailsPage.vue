@@ -62,7 +62,7 @@
             </div>
             </div>
             
-            <div class="d-flex">
+            <div class="d-flex"  v-if="boardGame?.rank <100">
               <b>Ranking:</b>
               <p class="ms-2">#{{ boardGame?.rank }}</p>
             </div>

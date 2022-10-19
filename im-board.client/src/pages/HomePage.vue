@@ -51,7 +51,7 @@
         </TransitionGroup>
       </div>
 
-<RowSeperate/>
+<RowSeperate />
 
 
 
