@@ -4,19 +4,10 @@
   </div>
 
   <div class="account Page container-fluid">
-    <div
-      class="row bg-c5 banner eum-ipsum"
-      :style="{ backgroundImage: `url(${profile?.coverImg})` }"
-    >
+    <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${profile?.coverImg})` }">
       <div class="col-md-12 d-flex justify-content-center">
-        <img
-          :src="profile?.picture"
-          alt=""
-          height="150"
-          width="150"
-          class="eum rounded-circle mt-2 icon forcedImg"
-          v-if="profile?.picture"
-        />
+        <img :src="profile?.picture" alt="" height="150" width="150" class="eum rounded-circle mt-2 icon forcedImg"
+          v-if="profile?.picture" />
       </div>
     </div>
 
@@ -27,16 +18,9 @@
         {{ profile?.name }}
       </div>
       <div class="col-md d-flex justify-content-end">
-        <router-link
-          :to="{ name: 'Account' }"
-          v-if="account?.id == profile?.id"
-        >
+        <router-link :to="{ name: 'Account' }" v-if="account?.id == profile?.id">
           <button class="btn rounded-circle editbtn">
-            <i
-              class="ps-1 mdi mdi-account-cog-outline fs-1"
-              alt=""
-              title="Edit Profile"
-            ></i>
+            <i class="ps-1 mdi mdi-account-cog-outline fs-1" alt="" title="Edit Profile"></i>
           </button>
         </router-link>
       </div>
@@ -48,11 +32,8 @@
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
             <div>
-              <i
-                class="mdi mdi-information-outline fs-5"
-                alt=""
-                title="Groups only visisble to you, not other users."
-              ></i>
+              <i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i>
             </div>
           </div>
         </div>
@@ -67,57 +48,36 @@
       <!-- NOTE games card start -->
       <div class="col-md-8 mt-2 mt-md-0 me-3 me-md-3 bg-grey rounded  ">
         <!-- NOTE Problem starts here.... -->
-       
-          <div class="bg-c3">
-            <div class=" d-flex justify-content-center pt-2">
-              <h2>Games</h2>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <b class="mb-2 mt-2 d-flex justify-content-center">
-              <div class="ms-3">
-                <input type="button" id="all" name="All" value="all" @click="filterBg = ''">
-               
-              </div>
-              <div class="ms-3">
-                <input
-                  type="button"
-                  id="Fave"
-                  name="Fave"
-                  value="fave"
-                  @click="filterBg = 'favorite'"
-                />
-                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
-              </div>
-              <div class="ms-3">
-                <input
-                  type="button"
-                  id="Wishlist"
-                  name="Wishlist"
-                  value="wishlist"
-                  @click="filterBg = 'wish'"
-                />
-                <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
-              </div>
-              <div class="ms-3">
-                <input
-                  type="button"
-                  id="Owned"
-                  name="Owned"
-                  value="owned"
-                  @click="filterBg = 'owned'"
-                />
-                <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
-              </div>
-            </b>
-          </div>
 
-          <div class="cardholder">
-            <div class="row">
-              <div class="col-md-4" v-for="g in bgLists" :key="g.id">
-                <GroupGamesCard :boardGameList="g" />
-              </div>
-         
+        <div class="bg-c3">
+          <div class=" d-flex justify-content-center pt-2">
+            <h2>Games</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <b class="mb-2 mt-2 d-flex justify-content-center">
+
+            <div class="ms-3">
+              <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'" />
+              <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
+            </div>
+            <div class="ms-3">
+              <input type="button" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'" />
+              <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
+            </div>
+            <div class="ms-3">
+              <input type="button" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'" />
+              <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
+            </div>
+          </b>
+        </div>
+
+        <div class="cardholder">
+          <div class="row">
+            <div class="col-md-4" v-for="g in bgLists" :key="g.id">
+              <GroupGamesCard :boardGameList="g" />
+            </div>
+
           </div>
         </div>
       </div>
@@ -137,7 +97,7 @@ import { useRoute } from 'vue-router';
 import { profilesService } from '../services/ProfilesService.js';
 export default {
   setup() {
-    const filterBg = ref('');
+    const filterBg = ref('favorite');
     const route = useRoute();
     const editable = ref('');
     async function getProfileGroups() {
@@ -150,7 +110,7 @@ export default {
     async function getProfileLists() {
       try {
         await profilesService.getProfileLists(route.params.id);
-   
+
       } catch (error) {
         console.error('[get my lists]', error);
         Pop.error(error);
@@ -251,12 +211,12 @@ export default {
 
 
 @media (max-width: 576px) {
-  .username{
+  .username {
     font-size: 1.5rem;
   }
 
 
-  
- }
+
+}
 </style>
 

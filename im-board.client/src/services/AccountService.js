@@ -30,6 +30,7 @@ class AccountService {
     const res = await api.get(`/account/boardgames/`);
     // console.log(res.data, 'getting my lists');
     AppState.bgLists = res.data.map((b) => new BGList(b));
+    // AppState.bgLists = AppState.bgLists.filter(b => b.listName == "favorite")
     // console.log(AppState.bgLists);
   }
 

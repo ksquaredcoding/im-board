@@ -5,22 +5,13 @@
   </div>
 
   <div class="account Page container-fluid" v-else>
-    <div
-      class="row bg-c5 banner eum-ipsum"
-      :style="{ backgroundImage: `url(${account.coverImg})` }"
-    >
+    <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${account.coverImg})` }">
       <div class="">
         <!-- <EditBanner /> -->
       </div>
       <div class="col-md-12 d-flex justify-content-center">
-        <img
-          v-if="account?.picture"
-          :src="account?.picture"
-          alt=""
-          height="150"
-          width="150"
-          class="eum rounded-circle mt-2 icon position-relative forcedImg"
-        />
+        <img v-if="account?.picture" :src="account?.picture" alt="" height="150" width="150"
+          class="eum rounded-circle mt-2 icon position-relative forcedImg" />
       </div>
     </div>
 
@@ -36,19 +27,12 @@
       </div>
       <div class="col-md d-flex justify-content-end">
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner">
-          <i
-            class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1"
-            alt=""
-            title="Edit Account"
-          ></i>
+          <i class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
+            title="Edit Account"></i>
         </button>
         <router-link :to="{ name: 'Profile', params: { id: user.id } }">
           <button class="btn rounded-circle editbtn">
-            <i
-              class="ps-1 mdi mdi-account-check-outline fs-1"
-              alt=""
-              title="Save Changes"
-            ></i>
+            <i class="ps-1 mdi mdi-account-check-outline fs-1" alt="" title="Save Changes"></i>
           </button>
         </router-link>
       </div>
@@ -59,11 +43,8 @@
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
             <div>
-              <i
-                class="mdi mdi-information-outline fs-5"
-                alt=""
-                title="Groups only visisble to you, not other users."
-              ></i>
+              <i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i>
             </div>
           </div>
         </div>
@@ -86,33 +67,15 @@
           <div class="row justify-content-center">
             <b class="mb-2 mt-2 d-flex justify-content-center">
               <div class="ms-3">
-                <input
-                  type="button"
-                  id="Fave"
-                  name="Fave"
-                  value="fave"
-                  @click="filterBg = 'favorite'"
-                />
+                <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'" />
                 <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
               </div>
               <div class="ms-3">
-                <input
-                  type="button"
-                  id="Wishlist"
-                  name="Wishlist"
-                  value="wishlist"
-                  @click="filterBg = 'wish'"
-                />
+                <input type="button" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'" />
                 <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
               </div>
               <div class="ms-3">
-                <input
-                  type="button"
-                  id="Owned"
-                  name="Owned"
-                  value="owned"
-                  @click="filterBg = 'owned'"
-                />
+                <input type="button" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'" />
                 <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
               </div>
             </b>
@@ -147,7 +110,7 @@ import EditName from '../components/AccountProfilePage/EditName.vue';
 import EditPic from '../components/AccountProfilePage/EditPic.vue';
 export default {
   setup() {
-    const filterBg = ref('');
+    const filterBg = ref('favorite');
     async function getMyGroups() {
       try {
         await accountService.getMyGroups();
@@ -158,6 +121,7 @@ export default {
     async function getMyLists() {
       try {
         await accountService.getMyLists();
+        AppState.bgLists.filter((f) => f.listName == 'favorite')
       } catch (error) {
         console.error('[get my lists]', error);
         Pop.error(error);
@@ -173,15 +137,15 @@ export default {
       user: computed(() => AppState.user),
       groups: computed(() => AppState.groupMemberShips),
       // bgLists: computed(() => AppState.bgLists),
-      wishList: computed(() =>
-        AppState.bgLists.filter((w) => w.listName == 'wish')
-      ),
-      favList: computed(() =>
-        AppState.bgLists.filter((f) => f.listName == 'favorite')
-      ),
-      ownedList: computed(() =>
-        AppState.bgLists.filter((o) => o.listName == 'owned')
-      ),
+      // wishList: computed(() =>
+      //   AppState.bgLists.filter((w) => w.listName == 'wish')
+      // ),
+      // favList: computed(() =>
+      //   AppState.bgLists.filter((f) => f.listName == 'favorite')
+      // ),
+      // ownedList: computed(() =>
+      //   AppState.bgLists.filter((o) => o.listName == 'owned')
+      // ),
       bgLists: computed(() =>
         AppState.bgLists.filter((b) =>
           filterBg.value ? b.listName == filterBg.value : true
