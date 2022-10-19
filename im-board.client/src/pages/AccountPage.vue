@@ -57,8 +57,6 @@
       </div>
 
       <div class="col-md mx-3 bg-grey">
-        <!-- NOTE Problem starts here.... -->
-        <div class="container-fluid">
           <div class="bg-c3">
             <div class="col-md d-flex justify-content-center pt-2">
               <h2>Games</h2>
@@ -88,7 +86,7 @@
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
   </div>

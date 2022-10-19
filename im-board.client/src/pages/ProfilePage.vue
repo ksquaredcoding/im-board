@@ -27,7 +27,7 @@
     </div>
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
-      <div class="col-md-3  bg-grey rounded  ms-md-3" v-if="account?.id == profile?.id">
+      <div class="col-md-3  bg-grey  ms-md-3" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
@@ -45,9 +45,9 @@
         </div>
       </div>
 
-      <!-- NOTE games card start -->
-      <div class="col-md-8 mt-2 mt-md-0 me-3 me-md-3 bg-grey rounded  ">
-        <!-- NOTE Problem starts here.... -->
+   
+      <div class="col-md mx-3 bg-grey">
+     
 
         <div class="bg-c3">
           <div class=" d-flex justify-content-center pt-2">
