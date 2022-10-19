@@ -17,7 +17,7 @@ class AtlasGamesService {
 
   //MAIN ONE USED ON SEARCH PAGE
   async getBoardGames(query = '') {
-console.log(query);
+
     const res = await atlasApi.get(`api/search?${query}`, {
       params: {
         client_id: "2I6DeypMLL",
