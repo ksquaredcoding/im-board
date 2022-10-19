@@ -54,36 +54,39 @@
       </div>
 
       <div class="col-md mx-3 bg-grey">
-          <div class="bg-c3">
-            <div class="col-md d-flex justify-content-center pt-2">
-              <h2>Games</h2>
+        <div class="bg-c3">
+          <div class="col-md d-flex justify-content-center pt-2">
+            <h2>Games</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <b class="mb-2 mt-2 d-flex justify-content-center">
+            <div class="ms-3">
+              <input type="button" autofocus="true" class="button-50 py-2 filterbtn" id="Fave" name="Fave" value="fave"
+                @click="filterBg = 'favorite'" />
+              <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
-          </div>
-          <div class="row justify-content-center">
-            <b class="mb-2 mt-2 d-flex justify-content-center">
-              <div class="ms-3">
-                <input type="button" autofocus class="button-50 py-2 filterbtn" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'" />
-                <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
-              </div>
-              <div class="ms-3">
-                <input type="button" class="button-50 py-2 filterbtn" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'" />
-                <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
-              </div>
-              <div class="ms-3">
-                <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'" />
-                <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
-              </div>
-            </b>
-          </div>
+            <div class="ms-3">
+              <input type="button" class="button-50 py-2 filterbtn" id="Wishlist" name="Wishlist" value="wishlist"
+                @click="filterBg = 'wish'" />
+              <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
+            </div>
+            <div class="ms-3">
+              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned"
+                @click="filterBg = 'owned'" />
+              <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
+            </div>
+          </b>
+        </div>
 
-          <div class="cardholder">
-            <div class="row">
-              <div class="col-md-4" v-for="g in bgLists" :key="g.id">
-                <GroupGamesCard :boardGameList="g" />
-              </div>
+        <div class="cardholder">
+          <div class="row">
+            <div class="col-md-4" v-for="g in bgLists" :key="g.id">
+              <GroupGamesCard :boardGameList="g" />
             </div>
           </div>
-        
+        </div>
+
       </div>
     </div>
   </div>
@@ -230,28 +233,28 @@ export default {
   transition: 0.75s ease;
 }
 
-.filterbtn:focus{
+.filterbtn:focus {
   background: linear-gradient(to bottom right, #ffbb00, #ff5e00);
-    border: 0;
-    border-radius: 12px;
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Baloo 2', cursive;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    line-height: 2.5;
-    outline: transparent;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.5s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-      rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Baloo 2', cursive;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 2.5;
+  outline: transparent;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 </style>

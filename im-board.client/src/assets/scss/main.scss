@@ -40,17 +40,15 @@ input:placeholder-shown {
 }
 
 .gradient-box {
-  background: #79bd9a
-    linear-gradient(22deg, #cff09e, #a8dba8, #79bd9a, #3b8686, #0b486b) fixed;
+  background: #79bd9a linear-gradient(22deg, #cff09e, #a8dba8, #79bd9a, #3b8686, #0b486b) fixed;
 }
 
 .gradient-box2 {
-  background: #ffbb00
-    linear-gradient(22deg, #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006) fixed;
+  background: #ffbb00 linear-gradient(22deg, #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006) fixed;
 }
 
 .hover:hover {
-  transform: scale(1.09);
+  transform: scale(1.03);
   filter: brightness(110%);
   filter: contrast(110%);
   transition: 0.75s ease;
@@ -170,6 +168,7 @@ form:invalid button[type='submit'] {
   width: 13px;
   width: 13px;
 }
+
 *::-webkit-scrollbar-track {
   background-color: #ffff;
   cursor: pointer;
@@ -191,6 +190,7 @@ form:invalid button[type='submit'] {
   transition: all 0.5s ease;
   background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
 }
+
 // -----------------------------------------SCROLLBAR STUFF----------------------------------------//
 
 //------------------------------------------------LOADER FOR WAITING FOR API----------------------------//
@@ -222,6 +222,7 @@ form:invalid button[type='submit'] {
   border-radius: 50%;
   animation: loading 0.75s ease infinite;
 }
+
 //------------------------------------------------LOADER FOR WAITING FOR API----------------------------//
 
 //---------------------------CUSTOM BUTTONS------------------------------//
