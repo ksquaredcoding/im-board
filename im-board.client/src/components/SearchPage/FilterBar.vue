@@ -62,24 +62,24 @@
               <input type="number" min="5" max="60" name="playTime" v-model="playTime" />
             </div>
 
-            <button class="btn button-50 ms-2" type="submit">SUBMIT</button>
+            <button class="btn button-50 ms-2" type="submit" @click="newSearch()">SUBMIT</button>
+            <button class="btn btn-danger" @click="incrementSkip('prev')" type="submit">
+              Previous
+            </button>
+            <button class="btn btn-primary" @click="incrementSkip('next')" type="submit">
+              Next
+            </button>
           </div>
         </div>
       </div>
     </form>
-    <button class="btn btn-danger" @click="incrementSkip('prev')" type="button">
-      Previous
-    </button>
-    <button class="btn btn-primary" @click="incrementSkip('next')" type="button">
-      Next
-    </button>
   </div>
 </template>
 
 <script>
 import { computed } from '@vue/reactivity';
 import { AppState } from '../../AppState.js';
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import Pop from '../../utils/Pop.js';
 import { atlasGamesService } from '../../services/AtlasGamesService.js';
 
@@ -90,8 +90,15 @@ export default {
 
     const filters1 = ref([]);
     const filters2 = ref([]);
+    let isSearch = false
+
+    // watchEffect(() => {
+    //   AppState.skip
+    //   this.searchByCoolMethod()
+    // })
 
     return {
+      isSearch,
       filters1,
       filters2,
       playerCount,
@@ -124,12 +131,12 @@ export default {
           if (AppState.boardgames <= 0) {
             Pop.toast('Refine your search please')
           }
-          if (AppState.skip > 0)
-
-
-            AppState.queryFilter = [];
-          AppState.skip = 0
-          console.log(AppState.queryFilter);
+          if (typeof AppState.skip === 'number') {
+            await atlasGamesService.getBoardGames(finalSearch);
+            AppState.queryFilter = []
+          } else {
+            AppState.queryFilter = []
+          }
         } catch (error) {
           Pop.error(error, '[Cool Search Method]');
         }
@@ -157,6 +164,9 @@ export default {
           Pop.error('[INCREMENT SKIP]', error)
         }
       },
+      newSearch() {
+        AppState.skip = 0
+      }
     };
   },
 };

@@ -8,25 +8,25 @@ import { ActiveBoardGamePrice } from "../models/BoardGame/ActiveBoardGamePrice.j
 import { router } from "../router.js";
 import { ForumPost } from "../models/BoardGame/ForumPost.js";
 import { BGList } from "../models/BoardGame/BGList.js";
-import {  BGCategoriesAndMechanics } from "../models/BoardGame/BGCategories&Mechanics.js";
+import { BGCategoriesAndMechanics } from "../models/BoardGame/BGCategories&Mechanics.js";
 
 //  client_id: '2I6DeypMLL';
 class AtlasGamesService {
 
 
-//MAIN ONE USED ON SEARCH PAGE
-  async getBoardGames(query='') {
-    
+  //MAIN ONE USED ON SEARCH PAGE
+  async getBoardGames(query = '') {
+
     const res = await atlasApi.get(`api/search?${query}`, {
       params: {
         client_id: "2I6DeypMLL",
-        limit:60,
+        limit: 10,
 
       },
     });
     // console.log(res.data);
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-   
+
     console.log(AppState.boardgames);
   }
 
@@ -44,16 +44,16 @@ class AtlasGamesService {
 
   }
 
-  
+
   async getBoardGamesByPopularity() {
- 
+
     const res = await atlasApi.get("/api/search", {
       params: {
         client_id: "2I6DeypMLL",
         limit: 12,
       },
     });
-    AppState.popularBoardGames= res.data.games.map((b) => new BoardGame(b));
+    AppState.popularBoardGames = res.data.games.map((b) => new BoardGame(b));
 
   }
 
@@ -105,18 +105,18 @@ class AtlasGamesService {
   //   AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   // }
 
-async getBoardGamesByMechanics(mechanics = ""){
-  console.log(mechanics);
-  const res = await atlasApi.get('/api/search', {
-    params: {
-      client_id: '2I6DeypMLL',
-      mechanics: mechanics,
-      limit:60
-    },
-  });
-  // console.log(res.data.games);
-  AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-}
+  async getBoardGamesByMechanics(mechanics = "") {
+    console.log(mechanics);
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+        mechanics: mechanics,
+        limit: 60
+      },
+    });
+    // console.log(res.data.games);
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+  }
 
 
   async getBoardGamesByOrder_By(query = "") {
@@ -153,8 +153,8 @@ async getBoardGamesByMechanics(mechanics = ""){
       params: {
         client_id: "2I6DeypMLL",
         game_id: id,
-       
- 
+
+
       },
     });
     // console.log(res.data.images);
@@ -215,7 +215,7 @@ async getBoardGamesByMechanics(mechanics = ""){
       },
     });
     // console.log(res.data);
-    AppState.bgCategories= res.data.categories.map((b) => new BGCategoriesAndMechanics(b));
+    AppState.bgCategories = res.data.categories.map((b) => new BGCategoriesAndMechanics(b));
     // console.log(AppState.bgCategories);
   }
 
