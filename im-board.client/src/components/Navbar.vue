@@ -72,9 +72,9 @@
       <!-- TODO make into component -->
       <div class="pe-3 d-flex d-none d-md-block">
 
-        <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
+        <!-- <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
-        </router-link>
+        </router-link> -->
 
         <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
@@ -109,9 +109,9 @@
       <div class="col-md-12  d-flex  justify-content-center my-2">
         <div class="pe-3  d-flex">
 
-          <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
+          <!-- <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
             <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Profile</a>
-          </router-link>
+          </router-link> -->
 
           <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
             <a name="" id="" class="btn button-52 py-1 px-2 mx-2" href="#" role="button">Account</a>
