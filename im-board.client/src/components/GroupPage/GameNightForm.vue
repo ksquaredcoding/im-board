@@ -9,31 +9,34 @@
     <div class="row">
     
         <form>
-          <div class="inputBox">
-           <span>What game do you want to play?</span>
+          <div class="">
+
+          <div class="inputBox m-3">
+           <div>What game are you playing?</div>
             <input
               type="url"
-              class="form-control"
+              class="form-control bg-dark"
               v-model="editable.game"
            
               name="game"
             />
           
           </div>
-          <div class="inputBox">
-        
+          <div class="inputBox m-3">
+            <div>Date and time?</div>
             <input
               type="datetime-local"
-              class="form-control"
+              class="form-control bg-dark"
               v-model="editable.StartDate"
               name="time"
             />
           </div>
-          <div class="inputBox">
-          <span>Location</span>
+
+          <div class="inputBox m-3">
+          <div>Location?</div>
             <input
               type="text"
-              class="form-control"
+              class="form-control bg-dark"
               v-model="editable.location"
               name="bio"
           
@@ -41,10 +44,10 @@
             >
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100 mt-2">
+            <button type="submit" class="button-51 p-2 ms-3">
               Create Game Night
             </button>
-          </div>
+          </div></div>
         </form>
       </div>
  

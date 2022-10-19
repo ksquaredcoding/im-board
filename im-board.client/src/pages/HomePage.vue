@@ -29,12 +29,22 @@
         </TransitionGroup>
       </div>
 
-      <div class="mt-5 d-flex justify-content-center">
-        <hr class="shine" />
-      </div>
+<div class="col-md-12 pt-5">
+  <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
+    <h5 class="rowTitle p-1 mt-1">Editor's Choice Board Games</h5>
+  </div>
+</div>
+<div class="row mx-2 horizontal-scrollable mt-3">
+  <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
+    leaveActiveClass="animate__zoomOut animate__animated">
+    <div class="col-md-2 mt-3 mb-2" v-for="p in popularBoardGames" :key="p.id">
+      <BoardGameCard :boardGame="p" />
+    </div>
+  </TransitionGroup>
+</div>
 
       <!-- SECTION  -->
-      <div class="col-md-12">
+      <div class="col-md-12 pt-5">
         <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
           <h5 class="rowTitle p-1 mt-1">Games On Discount</h5>
         </div>
@@ -60,7 +70,7 @@
         <hr class="shine" />
       </div>
 
-      <div class="col-md-12 mt-3">
+      <div class="col-md-12 mt-3 pt-4">
         <a href="https://www.boardgameatlas.com/" target="_blank">
             <div class="hoverable hvr-sweep-to-left rounded-1 p-2 bg-c5">
           <h5 class="pt-2">
@@ -84,13 +94,8 @@
       </div>
     </div>
 
-    <div class="mt-5 d-flex justify-content-center">
-      <!-- <RowSeperate class="mt-5" /> -->
-      <hr class="shine" />
-    </div>
-
-  
-      <Articles />
+  <div class="pt-5 mb-5"><Articles /></div>
+      
     
   </div>
 </template>
