@@ -14,8 +14,9 @@
     <div class="row justify-content-center align-items-center p-4"></div>
     <div class="row justify-content-center align-items-center g-2 mt-3 mb-2">
       <div class="col-md"></div>
-      <div class="col-md d-flex justify-content-center username">
-        {{ profile?.name }}
+      <div class="col-md d-flex justify-content-center ">
+        <h1 class="username">{{ profile?.name }}</h1>
+        
       </div>
       <div class="col-md d-flex justify-content-end">
         <router-link :to="{ name: 'Account' }" v-if="account?.id == profile?.id">
@@ -58,15 +59,15 @@
           <b class="mb-2 mt-2 d-flex justify-content-center">
 
             <div class="ms-3">
-              <input type="button" id="Fave" name="Fave" value="fave" @click="filterBg = 'favorite'" />
+              <input type="button" id="Fave" name="Fave" value="fave" autofocus="true" class="button-50 py-2 filterbtn focus" @click="filterBg = 'favorite'" />
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" id="Wishlist" name="Wishlist" value="wishlist" @click="filterBg = 'wish'" />
+              <input type="button" id="Wishlist" name="Wishlist" class="button-50 py-2 filterbtn" value="wishlist" @click="filterBg = 'wish'" />
               <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'" />
+              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'" />
               <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
             </div>
           </b>
@@ -123,7 +124,9 @@ export default {
         Pop.error(error, '[getProfile]');
       }
     }
-
+    function focus() {
+      document.getElementById('Fave').focus()
+    }
     onMounted(() => {
       getUserProfile();
       getProfileGroups();
@@ -208,7 +211,30 @@ export default {
   filter: contrast(110%);
   transition: 0.75s ease;
 }
-
+.filterbtn:focus {
+  background: linear-gradient(to bottom right, #ffbb00, #ff5e00);
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Baloo 2', cursive;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 2.5;
+  outline: transparent;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
 
 @media (max-width: 576px) {
   .username {
