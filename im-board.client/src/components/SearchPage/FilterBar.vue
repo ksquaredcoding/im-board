@@ -81,12 +81,6 @@
             <button class="btn button-50 ms-2" type="submit" @click="newSearch()">
               SUBMIT
             </button>
-            <button class="btn btn-danger" @click="incrementSkip('prev')" type="submit">
-              Previous
-            </button>
-            <button class="btn btn-primary" @click="incrementSkip('next')" type="submit">
-              Next
-            </button>
           </div>
         </div>
       </div>
