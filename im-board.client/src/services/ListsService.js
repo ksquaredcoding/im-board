@@ -14,18 +14,16 @@ class ListsService {
     AppState.bgLists = res.data.map((b) => new BGList(b));
 
     const count = [];
-    AppState.bgLists.forEach((b) => {
-      count[b.gameId] = (count[b.gameId] || 0) + 1;
-    });
-    console.log(count);
 
     AppState.bgLists.forEach((b) => {
       if (count.find((c) => c.gameId == b.gameId)) {
         let hi = count.findIndex((c) => c.gameId == b.gameId);
         count.splice(hi, 1);
       }
+      delete b.accountId;
       count.push(b);
     });
+    console.log(count);
   }
 
   async removeGameFromList(listId) {
