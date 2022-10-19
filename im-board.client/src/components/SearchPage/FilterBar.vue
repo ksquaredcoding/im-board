@@ -67,6 +67,12 @@
         </div>
       </div>
     </form>
+    <button class="btn btn-danger" @click="incrementSkip('prev')" type="button">
+      Previous
+    </button>
+    <button class="btn btn-primary" @click="incrementSkip('next')" type="button">
+      Next
+    </button>
   </div>
 </template>
 
@@ -84,6 +90,7 @@ export default {
 
     const filters1 = ref([]);
     const filters2 = ref([]);
+
     return {
       filters1,
       filters2,
@@ -92,7 +99,6 @@ export default {
 
       categories: computed(() => AppState.bgCategories),
       mechanics: computed(() => AppState.bgMechanics),
-
       async searchByCoolMethod() {
         try {
           let categoriesSearch = `categories=${filters1.value}`;
@@ -100,6 +106,7 @@ export default {
 
           let search = `gt_max_players=${playerCount.value}`;
           let search2 = `lt_max_playtime=${playTime.value}`;
+          let skipQuery = `skip=${AppState.skip}`
 
           AppState.queryFilter = [
             ...AppState.queryFilter,
@@ -108,53 +115,46 @@ export default {
 
             categoriesSearch,
             mechanicsSearch,
+            skipQuery
           ];
-
-          let finalSearch = AppState.queryFilter.join('&');
+          const arrToUse = AppState.queryFilter
+          let finalSearch = arrToUse.join('&');
           console.log(AppState.queryFilter.join('&'));
           await atlasGamesService.getBoardGames(finalSearch);
           if (AppState.boardgames <= 0) {
             Pop.toast('Refine your search please')
-          } else
+          }
+          if (AppState.skip > 0)
+
+
             AppState.queryFilter = [];
+          AppState.skip = 0
           console.log(AppState.queryFilter);
         } catch (error) {
           Pop.error(error, '[Cool Search Method]');
         }
       },
 
-      async searchByPlayerCount() {
+      async incrementSkip(x) {
         try {
-          let search = `&min_players=${playerCount.value}`;
+          switch (x) {
+            case 'next':
+              AppState.skip += 10
+              break;
+            case 'prev':
+              if (AppState.skip <= 0) {
+                return
+              } else {
+                AppState.skip -= 10
+              }
+              break;
 
-          AppState.queryFilter = [...AppState.queryFilter, search];
-
-          console.log(this.queryFilter.join(''));
-
-          // await atlasGamesService.getBoardGamesByMinimumPlayers(editable.value);
+            default:
+              break;
+          }
+          console.log(AppState.skip);
         } catch (error) {
-          Pop.error(error, '[searchByPlayerCount');
-        }
-      },
-
-      async searchByPlayTime() {
-        try {
-          this.queryFilter.push(`&min_playtime=${editable2.value}`);
-          // await atlasGamesService.getBoardGamesByPlayTime(editable.value)
-          console.log(this.queryFilter.join(''));
-        } catch (error) {
-          Pop.error(error, '[searchByPlayTime]');
-        }
-      },
-
-      async searchByYear() {
-        try {
-          this.queryFilter.push(`&lt_year_published=${editable3.value}`);
-          console.log(this.queryFilter.join(''));
-
-          // await atlasGamesService.getBoardGamesByYear(editable.value)
-        } catch (error) {
-          Pop.error(error, '[searchByRating]');
+          Pop.error('[INCREMENT SKIP]', error)
         }
       },
     };
