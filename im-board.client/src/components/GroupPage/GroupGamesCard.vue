@@ -31,7 +31,7 @@
       </div>
 
       <div>
-        <i class="mdi mdi-star fs-5 text-c6" alt="" title=""></i>
+        <i class="mdi mdi-star fs-5 text-c7" alt="" title=""></i>
         {{ boardGameList.rating.toFixed(2) }} <b>/</b> 5
       </div>
     </div>

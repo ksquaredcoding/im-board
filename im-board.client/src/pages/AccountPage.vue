@@ -81,7 +81,7 @@
 
         <div class="cardholder">
           <div class="row">
-            <div class="col-md-4 ps-5" v-for="g in bgLists" :key="g.id">
+            <div class="col-md-4 px-4" v-for="g in bgLists" :key="g.id">
               <GroupGamesCard :boardGameList="g" />
             </div>
           </div>
