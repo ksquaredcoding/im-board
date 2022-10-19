@@ -12,6 +12,12 @@
        </span>
         
     
+<div class="card-text d-flex justify-content-center">
+          <i class="mdi mdi-clock fs-5 "></i>
+        <div class="mt-1"> {{ boardGame?.playtime}} mins</div>
+        </div>
+
+
         <div class="card-text d-flex justify-content-center">
           <i class="mdi mdi-account fs-5 "></i>
         <div class="mt-1"> {{ boardGame?.players}}</div>
@@ -25,18 +31,6 @@
          <p> ${{boardGame.price}}</p>
            <small class="text-decoration-line-through opacity-75 ms-3">
               {{boardGame.retailPrice}}
-        </small>
-      
-          
-        </div>
-        <div>
-            <small class="o ms-3">
-              playtime
-              {{boardGame.playtime}}min
-        </small>
-      
-            <small class="o ms-3">
-           year   {{boardGame.year_published}}
         </small>
       
           

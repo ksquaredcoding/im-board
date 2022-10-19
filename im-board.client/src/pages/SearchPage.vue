@@ -16,7 +16,7 @@
         <FilterBar />
       </div>
     
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div class="row mx-2">
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
