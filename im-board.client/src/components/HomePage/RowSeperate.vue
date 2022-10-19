@@ -1,6 +1,6 @@
 <template>
 
-<div class="row red">
+<div class="row ">
   <div>
     <svg id="" preserveAspectRatio="xMidYMax meet" class="svg-separator sep1" viewBox="0 0 1600 100" style="" data-height="100">
 <path class="" style="opacity: 1;fill: #bc4565;" d="M1040,56c0.5,0,1,0,1.6,0c-16.6-8.9-36.4-15.7-66.4-15.7c-56,0-76.8,23.7-106.9,41C881.1,89.3,895.6,96,920,96
@@ -36,6 +36,29 @@ s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
 </svg>
   </div>
 </div>
+
+
+
+<!-- <div class="row light-grey2">
+  <div>
+    <svg id="" preserveAspectRatio="xMidYMax meet" class="svg-separator sep7" viewBox="0 0 1600 200" style="display: block;" data-height="200">
+<polygon class="" style="fill: #ecf0f1" points="1611.912,205.954 -14.224,206 -9.912,2.046 1616.224,162.165 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="167.262,39.589 107.551,33.709 123.443,15.177 183.154,21.057 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="286.684,51.348 226.973,45.468 242.865,26.936 302.577,32.816 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="47.839,27.83 -11.872,21.95 4.021,3.418 63.732,9.298 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="406.107,63.107 346.395,57.227 362.288,38.695 421.999,44.575 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="525.529,74.866 465.818,68.986 481.71,50.454 541.422,56.334 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="644.952,86.625 585.24,80.745 601.133,62.213 660.844,68.093 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="764.374,98.384 704.663,92.504 720.555,73.973 780.267,79.852 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="883.797,110.143 824.085,104.263 839.978,85.732 899.689,91.611 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="1003.219,121.902 943.508,116.023 959.4,97.491 1019.111,103.37 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="1122.641,133.661 1062.93,127.782 1078.823,109.25 1138.534,115.129 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="1242.064,145.42 1182.353,139.541 1198.245,121.009 1257.956,126.888 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="1361.486,157.179 1301.775,151.3 1317.668,132.768 1377.379,138.647 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #d2527f;" points="1480.909,168.938 1421.198,163.059 1437.09,144.527 1496.801,150.406 "></polygon> 
+<polygon class="" style="opacity: 1;fill: #59abe3;" points="1600.331,180.697 1540.62,174.818 1556.513,156.286 1616.224,162.165 "></polygon></svg>
+  </div>
+</div> -->
 </template>
 
 
@@ -93,6 +116,11 @@ h2{
   bottom: 0;
 }
 .sep1{
+  transform: translateY(-100%) translateY(2px) scale(1,1);
+  transform-origin: top;
+}
+
+.sep7 {
   transform: translateY(-100%) translateY(2px) scale(1,1);
   transform-origin: top;
 }
