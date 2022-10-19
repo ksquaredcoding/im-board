@@ -113,10 +113,10 @@ export default {
           let finalSearch = AppState.queryFilter.join('&');
           console.log(AppState.queryFilter.join('&'));
           await atlasGamesService.getBoardGames(finalSearch);
-if (AppState.boardgames <=0) {
-  Pop.toast('Refine your search please')
-} else
-          AppState.queryFilter = [];
+          if (AppState.boardgames <= 0) {
+            Pop.toast('Refine your search please')
+          } else
+            AppState.queryFilter = [];
           console.log(AppState.queryFilter);
         } catch (error) {
           Pop.error(error, '[Cool Search Method]');
@@ -163,12 +163,12 @@ if (AppState.boardgames <=0) {
 </script>
 
 <style lang="scss" scoped>
-
-.scrollableY{
+.scrollableY {
   height: 50vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
@@ -187,5 +187,9 @@ button:focus {
   color: rgb(31, 28, 28);
 
   background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
+}
+
+.no-clicky {
+  pointer-events: none;
 }
 </style>
