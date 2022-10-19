@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <!-- ----------------Group CHAT -->
-      <div class="col-md-3 bg-dark rounded mt-2">
+      <div class="col-md-4 bg-dark rounded mt-2">
         <div class="bg-c6 rounded px-2 py-2 my-2 text-center mx-5">
           <h4>Group Chat</h4>
         </div>
@@ -28,7 +28,7 @@
         </div>
       </div>
 <!-- -------------GROUP GAMES -->
-      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2 mt-2 rounded">
+      <div class="col-md-2 overflow-auto gamecardbox bg-dark pt-2 mt-2 rounded">
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
