@@ -1,6 +1,6 @@
 <template>
  
-    <div class="GameNightCard bg-dark card my-2 gameNightBg elevation-3">
+    <div class="GameNightCard bg-dark card my-2 elevation-3">
       <div class="row justify-content-center">
         <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
           <div class="d-flex justify-content-center mt-2 text-center">

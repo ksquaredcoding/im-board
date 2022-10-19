@@ -131,7 +131,7 @@ export default {
     return {
       chats: computed(() => AppState.groupChats),
       group: computed(() => AppState.activeGroup),
-      lists: computed(() => AppState.bgLists),
+      lists: computed(() => AppState.groupFilteredLists),
       account: computed(() => AppState.account),
       gamenights: computed(() => AppState.groupGameNights),
       groupOwner: computed(

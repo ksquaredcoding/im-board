@@ -21,9 +21,11 @@ class ListsService {
         count.splice(hi, 1);
       }
       delete b.accountId;
+      delete b.addedToListAt
       count.push(b);
     });
-    console.log(count);
+    AppState.groupFilteredLists = count;
+    console.log(AppState.groupFilteredLists);
   }
 
   async removeGameFromList(listId) {
