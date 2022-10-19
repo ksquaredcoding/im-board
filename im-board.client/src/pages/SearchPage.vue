@@ -3,14 +3,14 @@
     <div class="row justify-content-end g-md-0">
       <div class="col-md-12 border-secondary border-3 rounded-bottom">
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
-          <h3 class="searchText">Search for board games</h3>
+          <h3 class="searchText pt-3 text-dark">Search for board games</h3>
           <p class="col-md-4">
             <Searchbar />
           </p>
         </div>
       </div>
    
-      <div class="col-md-12 d-flex bg-dark rounded p-4 d-flex justify-content-center">
+      <div class="col-md-12 d-flex bg-c5 rounded p-4 d-flex justify-content-center">
  
 
         <FilterBar />

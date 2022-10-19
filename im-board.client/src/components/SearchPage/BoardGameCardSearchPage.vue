@@ -12,12 +12,6 @@
        </span>
         
     
-<div class="card-text d-flex justify-content-center">
-          <i class="mdi mdi-clock fs-5 "></i>
-        <div class="mt-1"> {{ boardGame?.playtime}} mins</div>
-        </div>
-
-
         <div class="card-text d-flex justify-content-center">
           <i class="mdi mdi-account fs-5 "></i>
         <div class="mt-1"> {{ boardGame?.players}}</div>
@@ -33,8 +27,8 @@
               {{boardGame.retailPrice}}
         </small>
       
-          
         </div>
+
         <div class="d-flex justify-content-center">
        
         </div>

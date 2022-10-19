@@ -23,7 +23,7 @@
           <!-- ------------------------------------- -->
           <div class="dropdown" id="dropdown2">
             <div class="dropdown-item">
-              <button class="dropdown-toggle collapsed button-52 p-2 focus" type="button" data-bs-toggle="dropdown"
+              <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Mechanics
               </button>
@@ -62,7 +62,7 @@
               <input type="number" min="5" max="60" name="playTime" v-model="playTime" />
             </div>
 
-            <button class="btn button-52" type="submit">SUBMIT YO ASS</button>
+            <button class="btn button-50 ms-2" type="submit">SUBMIT</button>
           </div>
         </div>
       </div>
