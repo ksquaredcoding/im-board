@@ -14,23 +14,6 @@ class ProfilesService {
 
   }
 
-  // async getListsByType(type = '', id) {
-  //   let res
-  //   if (type) {
-  //     res = await api.get(`/profiles/boardgames/${id}`, {
-  //       params: {
-  //         type: type
-  //       }
-  //     })
-  //   } else {
-  //     res = await api.get(`/profiles/boardgames/${id}`)
-
-  //   }
-  //   AppState.bgLists = res.data.map((b) => new BGList(b));
-  //   console.log(AppState.bgLists);
-  // }
-
-
   async getProfileGroups(id) {
     const res = await api.get(`/profiles/groups/${id}`);
     // console.log("getProfileGroups", res.data);
@@ -46,12 +29,5 @@ class ProfilesService {
     AppState.activeProfile = new Account(res.data);
     // console.log(AppState.activeProfile);
   }
-  // super("api/profiles");
-  // this.router
-  //   .get("", this.getProfiles)
-  //   .get("/:id", this.getProfile)
-  //   .get("/boardgames/:id", this.getProfileBoardGames)
-  //   .get("/groups/:id", this.getProfileGroups);
-  //
 }
 export const profilesService = new ProfilesService();
