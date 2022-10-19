@@ -16,7 +16,7 @@
     <form @submit.prevent="handleSubmitOnHomePage()" class="d-flex justify-content-center align-items-center">
       <div class="dropDown " height="30" width="30">
         <select v-model="editable" class="form-select " aria-label="Default select example">
-          <option selected>{{}}</option>
+
           <option value="favorite">Favorite</option>
           <option value="owned">Owned</option>
           <option value="wish">Wish</option>
@@ -52,7 +52,7 @@ export default {
   },
   setup(props) {
     const route = useRoute()
-    const editable = ref('')
+    const editable = ref('favorite')
     return {
       routeHome: computed(() => route.name == 'Home'),
       editable,
