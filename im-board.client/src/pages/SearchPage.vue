@@ -92,15 +92,15 @@ export default {
         try {
           switch (x) {
             case 'next':
-              AppState.itsAMaybe += 10
-              AppState.hopeItWorks += 10
+              AppState.itsAMaybe += 12
+              AppState.hopeItWorks += 12
               break;
             case 'prev':
               if (AppState.hopeItWorks > 0) {
-                AppState.hopeItWorks -= 10
+                AppState.hopeItWorks -= 12
               }
               if (AppState.itsAMaybe >= 22) {
-                AppState.itsAMaybe -= 10
+                AppState.itsAMaybe -= 12
               }
               break;
 
