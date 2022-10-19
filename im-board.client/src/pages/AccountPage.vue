@@ -38,7 +38,7 @@
       <div class="col-md-3 ms-3 bg-grey">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Groups</h2>
+            <h2 class="font">Groups</h2>
             <div>
               <i class="mdi mdi-information-outline fs-5" alt=""
                 title="Groups only visisble to you, not other users."></i>
@@ -56,23 +56,23 @@
       <div class="col-md mx-3 bg-grey">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
-            <h2>Game Lists</h2>
+            <h2 class="font">Game Lists</h2>
           </div>
         </div>
         <div class="row justify-content-center">
           <b class="mb-2 mt-2 d-flex justify-content-center">
             <div class="ms-3">
               <input type="button" autofocus="true" class="button-50 py-2 filterbtn focus" id="Fave" name="Fave"
-                value="fave" @click="filterBg = 'favorite'" />
+                value="Favorites" @click="filterBg = 'favorite'" />
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned"
+              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="Owned"
                 @click="filterBg = 'owned'" />
               <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" class="button-50 py-2 filterbtn" id="Wishlist" name="Wishlist" value="wishlist"
+              <input type="button" class="button-50 py-2 filterbtn" id="Wishlist" name="Wishlist" value="Wishlist"
                 @click="filterBg = 'wish'" />
               <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
             </div>
@@ -210,6 +210,13 @@ export default {
   bottom: -35%;
 }
 
+.font{
+  font-family: 'Baloo 2',
+    cursive;
+    font-weight: 700;
+    color: aliceblue;
+      text-shadow: 2px 2px #3b8686, 0px 0px 5px #79bd9a;
+}
 .username {
   font-family: 'Baloo 2', cursive;
   font-weight: 600;

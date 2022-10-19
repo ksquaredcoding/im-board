@@ -23,7 +23,7 @@
             </div>
 
             <div class="my-3">
-              <button class="btn btn-success selectable" type="submit" data-bs-dismiss="modal">
+              <button class="btn button-51 selectable" type="submit" data-bs-dismiss="modal">
                 Submit
               </button>
             </div>

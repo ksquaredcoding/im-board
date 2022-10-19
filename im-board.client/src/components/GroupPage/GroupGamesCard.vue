@@ -14,14 +14,6 @@
                   <img :src="f.account?.picture" :alt="f.account.name" :title="f.account.name" height="30" width="30"
                     class="rounded-circle box-shadow m-1 profile-img" />
                 </router-link>
-                <!-- <img
-                  :src="f.account?.picture"
-                  :alt="f.account?.name"
-                  :title="f.account?.name"
-                  height="30"
-                  width="30"
-                  class="rounded-circle box-shadow m-1 profile-img"
-                /> -->
               </div>
             </div>
           </ul>

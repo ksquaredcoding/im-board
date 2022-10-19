@@ -8,25 +8,27 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="">
-                  <img :src="editable.coverImg" alt="" class="forcedImg smallerImg mt-2 Img1 bg-light opacity-25" />
+                  <img :src="editable.coverImg" alt="" class="forcedImg smallerImg mt-2 Img1 bg-grey " />
                 </div>
                 <div class="mt-3 inputBox">
-                  <input type="url" class="bg-light text-dark opacity-50" v-model="editable.coverImg" required
+                  <div class="font">Group Cover Image</div>
+                  <input type="url" class="bg-grey text-dark" v-model="editable.coverImg" required
                     aria-required="true" />
-                  <span class="font">CoverImg</span>
+                  
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <input type="text" class="bg-light opacity-50 text-dark" v-model="editable.name" required
+                  <div class="font">Group Name</div>
+                  <input type="text" class="bg-grey  text-dark" v-model="editable.name" required
                     aria-required="true" />
-                  <span class="font">Group Name</span>
+                  
                 </div>
               </div>
             </div>
 
             <div class="my-3">
-              <button class="btn btn-success selectable font" type="submit" data-bs-dismiss="modal">
+              <button class="btn button-51 selectable font" type="submit" data-bs-dismiss="modal">
                 Create Group
               </button>
             </div>
@@ -81,7 +83,7 @@ export default {
 <style scoped>
 .forcedImg {
   border-radius: 4px;
-  border: dashed 4px #ff5e00;
+  border: dashed 4px #686868;
 }
 
 .checkbox {

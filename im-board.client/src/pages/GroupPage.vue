@@ -2,16 +2,24 @@
   <div v-if="!group" class="animate__animated animate__fadeOut">
     <div class="loader"></div>
   </div>
-  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
+  <div
+    class="group-page animate__animated animate__fadeInRight container-fluid"
+    v-else
+  >
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <!-- ----------------Group CHAT -->
-      <div class="col-md-4 bg-dark rounded mt-2">
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-3 bg-dark rounded mt-2">
         <div class="bg-c6 rounded px-2 py-2 my-2 text-center mx-5">
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-md-12  overflow-auto groupchatbox bg-dark lighten-10  rounded" id="chatbox">
+        <div
+          class="overflow-auto groupchatbox bg-dark lighten-10 rounded"
+          id="chatbox"
+        >
           <div class="col-md-12" v-for="c in chats" :key="c.id">
             <Chat :chat="c" />
           </div>
@@ -19,22 +27,22 @@
         <GroupChatInput />
       </div>
 
-
       <!-- ---------------GAME NIGHT -->
       <div class="col-md-5 overflow-auto gamecardbox mx-5">
         <div class="px-1">
-         
           <GameNightCard v-for="g in gamenights" :gamenight="g" />
         </div>
       </div>
-<!-- -------------GROUP GAMES -->
-      <div class="col-md-2 overflow-auto gamecardbox bg-dark pt-2 mt-2 rounded">
+      <!-- -------------GROUP GAMES -->
+      <div class="col-md-3 overflow-auto gamecardbox bg-dark pt-2 mt-2 rounded">
         <div class="bg-c1 rounded text-center pt-2 pb-1 mx-5">
           <h4>Group Games</h4>
         </div>
         <div class="mt-2">
-          <div v-for="g in lists" :key="g.id" class="mt-4">
-            <GroupGamesCard :boardGameList="g" />
+          <div class="row flex-wrap">
+            <div v-for="g in lists" :key="g.id" class="mt-4 col-12">
+              <GroupGamesCard :boardGameList="g" />
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +99,6 @@ export default {
     async function getGroupChatsByGroupId() {
       try {
         await groupChatsService.getGroupChatsByGroupId(route.params.id);
-
       } catch (error) {
         Pop.error(error, "[getListsByGroupId]");
       }
@@ -105,11 +112,11 @@ export default {
     }
 
     function scrollToBottom() {
-      let chatbox = document.getElementById('chatbox')
+      let chatbox = document.getElementById("chatbox");
       if (!chatbox) {
-        return setTimeout(scrollToBottom, 500)
+        return setTimeout(scrollToBottom, 500);
       }
-      chatbox.scrollTop = 9999
+      chatbox.scrollTop = 9999;
     }
 
     onMounted(() => {
@@ -118,7 +125,7 @@ export default {
       getListsByGroupId();
       getGroupChatsByGroupId();
       getGroupGameNights();
-      scrollToBottom()
+      scrollToBottom();
     });
 
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
@@ -162,7 +169,9 @@ export default {
   display: none;
 }
 
-
+.bricks {
+  columns: 2
+}
 
 .groupchatbox {
   height: 80vh;
