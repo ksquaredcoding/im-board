@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div class="col-md-12 d-flex bg-c5 rounded p-4 d-flex justify-content-center">
+      <div class="col-md-12 d-flex bg-dark lighten-10 rounded p-4 d-flex justify-content-center">
 
 
         <FilterBar />
