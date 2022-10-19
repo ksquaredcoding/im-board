@@ -75,10 +75,10 @@
           </div>
           <div class="row justify-content-center">
             <b class="mb-2 mt-2 d-flex justify-content-center">
-              <!-- <div class="ms-3">
+              <div class="ms-3">
                 <input type="button" id="all" name="All" value="all" @click="filterBg = ''">
                
-              </div> -->
+              </div>
               <div class="ms-3">
                 <input
                   type="button"
