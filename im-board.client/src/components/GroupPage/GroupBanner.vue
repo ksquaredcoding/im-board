@@ -149,7 +149,7 @@ export default {
 
 .banner {
   background-size: cover;
-  // background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F448%2F448821.jpg&f=1&nofb=1&ipt=c82f7488813551ce7475226bda34e557ed75955562a742824dae6d417ad79a5e&ipo=images);
+
   background-position: center;
   background-position: fixed;
 }

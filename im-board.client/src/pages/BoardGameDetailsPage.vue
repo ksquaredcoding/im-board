@@ -1,9 +1,9 @@
 <template>
   <div class="container" v-if="boardGame">
     <!-- SECTION start game info -->
-    <div class="row">
+    <div class="row justify-content-center">
       <div
-        class="col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
+        class=" col-10  col-md-12 gradient-box text-center my-3 py-3   rounded animate__animated animate__fadeInDown elevation-3"
       >
         <div class="font">{{ boardGame?.name }}</div>
         <h6>
@@ -24,7 +24,7 @@
       </div>
 
       <div
-        class="col-md-6 p-3 animate__animated animate__fadeInRight info rounded elevation-3"
+        class="col-md-6 p-3 mt-4 mt-md-0 animate__animated animate__fadeInRight info rounded elevation-3"
       >
         <div class="row">
           <div class="col-md-6">
@@ -78,9 +78,9 @@
         <div class="text-center">
           <b>Add to list</b>
         </div>
-        <div class="d-flex justify-content-center">
-          <div class="col-3 text-center">
-            <AddToList />
+        <div class="d-flex justify-content-center my-3 my-md-0">
+          <div class="col-3 text-center ">
+            <AddToList  />
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@
         <div class="mt-5">
           <h1>Videos about this game:</h1>
         </div>
-        <div class="row">
+        <div class="row ">
           <div class="col-md-3" v-for="v in videos" :key="v.id">
             <ActiveBoardGameVideos :video="v" />
           </div>

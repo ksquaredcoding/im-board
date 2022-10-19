@@ -45,17 +45,13 @@
           v-if="user.isAuthenticated">
           Create Group
         </a>
-
-
         <button class=" button-49 py-1 px-2 " disabled v-else title="Not Logged In">
           Create Group
         </button>
 
-
-
       </div>
       <div class="ps-4">
-        <Searchbar />
+        <Searchbar  class="d-none d-md-block" />
       </div>
       <!-- TODO END -->
     </div>
@@ -70,10 +66,7 @@
           </p>
         </div>
       </router-link>
-
-
     </div>
-
 
     <div class="col-md d-flex flex-row-reverse">
       <!-- TODO make into component -->
@@ -92,10 +85,10 @@
       <!-- TODO END -->
     </div>
 
-    <div class="col-12 d-flex justify-content-between g-2 d-md-none">
+    <!-- <div class="col-12 d-flex justify-content-between g-2 d-md-none">
       <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
       <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
-    </div>
+    </div> -->
 
 
     <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -107,8 +100,13 @@
 
 
 
-      <div class="col-md d-flex flex-row-reverse">
-        <!-- TODO make into component -->
+
+<Searchbar/>
+
+
+
+
+      <div class="col-md-12  d-flex  justify-content-center my-2">
         <div class="pe-3  d-flex">
 
           <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
@@ -121,20 +119,11 @@
 
           <Login />
         </div>
-        <!-- TODO END -->
+    
       </div>
-
-      <div class="col-12 d-flex justify-content-between g-2 d-md-none">
-        <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
-        <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
-      </div>
-
-
-
-
     </div>
   </nav>
-  <!-- <GroupForm/> -->
+
 </template>
 
 <script>
@@ -187,5 +176,5 @@ article {
   font-family: 'Baloo 2', cursive;
 }
 
-@media screen AND (max-width: 768px) {}
+
 </style>

@@ -11,7 +11,7 @@
           <h4>Group Chat</h4>
         </div>
 
-        <div class="col-12 ms-2 overflow-auto groupchatbox bg-dark rounded" id="chatbox">
+        <div class="col-md-12  overflow-auto groupchatbox bg-dark lighten-10  rounded" id="chatbox">
           <div class="col-md-12" v-for="c in chats" :key="c.id">
             <Chat :chat="c" />
           </div>

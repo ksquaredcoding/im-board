@@ -29,11 +29,9 @@
         </TransitionGroup>
       </div>
 
-   <div class="mt-5 d-flex justify-content-center">
-<!-- <RowSeperate class="mt-5" /> -->
-<hr class="shine">
-
-</div>
+      <div class="mt-5 d-flex justify-content-center">
+        <hr class="shine" />
+      </div>
 
       <!-- SECTION  -->
       <div class="col-md-12">
@@ -57,21 +55,13 @@
         </TransitionGroup>
       </div>
 
-
-
-
-      
       <div class="mt-5 d-flex justify-content-center">
-<!-- <RowSeperate class="mt-5" /> -->
-<hr class="shine">
-
-</div>
-
-
-
+        <!-- <RowSeperate class="mt-5" /> -->
+        <hr class="shine" />
+      </div>
 
       <div class="col-md-12 mt-3">
-        <div class="hoverable hvr-sweep-to-left  rounded-1 p-2 bg-c5">
+        <div class="hoverable hvr-sweep-to-left rounded-1 p-2 bg-c5">
           <h5 class="pt-2">
             <b>Articles from </b>
             <img
@@ -91,27 +81,14 @@
       </div>
     </div>
 
-
-   <div class="mt-5 d-flex justify-content-center">
-<!-- <RowSeperate class="mt-5" /> -->
-<hr class="shine">
-
-</div>
-
-
-
-    <div class="col-md-12 mt-4">
-      <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
-        <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
-      </div>
+    <div class="mt-5 d-flex justify-content-center">
+      <!-- <RowSeperate class="mt-5" /> -->
+      <hr class="shine" />
     </div>
-    <div class="row horizontal-scrollable mb-4 mt-4 ">
+
+  
       <Articles />
-    </div>
-
-    <!-- <button @click="getMoreBoardGames()" class="btn btn-danger">
-        Load More
-      </button> -->
+    
   </div>
 </template>
 
@@ -128,8 +105,8 @@ import ForumPosts from '../components/HomePage/AtlasGamesForumPosts.vue';
 import Articles from '../components/HomePage/Articles.vue';
 import HomePageBanner from '../components/HomePage/HomePageBanner.vue';
 import { router } from '../router.js';
-import RowSeperator from "../components/HomePage/RowSeperate.vue";
-import RowSeperate from "../components/HomePage/RowSeperate.vue";
+import RowSeperator from '../components/HomePage/RowSeperate.vue';
+import RowSeperate from '../components/HomePage/RowSeperate.vue';
 
 export default {
   setup() {
@@ -161,18 +138,8 @@ export default {
     onMounted(() => {
       getBoardGamesByPopularity();
       getBoardGamesByDiscount();
-      // getBoardGamesByPrice()
       getForumPosts();
-      // AppState.skip = 0;
-      // window.addEventListener('scroll', handleScroll)
     });
-
-    // async function handleScroll(){
-    //  if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
-
-    // }
-    // getMoreBoardGames()
-    // }
 
     return {
       editable,
@@ -182,24 +149,6 @@ export default {
         AppState.forumPosts.sort(() => Math.random() - 0.5)
       ),
       discountBoardGames: computed(() => AppState.discountBoardGames),
-      async getMoreBoardGames() {
-        try {
-          await atlasGamesService.getBoardGamesOnScroll();
-        } catch (error) {
-          Pop.error(error, '[getBoardGames]');
-        }
-      },
-      async getBoardGamesByCategories(category) {
-        try {
-          await atlasGamesService.getBoardGamesByCategories(category);
-        } catch (error) {
-          Pop.error(error, '[getBoardGamesByCategories]');
-        }
-      },
-
-      async searchPopular() {
-        router.push({ name: 'Search' });
-      },
     };
   },
   components: {
@@ -209,24 +158,15 @@ export default {
     ForumPosts,
     Articles,
     HomePageBanner,
-    RowSeperator,
-    RowSeperate
-},
+
+    RowSeperate,
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .rowTitle {
   font-weight: 700;
-}
-
-.horizontal-scrollable {
-  border-radius: 4px;
-
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  white-space: nowrap;
-  scroll-behavior: smooth;
 }
 
 .card-title {
@@ -238,22 +178,7 @@ export default {
 .card-img {
   height: 300px;
   object-fit: cover;
-
   box-shadow: inset 0 0 10px 10px #000;
-}
-
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
 }
 
 .searchcol {
@@ -289,19 +214,15 @@ export default {
   background-color: #2c2c2fe7;
 }
 
-// @media screen AND (max-width: 768px){
-
-// }
-
-
 .shine {
   height: 20px;
   width: 90%;
   background-image: radial-gradient(
     farthest-side at 50% -50%,
     hsla(0, 0%, 0%, 0.5),
-    hsla(0, 0%, 0%, 0));
-  position: relative; 
+    hsla(0, 0%, 0%, 0)
+  );
+  position: relative;
 }
 
 .shine::before {
@@ -314,7 +235,13 @@ export default {
     90deg,
     hsla(0, 0%, 0%, 0),
     hsla(0, 0%, 0%, 0.75) 50%,
-    hsla(0, 0%, 0%, 0));
+    hsla(0, 0%, 0%, 0)
+  );
 }
 
+@media screen and (max-width: 576px) {
+  .username {
+    font-size: 1.5rem;
+  }
+}
 </style>

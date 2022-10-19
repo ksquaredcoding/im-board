@@ -1,5 +1,13 @@
 <template>
-  <div class="col-md-3 mb-3" v-for="a in articles">
+ 
+  
+    <div class="col-md-12 mt-4">
+      <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
+        <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
+      </div>
+    </div>
+    <div class="row horizontal-scrollable mb-4 mt-4">
+    <div class="col-md-3 mb-3" v-for="a in articles">
     <a :href="a.url" target="_blank">
       <div class="bg-transparent card my-2">
         <img :src="a.coverImg" alt="" class="forcedImg rounded" />
@@ -12,10 +20,11 @@
       </div>
     </a>
   </div>
+
+
+    </div>
 </template>
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
-}
+
 <script>
 import { computed } from '@vue/reactivity';
 import { useRoute } from 'vue-router';
@@ -27,8 +36,9 @@ export default {
     return {
       route,
 
-      articles: computed(() => AppState.articles.sort(()=> Math.random() - 0.5))
-
+      articles: computed(() =>
+        AppState.articles.sort(() => Math.random() - 0.5)
+      ),
     };
   },
 };
@@ -72,4 +82,6 @@ export default {
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   transition: all 0.5s ease;
 }
+
+
 </style>

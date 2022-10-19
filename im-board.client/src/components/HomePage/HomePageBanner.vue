@@ -59,4 +59,15 @@ object-position: center;
   filter: contrast(105%);
   filter: brightness(105%);
 }
+@media screen and (max-width: 576px) {
+  .card{
+    .card-title{
+  font-size: 25pt;
+}
+
+  }
+
+
+ }
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="component" v-if="!routeHome">
+  <div class="component " v-if="!routeHome">
     <form @submit.prevent="handleSubmit()">
       <select v-model="editable" class="form-select border-secondary" aria-label="Default select example">
         <option value="favorite">Favorite</option>

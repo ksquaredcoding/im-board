@@ -2,8 +2,8 @@
  
     <div class="GameNightCard bg-dark card my-2 gameNightBg elevation-3">
       <div class="row justify-content-center">
-        <div class="col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-          <div class="d-flex justify-content-center mt-2">
+        <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
+          <div class="d-flex justify-content-center mt-2 text-center">
             <h2>Upcoming Gamenight</h2>
           </div>
           <div class="d-flex justify-content-center mb-2">
@@ -49,7 +49,7 @@
             </span>
           </div>
         </div>
-        <div class="col-md-6 p-0 ps-3">
+        <div class="col-5 col-md-6 p-0 ps-md-3">
           <div class="card m-2 noborder">
             <div class="bg-c4 text-center  rounded-top">
               <h5 class="mt-1">Attending:</h5>
@@ -84,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 p-0 pe-3">
+        <div class="col-5 col-md-6 p-0 pe-md-3">
           <div class="card m-2 noborder elevation-4">
             <div class="bg-c4 text-center p-1 rounded-top">
               <h5 class="mt-1">Playing:</h5>

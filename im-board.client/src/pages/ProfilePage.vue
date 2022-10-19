@@ -42,8 +42,8 @@
       </div>
     </div>
 
-    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-      <div class="col-md-3 ms-3 bg-grey" v-if="account?.id == profile?.id">
+    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
+      <div class="col-md-3  bg-grey rounded  ms-md-3" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2>Groups</h2>
@@ -65,11 +65,11 @@
       </div>
 
       <!-- NOTE games card start -->
-      <div class="col-md mx-3 bg-grey">
+      <div class="col-md-8 mt-2 mt-md-0 me-3 me-md-3 bg-grey rounded  ">
         <!-- NOTE Problem starts here.... -->
-        <div class="container-fluid">
+       
           <div class="bg-c3">
-            <div class="col-md d-flex justify-content-center pt-2">
+            <div class=" d-flex justify-content-center pt-2">
               <h2>Games</h2>
             </div>
           </div>
@@ -117,7 +117,7 @@
               <div class="col-md-4" v-for="g in bgLists" :key="g.id">
                 <GroupGamesCard :boardGameList="g" />
               </div>
-            </div>
+         
           </div>
         </div>
       </div>
@@ -248,45 +248,15 @@ export default {
   filter: contrast(110%);
   transition: 0.75s ease;
 }
+
+
+@media (max-width: 576px) {
+  .username{
+    font-size: 1.5rem;
+  }
+
+
+  
+ }
 </style>
 
-<!-- <div>
-      <div class="col-md bg-grey ms-2">
-        <div class="row bg-c4">
-          <div class="col d-flex justify-content-center pt-2">
-            <h1>Favorites</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in favList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-
-      <div class="col-md bg-grey mx-3">
-        <div class="row bg-c4">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h1>Wishlist</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in wishList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-
-      <div class="col-md bg-grey">
-        <div class="row bg-c4">
-          <div class="col-md d-flex justify-content-center pt-2">
-            <h1>Games I own</h1>
-          </div>
-        </div>
-        <div class="cardholder">
-          <span v-for="b in ownedList" :key="b.id">
-            <ListCard :boardGameList="b" />
-          </span>
-        </div>
-      </div>
-</div> -->

@@ -1,5 +1,5 @@
 <template>
-  <div class="ActiveBoardGameVideo">
+  <div class="ActiveBoardGameVideo d-flex justify-content-center my-2 my-md-0">
     <iframe :src="video.url"
     class="rounded"
       title="Claire Saffitz Makes CHOCOLATE CHIP COOKIES | Dessert Person" frameborder="0"

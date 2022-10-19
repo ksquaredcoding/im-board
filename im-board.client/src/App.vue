@@ -1,11 +1,12 @@
 <template>
   <header class="bg-dark">
-    <Navbar class="animate__animated animate__fadeInDown" />
+    <Navbar class="animate__animated animate__fadeInDown d-none d-md-flex" />
   </header>
   <main>
     <router-view />
   </main>
   <footer class="p-2 bg-dark mt-1">
+    <Navbar class="animate__animated animate__fadeInDown d-md-none" />
     <Footer />
   </footer>
   <GroupForm />
@@ -53,29 +54,4 @@ export default {
 </script>
 <style lang="scss">
 @import './assets/scss/main.scss';
-*::-webkit-scrollbar {
-  width: 13px;
-  width: 13px;
-}
-*::-webkit-scrollbar-track {
-  background-color: #ffff;
-  cursor: pointer;
-}
-
-*::-webkit-scrollbar-track:hover {
-  cursor: pointer;
-}
-
-*::-webkit-scrollbar-thumb {
-  width: 100px;
-  border-radius: 10px;
-  background: linear-gradient(to bottom right, #a8dba8, #0b486b);
-}
-
-*::-webkit-scrollbar-thumb:active {
-  width: 100px;
-  border-radius: 10px;
-  transition: all 0.5s ease;
-  background: linear-gradient(to bottom right, #ff5e00, #ffbb00);
-}
 </style>
