@@ -51,7 +51,7 @@
 
       </div>
       <div class="ps-4">
-        <Searchbar  class="d-none d-md-block" />
+        <Searchbar class="d-none d-md-block" />
       </div>
       <!-- TODO END -->
     </div>
@@ -101,7 +101,7 @@
 
 
 
-<Searchbar/>
+      <Searchbar />
 
 
 
@@ -119,7 +119,7 @@
 
           <Login />
         </div>
-    
+
       </div>
     </div>
   </nav>
@@ -169,12 +169,11 @@ article {
       #ffbb00,
       #ff5e00);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
   font-size: 40px;
   font-weight: bolder;
   font-family: 'Baloo 2', cursive;
 }
-
-
 </style>

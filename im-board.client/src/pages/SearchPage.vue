@@ -9,14 +9,20 @@
           </p>
         </div>
       </div>
-   
+
       <div class="col-md-12 d-flex bg-c5 rounded p-4 d-flex justify-content-center">
- 
+
 
         <FilterBar />
       </div>
-    
+
       <div class="col-md-12">
+        <!-- <button class="btn btn-danger" @click="incrementSkip('prev')" type="button">
+          Previous
+        </button>
+        <button class="btn btn-primary" @click="incrementSkip('next')" type="button">
+          Next
+        </button> -->
         <div class="row mx-2">
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
@@ -48,7 +54,7 @@ import FiltersSideBar from "../components/SearchPage/FiltersSideBar.vue";
 export default {
   setup() {
     const editable = ref('');
- 
+
     async function getCategoryList() {
       try {
         await atlasGamesService.getBoardGameCategoriesList();
@@ -72,7 +78,30 @@ export default {
     return {
       editable,
       boardGames: computed(() => AppState.boardgames),
-categories: computed(()=>AppState.bgCategories),
+      categories: computed(() => AppState.bgCategories),
+      skip: computed(() => AppState.skip),
+      // async incrementSkip(x) {
+      //   try {
+      //     switch (x) {
+      //       case 'next':
+      //         AppState.skip += 10
+      //         break;
+      //       case 'prev':
+      //         if (skip <= 0) {
+      //           return
+      //         } else {
+      //           AppState.skip -= 10
+      //         }
+      //         break;
+
+      //       default:
+      //         break;
+      //     }
+      //     console.log(skip);
+      //   } catch (error) {
+      //     Pop.error('[INCREMENT SKIP]', error)
+      //   }
+      // },
     };
   },
   components: {
@@ -84,7 +113,7 @@ categories: computed(()=>AppState.bgCategories),
     FilterBar,
     FiltersSideBar,
 
-},
+  },
 };
 </script>
 
