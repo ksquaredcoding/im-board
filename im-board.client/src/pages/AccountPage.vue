@@ -62,8 +62,8 @@
         <div class="row justify-content-center">
           <b class="mb-2 mt-2 d-flex justify-content-center">
             <div class="ms-3">
-              <input type="button" autofocus="true" class="button-50 py-2 filterbtn" id="Fave" name="Fave" value="fave"
-                @click="filterBg = 'favorite'" />
+              <input type="button" autofocus="true" class="button-50 py-2 filterbtn focus" id="Fave" name="Fave"
+                value="fave" @click="filterBg = 'favorite'" />
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
@@ -125,9 +125,14 @@ export default {
         Pop.error(error);
       }
     }
+
+    function focus() {
+      document.getElementById('Fave').focus()
+    }
     onMounted(() => {
       getMyGroups();
       getMyLists();
+      focus()
     });
     return {
       filterBg,
