@@ -23,7 +23,8 @@
       </div>
     </div>
 
-    <div class="categorybox rounded mx-5 p-2 mt-2 text-center">
+    <div class="d-flex justify-content-center">
+    <div class="categorybox rounded mx-5 p-2 px-5 mt-2 text-center">
       <div>
         <i class="mdi mdi-account-group fs-5" alt="" title=""></i>
         {{ boardGameList.players }}
@@ -34,6 +35,7 @@
         {{ boardGameList.rating.toFixed(2) }} <b>/</b> 5
       </div>
     </div>
+  </div>
   </div>
 </template>
 
