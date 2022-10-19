@@ -97,10 +97,7 @@
 
   
     </div>
-    <div class="col-md-12 d-flex justify-content-center mt-2">
-      <button @click="nextSet()" class="btn button-51 me-2">Prev</button>
-      <button @click="previousSet()"  class="btn button-51">Next</button>
-    </div>
+    
 
     <div>
       <div v-if="reviews?.length > 0">

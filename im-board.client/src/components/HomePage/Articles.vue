@@ -8,12 +8,12 @@
     </div>
     <div class="row horizontal-scrollable mb-4 mt-4">
     <div class="col-md-3 mb-3" v-for="a in articles">
-    <a :href="a.url" target="_blank">
+    <a :href="a.url" target="_blank" class="text-dark ">
       <div class="bg-transparent card my-2">
         <img :src="a.coverImg" alt="" class="forcedImg rounded" />
 
-        <div class="card-body p-1 bg-dark rounded">
-          <h6 class="text-light">{{ a.name }}</h6>
+        <div class="card-body p-1  rounded">
+          <h6 class="">{{ a.name }}</h6>
 
           <small>{{ a.credit }}</small>
         </div>

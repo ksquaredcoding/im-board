@@ -61,7 +61,8 @@
       </div>
 
       <div class="col-md-12 mt-3">
-        <div class="hoverable hvr-sweep-to-left rounded-1 p-2 bg-c5">
+        <a href="https://www.boardgameatlas.com/" target="_blank">
+            <div class="hoverable hvr-sweep-to-left rounded-1 p-2 bg-c5">
           <h5 class="pt-2">
             <b>Articles from </b>
             <img
@@ -72,6 +73,8 @@
             <b class="text-primary lighten-10"> Board Game Atlas </b>
           </h5>
         </div>
+        </a>
+      
       </div>
 
       <div class="row horizontal-scrollable mt-4">

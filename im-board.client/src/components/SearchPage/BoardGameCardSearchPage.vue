@@ -8,7 +8,7 @@
         :src="boardGame?.coverImg"
         alt=""
         class="forcedImg rounded position-relative"
-        @error="altImg()"
+        @error="badImg()"
       />
     </router-link>
 
@@ -89,6 +89,10 @@ export default {
     const route = useRoute();
     return {
       route,
+      badImg(event) {
+        event.target.src =
+          'https://scontent-fml2-1.xx.fbcdn.net/v/t39.30808-6/285341017_491972112936262_428169449585977605_n.png?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=luxW5EmZWc8AX_7Q3Ng&_nc_ht=scontent-fml2-1.xx&oh=00_AT_-9bi9Fn51koLGEax6amFRkok4JRe8L2X4z88qiPA4OA&oe=635181DB';
+      },
     };
   },
   components: { AddToList },
