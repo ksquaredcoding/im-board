@@ -6,20 +6,32 @@ class ListsService {
   async addGameToList(gameData) {
     const res = await api.post("api/boardgames", gameData);
     // console.log(res.data);
-    AppState.bgLists = [...AppState.bgLists, new BGList(res.data)]
+    AppState.bgLists = [...AppState.bgLists, new BGList(res.data)];
   }
   async getListsByGroupId(groupId) {
     const res = await api.get(`api/boardgames/${groupId}`);
     console.log(res.data);
     AppState.bgLists = res.data.map((b) => new BGList(b));
-    // console.log(AppState.bgLists);
+
+    const count = [];
+    AppState.bgLists.forEach((b) => {
+      count[b.gameId] = (count[b.gameId] || 0) + 1;
+    });
+    console.log(count);
+
+    AppState.bgLists.forEach((b) => {
+      if (count.find((c) => c.gameId == b.gameId)) {
+        let hi = count.findIndex((c) => c.gameId == b.gameId);
+        count.splice(hi, 1);
+      }
+      count.push(b);
+    });
   }
 
   async removeGameFromList(listId) {
-    await api.delete(`api/boardgames/${listId}`)
+    await api.delete(`api/boardgames/${listId}`);
 
-    AppState.bgLists = AppState.bgLists.filter(b => b.listId != listId)
-
+    AppState.bgLists = AppState.bgLists.filter((b) => b.listId != listId);
   }
 }
 
