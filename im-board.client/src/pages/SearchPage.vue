@@ -17,12 +17,12 @@
       </div>
 
       <div class="col-md-12">
-        <!-- <button class="btn btn-danger" @click="incrementSkip('prev')" type="button">
+        <button class="btn btn-danger" @click="incrementSkip('prev')" type="button">
           Previous
         </button>
         <button class="btn btn-primary" @click="incrementSkip('next')" type="button">
           Next
-        </button> -->
+        </button>
         <div class="row mx-2">
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
@@ -77,31 +77,28 @@ export default {
 
     return {
       editable,
-      boardGames: computed(() => AppState.boardgames),
+      boardGames: computed(() => AppState.boardgames.slice(AppState.hopeItWorks, AppState.itsAMaybe)),
       categories: computed(() => AppState.bgCategories),
       skip: computed(() => AppState.skip),
-      // async incrementSkip(x) {
-      //   try {
-      //     switch (x) {
-      //       case 'next':
-      //         AppState.skip += 10
-      //         break;
-      //       case 'prev':
-      //         if (skip <= 0) {
-      //           return
-      //         } else {
-      //           AppState.skip -= 10
-      //         }
-      //         break;
+      async incrementSkip(x) {
+        try {
+          switch (x) {
+            case 'next':
+              AppState.itsAMaybe += 10
+              AppState.hopeItWorks += 10
+              break;
+            case 'prev':
+              AppState.itsAMaybe -= 10
+              AppState.hopeItWorks -= 10
+              break;
 
-      //       default:
-      //         break;
-      //     }
-      //     console.log(skip);
-      //   } catch (error) {
-      //     Pop.error('[INCREMENT SKIP]', error)
-      //   }
-      // },
+            default:
+              break;
+          }
+        } catch (error) {
+          Pop.error('[INCREMENT SKIP]', error)
+        }
+      },
     };
   },
   components: {
