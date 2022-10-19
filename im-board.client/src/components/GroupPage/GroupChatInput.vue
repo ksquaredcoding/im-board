@@ -1,7 +1,7 @@
 <template>
   <div class="bg-dark rounded ms-2">
     <form @submit.prevent="handleSubmit">
-      <div class="bg-grey p-2"></div>
+      <div class="bg-c6 p-2"></div>
       <div class="row">
         <div class="d-flex justify-content-between">
           <div class="p-2 mt-2 ms-1">Add post. . .</div>

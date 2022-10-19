@@ -29,7 +29,7 @@
         <div>
           <span><small class="text-shadow">Members</small></span>
           <div
-            class="d-flex justify-content-center align-items-center bg-c2 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
+            class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
 
 
             <router-link :to="{name: 'Profile', params:{id: g.accountId}}" v-for="g in groupMember" :key="g.id">
