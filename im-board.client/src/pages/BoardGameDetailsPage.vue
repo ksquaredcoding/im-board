@@ -9,9 +9,10 @@
         <h6>
           <b class="fs-4"
             >{{ boardGame?.year_published }} ·
-            <i class="bi bi-people-fill fs-4"></i> {{ boardGame?.players }} ·
+            <i class="bi bi-people-fill fs-4"></i> {{ boardGame?.players }} 
+            <div v-if="boardGame?.playtime > 0">·
             <i class="bi bi-clock-fill fs-5"></i>
-            {{ boardGame?.playtime }} mins</b
+            {{ boardGame?.playtime }} mins</div></b
           >
         </h6>
       </div>

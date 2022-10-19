@@ -37,7 +37,7 @@
 
     <div class="categorybox rounded mx-5 p-2 mt-2 text-center">
       <!-- <div><b>Categories:</b></div> -->
-      <div><i class="mdi mdi-clock fs-5" alt="" title=""></i> {{boardGameList.playTime}} mins</div>
+        <div><i class="mdi mdi-clock fs-5" alt="" title=""></i> {{boardGameList.playTime}} mins</div>
       <div><i class="mdi mdi-account-group fs-5" alt="" title=""></i> {{boardGameList.players}}</div>
       <!-- <div><i class="mdi mdi-clock fs-5" alt="" title=""></i> {{boardGameList.playTime}} mins</div> -->
       <div><i class="mdi mdi-star fs-5" alt="" title=""></i> {{boardGameList.rating.toFixed(2)}} <b>/</b> 5</div>
