@@ -10,10 +10,10 @@
 
       <div class="col-md-12">
         <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
-          <h5 class="rowTitle p-1">Popular Board Games</h5>
+          <h5 class="rowTitle p-1 mt-1">Popular Board Games</h5>
         </div>
       </div>
-      <div class="row mx-2 horizontal-scrollable">
+      <div class="row mx-2 horizontal-scrollable mt-3">
         <TransitionGroup
           name="custom-classes"
           enterActiveClass="animate__zoomIn animate__animated"
@@ -32,10 +32,10 @@
       <!-- SECTION  -->
       <div class="col-md-12">
         <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
-          <h5 class="rowTitle p-1">Games On Discount</h5>
+          <h5 class="rowTitle p-1 mt-1">Games On Discount</h5>
         </div>
       </div>
-      <div class="row mx-2 horizontal-scrollable">
+      <div class="row mx-2 horizontal-scrollable mt-3">
         <TransitionGroup
           name="custom-classes"
           enterActiveClass="animate__zoomIn animate__animated"
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div class="row horizontal-scrollable">
+      <div class="row horizontal-scrollable mt-4">
         <div class="col-md-3 mt-2" v-for="f in forumPosts" :key="f.id">
           <ForumPosts :forumPost="f" />
         </div>
@@ -84,7 +84,7 @@
         <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
       </div>
     </div>
-    <div class="row horizontal-scrollable mb-4 mt-2 ">
+    <div class="row horizontal-scrollable mb-4 mt-4 ">
       <Articles />
     </div>
 
