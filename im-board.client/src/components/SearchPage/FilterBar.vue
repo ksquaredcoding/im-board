@@ -71,7 +71,7 @@
               v-model="playerCount"
               id="playerCount"
             >
-              <option selected>{{ (playerCount = 'player count') }}</option>
+              <option selected>{{ (playerCount = playerCount) }}</option>
               <option :value="i" v-for="i in 9">{{ i }}</option>
 
               <option value="10">10+</option>
@@ -83,7 +83,7 @@
               v-model="playTime"
               id="playerCount"
             >
-              <option selected>{{ (playTime = 'play time') }}</option>
+              <option selected>{{ (playTime = playTime) }}</option>
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
