@@ -10,7 +10,7 @@ class BoardGamesService {
     const lists = await dbContext.BoardGames.find({
       accountId: accounts.map((g) => g.accountId),
       type: "owned",
-    });
+    }).populate("account", "name picture");
     return lists;
     // return accounts;
   }

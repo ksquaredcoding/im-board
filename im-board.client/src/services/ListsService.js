@@ -20,12 +20,12 @@ class ListsService {
         let hi = count.findIndex((c) => c.gameId == b.gameId);
         count.splice(hi, 1);
       }
-      delete b.accountId;
+      // delete b.accountId;
       delete b.addedToListAt
       count.push(b);
     });
     AppState.groupFilteredLists = count;
-    console.log(AppState.groupFilteredLists);
+    // console.log(AppState.groupFilteredLists);
   }
 
   async removeGameFromList(listId) {

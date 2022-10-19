@@ -1,25 +1,68 @@
 <template>
-  <div class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
-    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
+  <div
+    class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
+    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }"
+    :title="boardGameList.listName"
+  >
     <div class="row">
       <div class="col-md-2 ms-1 text-danger">
-        <i class="mdi mdi-account-group text-start"></i>
+        <div class="btn-group">
+          <i
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            class="mdi mdi-star dropdown-toggle dropdown-toggle-split"
+          ></i>
+
+          <ul class="dropdown-menu" v-if="findGame">
+            <div class="d-flex">
+              <div v-for="f in findGame" :key="f.accountId">
+                <router-link
+                  :to="{ name: 'Profile', params: { id: f.accountId } }"
+                >
+                  <img
+                    :src="f.account?.picture"
+                    :alt="f.account.name"
+                    :title="f.account.name"
+                    height="30"
+                    width="30"
+                    class="rounded-circle box-shadow m-1 profile-img"
+                  />
+                </router-link>
+                <!-- <img
+                  :src="f.account?.picture"
+                  :alt="f.account?.name"
+                  :title="f.account?.name"
+                  height="30"
+                  width="30"
+                  class="rounded-circle box-shadow m-1 profile-img"
+                /> -->
+              </div>
+            </div>
+          </ul>
+        </div>
       </div>
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="titlebox rounded-1 text-center px-3 py-1 my-1">
-
-          <router-link class="text-center text-dark" :to="{
-            name: 'BoardGameDetails',
-            params: { id: boardGameList.gameId },
-          }" title="go to this games detail's page">
+          <router-link
+            class="text-center text-dark"
+            :to="{
+              name: 'BoardGameDetails',
+              params: { id: boardGameList.gameId },
+            }"
+            title="go to this games detail's page"
+          >
             <b class="namefont">{{ boardGameList.boardGameName }}</b>
           </router-link>
         </div>
       </div>
       <div class="col-md-2" v-if="route.name == 'Account'">
-        <i class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable" title="remove game from list"
-          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
+        <i
+          class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable"
+          title="remove game from list"
+          @click="removeGameFromList()"
+          v-if="account.id == boardGameList.accountId"
+        ></i>
       </div>
     </div>
 
@@ -40,13 +83,13 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import { useRoute } from 'vue-router';
-import { AppState } from '../../AppState.js';
-import { BGList } from '../../models/BoardGame/BGList.js';
-import { GroupMembers } from '../../models/GroupsAndGameNight/GroupMember.js';
-import { listsService } from '../../services/ListsService.js';
-import Pop from '../../utils/Pop.js';
+import { computed } from "@vue/reactivity";
+import { useRoute } from "vue-router";
+import { AppState } from "../../AppState.js";
+import { BGList } from "../../models/BoardGame/BGList.js";
+import { GroupMembers } from "../../models/GroupsAndGameNight/GroupMember.js";
+import { listsService } from "../../services/ListsService.js";
+import Pop from "../../utils/Pop.js";
 
 export default {
   props: {
@@ -59,18 +102,25 @@ export default {
     const route = useRoute();
     return {
       route,
+
       member: computed(() => AppState.groupMembers),
+      findGame: computed(() => {
+        let game = AppState.bgLists.filter(
+          (b) => b.gameId == props.boardGameList.gameId
+        );
+        return game;
+      }),
       account: computed(() => AppState.account),
       async removeGameFromList() {
         try {
-          const yes = await Pop.confirm('remove from this list?');
+          const yes = await Pop.confirm("remove from this list?");
           if (!yes) {
             return;
           }
           // console.log(props.boardGameList.gameId, props.boardGameList.listId);
           await listsService.removeGameFromList(props.boardGameList.listId);
         } catch (error) {
-          console.error('[RemoveGame]', error);
+          console.error("[RemoveGame]", error);
           Pop.error(error);
         }
       },
@@ -97,7 +147,7 @@ export default {
 .namefont {
   color: aliceblue;
   text-shadow: 1px 1px rgb(24, 24, 24), 0px 0px 5px #d8d8d8;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
 }
 
 .titlebox {

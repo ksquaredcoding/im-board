@@ -1,11 +1,11 @@
-import { AppState } from '../AppState.js';
-import { Account } from '../models/Account.js';
-import { ActiveGroup } from '../models/GroupsAndGameNight/ActiveGroup.js';
+import { AppState } from "../AppState.js";
+import { Account } from "../models/Account.js";
+import { ActiveGroup } from "../models/GroupsAndGameNight/ActiveGroup.js";
 import { BGList } from "../models/BoardGame/BGList.js";
-import { Group } from '../models/GroupsAndGameNight/Group.js';
-import { GroupMemberShip } from '../models/GroupsAndGameNight/GroupMembership.js';
-import { router } from '../router.js';
-import { api } from './AxiosService.js';
+import { Group } from "../models/GroupsAndGameNight/Group.js";
+import { GroupMemberShip } from "../models/GroupsAndGameNight/GroupMembership.js";
+import { router } from "../router.js";
+import { api } from "./AxiosService.js";
 
 class GroupsService {
   async getGroupById(groupId) {
@@ -15,13 +15,12 @@ class GroupsService {
     // console.log('appState', AppState.activeGroup);
   }
   async createGroup(groupData) {
-    const res = await api.post('/api/groups', groupData);
+    const res = await api.post("/api/groups", groupData);
     // console.log(res.data);
     const group = new Group(res.data);
 
-
     AppState.activeGroup = group;
-    router.push({ name: 'Group', params: { id: group.id } });
+    router.push({ name: "Group", params: { id: group.id } });
     // AppState.groups = [...AppState.groups, group];
 
     // AppState.activeGroup = group;
@@ -35,7 +34,7 @@ class GroupsService {
     );
 
     // AppState.groups = AppState.groups.filter(g=> g.id != groupId)
-    router.push({ name: 'Account' });
+    router.push({ name: "Account" });
   }
 
   async editGroup(groupId) {
@@ -47,10 +46,8 @@ class GroupsService {
   async getGroupMembers(groupId) {
     const res = await api.get(`api/groupmembers/${groupId}`);
     // console.log(res.data);
-    AppState.groupMembers = res.data
-    console.log(AppState.groupMembers);
+    AppState.groupMembers = res.data;
+    console.log("members", AppState.groupMembers);
   }
-
-
 }
 export const groupsService = new GroupsService();

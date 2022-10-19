@@ -1,46 +1,75 @@
 <template v-if="group">
-  <div class="col-md-12 rounded-0 banner elevation-3" :style="{backgroundImage: `url(${group.coverImg})`}">
+  <div
+    class="col-md-12 rounded-0 banner elevation-3"
+    :style="{ backgroundImage: `url(${group.coverImg})` }"
+  >
     <div class="logicButtons d-flex">
-      <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
+      <button
+        @click="addGroupMember()"
+        class="btn button-50 py-1 px-2 m-2"
+        v-if="!alreadyAMember"
+      >
         Join Group
       </button>
       <div v-else>
- <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2" >
-        Leave Group
-      </button>
-<button class="btn button-51 py-1 px-2 m-2 " data-bs-toggle="modal" data-bs-target="#gameNightForm">GAMENIGHT</button>
+        <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2">
+          Leave Group
+        </button>
+        <button
+          class="btn button-51 py-1 px-2 m-2"
+          data-bs-toggle="modal"
+          data-bs-target="#gameNightForm"
+        >
+          GAMENIGHT
+        </button>
       </div>
-     
 
       <!-- ------------ -->
-      <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
+      <button
+        @click="removeGroup()"
+        class="btn btn-danger button-51 py-1 px-2 m-2"
+        v-if="groupOwner"
+      >
         Delete Group
       </button>
       <div v-else></div>
       <!-- EDIT -->
       <div v-if="groupOwner">
-        <button @click="editGroup()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
-          data-bs-target="#groupForm">
+        <button
+          @click="editGroup()"
+          class="btn btn-warning button-51 py-1 px-2 m-2"
+          data-bs-toggle="modal"
+          data-bs-target="#groupForm"
+        >
           Edit group
         </button>
         <GroupForm />
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
+      <div
+        class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3"
+      >
         <span class="name">{{ group?.name }}</span>
 
         <div>
           <span><small class="text-shadow">Members</small></span>
           <div
-            class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
-
-
-            <router-link :to="{name: 'Profile', params:{id: g.accountId}}" v-for="g in groupMember" :key="g.id">
-
-              <img :src="g.profile?.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
-                class="rounded-circle box-shadow m-1 profile-img" />
-
+            class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap"
+          >
+            <router-link
+              :to="{ name: 'Profile', params: { id: g.accountId } }"
+              v-for="g in groupMember"
+              :key="g.id"
+            >
+              <img
+                :src="g.profile?.picture"
+                :alt="g.profile.name"
+                :title="g.profile.name"
+                height="45"
+                width="45"
+                class="rounded-circle box-shadow m-1 profile-img"
+              />
             </router-link>
           </div>
         </div>
@@ -49,17 +78,17 @@
   </div>
 </template>
 <script>
-import { computed } from '@vue/reactivity';
+import { computed } from "@vue/reactivity";
 
-import { ref } from 'vue';
-import { AppState } from '../../AppState.js';
-import { Account } from '../../models/Account.js';
-import { ActiveGroup } from '../../models/GroupsAndGameNight/ActiveGroup.js';
-import { GroupMemberShip } from '../../models/GroupsAndGameNight/GroupMembership.js';
-import { groupMembersService } from '../../services/GroupMembersService.js';
-import { groupsService } from '../../services/GroupsService.js';
-import Pop from '../../utils/Pop.js';
-import GroupForm from './GroupForm.vue';
+import { ref } from "vue";
+import { AppState } from "../../AppState.js";
+import { Account } from "../../models/Account.js";
+import { ActiveGroup } from "../../models/GroupsAndGameNight/ActiveGroup.js";
+import { GroupMemberShip } from "../../models/GroupsAndGameNight/GroupMembership.js";
+import { groupMembersService } from "../../services/GroupMembersService.js";
+import { groupsService } from "../../services/GroupsService.js";
+import Pop from "../../utils/Pop.js";
+import GroupForm from "./GroupForm.vue";
 
 export default {
   props: {
@@ -80,28 +109,28 @@ export default {
       async removeGroup() {
         try {
           if (!this.groupOwner) {
-            Pop.toast('Forbidden Not Your Group', 'warning', 'top-end', 1000);
+            Pop.toast("Forbidden Not Your Group", "warning", "top-end", 1000);
           }
           const yes = await Pop.confirm();
           if (!yes) {
             return;
           }
           await groupsService.removeGroup(props.group.id);
-          Pop.success('Group Removed');
+          Pop.success("Group Removed");
         } catch (error) {
-          Pop.error(error, '[removeGroupMember]');
+          Pop.error(error, "[removeGroupMember]");
         }
       },
       async addGroupMember() {
         try {
           if (props.group.creatorId == AppState.account.id) {
-            Pop.error('Already made this group and are already part of it');
+            Pop.error("Already made this group and are already part of it");
           } else {
             await groupMembersService.addGroupMember(props.group.id);
             Pop.success(`You Joined ${props.group.name} !`);
           }
         } catch (error) {
-          Pop.error(error, '[addMemberToGroup]');
+          Pop.error(error, "[addMemberToGroup]");
         }
       },
       async leaveGroup() {
@@ -112,20 +141,20 @@ export default {
             // await groupMembersService.leaveGroup(AppState.account.id);
 
             Pop.error(
-              'Must Provide Another Members Info and Relinquish OwnerShip'
+              "Must Provide Another Members Info and Relinquish OwnerShip"
             );
           }
           // console.log(this.memberId.id);
           await groupMembersService.leaveGroup(this.memberId.id);
           Pop.success(`Left ${props.group.name}`);
         } catch (error) {
-          Pop.error(error, '[leaveGroup]');
+          Pop.error(error, "[leaveGroup]");
         }
       },
       async editGroup() {
         try {
         } catch (error) {
-          Pop.error(error, '[edit Group]');
+          Pop.error(error, "[edit Group]");
         }
       },
     };
@@ -171,7 +200,6 @@ export default {
 }
 
 * {
-  font-family: 'Baloo 2', cursive;
-
+  font-family: "Baloo 2", cursive;
 }
 </style>
