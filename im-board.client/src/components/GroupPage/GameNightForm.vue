@@ -17,7 +17,6 @@
               type="url"
               class="form-control bg-dark"
               v-model="editable.game"
-           
               name="game"
             />
           
@@ -38,10 +37,7 @@
               type="text"
               class="form-control bg-dark"
               v-model="editable.location"
-              name="bio"
-          
-             
-            >
+              name="bio">
           </div>
           <div>
             <button type="submit" class="button-51 p-2 ms-3">
