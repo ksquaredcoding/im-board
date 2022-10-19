@@ -168,4 +168,6 @@ export const AppState = reactive({
   ],
 
   skip: 0,
+  nextPage:0,
+  previousPage:0
 });

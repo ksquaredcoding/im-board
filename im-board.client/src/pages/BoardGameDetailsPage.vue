@@ -87,14 +87,19 @@
     </div>
     <!-- SECTION end -->
 
-    <div class="row game-images my-3 ms-1 horizontal-scroll">
+    <div class="row game-images mt-3 ms-1 horizontal-scroll">
 
-    
-      <ActiveBoardGameImages :images="i"  v-for="i in images"/>
-   
+
+
+    <ActiveBoardGameImages :images="i"  v-for="i in images" :key="i.id"/>
+ 
 
 
   
+    </div>
+    <div class="col-md-12 d-flex justify-content-center mt-2">
+      <button @click="nextSet()" class="btn button-51 me-2">Prev</button>
+      <button @click="previousSet()"  class="btn button-51">Next</button>
     </div>
 
     <div>
@@ -168,7 +173,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Pagination, Navigation } from 'swiper';
+import { Pagination, Navigation,FreeMode} from 'swiper';
 import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
 import ActiveBoardGameVideos from '../components/BoardGame/ActiveBoardGameVideos.vue';
 import ABGReviews from '../components/BoardGame/ABGReviews.vue';
@@ -229,13 +234,31 @@ export default {
       getBoardGameReviewsByGameId();
     });
     return {
-      modules: [Pagination, Navigation],
+      modules: [Pagination, Navigation,FreeMode],
       boardGame: computed(() => AppState.activeBoardGame),
       images: computed(() => AppState.activeBoardGameImages),
       videos: computed(() => AppState.activeBoardGameVideos),
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage),
+
+
+    async  nextSet(){
+try {
+
+    await atlasGamesService.getBoardGameImagesByGameId()
+  } catch (error) {
+    Pop.error(error,'[nextSetBGImages]')
+  }
+      },
+    async  previousSet(){
+try {
+ 
+  await atlasGamesService.getBoardGameImagesByGameId()
+  } catch (error) {
+    Pop.error(error,'[previousSetBGImages]')
+  }
+      }
     };
   },
   components: {
@@ -249,9 +272,6 @@ export default {
   },
 };
 </script>
-
-$c1: #cff09e; $c2: #a8dba8; $c3: #79bd9a; $c4: #3b8686; $c5: #0B486B; $c6:
-#ffa216;
 
 <style lang="scss" scoped>
 .customSize {
@@ -293,7 +313,7 @@ p {
 }
 
 .game-images {
-  height: 30vh;
+  height: 25vh;
 }
 
 .game-img {

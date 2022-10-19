@@ -147,10 +147,14 @@ async getBoardGamesByMechanics(mechanics = ""){
   }
 
   async getBoardGameImagesByGameId(id) {
+
+
     const res = await atlasApi.get(`api/game/images?`, {
       params: {
         client_id: "2I6DeypMLL",
         game_id: id,
+       
+ 
       },
     });
     // console.log(res.data.images);

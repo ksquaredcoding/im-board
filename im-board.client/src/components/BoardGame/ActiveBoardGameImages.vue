@@ -1,8 +1,10 @@
 <template>
 
-  <img :src="images.original" alt="" data-bs-toggle="modal" data-bs-target="#activeImage" @click="setActiveImage()"
+ <img :src="images.original" alt="" data-bs-toggle="modal" data-bs-target="#activeImage" 
     class="forcedImg rounded elevation-2">
 
+
+ 
 </template>
 
 
@@ -30,10 +32,6 @@ export default {
       required: true
     }
   },
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
   setup(props) {
     return {
       setActiveImage() {
@@ -43,7 +41,7 @@ export default {
 
 
 
-      modules: [Pagination, Navigation],
+
     };
   },
 };
@@ -58,7 +56,7 @@ export default {
 }
 
 .forcedImg {
-  height: 250px;
+  height: 200px;
   width: auto;
   object-fit: cover;
 }
