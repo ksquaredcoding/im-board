@@ -120,7 +120,7 @@ export default {
       mechanics: computed(() => AppState.bgMechanics),
       async searchByCoolMethod() {
         try {
-          AppState.itsAMaybe = 9
+          AppState.itsAMaybe = 12
           AppState.hopeItWorks = 0
           let categoriesSearch = `categories=${filters1.value}`;
           let mechanicsSearch = `mechanics=${filters2.value}`;

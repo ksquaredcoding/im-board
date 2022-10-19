@@ -99,7 +99,7 @@ export default {
               if (AppState.hopeItWorks > 0) {
                 AppState.hopeItWorks -= 10
               }
-              if (AppState.itsAMaybe >= 19) {
+              if (AppState.itsAMaybe >= 22) {
                 AppState.itsAMaybe -= 10
               }
               break;
