@@ -15,10 +15,11 @@
   <EditPic />
   <GoogleMapModal />
   <FAQModal />
+  <GameNightForm/>
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { AppState } from './AppState';
 import Navbar from './components/Navbar.vue';
 import GroupForm from './components/GroupPage/GroupForm.vue';
@@ -30,11 +31,19 @@ import { useRoute } from 'vue-router';
 import Footer from './components/FooterFooter.vue';
 import GoogleMapModal from './components/GoogleMapModal.vue';
 import FAQModal from './components/FAQModal.vue';
+import GameNightForm from "./components/GroupPage/GameNightForm.vue";
+
+
+
+
 
 export default {
   setup() {
+
+
     const route = useRoute();
     return {
+    
       route,
       appState: computed(() => AppState),
     };
@@ -49,7 +58,8 @@ export default {
     Footer,
     GoogleMapModal,
     FAQModal,
-  },
+    GameNightForm
+},
 };
 </script>
 <style lang="scss">

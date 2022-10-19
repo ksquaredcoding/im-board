@@ -23,7 +23,7 @@
       <!-- ---------------GAME NIGHT -->
       <div class="col-md-5 overflow-auto gamecardbox mx-5">
         <div class="px-1">
-          <GameNightForm />
+         
           <GameNightCard v-for="g in gamenights" :gamenight="g" />
         </div>
       </div>

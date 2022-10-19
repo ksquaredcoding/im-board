@@ -36,54 +36,7 @@
     </div>
   </div>
 
-  <!-- 
-  <div
- 
-    class="modal"
-    id="groupForm"
-    tabindex="-1"
-    aria-labelledby="groupFormLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content bg-dark">
-        <div class="modal-body FORM">
-     
-          <form @submit.prevent="handleSubmitForEdit()" class="">
-            <div class="row">
-              <div class="col-md-6">
-                <div>
-                  <img
-                    :src="editable.coverImg"
-                    alt=""
-                    class="forcedImg smallerImg mt-2 Img1"
-                  />
-                </div>
-                <div class="mt-3 inputBox">
-                  <input type="url" class=" " v-model="editable.coverImg" required aria-required="true" />
-                  <span>CoverImg</span>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mt-3 inputBox">
-                  <input type="text" class=" " v-model="editable.name"  aria-required="true" required/>
-                  <span>group Name</span>
-                </div>
-              </div>
-            </div>
 
-            <div class="my-3">
-              <button class="btn btn-success selectable" type="submit" data-bs-dismiss="modal" >
-               Edit Group
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-  
-  </div> -->
 </template>
 
 <script>
@@ -175,56 +128,7 @@ export default {
   width: 250px;
 }
 
-/* ------------------------------------------------------------------------------------ */
-.inputBox2 {
-  position: relative;
-  width: auto;
-}
 
-.inputBox2 textarea {
-  width: 100%;
-
-  text-align: right;
-  padding: 10px;
-  border: 1px solid #ffbb00;
-  border-bottom: 3px solid #ff5e00;
-  border-radius: 5px;
-  outline: none;
-  color: #fff;
-  font-size: 1em;
-  background-color: transparent;
-  transition: all 1.5s ease;
-  box-shadow: 0.25px 0.25px 10px rgba(243, 236, 236, 0.308);
-}
-
-.inputBox2 span {
-  position: absolute;
-  left: 0;
-  bottom: 4.2em;
-  padding: 10px;
-  pointer-events: none;
-  font-size: 1em;
-  text-transform: uppercase;
-  color: #f1ecf180;
-  transition: all 1s ease;
-}
-
-.inputBox2 textarea:valid~span,
-.inputBox2 textarea:focus~span {
-  color: #27132a;
-  transform: translateX(10px) translateY(-70px);
-  padding: 0 10px;
-  font-size: 1em;
-  border-radius: 4px;
-  font-weight: bold;
-  background: #ffbb00;
-  border-left: 1px solid #ff5e00;
-  border-right: 1px solid #ff5e00;
-  letter-spacing: 0.2em;
-  transition: all 1s ease;
-}
-
-/* ---------------------------------------------------------------------------- */
 .inputBox input {
   width: 100%;
   padding: 10px;
@@ -242,12 +146,12 @@ export default {
 .inputBox span {
   position: absolute;
   left: 0;
-  bottom: 3em;
+
   padding: 10px;
   pointer-events: none;
   font-size: 1em;
   text-transform: uppercase;
-  color: #f1ecf180;
+  color: #13121380;
   transition: all 1s ease;
 }
 
@@ -266,12 +170,6 @@ export default {
   transition: all 1s ease;
 }
 
-/* .inputBox:nth-child(2) input:valid ~ span,
-.inputBox:nth-child(2) input:focus ~ span {
-  background: #92c5f5;
-  color: #27132a;
-  border-radius: 2px;
-} */
 .modal-body {
   background-image: url(https://images.unsplash.com/photo-1615775642101-402e4d2c0e0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
   background-size: cover;

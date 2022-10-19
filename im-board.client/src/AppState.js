@@ -32,7 +32,7 @@ export const AppState = reactive({
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   discountBoardGames: [],
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
-  popularBoardGames:[],
+  popularBoardGames: [],
 
   /** @type {import('./models/BoardGame/BoardGame.js').BoardGame[]} */
   PaginationPendingBoardGames: [],
@@ -62,29 +62,10 @@ export const AppState = reactive({
   /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */
   bgMechanics: [],
 
-
-
-
-queryFilter:[],
+  queryFilter: [],
 
   activeCategoryFilters: [],
   activeMechanicsFilters: [],
-  // categories: [
-  //   { name: 'CardGame', id: 'eX8uuNlQkQ' },
-  //   { name: 'Fantasy', id: 'ZTneo8TaIO' },
-  //   { name: 'Economic', id: 'N0TkEGfEsF' },
-  //   { name: 'Scifi', id: '3B3QpKvXD3' },
-  //   { name: 'City Building', id: 'ODWOjWAJj3' },
-  //   { name: 'Party Game', id: 'X8J7RM6dxX' },
-  //   { name: 'Adventure', id: 'KUBCKBkGxV' },
-  //   { name: 'Bluffing', id: 'PinhJrhnxU' },
-  //   { name: 'Dice', id: 'mavSOM8vjH' },
-  //   { name: 'Horror', id: 'cAIkk5aLdQ' },
-  //   { name: 'Puzzle', id: 'WVMOS3s2pb' },
-  //   { name: 'Cooperative', id: 'ge8pIhEUGE' },
-  //   { name: 'Wargame', id: 'jX8asGGR6o' },
-  //   { name: 'Word game', id: 'rHvAx4hH2f' },
-  // ],
 
   homePageBannerUrls: [
     {
@@ -100,7 +81,6 @@ queryFilter:[],
     {
       url: 'https://awesomespace.nl/wp-content/uploads/sites/14/2015/12/game-night-board.jpg',
     },
-  
   ],
 
   order_By: [
@@ -176,9 +156,14 @@ queryFilter:[],
       url: 'https://wyrmwoodgaming.com/dice-collection/',
       credit: 'wyrmwoodgaming.com',
     },
+    {
+      name: 'The Game Clue Was Borne of Boredom During WWII Air-Raid Blackouts',
+      coverImg:
+        'https://www.history.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_842/MTU3ODc4Njg0NTgyMzU2Mjk3/image-placeholder-title.webp',
+      url: 'https://www.history.com/news/clue-game-origin-wwii',
+      credit: 'Alice Popovici Aug 29, 2018 ',
+    },
   ],
-
-  // rank, price, discount, reddit_week_count, reddit_day_count, name, year_publisher, min_age, min_playtime, max_playtime, min_players, max_players
 
   skip: 0,
 });

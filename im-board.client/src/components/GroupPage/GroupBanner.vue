@@ -4,9 +4,13 @@
       <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group
       </button>
-      <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2" v-else>
+      <div v-else>
+ <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2" >
         Leave Group
       </button>
+<button class="btn button-51 py-1 px-2 m-2 " data-bs-toggle="modal" data-bs-target="#gameNightForm">GAMENIGHT</button>
+      </div>
+     
 
       <!-- ------------ -->
       <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
