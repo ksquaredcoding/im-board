@@ -40,14 +40,10 @@
         <div class="col-md-5">
           <div class="d-flex">
             <p>player count</p>
-            <select
-              class="form-select me-3"
-              aria-label="Select Number of Players"
-              v-model="playerCount"
-              id="playerCount"
-            >
+            <select class="form-select me-3" aria-label="Select Number of Players" v-model="playerCount"
+              id="playerCount">
               <option selected></option>
-         
+
 
               <option value="1">1</option>
               <option value="2">2</option>
@@ -60,13 +56,8 @@
               <option value="9">9</option>
               <option value="10">10+</option>
             </select>
- <p>play time</p>
-            <select
-              class="form-select   "
-              aria-label="Select Number of Players"
-              v-model="playTime"
-              id="playerCount"
-            >
+            <p>play time</p>
+            <select class="form-select   " aria-label="Select Number of Players" v-model="playTime" id="playerCount">
               <option selected></option>
               <option value="10">10</option>
               <option value="15">15</option>
@@ -160,10 +151,7 @@ export default {
           if (AppState.boardgames <= 0) {
             Pop.toast('Refine your search please');
           }
-          if (typeof AppState.skip === 'number') {
-            await atlasGamesService.getBoardGames(finalSearch);
-            AppState.queryFilter = [];
-          } else {
+          else {
             AppState.queryFilter = [];
           }
         } catch (error) {

@@ -20,10 +20,11 @@
         <button class="btn btn-danger" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
           Previous
         </button>
-        <button class="btn btn-primary" @click="incrementSkip('next')" type="button" :disabled="boardGames.length <= 0">
+        <button class="btn btn-primary" @click="incrementSkip('next')" type="button"
+          :disabled="boardGames.length <= 0 || boardGames.length < itsAMaybe - hopeItWorks">
           Next
         </button>
-        <div class="row mx-2" v-if="boardGames.length >0" >
+        <div class="row mx-2" v-if="boardGames.length > 0">
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
@@ -33,7 +34,8 @@
         </div>
         <div v-else class=" col-md-12 d-flex  flex-column justify-content-center align-items-center">
           <h1>Currently no results Found</h1>
-          <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="600" height="600">
+          <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="600"
+            height="600">
         </div>
       </div>
     </div>
@@ -85,6 +87,7 @@ export default {
       categories: computed(() => AppState.bgCategories),
       skip: computed(() => AppState.skip),
       hopeItWorks: computed(() => AppState.hopeItWorks),
+      itsAMaybe: computed(() => AppState.itsAMaybe),
       async incrementSkip(x) {
         try {
           switch (x) {
