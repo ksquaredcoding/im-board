@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-3 mt-5" v-for="a in articles">
+  <div class="col-md-3 mb-3" v-for="a in articles">
     <a :href="a.url" target="_blank">
       <div class="bg-transparent card my-2">
         <img :src="a.coverImg" alt="" class="forcedImg rounded" />

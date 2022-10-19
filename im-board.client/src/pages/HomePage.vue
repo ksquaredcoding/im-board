@@ -13,7 +13,7 @@
           <h5 class="rowTitle p-1">Popular Board Games</h5>
         </div>
       </div>
-      <div class="row mx-2 my-4 horizontal-scrollable">
+      <div class="row mx-2 horizontal-scrollable">
         <TransitionGroup
           name="custom-classes"
           enterActiveClass="animate__zoomIn animate__animated"
@@ -31,11 +31,11 @@
 
       <!-- SECTION  -->
       <div class="col-md-12">
-        <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4">
+        <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
           <h5 class="rowTitle p-1">Games On Discount</h5>
         </div>
       </div>
-      <div class="row mx-2 my-5 horizontal-scrollable">
+      <div class="row mx-2 horizontal-scrollable">
         <TransitionGroup
           name="custom-classes"
           enterActiveClass="animate__zoomIn animate__animated"
@@ -51,13 +51,14 @@
         </TransitionGroup>
       </div>
 
-<RowSeperate/>
+      <div class="mt-5">
+<RowSeperate class="mt-5" />
+</div>
 
 
 
 
-
-      <div class="col-md-12 mt-2">
+      <div class="col-md-12 mt-3">
         <div class="hoverable hvr-sweep-to-left  rounded-1 p-2 bg-c5">
           <h5 class="pt-2">
             <b>Articles from </b>
@@ -72,7 +73,7 @@
       </div>
 
       <div class="row horizontal-scrollable">
-        <div class="col-md-3 mt-5 mb-2" v-for="f in forumPosts" :key="f.id">
+        <div class="col-md-3 mt-2" v-for="f in forumPosts" :key="f.id">
           <ForumPosts :forumPost="f" />
         </div>
       </div>
@@ -83,7 +84,7 @@
         <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
       </div>
     </div>
-    <div class="row horizontal-scrollable mb-4">
+    <div class="row horizontal-scrollable mb-4 mt-2 ">
       <Articles />
     </div>
 
