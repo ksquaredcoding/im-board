@@ -16,7 +16,7 @@
       <div class="col-md"></div>
       <div class="col-md d-flex justify-content-center ">
         <h1 class="username">{{ profile?.name }}</h1>
-        
+
       </div>
       <div class="col-md d-flex justify-content-end">
         <router-link :to="{ name: 'Account' }" v-if="account?.id == profile?.id">
@@ -59,15 +59,18 @@
           <b class="mb-2 mt-2 d-flex justify-content-center">
 
             <div class="ms-3">
-              <input type="button" id="Fave" name="Fave" value="fave" autofocus="true" class="button-50 py-2 filterbtn focus" @click="filterBg = 'favorite'" />
+              <input type="button" id="Fave" name="Fave" value="fave" autofocus="true"
+                class="button-50 py-2 filterbtn focus" @click="filterBg = 'favorite'" />
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" id="Wishlist" name="Wishlist" class="button-50 py-2 filterbtn" value="wishlist" @click="filterBg = 'wish'" />
+              <input type="button" id="Wishlist" name="Wishlist" class="button-50 py-2 filterbtn" value="wishlist"
+                @click="filterBg = 'wish'" />
               <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned" @click="filterBg = 'owned'" />
+              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="owned"
+                @click="filterBg = 'owned'" />
               <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
             </div>
           </b>
@@ -75,7 +78,7 @@
 
         <div class="cardholder">
           <div class="row">
-            <div class="col-md-4" v-for="g in bgLists" :key="g.id">
+            <div class="col-md-4 ps-5" v-for="g in bgLists" :key="g.id">
               <GroupGamesCard :boardGameList="g" />
             </div>
 
@@ -131,6 +134,7 @@ export default {
       getUserProfile();
       getProfileGroups();
       getProfileLists();
+      focus()
     });
     return {
       filterBg,
@@ -211,6 +215,7 @@ export default {
   filter: contrast(110%);
   transition: 0.75s ease;
 }
+
 .filterbtn:focus {
   background: linear-gradient(to bottom right, #ffbb00, #ff5e00);
   border: 0;
