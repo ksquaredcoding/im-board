@@ -17,10 +17,10 @@
       </div>
 
       <div class="col-md-12">
-        <button class="btn btn-danger" @click="incrementSkip('prev')" type="button">
+        <button class="btn btn-danger" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
           Previous
         </button>
-        <button class="btn btn-primary" @click="incrementSkip('next')" type="button">
+        <button class="btn btn-primary" @click="incrementSkip('next')" type="button" :disabled="boardGames.length <= 0">
           Next
         </button>
         <div class="row mx-2">
@@ -80,6 +80,7 @@ export default {
       boardGames: computed(() => AppState.boardgames.slice(AppState.hopeItWorks, AppState.itsAMaybe)),
       categories: computed(() => AppState.bgCategories),
       skip: computed(() => AppState.skip),
+      hopeItWorks: computed(() => AppState.hopeItWorks),
       async incrementSkip(x) {
         try {
           switch (x) {
@@ -88,11 +89,17 @@ export default {
               AppState.hopeItWorks += 10
               break;
             case 'prev':
-              AppState.itsAMaybe -= 10
-              AppState.hopeItWorks -= 10
+              if (AppState.hopeItWorks > 0) {
+                AppState.hopeItWorks -= 10
+              }
+              if (AppState.itsAMaybe >= 19) {
+                AppState.itsAMaybe -= 10
+              }
               break;
 
             default:
+              AppState.itsAMaybe += 0
+              AppState.hopeItWorks += 0
               break;
           }
         } catch (error) {
