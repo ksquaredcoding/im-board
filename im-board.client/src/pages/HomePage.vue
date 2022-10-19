@@ -29,6 +29,12 @@
         </TransitionGroup>
       </div>
 
+   <div class="mt-5 d-flex justify-content-center">
+<!-- <RowSeperate class="mt-5" /> -->
+<hr class="shine">
+
+</div>
+
       <!-- SECTION  -->
       <div class="col-md-12">
         <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
@@ -51,8 +57,14 @@
         </TransitionGroup>
       </div>
 
-      <div class="mt-5">
-<RowSeperate class="mt-5" />
+
+
+
+      
+      <div class="mt-5 d-flex justify-content-center">
+<!-- <RowSeperate class="mt-5" /> -->
+<hr class="shine">
+
 </div>
 
 
@@ -78,6 +90,15 @@
         </div>
       </div>
     </div>
+
+
+   <div class="mt-5 d-flex justify-content-center">
+<!-- <RowSeperate class="mt-5" /> -->
+<hr class="shine">
+
+</div>
+
+
 
     <div class="col-md-12 mt-4">
       <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
@@ -271,4 +292,29 @@ export default {
 // @media screen AND (max-width: 768px){
 
 // }
+
+
+.shine {
+  height: 20px;
+  width: 90%;
+  background-image: radial-gradient(
+    farthest-side at 50% -50%,
+    hsla(0, 0%, 0%, 0.5),
+    hsla(0, 0%, 0%, 0));
+  position: relative; 
+}
+
+.shine::before {
+  height: 1px;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0.75) 50%,
+    hsla(0, 0%, 0%, 0));
+}
+
 </style>
