@@ -20,7 +20,7 @@ class AtlasGamesService {
     const res = await atlasApi.get(`api/search?${query}`, {
       params: {
         client_id: "2I6DeypMLL",
-        limit: 10,
+        limit: 100,
 
       },
     });
@@ -85,6 +85,7 @@ class AtlasGamesService {
         client_id: "2I6DeypMLL",
         fuzzy_match: true,
         name: name,
+        limit:100
       },
     });
 
