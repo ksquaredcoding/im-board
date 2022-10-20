@@ -20,7 +20,7 @@
       <div
         class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
       >
-        <img :src="boardGame?.large" alt="" class="largeImg rounded" />
+        <img :src="boardGame?.large" alt="" class="img-fluid rounded" />
       </div>
 
       <div
