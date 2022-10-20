@@ -49,6 +49,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import GroupBanner from '../components/GroupPage/GroupBanner.vue';
 import GameNightCard from '../components/GroupPage/GameNightCard.vue';
