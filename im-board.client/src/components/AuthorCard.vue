@@ -34,12 +34,13 @@
      <div class=" box-shadow p-0 mx-1">
     <img src="../assets/img/mollypicture.png" alt="Tung Le " class="card-img" />
 
-    <div class="card-img-overly">
+    <div class="card-img-overly ">
       <div class="d-flex justify-content-around">
         <i class="mdi mdi-github fs-2"></i>
         <i class="mdi mdi-linkedin fs-2"></i>
         <i class="mdi mdi-email fs-2"></i>
       </div>
+      <!--  -->
     </div>
   </div>
   </div>
