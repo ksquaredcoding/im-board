@@ -99,7 +99,42 @@
     <!-- SECTION end -->
 
     <div class="row game-images mt-3 ms-1 horizontal-scroll">
-      <ActiveBoardGameImages :images="i" v-for="i in images" :key="i.id" />
+
+<swiper
+    :slidesPerView="1"
+    :spaceBetween="10"
+    :pagination="{
+      clickable: true,
+    }"
+    :breakpoints="{
+      '640': {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      '768': {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      '1024': {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
+    }"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide v-for="i in images" :key="i.id">
+ <ActiveBoardGameImages :images="i"  />
+
+    </swiper-slide>
+  </swiper>
+
+
+
+
+
+
+     
     </div>
 
     <div>
@@ -258,9 +293,9 @@ export default {
       prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage),
       categories: computed(() =>
-        AppState.activeBoardGame.categories.map((x) => x.name)
+        AppState.activeBoardGame.categories.map((x) => x.name.name)
       ),
-      mechanics: computed(()=> AppState.activeBoardGame.mechanics.map(x => x.name)),
+      mechanics: computed(()=> AppState.activeBoardGame.mechanics.map(x => x.name.name)),
 
       async nextSet() {
         try {

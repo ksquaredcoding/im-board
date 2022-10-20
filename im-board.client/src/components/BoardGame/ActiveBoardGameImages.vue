@@ -1,6 +1,6 @@
 <template>
 
- <img :src="images.original" alt="" data-bs-toggle="modal" data-bs-target="#activeImage" 
+ <img :src="images.original" alt="" data-bs-toggle="modal" data-bs-target="#activeImage"  @click="setActiveImage()"
     class="forcedImg rounded elevation-2">
 
 
