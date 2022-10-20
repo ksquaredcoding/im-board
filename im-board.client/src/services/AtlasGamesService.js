@@ -57,57 +57,41 @@ class AtlasGamesService {
     AppState.popularBoardGames = res.data.games.map((b) => new BoardGame(b));
 
   }
+  async getBoardGamesByIds(){
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+        limit: 12,
+        ids: 'Y2CAqTW0oJ,19C9ka2hEx,LZCLTdcQqP,4G32qGJZWs,lhbalXxjSr,6cq7DnBCh1,M8JSS7lEFH,M7r9tO1GbX,dkX7iNZDpx,H3yXWu5No0',
+      },
+    });
+    //one night werewolf,coup,skullking,arkham horror,anomia,liar's dice,love letter premium,tokaido,quacks,oregon trail,dixit
+    AppState.editorsChoiceGames = res.data.games.map((b) => new BoardGame(b));
+
+  }
 
   //-----------------------------!SECTION-----------------------------------------------------------
 
 
-  // async getBoardGamesOnScroll() {
-  //   let limit = 20;
-  //   AppState.skip += limit;
-  //   let skip = AppState.skip;
-  //   AppState.skip += limit;
-  //   const res = await atlasApi.get("/api/search", {
-  //     params: {
-  //       client_id: "2I6DeypMLL",
-  //       limit: limit,
-  //       skip: skip,
-  //     },
-  //   });
-  //   AppState.scrollBoardGames = res.data.games.map((b) => new BoardGame(b));
-  //   AppState.boardgames = [
-  //     ...AppState.boardgames,
-  //     ...AppState.scrollBoardGames,
-  //   ];
-  // }
-  async getBoardGamesByQuery(name = "") {
+  async getBoardGamesByQuery(name = '') {
+    console.log(name);
     router.push({ name: "Search" });
-    const res = await atlasApi.get("/api/search", {
+    const res = await atlasApi.get('/api/search', {
       params: {
-        client_id: "2I6DeypMLL",
-        fuzzy_match: true,
+        client_id: '2I6DeypMLL',
+        // fuzzy_match: true,
         name: name,
-        limit: 100
+        limit: 48,
       },
     });
-
-    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+    console.log(res.data.games);
+    AppState.boardgames = res.data.games.map(b => new BoardGame(b))
+    // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
     // console.log(res.data);
 
     console.log(AppState.boardgames);
   }
 
-  // async getBoardGamesByCategories(categories = "") {
-  //   console.log(categories);
-  //   const res = await atlasApi.get("/api/search", {
-  //     params: {
-  //       client_id: "2I6DeypMLL",
-  //       categories: categories,
-  //       limit:60
-  //     },
-  //   });
-  //   console.log(res.data.games);
-  //   AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-  // }
 
   async getBoardGamesByMechanics(mechanics = "") {
     console.log(mechanics);

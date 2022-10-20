@@ -27,10 +27,11 @@ export default {
       editable,
       async getBoardGamesByQuery() {
         try {
+
           await atlasGamesService.getBoardGamesByQuery(editable.value)
           editable.value = ''
         } catch (error) {
-
+     console.error('dfd',error);
         }
       }
     }

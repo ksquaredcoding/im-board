@@ -1,6 +1,6 @@
 <template>
   <div v-if="!group" class="animate__animated animate__fadeOut">
-    <div class="loader"></div>
+  loading....
   </div>
   <div
     class="group-page animate__animated animate__fadeInRight container-fluid"

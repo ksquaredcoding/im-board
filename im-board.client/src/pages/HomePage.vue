@@ -37,8 +37,8 @@
 <div class="row mx-2 horizontal-scrollable mt-3">
   <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
     leaveActiveClass="animate__zoomOut animate__animated">
-    <div class="col-md-2 mt-3 mb-2" v-for="p in popularBoardGames" :key="p.id">
-      <BoardGameCard :boardGame="p" />
+    <div class="col-md-2 mt-3 mb-2" v-for="e in editorsChoice" :key="e.id">
+      <BoardGameCard :boardGame="e" />
     </div>
   </TransitionGroup>
 </div>
@@ -135,6 +135,15 @@ export default {
       }
     }
 
+
+    async function editorsChoiceGames(){
+      try {
+          await  atlasGamesService.getBoardGamesByIds()
+        } catch (error) {
+          Pop.error(error,'[EDITORS_CHOICE_GAMES]')
+        }
+    }
+
     async function getForumPosts() {
       try {
         await atlasGamesService.getForumPosts();
@@ -146,6 +155,7 @@ export default {
     onMounted(() => {
       getBoardGamesByPopularity();
       getBoardGamesByDiscount();
+      editorsChoiceGames()
       getForumPosts();
     });
 
@@ -157,6 +167,7 @@ export default {
         AppState.forumPosts.sort(() => Math.random() - 0.5)
       ),
       discountBoardGames: computed(() => AppState.discountBoardGames),
+      editorsChoice: computed(()=> AppState.editorsChoiceGames.sort(()=> Math.random() -0.5))
     };
   },
   components: {

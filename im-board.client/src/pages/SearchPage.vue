@@ -24,7 +24,7 @@
           :disabled="boardGames.length <= 0 || boardGames.length < itsAMaybe - hopeItWorks">
           Next
         </button>
-        <div class="row mx-2" v-if="boardGames.length">
+        <div class="row mx-2" >
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
@@ -32,11 +32,11 @@
             </div>
           </TransitionGroup>
         </div>
-        <div v-else class=" col-md-12 d-flex  flex-column justify-content-center align-items-center">
+        <!-- <div  class=" col-md-12 d-flex  flex-column justify-content-center align-items-center">
           <h1>Currently no results Found</h1>
           <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
             height="400">
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
