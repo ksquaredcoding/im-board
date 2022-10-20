@@ -7,13 +7,16 @@ export class GroupHandler extends SocketHandler {
    */
   constructor(io, socket) {
     super(io, socket, true); //NOTE STAYS THE SAME
-    this.on('ENTER_GROUP', this.enterGroup).on('LEAVE_GROUP', this.leaveGroup);
+    this
+    .on('ENTER_GROUP', this.enterGroup)
+    .on('LEAVE_GROUP', this.leaveGroup);
   }
 
   enterGroup(groupId) {
-    this.socket.join(groupId);
+    this.socket.join(groupId)
   }
   leaveGroup(groupId) {
-    this.socket.leave(groupId);
+this.socket.leave(groupId)
   }
 }
+

@@ -130,7 +130,7 @@ export default {
       getGroupChatsByGroupId();
       getGroupGameNights();
       scrollToBottom();
-      GroupHandler.EnterGroup(route.params.id);
+GroupHandler.EnterGroup(route.params.id)
     });
 
     onBeforeRouteLeave(() => {

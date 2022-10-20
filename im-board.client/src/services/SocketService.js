@@ -1,18 +1,19 @@
 import { AppState } from '../AppState.js';
 import Pop from '../utils/Pop';
-import { SocketHandler } from '../utils/SocketHandler.js';
+import { SocketHandler } from "../utils/SocketHandler.js";
+
 
 class SocketService extends SocketHandler {
   constructor() {
     super(true);
     this.on('error', this.onError).on('MESSAGE_ADDED', this.addMessage);
   }
-  addMessage(chat) {
-    addOrSkip(AppState.groupChats, chat);
-  }
-
+  
   onError(e) {
     Pop.toast(e.message, 'error');
+  }
+  addMessage(chat) {
+    addOrSkip(AppState.groupChats, chat);
   }
 }
 function addOrSkip(arr, item) {
