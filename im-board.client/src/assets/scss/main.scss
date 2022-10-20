@@ -170,8 +170,10 @@ form:invalid button[type='submit'] {
 }
 
 *::-webkit-scrollbar-track {
-  background-color: #ffff;
+  background-color: transparent;
   cursor: pointer;
+  border-radius: 100vw; 
+
 }
 
 *::-webkit-scrollbar-track:hover {

@@ -3,13 +3,13 @@
     <!-- SECTION start game info -->
     <div class="row justify-content-center">
       <div
-        class=" col-10  col-md-12 gradient-box text-center my-3 py-3   rounded animate__animated animate__fadeInDown elevation-3"
+        class="col-10 col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
       >
         <div class="font">{{ boardGame?.name }}</div>
         <h6>
           <b class="fs-4"
             >{{ boardGame?.year_published }} ·
-            <i class="bi bi-people-fill fs-4"></i> {{ boardGame?.players }} 
+            <i class="bi bi-people-fill fs-4"></i> {{ boardGame?.players }}
             ·
             <i class="bi bi-clock-fill fs-5"></i>
             {{ boardGame?.playtime }} mins</b
@@ -20,7 +20,7 @@
       <div
         class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
       >
-        <img :src="boardGame?.large" alt="" class="img-fluid rounded" />
+        <img :src="boardGame?.large" alt="" class="largeImg rounded" />
       </div>
 
       <div
@@ -28,9 +28,15 @@
       >
         <div class="row">
           <div class="col-md-6">
-            <div class="d-flex">
+            <div class="d-flex flex-wrap text-wrap">
               <b>Categories:</b>
-              <p class="ms-2">{{ boardGame?.categories.id }}</p>
+              <!-- <p class="ms-2">{{ boardGame?.categories.map(b => b.name.name) }}</p> -->
+              <p class="ms-2">{{ categories.toString() }}</p>
+            </div>
+ <div class="d-flex flex-wrap text-wrap">
+              <b>Mechanics:</b>
+              <!-- <p class="ms-2">{{ boardGame?.categories.map(b => b.name.name) }}</p> -->
+              <p class="ms-2">{{ mechanics.toString() }}</p>
             </div>
 
             <div class="d-flex">
@@ -44,26 +50,31 @@
             </div>
           </div>
           <div class="col-md-6">
+            <div v-if="boardGame?.average_user_rating > 0">
+              
+              <div class="d-flex">
+                
+                <b>Average User Rating:</b>
+                
+                <p class="ms-2">
+                  {{ boardGame?.average_user_rating.toFixed(2) }} <b>/</b> 5
+                </p>
+                    <div class="d-flex" v-for="i in Math.round(boardGame?.average_user_rating)"><i class="mdi mdi-star text-warning list-group-item"></i></div>
+              </div>
+             
+            </div>
 
             <div v-if="boardGame?.average_learning_complexity > 0">
-            <div class="d-flex">
-              <b>Average User Rating:</b>
-              <p class="ms-2">
-                {{ boardGame?.average_user_rating.toFixed(2) }} <b>/</b> 5
-              </p>
-            </div></div>
+              <div class="d-flex">
+                <b>Learning Complexity:</b>
+                <p class="ms-2">
+                  {{ boardGame?.average_learning_complexity.toFixed(2) }}
+                  <b>/</b> 5
+                </p>
+              </div>
+            </div>
 
-            <div v-if="boardGame?.average_learning_complexity > 0">
-            <div class="d-flex">
-              <b>Learning Complexity:</b>
-              <p class="ms-2">
-                {{ boardGame?.average_learning_complexity.toFixed(2) }}
-                <b>/</b> 5
-              </p>
-            </div>
-            </div>
-            
-            <div class="d-flex"  v-if="boardGame?.rank <100">
+            <div class="d-flex" v-if="boardGame?.rank < 100">
               <b>Ranking:</b>
               <p class="ms-2">#{{ boardGame?.rank }}</p>
             </div>
@@ -72,15 +83,15 @@
 
         <div class="col-md">
           <div class="p-4 rounded-5 desctext overflow-auto">
-            {{ boardGame?.description_preview }}
+            <p> {{ boardGame?.description_preview }}    </p>  
           </div>
         </div>
         <div class="text-center">
           <b>Add to list</b>
         </div>
         <div class="d-flex justify-content-center my-3 my-md-0">
-          <div class="col-3 text-center ">
-            <AddToList  />
+          <div class="col-3 text-center">
+            <AddToList />
           </div>
         </div>
       </div>
@@ -88,16 +99,8 @@
     <!-- SECTION end -->
 
     <div class="row game-images mt-3 ms-1 horizontal-scroll">
-
-
-
-    <ActiveBoardGameImages :images="i"  v-for="i in images" :key="i.id"/>
- 
-
-
-  
+      <ActiveBoardGameImages :images="i" v-for="i in images" :key="i.id" />
     </div>
-    
 
     <div>
       <div v-if="reviews?.length > 0">
@@ -115,7 +118,7 @@
             <h1>Purchase game at:</h1>
           </div>
           <div
-            class="row justify-content-center prices gradient-box text-dark mb-5"
+            class="row justify-content-center prices gradient-box text-dark mb-5 rounded"
           >
             <div v-for="p in prices" :key="p.id" class="col-md-6">
               <ABGPrices :price="p" />
@@ -128,7 +131,7 @@
         <div class="mt-5">
           <h1>Videos about this game:</h1>
         </div>
-        <div class="row ">
+        <div class="row">
           <div class="col-md-3" v-for="v in videos" :key="v.id">
             <ActiveBoardGameVideos :video="v" />
           </div>
@@ -170,7 +173,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Pagination, Navigation,FreeMode} from 'swiper';
+import { Pagination, Navigation, FreeMode } from 'swiper';
 import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
 import ActiveBoardGameVideos from '../components/BoardGame/ActiveBoardGameVideos.vue';
 import ABGReviews from '../components/BoardGame/ABGReviews.vue';
@@ -223,7 +226,23 @@ export default {
         Pop.error(error);
       }
     }
+    async function categoryList() {
+      try {
+        await atlasGamesService.getBoardGameCategoriesList();
+      } catch (error) {
+        Pop.error(error, '[]');
+      }
+    }
+        async function mechanicsList() {
+      try {
+        await atlasGamesService.getBoardGameMechanicsList();
+      } catch (error) {
+        Pop.error(error, '[]');
+      }
+    }
     onMounted(() => {
+      mechanicsList()
+      categoryList();
       getBoardGameDetailsById();
       getBoardGamePricesByGameId();
       getBoardGameVideosByGameId();
@@ -231,31 +250,32 @@ export default {
       getBoardGameReviewsByGameId();
     });
     return {
-      modules: [Pagination, Navigation,FreeMode],
+      modules: [Pagination, Navigation, FreeMode],
       boardGame: computed(() => AppState.activeBoardGame),
       images: computed(() => AppState.activeBoardGameImages),
       videos: computed(() => AppState.activeBoardGameVideos),
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
       modalImage: computed(() => AppState.activeImage),
+      categories: computed(() =>
+        AppState.activeBoardGame.categories.map((x) => x.name)
+      ),
+      mechanics: computed(()=> AppState.activeBoardGame.mechanics.map(x => x.name)),
 
-
-    async  nextSet(){
-try {
-
-    await atlasGamesService.getBoardGameImagesByGameId()
-  } catch (error) {
-    Pop.error(error,'[nextSetBGImages]')
-  }
+      async nextSet() {
+        try {
+          await atlasGamesService.getBoardGameImagesByGameId();
+        } catch (error) {
+          Pop.error(error, '[nextSetBGImages]');
+        }
       },
-    async  previousSet(){
-try {
- 
-  await atlasGamesService.getBoardGameImagesByGameId()
-  } catch (error) {
-    Pop.error(error,'[previousSetBGImages]')
-  }
-      }
+      async previousSet() {
+        try {
+          await atlasGamesService.getBoardGameImagesByGameId();
+        } catch (error) {
+          Pop.error(error, '[previousSetBGImages]');
+        }
+      },
     };
   },
   components: {
@@ -271,6 +291,8 @@ try {
 </script>
 
 <style lang="scss" scoped>
+
+
 .customSize {
   height: 700px;
 
@@ -356,7 +378,7 @@ p {
 }
 
 .desctext {
-  font-size: larger;
+ 
   // letter-spacing: .06em;
   max-height: 40vh;
 }

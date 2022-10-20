@@ -62,10 +62,10 @@ class AtlasGamesService {
       params: {
         client_id: '2I6DeypMLL',
         limit: 12,
-        ids: 'Y2CAqTW0oJ,19C9ka2hEx,LZCLTdcQqP,4G32qGJZWs,lhbalXxjSr,6cq7DnBCh1,M8JSS7lEFH,M7r9tO1GbX,dkX7iNZDpx,H3yXWu5No0,jNwFeaejzT,0DAMHQym7H,gQSIuVNdby,qR4PtpO8X,gvhGefZQBd',
+        ids: 'Y2CAqTW0oJ,19C9ka2hEx,LZCLTdcQqP,4G32qGJZWs,lhbalXxjSr,6cq7DnBCh1,M8JSS7lEFH,M7r9tO1GbX,dkX7iNZDpx,H3yXWu5No0,jNwFeaejzT,0DAMHQym7H,gQSIuVNdby,qR4PtpO8X,gvhGefZQBd,FrJKlkJlhN,voKGlqZsRo',
       },
     });
-    //one night werewolf,coup,skullking,arkham horror,anomia,liar's dice,love letter premium,tokaido,quacks,oregon trail,dixit,starwars xwing,caverna,inhumane conditions,scythe,dune
+    //one night werewolf,coup,skullking,arkham horror,anomia,liar's dice,love letter premium,tokaido,quacks,oregon trail,dixit,starwars xwing,caverna,inhumane conditions,scythe,dune,mental blocks,funemployed
     AppState.editorsChoiceGames = res.data.games.map((b) => new BoardGame(b));
 
   }
@@ -129,9 +129,9 @@ class AtlasGamesService {
         ids: id,
       },
     });
-    // console.log(res.data.games);
+    console.log(res.data.games);
     AppState.activeBoardGame = new BoardGame(res.data.games[0]);
-    // console.log(AppState.activeBoardGame);
+    console.log(AppState.activeBoardGame);
   }
 
   async getBoardGameImagesByGameId(id) {
@@ -162,7 +162,7 @@ class AtlasGamesService {
     AppState.activeBoardGamePrices = res.data.gameWithPrices.us.map(
       (p) => new ActiveBoardGamePrice(p)
     );
-    console.log(AppState.activeBoardGamePrices);
+    // console.log(AppState.activeBoardGamePrices);
   }
   async getBoardGameVideosByGameId(id) {
     const res = await atlasApi.get("api/game/videos?", {
@@ -175,7 +175,7 @@ class AtlasGamesService {
     AppState.activeBoardGameVideos = res.data.videos.map(
       (a) => new ActiveBoardGameVideo(a)
     );
-    console.log(AppState.activeBoardGameVideos);
+    // console.log(AppState.activeBoardGameVideos);
   }
 
   async getBoardGameReviewsByGameId(id) {
@@ -204,7 +204,9 @@ class AtlasGamesService {
     });
     // console.log(res.data);
     AppState.bgCategories = res.data.categories.map((b) => new BGCategoriesAndMechanics(b));
+    // AppState.categoryNames = res.data.categories.map(b=> b)
     // console.log(AppState.bgCategories);
+    // console.log(AppState.categoryNames);
   }
 
 
