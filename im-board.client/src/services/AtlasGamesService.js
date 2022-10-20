@@ -62,10 +62,10 @@ class AtlasGamesService {
       params: {
         client_id: '2I6DeypMLL',
         limit: 12,
-        ids: 'Y2CAqTW0oJ,19C9ka2hEx,LZCLTdcQqP,4G32qGJZWs,lhbalXxjSr,6cq7DnBCh1,M8JSS7lEFH,M7r9tO1GbX,dkX7iNZDpx,H3yXWu5No0',
+        ids: 'Y2CAqTW0oJ,19C9ka2hEx,LZCLTdcQqP,4G32qGJZWs,lhbalXxjSr,6cq7DnBCh1,M8JSS7lEFH,M7r9tO1GbX,dkX7iNZDpx,H3yXWu5No0,jNwFeaejzT,0DAMHQym7H,gQSIuVNdby,qR4PtpO8X,gvhGefZQBd',
       },
     });
-    //one night werewolf,coup,skullking,arkham horror,anomia,liar's dice,love letter premium,tokaido,quacks,oregon trail,dixit
+    //one night werewolf,coup,skullking,arkham horror,anomia,liar's dice,love letter premium,tokaido,quacks,oregon trail,dixit,starwars xwing,caverna,inhumane conditions,scythe,dune
     AppState.editorsChoiceGames = res.data.games.map((b) => new BoardGame(b));
 
   }

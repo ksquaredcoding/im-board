@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-transparent card my-4" v-if="boardGame">
+  <div class="bg-transparent card my-4 " v-if="boardGame">
     <router-link
       class="text-center"
       :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"
@@ -7,16 +7,16 @@
       <img
         :src="boardGame?.coverImg"
         alt=""
-        class="forcedImg rounded position-relative"
+        class="forcedImg rounded position-relative p-2"
         @error="badImg"
       />
     </router-link>
 
     <div class="card-body p-1 mt-2 bg-grey rounded">
       <span class="text-center">
-        <h5 class="text-decoration-underline text-wrap">
+        <h6 class="text-decoration-underline text-wrap">
           {{ boardGame?.name }}
-        </h5>
+        </h6>
       </span>
 
       <div class="card-text d-flex justify-content-center align-items-center">
@@ -46,10 +46,10 @@
           height="15"
         />
         <p>${{ boardGame.price }}</p>
-        <small class="text-decoration-line-through opacity-75 ms-3 me-1">
+        <small class="text-decoration-line-through  ms-3 me-1 revealOnHover">
           {{ boardGame.retailPrice }}
         </small>
-        <small class="opacity-75">retail price</small>
+        <small class="revealOnHover">retail price</small>
       </div>
       <div class="d-flex justify-content-center align-items-center" v-else>
         <img
@@ -100,6 +100,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+.revealOnHover{
+  opacity: 0%;
+  transition: all 0.5s ease;
+}
+
 .hvr-bob {
   transition: all 0.5s ease;
 }
@@ -137,6 +144,12 @@ export default {
 .card {
   border: none;
   transition: 0.5s ease;
+
+  .revealOnHover{
+    opacity: 0%;
+    display: none;
+   transition: all 0.5s ease;
+  }
 }
 
 .card:hover {
@@ -146,5 +159,12 @@ export default {
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   transition: all 0.5s ease;
+
+  .revealOnHover{
+    
+    opacity: 75%;
+    transition: all .5s ease;
+    display: inline-block;
+  }
 }
 </style>

@@ -27,7 +27,7 @@
         <div class="row mx-2" >
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
-            <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
+            <div class="col-md-2 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
           </TransitionGroup>

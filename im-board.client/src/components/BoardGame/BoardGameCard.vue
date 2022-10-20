@@ -9,7 +9,7 @@
       <span class="text-center" title="Game title">
 
         <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }">
-          <h5 class="text-decoration-underline text-wrap text-dark">{{ boardGame?.name }}</h5>
+          <p class="text-decoration-underline text-wrap text-dark">{{ boardGame?.name }}</p>
         </router-link>
       </span>
 
@@ -43,7 +43,9 @@
 
     </div>
   </div>
-  <div v-else>🦆</div>
+  <div v-else><div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div></div>
 
 
 </template>
