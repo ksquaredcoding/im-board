@@ -25,20 +25,13 @@ class GroupsService {
       groupId,
       accountId
     );
-    // const chats = await groupChatsService.getGroupChatsByGroupId(groupId);
-    // const chats = await groupChatsService.getGroupChatsByGroupId(groupId)
     if (group.creatorId.toString() !== accountId) {
       throw new Forbidden("only the creator can delete this group");
     }
 
-    // if (group.groupMemberIds.length > 1) {
-    //   throw new Forbidden("this group still has members!");
-    // }
-    // @ts-ignore
-    // if (chats) {
-    //   await chats.deleteMany({ groupId });
-    //   // @ts-ignore
-    // }
+    if (group.groupMemberIds.length > 1) {
+      throw new Forbidden("this group still has members!");
+    }
     await gameNightsService.removeGameNightsByGroup(groupId);
     await groupChatsService.removeChatsByGroup(groupId);
     await member.remove();
