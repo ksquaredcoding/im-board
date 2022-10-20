@@ -2,10 +2,10 @@
   <div class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
     :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
     <div class="row">
-      <div class="col-md-2 ms-1 text-danger">
+      <div class="col-md-2 ms-1 text-c6 rounded-circle">
         <div class="btn-group" v-if="routeGroup">
           <i data-bs-toggle="dropdown" aria-expanded="false"
-            class="mdi mdi-star dropdown-toggle dropdown-toggle-split"></i>
+            class="mdi mdi-account-details fs-4 dropdown-toggle dropdown-toggle-split bg-grey rounded text-c7"></i>
 
           <ul class="dropdown-menu" v-if="findGame">
             <div class="d-flex">

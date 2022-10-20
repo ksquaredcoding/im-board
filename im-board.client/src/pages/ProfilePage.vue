@@ -28,7 +28,7 @@
     </div>
 
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3 ">
-      <div class="col-md-3  bg-grey  ms-md-3" v-if="account?.id == profile?.id">
+      <!-- <div class="col-md-3  bg-grey  ms-md-3" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2 class="font">Groups</h2>
@@ -44,7 +44,7 @@
             <GroupCard :group="g" />
           </div>
         </div>
-      </div>
+      </div> -->
 
 
       <div class="col-md mx-3 bg-grey">
@@ -61,17 +61,15 @@
             <div class="ms-3">
               <input type="button" id="Fave" name="Fave" value="Favorites" autofocus="true"
                 class="button-50 py-2 filterbtn focus" @click="filterBg = 'favorite'" />
-              <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
               <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="Owned"
                 @click="filterBg = 'owned'" />
-              <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
             </div>
             <div class="ms-3">
               <input type="button" id="Wishlist" name="Wishlist" class="button-50 py-2 filterbtn" value="Wishlist"
                 @click="filterBg = 'wish'" />
-              <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
+              
             </div>
           </b>
         </div>
