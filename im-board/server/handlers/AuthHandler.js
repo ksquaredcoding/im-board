@@ -1,5 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { attachHandlers } from '../../Setup'
+import { dbContext } from "../db/DbContext.js"
 import { accountService } from '../services/AccountService'
 import { SocketHandler } from '../utils/SocketHandler'
 
@@ -28,6 +29,7 @@ export class AuthHandler extends SocketHandler {
       attachHandlers(this.io, this.socket, user, limitedProfile)
       this.socket.emit('authenticated', limitedProfile)
       this.io.emit('userConnected', limitedProfile)
+      await dbContext.GroupMembers.updateMany({accountId:this.profile.id},{isOnline:true})
     } catch (e) {
       this.socket.emit('error', e)
     }

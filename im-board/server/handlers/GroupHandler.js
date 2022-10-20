@@ -6,7 +6,7 @@ export class GroupHandler extends SocketHandler {
    * @param {import("socket.io").Socket} socket
    */
   constructor(io, socket) {
-    super(io, socket); //NOTE STAYS THE SAME
+    super(io, socket,true); //NOTE STAYS THE SAME
     this
     .on('ENTER_GROUP', this.enterGroup)
     .on('LEAVE_GROUP', this.leaveGroup);
