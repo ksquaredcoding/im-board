@@ -8,7 +8,8 @@ export const AccountSchema = new Schema(
     name: { type: String, required: true },
     picture: { type: String },
     coverImg: { type: String },
-    bio: {type: String}
+    inbox: { type: Boolean, default: false },
+    bio: { type: String }
     // NOTE If you wish to add additional properties do so here
   },
   { timestamps: true, toJSON: { virtuals: true } }

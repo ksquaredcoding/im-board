@@ -1,41 +1,4 @@
 <template>
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex align-items-center">
-        <img alt="logo" src="https://cdn-icons-png.flaticon.com/512/5569/5569273.png" height="45" />
-       <h3 class="ms-3">I'm Game</h3>
-      </div>
-    </router-link>
-   
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
-          <router-link :to="{ name: 'BoardGameDetails', params: {id: 'TAAifFP590' } }"
-            class="btn text-success lighten-30 selectable text-uppercase">
-            game details
-          </router-link>
-        </li>
-      </ul>
-      <Login />
-    </div>
-  </nav> -->
-
   <nav class="navbar  navbar-dark bg-dark px-3  " data-bs-target="#topOfPage">
     <div class=" col-md d-flex">
       <!-- TODO make into component. -->
@@ -75,6 +38,11 @@
         <!-- <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
         </router-link> -->
+
+        <div>
+          <i class="bi bi-bell-fill selectable text-warning" v-if="account.inbox"></i>
+          <i class="bi bi-bell-fill selectable"></i>
+        </div>
 
         <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
