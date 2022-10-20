@@ -1,6 +1,6 @@
 <template>
   <div v-if="!group" class="animate__animated animate__fadeOut">
-  loading....
+    loading....
   </div>
   <div
     class="group-page animate__animated animate__fadeInRight container-fluid"
@@ -50,25 +50,26 @@
   </div>
 </template>
 <script>
-import GroupBanner from "../components/GroupPage/GroupBanner.vue";
-import GameNightCard from "../components/GroupPage/GameNightCard.vue";
-import GroupChatInput from "../components/GroupPage/GroupChatInput.vue";
-import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
-import Pop from "../utils/Pop.js";
-import { groupsService } from "../services/GroupsService.js";
-import { onMounted, watchEffect } from "vue";
-import GroupForm from "../components/GroupPage/GroupForm.vue";
-import { accountService } from "../services/AccountService.js";
-import { AppState } from "../AppState.js";
-import { AuthService } from "../services/AuthService.js";
-import { useRoute } from "vue-router";
-import { computed } from "@vue/reactivity";
-import { groupMembersService } from "../services/GroupMembersService.js";
-import { listsService } from "../services/ListsService.js";
-import { groupChatsService } from "../services/GroupChatsService.js";
-import Chat from "../components/GroupPage/Chat.vue";
-import { gameNightsService } from "../services/GameNightsService.js";
-import GameNightForm from "../components/GroupPage/GameNightForm.vue";
+import GroupBanner from '../components/GroupPage/GroupBanner.vue';
+import GameNightCard from '../components/GroupPage/GameNightCard.vue';
+import GroupChatInput from '../components/GroupPage/GroupChatInput.vue';
+import GroupGamesCard from '../components/GroupPage/GroupGamesCard.vue';
+import Pop from '../utils/Pop.js';
+import { groupsService } from '../services/GroupsService.js';
+import { onMounted, watchEffect } from 'vue';
+import GroupForm from '../components/GroupPage/GroupForm.vue';
+import { accountService } from '../services/AccountService.js';
+import { AppState } from '../AppState.js';
+import { AuthService } from '../services/AuthService.js';
+import { onBeforeRouteLeave, useRoute } from 'vue-router';
+import { computed } from '@vue/reactivity';
+import { groupMembersService } from '../services/GroupMembersService.js';
+import { listsService } from '../services/ListsService.js';
+import { groupChatsService } from '../services/GroupChatsService.js';
+import Chat from '../components/GroupPage/Chat.vue';
+import { gameNightsService } from '../services/GameNightsService.js';
+import GameNightForm from '../components/GroupPage/GameNightForm.vue';
+import { GroupHandler } from '../handlers/GroupHandler.js';
 
 export default {
   setup() {
@@ -77,7 +78,7 @@ export default {
       try {
         await groupsService.getGroupById(route.params.id);
       } catch (error) {
-        Pop.error(error, "[getGroupById]");
+        Pop.error(error, '[getGroupById]');
       }
     }
 
@@ -85,7 +86,7 @@ export default {
       try {
         await groupsService.getGroupMembers(route.params.id);
       } catch (error) {
-        Pop.error(error, "[getGroupMemberByGroupId]");
+        Pop.error(error, '[getGroupMemberByGroupId]');
       }
     }
 
@@ -93,26 +94,26 @@ export default {
       try {
         await listsService.getListsByGroupId(route.params.id);
       } catch (error) {
-        Pop.error(error, "[getListsByGroupId]");
+        Pop.error(error, '[getListsByGroupId]');
       }
     }
     async function getGroupChatsByGroupId() {
       try {
         await groupChatsService.getGroupChatsByGroupId(route.params.id);
       } catch (error) {
-        Pop.error(error, "[getListsByGroupId]");
+        Pop.error(error, '[getListsByGroupId]');
       }
     }
     async function getGroupGameNights() {
       try {
         await gameNightsService.getGroupGameNights(route.params.id);
       } catch (error) {
-        Pop.error(error, "[groupGameNights]");
+        Pop.error(error, '[groupGameNights]');
       }
     }
 
     function scrollToBottom() {
-      let chatbox = document.getElementById("chatbox");
+      let chatbox = document.getElementById('chatbox');
       if (!chatbox) {
         return setTimeout(scrollToBottom, 500);
       }
@@ -120,13 +121,17 @@ export default {
     }
 
     onMounted(() => {
-      
       getGroupById();
       getGroupMembersByGroupId();
       getListsByGroupId();
       getGroupChatsByGroupId();
       getGroupGameNights();
       scrollToBottom();
+      GroupHandler.EnterGroup(route.params.id);
+    });
+
+    onBeforeRouteLeave(() => {
+      GroupHandler.LeaveGroup(route.params.id);
     });
 
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
@@ -149,7 +154,7 @@ export default {
         try {
           await groupsService.createGroup();
         } catch (error) {
-          Pop.error(error, "[createGroup]");
+          Pop.error(error, '[createGroup]');
         }
       },
     };
@@ -171,7 +176,7 @@ export default {
 }
 
 .bricks {
-  columns: 2
+  columns: 2;
 }
 
 .groupchatbox {
@@ -184,6 +189,6 @@ export default {
 }
 
 * {
-  font-family: "Baloo 2", cursive;
+  font-family: 'Baloo 2', cursive;
 }
 </style>
