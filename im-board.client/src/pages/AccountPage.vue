@@ -44,7 +44,7 @@
             <i
               class="ps-1 mdi mdi-account-check-outline fs-1"
               alt=""
-              title="Save Changes"
+              title="Profile Page"
             ></i>
           </button>
         </router-link>

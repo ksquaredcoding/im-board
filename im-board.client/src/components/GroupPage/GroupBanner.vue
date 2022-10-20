@@ -149,11 +149,6 @@ export default {
   margin-inline: 7rem;
 }
 
-.groupMemberBar:hover {
-  transition: 1s ease;
-  filter: brightness(120%);
-}
-
 .bannerBg {
   background-color: #2c2c2fd5;
 }
