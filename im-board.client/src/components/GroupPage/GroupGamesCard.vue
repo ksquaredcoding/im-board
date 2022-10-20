@@ -5,7 +5,7 @@
     :title="boardGameList.listName"
   >
     <div class="row">
-      <div class="col-md-2 ms-1 text-c6 rounded-circle">
+      <div class="col-md-2 ms-1 text-c6 rounded-circle mt-1">
         <div class="btn-group" v-if="routeGroup">
           <i
             data-bs-toggle="dropdown"
