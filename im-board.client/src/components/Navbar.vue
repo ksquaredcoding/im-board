@@ -8,7 +8,7 @@
           v-if="user.isAuthenticated">
           Create Group
         </a>
-        <button class=" button-49 py-1 px-2 " disabled v-else title="Not Logged In">
+        <button class=" button-51 disabled py-1 px-2 " disabled v-else title="Not Logged In">
           Create Group
         </button>
 
