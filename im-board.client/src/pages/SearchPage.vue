@@ -1,5 +1,8 @@
 <template>
-  <div class="container-fluid px-3 animate__animated animate__fadeInRight" v-if="boardGames">
+  <div
+    class="container-fluid px-3 animate__animated animate__fadeInRight"
+    v-if="boardGames"
+  >
     <div class="row justify-content-end g-md-0">
       <div class="col-md-12 border-secondary border-3 rounded-bottom">
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
@@ -10,23 +13,38 @@
         </div>
       </div>
 
-      <div class="col-md-12 d-flex bg-dark lighten-10 rounded p-4 d-flex justify-content-center">
-
-
+      <div
+        class="col-md-12 d-flex bg-dark lighten-10 rounded p-4 d-flex justify-content-center"
+      >
         <FilterBar />
       </div>
 
       <div class="col-md-12">
-        <button class="btn btn-danger" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
+        <button
+          class="btn btn-danger"
+          @click="incrementSkip('prev')"
+          type="button"
+          :disabled="hopeItWorks == 0"
+        >
           Previous
         </button>
-        <button class="btn btn-primary" @click="incrementSkip('next')" type="button"
-          :disabled="boardGames.length <= 0 || boardGames.length < itsAMaybe - hopeItWorks">
+        <button
+          class="btn btn-primary"
+          @click="incrementSkip('next')"
+          type="button"
+          :disabled="
+            boardGames.length <= 0 ||
+            boardGames.length < itsAMaybe - hopeItWorks
+          "
+        >
           Next
         </button>
         <div class="row mx-2">
-          <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__zoomOut animate__animated">
+          <TransitionGroup
+            name="custom-classes"
+            enterActiveClass="animate__zoomIn animate__animated"
+            leaveActiveClass="animate__zoomOut animate__animated"
+          >
             <div class="col-md-2 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
@@ -43,29 +61,28 @@
 </template>
 
 <script>
-import { onMounted, ref, computed } from 'vue';
-import { atlasGamesService } from '../services/AtlasGamesService.js';
-import Pop from '../utils/Pop.js';
-import Filters from '../components/SearchPage/FiltersSideBar.vue';
-import Searchbar from '../components/SearchPage/Searchbar.vue';
-import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
-import { AppState } from '../AppState.js';
+import { onMounted, ref, computed } from "vue";
+import { atlasGamesService } from "../services/AtlasGamesService.js";
+import Pop from "../utils/Pop.js";
+import Filters from "../components/SearchPage/FiltersSideBar.vue";
+import Searchbar from "../components/SearchPage/Searchbar.vue";
+import BoardGameCard from "../components/BoardGame/BoardGameCard.vue";
+import { AppState } from "../AppState.js";
 
-import BGCardSearchPage from '../components/SearchPage/BoardGameCardSearchPage.vue';
-import BoardGameCardSearchPage from '../components/SearchPage/BoardGameCardSearchPage.vue';
-import FilterBar from '../components/SearchPage/FilterBar.vue';
+import BGCardSearchPage from "../components/SearchPage/BoardGameCardSearchPage.vue";
+import BoardGameCardSearchPage from "../components/SearchPage/BoardGameCardSearchPage.vue";
+import FilterBar from "../components/SearchPage/FilterBar.vue";
 import FiltersSideBar from "../components/SearchPage/FiltersSideBar.vue";
-
 
 export default {
   setup() {
-    const editable = ref('');
+    const editable = ref("");
 
     async function getCategoryList() {
       try {
         await atlasGamesService.getBoardGameCategoriesList();
       } catch (error) {
-        Pop.error(error, '[getCategoryList]');
+        Pop.error(error, "[getCategoryList]");
       }
     }
 
@@ -73,7 +90,7 @@ export default {
       try {
         await atlasGamesService.getBoardGameMechanicsList();
       } catch (error) {
-        Pop.error(error, '[getMechanicsList]');
+        Pop.error(error, "[getMechanicsList]");
       }
     }
     onMounted(() => {
@@ -83,7 +100,9 @@ export default {
 
     return {
       editable,
-      boardGames: computed(() => AppState.boardgames.slice(AppState.hopeItWorks, AppState.itsAMaybe)),
+      boardGames: computed(() =>
+        AppState.boardgames.slice(AppState.hopeItWorks, AppState.itsAMaybe)
+      ),
       categories: computed(() => AppState.bgCategories),
       skip: computed(() => AppState.skip),
       hopeItWorks: computed(() => AppState.hopeItWorks),
@@ -91,35 +110,37 @@ export default {
       async incrementSkip(x) {
         try {
           switch (x) {
-            case 'next':
+            case "next":
               if (AppState.itsAMaybe == AppState.boardgames.length) {
-                AppState.skip += 48
-                AppState.nextQueryFilter[AppState.nextQueryFilter.length - 1] = `skip=${AppState.skip}`
-                const nextSearch = AppState.nextQueryFilter.join('&')
+                AppState.skip += 48;
+                AppState.nextQueryFilter[
+                  AppState.nextQueryFilter.length - 1
+                ] = `skip=${AppState.skip}`;
+                const nextSearch = AppState.nextQueryFilter.join("&");
                 console.log(nextSearch);
                 await atlasGamesService.getBoardGames(nextSearch);
-                AppState.itsAMaybe = 12
-                AppState.hopeItWorks = 0
+                AppState.itsAMaybe = 12;
+                AppState.hopeItWorks = 0;
               }
-              AppState.itsAMaybe += 12
-              AppState.hopeItWorks += 12
+              AppState.itsAMaybe += 12;
+              AppState.hopeItWorks += 12;
               break;
-            case 'prev':
+            case "prev":
               if (AppState.hopeItWorks > 0) {
-                AppState.hopeItWorks -= 12
+                AppState.hopeItWorks -= 12;
               }
               if (AppState.itsAMaybe >= 22) {
-                AppState.itsAMaybe -= 12
+                AppState.itsAMaybe -= 12;
               }
               break;
 
             default:
-              AppState.itsAMaybe += 0
-              AppState.hopeItWorks += 0
+              AppState.itsAMaybe += 0;
+              AppState.hopeItWorks += 0;
               break;
           }
         } catch (error) {
-          Pop.error('[INCREMENT SKIP]', error)
+          Pop.error("[INCREMENT SKIP]", error);
         }
       },
     };
@@ -132,7 +153,6 @@ export default {
     BoardGameCardSearchPage,
     FilterBar,
     FiltersSideBar,
-
   },
 };
 </script>
@@ -172,7 +192,7 @@ export default {
   font-size: larger;
   font-weight: bold;
   padding: 10px;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
 }
 
 .homepage {

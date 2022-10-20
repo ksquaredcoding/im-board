@@ -1,19 +1,17 @@
-import { AppState } from '../AppState';
-import { Account } from '../models/Account.js';
-import { BGList } from '../models/BoardGame/BGList.js';
-import { GroupMemberShip } from '../models/GroupsAndGameNight/GroupMembership.js';
-import { logger } from '../utils/Logger';
-import { api } from './AxiosService';
+import { AppState } from "../AppState";
+import { Account } from "../models/Account.js";
+import { BGList } from "../models/BoardGame/BGList.js";
+import { GroupMemberShip } from "../models/GroupsAndGameNight/GroupMembership.js";
+import { logger } from "../utils/Logger";
+import { api } from "./AxiosService";
 
 class AccountService {
-
   async getAccount() {
     try {
-      const res = await api.get('/account');
+      const res = await api.get("/account");
       AppState.account = res.data;
-    } catch (err) { }
+    } catch (err) {}
   }
-
 
   async getMyGroups() {
     const res = await api.get(`/account/groups`);
@@ -25,7 +23,6 @@ class AccountService {
     // console.log(AppState.groupMemberShips);
   }
 
-
   async getMyLists() {
     const res = await api.get(`/account/boardgames/`);
     // console.log(res.data, 'getting my lists');
@@ -34,9 +31,8 @@ class AccountService {
     // console.log(AppState.bgLists);
   }
 
-
   async editAccount(formData) {
-    const res = await api.put('/account', formData);
+    const res = await api.put("/account", formData);
     AppState.account = new Account(res.data);
   }
 }

@@ -11,7 +11,6 @@ class ProfilesService {
     AppState.bgLists = res.data.map((b) => new BGList(b));
     // console.log(AppState.bgLists);
     // console.log(AppState.bgLists.account.name);
-
   }
 
   async getProfileGroups(id) {

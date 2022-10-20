@@ -50,8 +50,6 @@ class GroupsService {
     // console.log("members", AppState.groupMembers);
   }
 
-  async inviteMember(memberData) {
-
-  }
+  async inviteMember(memberData) {}
 }
 export const groupsService = new GroupsService();

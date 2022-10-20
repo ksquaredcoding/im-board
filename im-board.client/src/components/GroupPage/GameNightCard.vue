@@ -1,5 +1,4 @@
 <template>
-
   <div class="GameNightCard bg-dark card my-2 elevation-3">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
@@ -7,12 +6,18 @@
           <h2>Upcoming Gamenight</h2>
         </div>
         <div class="d-flex justify-content-center mb-2">
-          <button class="btn button-51 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
-            v-if="!attending">
+          <button
+            class="btn button-51 animate__animated animate__fadeIn"
+            @click="attendGamenight(gamenight?.id)"
+            v-if="!attending"
+          >
             I'm Attending <i class="bi bi-person-plus-fill"></i>
           </button>
-          <button class="btn button-52 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
-            v-else>
+          <button
+            class="btn button-52 animate__animated animate__fadeIn"
+            @click="attendGamenight(gamenight?.id)"
+            v-else
+          >
             UnAttend <i class="bi bi-person-dash-fill"></i>
           </button>
         </div>
@@ -20,21 +25,21 @@
           <span>
             <p>
               {{
-              new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-              month: "short",
-              day: "2-digit",
-              year: "numeric",
-              })
+                new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+                  month: "short",
+                  day: "2-digit",
+                  year: "numeric",
+                })
               }}
             </p>
           </span>
           <span class="mx-4">
             <p>
               {{
-              new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-              hour: "2-digit",
-              minute: "2-digit",
-              })
+                new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })
               }}
             </p>
           </span>
@@ -45,16 +50,31 @@
       </div>
       <div class="col-5 col-md-6 p-0 ps-md-3">
         <div class="card m-2 noborder">
-          <div class="bg-c4 text-center  rounded-top">
+          <div class="bg-c4 text-center rounded-top">
             <h5 class="mt-1">Attending:</h5>
           </div>
-          <div class="p-2 bg-c2 text-center rounded-bottom" v-if="gamenight?.groupMemberIds">
-            <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-              leaveActiveClass="animate__zoomOut animate__animated">
-              <router-link :to="{ name: 'Profile', params: { id: g?.id } }" v-for="g in gamenight?.groupMemberIds"
-                :key="g.id">
-                <img :src="g?.picture" :alt="g?.name" :title="g?.name" height="45" width="45"
-                  class="rounded-circle box-shadow m-1 profile-img" />
+          <div
+            class="p-2 bg-c2 text-center rounded-bottom"
+            v-if="gamenight?.groupMemberIds"
+          >
+            <TransitionGroup
+              name="custom-classes"
+              enterActiveClass="animate__zoomIn animate__animated"
+              leaveActiveClass="animate__zoomOut animate__animated"
+            >
+              <router-link
+                :to="{ name: 'Profile', params: { id: g?.id } }"
+                v-for="g in gamenight?.groupMemberIds"
+                :key="g.id"
+              >
+                <img
+                  :src="g?.picture"
+                  :alt="g?.name"
+                  :title="g?.name"
+                  height="45"
+                  width="45"
+                  class="rounded-circle box-shadow m-1 profile-img"
+                />
               </router-link>
             </TransitionGroup>
 
@@ -71,7 +91,6 @@
           <div class="gameImg p-2 rounded-bottom">
             <div class="d-flex justify-content-center">
               <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
-
                 <b class="namefont">{{ gamenight?.game }}</b>
               </div>
             </div>
@@ -80,7 +99,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>

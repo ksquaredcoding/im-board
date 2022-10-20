@@ -1,12 +1,13 @@
 <template>
-
- <img :src="images.original" alt="" data-bs-toggle="modal" data-bs-target="#activeImage"  @click="setActiveImage()"
-    class="forcedImg rounded elevation-2">
-
-
- 
+  <img
+    :src="images.original"
+    alt=""
+    data-bs-toggle="modal"
+    data-bs-target="#activeImage"
+    @click="setActiveImage()"
+    class="forcedImg rounded elevation-2"
+  />
 </template>
-
 
 <script>
 // Import Swiper Vue.js components
@@ -18,8 +19,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
-
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import { ActiveBoardGameImage } from "../../models/BoardGame/ActiveBoardGameImage.js";
@@ -29,19 +28,15 @@ export default {
   props: {
     images: {
       type: ActiveBoardGameImage,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
     return {
       setActiveImage() {
-        AppState.activeImage = props.images.original
+        AppState.activeImage = props.images.original;
         console.log(AppState.activeImage);
       },
-
-
-
-
     };
   },
 };

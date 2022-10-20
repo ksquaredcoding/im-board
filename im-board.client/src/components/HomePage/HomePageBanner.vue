@@ -9,16 +9,25 @@
       <div class="d-flex">
         <h5 class="card-title p-2 rounded-1">Fall In Love With Board Games</h5>
       </div>
-      <div class="d-flex"><p class="card-text col-md-5 p-4 rounded-4">Welcome to <span class="fs-4 text-c6">I'm Game!</span> An app for those who have a passion for table top gaming. Our goal is to give users the ability to find and purchase new games they will love, keep track of games in their own collection, collaborate with friends, and much more!<br><br>
-      
-      New to the app? Click here for instructions on how to navigate your experience!</p></div>
+      <div class="d-flex">
+        <p class="card-text col-md-5 p-4 rounded-4">
+          Welcome to <span class="fs-4 text-c6">I'm Game!</span> An app for
+          those who have a passion for table top gaming. Our goal is to give
+          users the ability to find and purchase new games they will love, keep
+          track of games in their own collection, collaborate with friends, and
+          much more!<br /><br />
+
+          New to the app? Click here for instructions on how to navigate your
+          experience!
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import { AppState } from '../../AppState.js';
+import { computed } from "@vue/reactivity";
+import { AppState } from "../../AppState.js";
 
 export default {
   setup() {
@@ -50,7 +59,7 @@ export default {
   .card-img {
     height: 400px;
     object-fit: cover;
-object-position: center;
+    object-position: center;
     box-shadow: inset 0 0 10px 10px #000;
   }
 }
@@ -62,14 +71,10 @@ object-position: center;
   filter: brightness(105%);
 }
 @media screen and (max-width: 576px) {
-  .card{
-    .card-title{
-  font-size: 25pt;
-}
-
+  .card {
+    .card-title {
+      font-size: 25pt;
+    }
   }
-
-
- }
-
+}
 </style>

@@ -1,46 +1,51 @@
 <template>
+  <div class="container-fluid backgroundImage">
+    <div class="row justify-content-center">
+      <div class="col-md-4 d-flex justify-content-end align-items-center">
+        <p class="t1 text-dark text-shadow3d border-1">
+          Who <br />
+          We <br />
+          Are.
+        </p>
+      </div>
 
-  <div class="container-fluid  backgroundImage">
-    <div class="row justify-content-center ">
- <div class="col-md-4 d-flex justify-content-end align-items-center">
-      <p class="t1 text-dark text-shadow3d border-1 ">
-        Who <br />
-        We <br />
-        Are.
-      </p>
+      <div class="p-5 col-md-6">
+        <h5 class="message">
+          We <b>LOVE</b> board games! far deeper than the cliche
+          <i class="mdi mdi-format-quote-open fs-3"></i> because they're fun<i
+            class="mdi mdi-format-quote-close fs-3"
+          ></i
+          >. We believe they are capable of authentically building relationships
+          and genuine community with friends and strangers. We chose to create
+          an app that can display the vast variety of different boardgames as
+          well as bring friends together where they can share common board game
+          interest and plan game nights together to challenge themselves, build
+          memories, and bring more joy and laughter to their lives.
+        </h5>
+      </div>
     </div>
-
-    <div class="p-5 col-md-6">
-      <h5 class="message">
-        We <b>LOVE</b> board games! far deeper than the cliche <i class="mdi mdi-format-quote-open fs-3"></i> because
-        they're
-        fun<i class="mdi mdi-format-quote-close fs-3"></i>. We believe they are capable of authentically building
-        relationships and genuine community with friends and strangers. We chose
-        to create an app that can display the vast variety of different
-        boardgames as well as bring friends together where they can share common
-        board game interest and plan game nights together to challenge
-        themselves, build memories, and bring more joy and laughter to their
-        lives.
-      </h5>
+    <div class="row justify-content-center">
+      <div class="col-md-2">
+        <AuthorCard />
+      </div>
+      <div class="col-md-2">
+        <AuthorCard />
+      </div>
+      <div class="col-md-2">
+        <AuthorCard />
+      </div>
+      <div class="col-md-2">
+        <AuthorCard />
+      </div>
+      <div class="col-md-2">
+        <AuthorCard />
+      </div>
     </div>
-
-    </div>
-   <div class="row justify-content-center">
-   
-
-       <AuthorCard/>
-  
-    
-   </div>
-    
   </div>
-
-
-
 </template>
 
 <script>
-import AuthorCard from '../components/AuthorCard.vue';
+import AuthorCard from "../components/AuthorCard.vue";
 export default {
   setup() {
     return {};
@@ -50,11 +55,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.backgroundImage{
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Ftriangle-pattern-design_a2lra2uUmZqaraWkpJRnZW1orWdlbWg.jpg&f=1&nofb=1&ipt=a6e8dbdcc6ffdc85a55b0550ebea68628a737df04e362b865af232d8d4fcaf5a&ipo=images');
+.backgroundImage {
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Ftriangle-pattern-design_a2lra2uUmZqaraWkpJRnZW1orWdlbWg.jpg&f=1&nofb=1&ipt=a6e8dbdcc6ffdc85a55b0550ebea68628a737df04e362b865af232d8d4fcaf5a&ipo=images");
   background-position: center;
   background-size: cover;
-  
 }
 .message {
   letter-spacing: 0.07em;

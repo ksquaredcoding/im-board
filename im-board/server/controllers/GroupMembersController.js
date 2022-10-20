@@ -32,7 +32,7 @@ export class GroupMembersController extends BaseController {
       next(error);
     }
   }
-  
+
   async kickMember(req, res, next) {
     try {
       const groupMember = await groupMembersService.kickMember(

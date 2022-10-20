@@ -1,5 +1,11 @@
 <template>
-  <div class="modal fade" id="groupForm" tabindex="-1" aria-labelledby="groupFormLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="groupForm"
+    tabindex="-1"
+    aria-labelledby="groupFormLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
@@ -8,27 +14,43 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="">
-                  <img :src="editable.coverImg" alt="" class="forcedImg smallerImg mt-2 Img1 bg-grey " />
+                  <img
+                    :src="editable.coverImg"
+                    alt=""
+                    class="forcedImg smallerImg mt-2 Img1 bg-grey"
+                  />
                 </div>
                 <div class="mt-3 inputBox">
                   <div class="font">Group Cover Image</div>
-                  <input type="url" class="bg-grey text-dark" v-model="editable.coverImg" required
-                    aria-required="true" />
-                  
+                  <input
+                    type="url"
+                    class="bg-grey text-dark"
+                    v-model="editable.coverImg"
+                    required
+                    aria-required="true"
+                  />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
                   <div class="font">Group Name</div>
-                  <input type="text" class="bg-grey  text-dark" v-model="editable.name" required
-                    aria-required="true" />
-                  
+                  <input
+                    type="text"
+                    class="bg-grey text-dark"
+                    v-model="editable.name"
+                    required
+                    aria-required="true"
+                  />
                 </div>
               </div>
             </div>
 
             <div class="my-3">
-              <button class="btn button-51 selectable font" type="submit" data-bs-dismiss="modal">
+              <button
+                class="btn button-51 selectable font"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
                 Create Group
               </button>
             </div>
@@ -37,8 +59,6 @@
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
@@ -130,7 +150,6 @@ export default {
   width: 250px;
 }
 
-
 .inputBox input {
   width: 100%;
   padding: 10px;
@@ -157,8 +176,8 @@ export default {
   transition: all 1s ease;
 }
 
-.inputBox input:valid~span,
-.inputBox input:focus~span {
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
   color: #27132a;
   transform: translateX(10px) translateY(-7px);
   padding: 0 10px;

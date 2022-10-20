@@ -7,25 +7,30 @@ class GameNightsService {
   async getGroupGameNights(id) {
     const res = await api.get(`/api/gamenights/${id}`);
     // console.log(res.data);
-    AppState.groupGameNights = res.data.map(n => new GameNight(n))
+    AppState.groupGameNights = res.data.map((n) => new GameNight(n));
     // console.log(AppState.groupGameNights);
   }
   async attendGamenight(gamenightId) {
-    const gamenight = AppState.groupGameNights.find(g => g.id == gamenightId)
+    const gamenight = AppState.groupGameNights.find((g) => g.id == gamenightId);
     if (!gamenight) {
-      Pop.error('Bad or Invalid GameNight Id')
+      Pop.error("Bad or Invalid GameNight Id");
     }
-    await api.put(`api/gamenights/${gamenightId}`)
-    const gamenightIndex = AppState.groupGameNights.findIndex(g => g.id == gamenight.id)
-    const res = await api.get(`api/gamenights/upcoming/${gamenightId}`)
-    const newGamenight = new GameNight(res.data)
-    AppState.groupGameNights.splice(gamenightIndex, 1, newGamenight)
+    await api.put(`api/gamenights/${gamenightId}`);
+    const gamenightIndex = AppState.groupGameNights.findIndex(
+      (g) => g.id == gamenight.id
+    );
+    const res = await api.get(`api/gamenights/upcoming/${gamenightId}`);
+    const newGamenight = new GameNight(res.data);
+    AppState.groupGameNights.splice(gamenightIndex, 1, newGamenight);
   }
 
   async makeGameNight(gameNightData) {
-    const res = await api.post(`api/gamenights/`, gameNightData)
+    const res = await api.post(`api/gamenights/`, gameNightData);
     // console.log(res.data);
-    AppState.groupGameNights = [new GameNight(res.data), ...AppState.groupGameNights]
+    AppState.groupGameNights = [
+      new GameNight(res.data),
+      ...AppState.groupGameNights,
+    ];
     // console.log(AppState.groupGameNights);
   }
 }

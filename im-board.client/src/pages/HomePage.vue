@@ -29,19 +29,26 @@
         </TransitionGroup>
       </div>
 
-<div class="col-md-12 pt-5">
-  <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
-    <h5 class="rowTitle p-1 mt-1">Editor's Choice Board Games</h5>
-  </div>
-</div>
-<div class="row mx-2 horizontal-scrollable mt-3">
-  <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-    leaveActiveClass="animate__zoomOut animate__animated">
-    <div class="col-md-2 mt-3 mb-2" v-for="e in editorsChoice" :key="e.id">
-      <BoardGameCard :boardGame="e" />
-    </div>
-  </TransitionGroup>
-</div>
+      <div class="col-md-12 pt-5">
+        <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
+          <h5 class="rowTitle p-1 mt-1">Editor's Choice Board Games</h5>
+        </div>
+      </div>
+      <div class="row mx-2 horizontal-scrollable mt-3">
+        <TransitionGroup
+          name="custom-classes"
+          enterActiveClass="animate__zoomIn animate__animated"
+          leaveActiveClass="animate__zoomOut animate__animated"
+        >
+          <div
+            class="col-md-2 mt-3 mb-2"
+            v-for="e in editorsChoice"
+            :key="e.id"
+          >
+            <BoardGameCard :boardGame="e" />
+          </div>
+        </TransitionGroup>
+      </div>
 
       <!-- SECTION  -->
       <div class="col-md-12 pt-5">
@@ -72,19 +79,18 @@
 
       <div class="col-md-12 mt-3 pt-4">
         <a href="https://www.boardgameatlas.com/" target="_blank">
-            <div class="hoverable hvr-sweep-to-left rounded-1 p-2 bg-c5">
-          <h5 class="pt-2">
-            <b>Articles from </b>
-            <img
-              src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
-              alt=""
-              height="30"
-            />
-            <b class="text-primary lighten-10"> Board Game Atlas </b>
-          </h5>
-        </div>
+          <div class="hoverable hvr-sweep-to-left rounded-1 p-2 bg-c5">
+            <h5 class="pt-2">
+              <b>Articles from </b>
+              <img
+                src="https://www.boardgameatlas.com/imgs/5cc-api-logo.png"
+                alt=""
+                height="30"
+              />
+              <b class="text-primary lighten-10"> Board Game Atlas </b>
+            </h5>
+          </div>
         </a>
-      
       </div>
 
       <div class="row horizontal-scrollable mt-4">
@@ -94,36 +100,34 @@
       </div>
     </div>
 
-  <div class="pt-5 mb-5"><Articles /></div>
-      
-    
+    <div class="pt-5 mb-5"><Articles /></div>
   </div>
 </template>
 
 <script>
-import { onMounted, ref, computed } from 'vue';
-import { atlasGamesService } from '../services/AtlasGamesService.js';
-import Pop from '../utils/Pop.js';
-import Filters from '../components/SearchPage/FiltersSideBar.vue';
-import Searchbar from '../components/SearchPage/Searchbar.vue';
-import BoardGameCard from '../components/BoardGame/BoardGameCard.vue';
-import { AppState } from '../AppState.js';
+import { onMounted, ref, computed } from "vue";
+import { atlasGamesService } from "../services/AtlasGamesService.js";
+import Pop from "../utils/Pop.js";
+import Filters from "../components/SearchPage/FiltersSideBar.vue";
+import Searchbar from "../components/SearchPage/Searchbar.vue";
+import BoardGameCard from "../components/BoardGame/BoardGameCard.vue";
+import { AppState } from "../AppState.js";
 
-import ForumPosts from '../components/HomePage/AtlasGamesForumPosts.vue';
-import Articles from '../components/HomePage/Articles.vue';
-import HomePageBanner from '../components/HomePage/HomePageBanner.vue';
-import { router } from '../router.js';
-import RowSeperator from '../components/HomePage/RowSeperate.vue';
-import RowSeperate from '../components/HomePage/RowSeperate.vue';
+import ForumPosts from "../components/HomePage/AtlasGamesForumPosts.vue";
+import Articles from "../components/HomePage/Articles.vue";
+import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
+import { router } from "../router.js";
+import RowSeperator from "../components/HomePage/RowSeperate.vue";
+import RowSeperate from "../components/HomePage/RowSeperate.vue";
 
 export default {
   setup() {
-    const editable = ref('');
+    const editable = ref("");
     async function getBoardGamesByDiscount() {
       try {
         await atlasGamesService.getBoardGamesByDiscount();
       } catch (error) {
-        Pop.error(error, '[getBoardGames]');
+        Pop.error(error, "[getBoardGames]");
       }
     }
 
@@ -131,31 +135,30 @@ export default {
       try {
         await atlasGamesService.getBoardGamesByPopularity();
       } catch (error) {
-        Pop.error(error, '[getBoardGames]');
+        Pop.error(error, "[getBoardGames]");
       }
     }
 
-
-    async function editorsChoiceGames(){
+    async function editorsChoiceGames() {
       try {
-          await  atlasGamesService.getBoardGamesByIds()
-        } catch (error) {
-          Pop.error(error,'[EDITORS_CHOICE_GAMES]')
-        }
+        await atlasGamesService.getBoardGamesByIds();
+      } catch (error) {
+        Pop.error(error, "[EDITORS_CHOICE_GAMES]");
+      }
     }
 
     async function getForumPosts() {
       try {
         await atlasGamesService.getForumPosts();
       } catch (error) {
-        Pop.error(error, '[getForumPosts]');
+        Pop.error(error, "[getForumPosts]");
       }
     }
 
     onMounted(() => {
       getBoardGamesByPopularity();
       getBoardGamesByDiscount();
-      editorsChoiceGames()
+      editorsChoiceGames();
       getForumPosts();
     });
 
@@ -167,7 +170,9 @@ export default {
         AppState.forumPosts.sort(() => Math.random() - 0.5)
       ),
       discountBoardGames: computed(() => AppState.discountBoardGames),
-      editorsChoice: computed(()=> AppState.editorsChoiceGames.sort(()=> Math.random() -0.5))
+      editorsChoice: computed(() =>
+        AppState.editorsChoiceGames.sort(() => Math.random() - 0.5)
+      ),
     };
   },
   components: {
@@ -211,7 +216,7 @@ export default {
   font-size: larger;
   font-weight: bold;
   padding: 10px;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
 }
 
 .scrollableY {

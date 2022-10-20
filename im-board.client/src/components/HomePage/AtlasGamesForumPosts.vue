@@ -1,7 +1,12 @@
 <template>
   <a :href="forumPost?.postUrl" target="_blank">
     <div class="card bg-transparent border-0 my-2" v-if="forumPost">
-      <img :src="forumPost?.images.small" alt="" class="forcedImg rounded" @error="badImg" />
+      <img
+        :src="forumPost?.images.small"
+        alt=""
+        class="forcedImg rounded"
+        @error="badImg"
+      />
 
       <div class="card-body p-1 rounded-bottom">
         <p class="card-title d-flex justify-content-center">
@@ -18,7 +23,7 @@
 </template>
 
 <script>
-import { ForumPost } from '../../models/BoardGame/ForumPost.js';
+import { ForumPost } from "../../models/BoardGame/ForumPost.js";
 
 export default {
   props: {
@@ -28,7 +33,7 @@ export default {
     return {
       badImg(event) {
         event.target.src =
-          'https://cd1.boardgamesmaker.com/images/site/promos/FI_8637.jpg';
+          "https://cd1.boardgamesmaker.com/images/site/promos/FI_8637.jpg";
       },
     };
   },

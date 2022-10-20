@@ -1,6 +1,4 @@
 <template>
-
-
   <!-- SECTION CATEGORIES ACCORDION -->
   <div class="accordion pb-3" id="accordionFlushExample">
     <div class="accordion-item">
@@ -33,9 +31,7 @@
                 class="checkBox"
                 type="checkbox"
                 :value="category.id"
-            
                 :id="category.name"
-               
               />
               <label for="card-game" class="ms-2">{{ category.name }}</label>
             </div>
@@ -95,42 +91,29 @@
 </template>
 
 <script>
-import { onMounted, ref, computed } from 'vue';
-import { AppState } from '../../AppState.js';
-import { atlasGamesService } from '../../services/AtlasGamesService.js';
-import Pop from '../../utils/Pop.js';
+import { onMounted, ref, computed } from "vue";
+import { AppState } from "../../AppState.js";
+import { atlasGamesService } from "../../services/AtlasGamesService.js";
+import Pop from "../../utils/Pop.js";
 
 export default {
   props: {},
 
   setup(props) {
-    const editable = ref('');
-     const categoryArray= []
-const mechanicArray=[]
+    const editable = ref("");
+    const categoryArray = [];
+    const mechanicArray = [];
     return {
       categories: computed(() => AppState.bgCategories),
       mechanics: computed(() => AppState.bgMechanics),
       categoryFilters: computed(() => AppState.activeCategoryFilters),
       mechanicFilters: computed(() => AppState.activeMechanicsFilters),
 
-categoryArray,
-mechanicArray,
+      categoryArray,
+      mechanicArray,
       editable,
 
-
-
-async pushToQuerySearch(){
- 
-
-
-
-},
-
-
-
-
-
-
+      async pushToQuerySearch() {},
 
       async checkBoxMethodForMechanics(event) {
         try {
@@ -145,19 +128,9 @@ async pushToQuerySearch(){
             this.mechanicFilters.toString()
           );
         } catch (error) {
-          Pop.error(error, '[checkBoxMethod]');
+          Pop.error(error, "[checkBoxMethod]");
         }
       },
-
-
-
-
-
-
-
-
-
-
 
       async checkBoxMethodForCategory(event) {
         try {
@@ -172,7 +145,7 @@ async pushToQuerySearch(){
             this.categoryFilters.toString()
           );
         } catch (error) {
-          Pop.error(error, '[checkBoxMethod]');
+          Pop.error(error, "[checkBoxMethod]");
         }
       },
 
@@ -182,14 +155,14 @@ async pushToQuerySearch(){
 
           await atlasGamesService.getBoardGamesByDiscount();
         } catch (error) {
-          Pop.error(error, '[searchByLT_Price]');
+          Pop.error(error, "[searchByLT_Price]");
         }
       },
       async searchByPrice() {
         try {
           await atlasGamesService.getBoardGamesByPrice();
         } catch (error) {
-          Pop.error(error, '[]');
+          Pop.error(error, "[]");
         }
       },
 
@@ -197,7 +170,7 @@ async pushToQuerySearch(){
         try {
           await atlasGamesService.getBoardGames();
         } catch (error) {
-          Pop.error(error, '[searchByPopularity]');
+          Pop.error(error, "[searchByPopularity]");
         }
       },
     };

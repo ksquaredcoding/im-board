@@ -1,5 +1,4 @@
-import { SocketHandler } from '../utils/SocketHandler'
-
+import { SocketHandler } from "../utils/SocketHandler";
 
 export class TestHandler extends SocketHandler {
   /**
@@ -8,11 +7,10 @@ export class TestHandler extends SocketHandler {
    */
   constructor(io, socket) {
     super(io, socket); //NOTE STAYS THE SAME
-    this.on('SOCKET_TEST', this.testEvent); //NOTE SOCKET_TEST MAGIC WORD, ANY WORD YOU CHOOSE
-    
+    this.on("SOCKET_TEST", this.testEvent); //NOTE SOCKET_TEST MAGIC WORD, ANY WORD YOU CHOOSE
   }
 
   async testEvent(payload) {
-    this.socket.emit('IS_TESTED', payload)
+    this.socket.emit("IS_TESTED", payload);
   }
 }
