@@ -22,13 +22,13 @@ export class SocketHandler {
           return fn.call(this, payload);
         }
         if (!this.requiresAuth()) {
-          return this.socket.emit("error", {
-            message: "Unauthorized-THIS IS THE CULPRIT (TUNG)",
+          return this.socket.emit('error', {
+            message: 'Unauthorized(SocketHandler[Line 26])',
           });
         }
         return fn.call(this, payload);
       } catch (e) {
-        this.socket.emit("error", { message: e.message });
+        this.socket.emit('error', { message: e.message });
       }
     });
     return this;

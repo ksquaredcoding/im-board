@@ -1,14 +1,14 @@
-import { Server } from "socket.io";
-import { logger } from "./utils/Logger";
-import { attachHandlers } from "../Setup";
+import { Server } from 'socket.io';
+import { logger } from './utils/Logger';
+import { attachHandlers } from '../Setup';
 
 const SOCKET_EVENTS = {
-  connection: "connection",
-  connected: "connected",
-  disconnect: "disconnect",
-  userConnected: "userConnected",
-  userDisconnected: "userDisconnected",
-  error: "error",
+  connection: 'connection',
+  connected: 'connected',
+  disconnect: 'disconnect',
+  userConnected: 'userConnected',
+  userDisconnected: 'userDisconnected',
+  error: 'error',
 };
 
 class SocketProvider {
@@ -20,12 +20,12 @@ class SocketProvider {
     try {
       this.io = new Server(httpServer, {
         cors: {
-          origin: process.env.NODE_ENV === "dev" ? "*" : "",
+          origin: process.env.NODE_ENV === 'dev' ? '*' : '',
         },
       });
       this.io.on(SOCKET_EVENTS.connection, (socket) => this.onConnect(socket));
     } catch (e) {
-      logger.error("[SOCKETSTORE ERROR]", e);
+      logger.error('[SOCKETSTORE ERROR]', e);
     }
   }
 
@@ -33,7 +33,7 @@ class SocketProvider {
     attachHandlers(this.io, socket);
     socket.emit(SOCKET_EVENTS.connected, {
       socket: socket.id,
-      message: "Successfully Connected ",
+      message: 'Successfully Connected ',
     });
   }
 
@@ -47,7 +47,7 @@ class SocketProvider {
     try {
       this.io.to(userId).emit(eventName, payload);
     } catch (e) {
-      logger.error("[SOCKET_ERROR] messageUser", e, {
+      logger.error('[SOCKET_ERROR] messageUser', e, {
         userId,
         eventName,
         payload,

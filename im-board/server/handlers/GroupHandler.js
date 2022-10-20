@@ -1,4 +1,4 @@
-import { SocketHandler } from "../utils/SocketHandler";
+import { SocketHandler } from '../utils/SocketHandler';
 
 export class GroupHandler extends SocketHandler {
   /**
@@ -7,7 +7,7 @@ export class GroupHandler extends SocketHandler {
    */
   constructor(io, socket) {
     super(io, socket, true); //NOTE STAYS THE SAME
-    this.on("ENTER_GROUP", this.enterGroup).on("LEAVE_GROUP", this.leaveGroup);
+    this.on('ENTER_GROUP', this.enterGroup).on('LEAVE_GROUP', this.leaveGroup);
   }
 
   enterGroup(groupId) {

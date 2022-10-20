@@ -1,16 +1,16 @@
-import { io } from "socket.io-client";
-import { baseURL, useSockets } from "../env.js";
-import { logger } from "./Logger.js";
+import { io } from 'socket.io-client';
+import { baseURL, useSockets } from '../env.js';
+import { logger } from './Logger.js';
 
 const SOCKET_EVENTS = {
-  connection: "connection",
-  connected: "connected",
-  disconnect: "disconnect",
-  authenticate: "authenticate",
-  authenticated: "authenticated",
-  userConnected: "userConnected",
-  userDisconnected: "userDisconnected",
-  error: "error",
+  connection: 'connection',
+  connected: 'connected',
+  disconnect: 'disconnect',
+  authenticate: 'authenticate',
+  authenticated: 'authenticated',
+  userConnected: 'userConnected',
+  userDisconnected: 'userDisconnected',
+  error: 'error',
 };
 
 export class SocketHandler {
@@ -36,13 +36,13 @@ export class SocketHandler {
   }
 
   onConnected(connection) {
-    logger.log("[SOCKET_CONNECTION]", connection);
+    logger.log('[SOCKET_CONNECTION]', connection);
     this.connected = true;
     this.playback();
   }
 
   onAuthenticated(auth) {
-    logger.log("[SOCKET_AUTHENTICATED]", auth);
+    logger.log('[SOCKET_AUTHENTICATED]', auth);
     this.authenticated = true;
     this.playback();
   }
@@ -52,16 +52,16 @@ export class SocketHandler {
   }
 
   onError(error) {
-    logger.error("[SOCKET_ERROR]", error);
+    logger.error('[SOCKET_ERROR]', error);
   }
 
   enqueue(action, payload) {
-    logger.log("[ENQUEING_ACTION]", { action, payload });
+    logger.log('[ENQUEING_ACTION]', { action, payload });
     this.queue.push({ action, payload });
   }
 
   playback() {
-    logger.log("[SOCKET_PLAYBACK]");
+    logger.log('[SOCKET_PLAYBACK]');
     const playback = [...this.queue];
     this.queue = [];
     playback.forEach((e) => {
