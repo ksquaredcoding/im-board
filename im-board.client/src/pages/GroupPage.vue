@@ -120,6 +120,7 @@ export default {
     }
 
     onMounted(() => {
+      
       getGroupById();
       getGroupMembersByGroupId();
       getListsByGroupId();
