@@ -8,7 +8,7 @@ function toggleMemberOffline(groupMember) {
   );
   active.isOnline = false;
   logger.log(active);
-  Pop.toast(`${groupMember.profile.name.split("@")[0]} is offline`, "warning");
+  Pop.toast(`${active.profile.name.split("@")[0]} is offline`, "warning");
 }
 function toggleMemberOnline(groupMember) {
   const active = AppState.groupMembers.find(
@@ -16,7 +16,7 @@ function toggleMemberOnline(groupMember) {
   );
   active.isOnline = true;
   logger.log(active);
-  Pop.success(`${groupMember.profile.name}} is online`);
+  Pop.success(`${active.profile.name.split("@")[0]} is online`);
 }
 class MemberHandler {
   constructor() {
