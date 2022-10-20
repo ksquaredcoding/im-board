@@ -49,5 +49,9 @@ class GroupsService {
     AppState.groupMembers = res.data;
     console.log("members", AppState.groupMembers);
   }
+
+  async inviteMember(memberData) {
+
+  }
 }
 export const groupsService = new GroupsService();

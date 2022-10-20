@@ -1,114 +1,89 @@
 <template>
- 
-    <div class="GameNightCard bg-dark card my-2 elevation-3">
-      <div class="row justify-content-center">
-        <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-          <div class="d-flex justify-content-center mt-2 text-center">
-            <h2>Upcoming Gamenight</h2>
-          </div>
-          <div class="d-flex justify-content-center mb-2">
-            <button
-              class="btn button-51 animate__animated animate__fadeIn"
-              @click="attendGamenight(gamenight?.id)"
-              v-if="!attending"
-            >
-              I'm Attending <i class="bi bi-person-plus-fill"></i>
-            </button>
-            <button
-              class="btn button-52 animate__animated animate__fadeIn"
-              @click="attendGamenight(gamenight?.id)"
-              v-else
-            >
-              UnAttend <i class="bi bi-person-dash-fill"></i>
-            </button>
-          </div>
-          <div class="justify-content-center d-flex">
-            <span>
-              <p>
-                {{
-                  new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-                    month: "short",
-                    day: "2-digit",
-                    year: "numeric",
-                  })
-                }}
-              </p>
-            </span>
-            <span class="mx-4">
-              <p>
-                {{
-                  new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })
-                }}
-              </p>
-            </span>
-            <span>
-              <p>{{ gamenight?.location }}</p>
-            </span>
-          </div>
-        </div>
-        <div class="col-5 col-md-6 p-0 ps-md-3">
-          <div class="card m-2 noborder">
-            <div class="bg-c4 text-center  rounded-top">
-              <h5 class="mt-1">Attending:</h5>
-            </div>
-            <div
-              class="p-2 bg-c2 text-center rounded-bottom"
-              v-if="gamenight?.groupMemberIds"
-            >
-              <TransitionGroup
-                name="custom-classes"
-                enterActiveClass="animate__zoomIn animate__animated"
-                leaveActiveClass="animate__zoomOut animate__animated"
-              >
-                <router-link
-                  :to="{ name: 'Profile', params: { id: g.id } }"
-                  v-for="g in gamenight?.groupMemberIds"
-                  :key="g.id"
-                >
-                  <img
-                    :src="g.picture"
-                    :alt="g.name"
-                    :title="g.name"
-                    height="45"
-                    width="45"
-                    class="rounded-circle box-shadow m-1 profile-img"
-                  />
-                </router-link>
-              </TransitionGroup>
 
-              <!-- <img :src="g.picture" :alt="g.name" height="55" class="rounded-circle me-1 box-shadow"
+  <div class="GameNightCard bg-dark card my-2 elevation-3">
+    <div class="row justify-content-center">
+      <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
+        <div class="d-flex justify-content-center mt-2 text-center">
+          <h2>Upcoming Gamenight</h2>
+        </div>
+        <div class="d-flex justify-content-center mb-2">
+          <button class="btn button-51 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+            v-if="!attending">
+            I'm Attending <i class="bi bi-person-plus-fill"></i>
+          </button>
+          <button class="btn button-52 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+            v-else>
+            UnAttend <i class="bi bi-person-dash-fill"></i>
+          </button>
+        </div>
+        <div class="justify-content-center d-flex">
+          <span>
+            <p>
+              {{
+              new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+              month: "short",
+              day: "2-digit",
+              year: "numeric",
+              })
+              }}
+            </p>
+          </span>
+          <span class="mx-4">
+            <p>
+              {{
+              new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+              hour: "2-digit",
+              minute: "2-digit",
+              })
+              }}
+            </p>
+          </span>
+          <span>
+            <p>{{ gamenight?.location }}</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-5 col-md-6 p-0 ps-md-3">
+        <div class="card m-2 noborder">
+          <div class="bg-c4 text-center  rounded-top">
+            <h5 class="mt-1">Attending:</h5>
+          </div>
+          <div class="p-2 bg-c2 text-center rounded-bottom" v-if="gamenight?.groupMemberIds">
+            <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
+              leaveActiveClass="animate__zoomOut animate__animated">
+              <router-link :to="{ name: 'Profile', params: { id: g.id } }" v-for="g in gamenight?.groupMemberIds"
+                :key="g.id">
+                <img :src="g.picture" :alt="g.name" :title="g.name" height="45" width="45"
+                  class="rounded-circle box-shadow m-1 profile-img" />
+              </router-link>
+            </TransitionGroup>
+
+            <!-- <img :src="g.picture" :alt="g.name" height="55" class="rounded-circle me-1 box-shadow"
                 v-for="g in gamenight?.groupMemberIds" :groupMemberId="g" /> -->
-            </div>
           </div>
         </div>
-        <div class="col-5 col-md-6 p-0 pe-md-3">
-          <div class="card m-2 noborder elevation-4">
-            <div class="bg-c4 text-center p-1 rounded-top">
-              <h5 class="mt-1">Playing:</h5>
-            </div>
-            <div class="gameImg p-2 rounded-bottom">
-              <div class="d-flex justify-content-center">
-                <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
-                  <router-link
-                    class="text-center text-dark "
-                    :to="{
-                      name: 'BoardGameDetails',
-                      params: { id: gamenight.gameId.id },
-                    }"
-                    title="go to this games detail's page"
-                  >
-                    <b class="namefont">{{ gamenight.gameId.name }}</b>
-                  </router-link>
-                </div>
+      </div>
+      <div class="col-5 col-md-6 p-0 pe-md-3">
+        <div class="card m-2 noborder elevation-4">
+          <div class="bg-c4 text-center p-1 rounded-top">
+            <h5 class="mt-1">Playing:</h5>
+          </div>
+          <div class="gameImg p-2 rounded-bottom">
+            <div class="d-flex justify-content-center">
+              <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
+                <router-link class="text-center text-dark " :to="{
+                  name: 'BoardGameDetails',
+                  params: { id: gamenight?.gameId.id },
+                }" title="go to this games detail's page">
+                  <b class="namefont">{{ gamenight?.gameId.name }}</b>
+                </router-link>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 </template>
 

@@ -8,15 +8,15 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="mt-3 inputBox">
-               <span>CoverImg</span>
-                  <input type="url" v-model="editable.coverImg" required name="coverImg">
+                  <span>CoverImg</span>
+                  <input type="url" v-model="editable.coverImg" name="coverImg">
                 </div>
-                 <div class="mt-3 inputBox">
-                <span>UserName</span>
+                <div class="mt-3 inputBox">
+                  <span>UserName</span>
                   <input type="text" v-model="editable.name" required name="Username">
                 </div>
                 <div class="mt-3 inputBox">
-                 <span>Profile Picture</span>
+                  <span>Profile Picture</span>
                   <input type="url" v-model="editable.picture" required name="Profile Picture">
                 </div>
               </div>

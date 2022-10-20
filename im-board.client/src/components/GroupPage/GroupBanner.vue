@@ -1,75 +1,50 @@
 <template v-if="group">
-  <div
-    class="col-md-12 rounded-0 banner elevation-3"
-    :style="{ backgroundImage: `url(${group.coverImg})` }"
-  >
+  <div class="col-md-12 rounded-0 banner elevation-3" :style="{ backgroundImage: `url(${group?.coverImg})` }">
     <div class="logicButtons d-flex">
-      <button
-        @click="addGroupMember()"
-        class="btn button-50 py-1 px-2 m-2"
-        v-if="!alreadyAMember"
-      >
+      <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group
       </button>
       <div v-else>
         <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2">
           Leave Group
         </button>
-        <button
-          class="btn button-51 py-1 px-2 m-2"
-          data-bs-toggle="modal"
-          data-bs-target="#gameNightForm"
-        >
+        <button class="btn button-51 py-1 px-2 m-2" data-bs-toggle="modal" data-bs-target="#gameNightForm">
           GAMENIGHT
         </button>
       </div>
 
       <!-- ------------ -->
-      <button
-        @click="removeGroup()"
-        class="btn btn-danger button-51 py-1 px-2 m-2"
-        v-if="groupOwner"
-      >
+      <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
         Delete Group
       </button>
       <div v-else></div>
       <!-- EDIT -->
       <div v-if="groupOwner">
-        <button
-          @click="editGroup()"
-          class="btn btn-warning button-51 py-1 px-2 m-2"
-          data-bs-toggle="modal"
-          data-bs-target="#groupForm"
-        >
+        <button @click="editGroup()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
+          data-bs-target="#groupForm">
           Edit group
         </button>
         <GroupForm />
       </div>
+      <!-- <div v-if="groupOwner">
+        <button @click="inviteMember()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
+          data-bs-target="#inviteMemberForm">
+          Invite Member
+        </button>
+        <InviteMemberForm />
+      </div> -->
     </div>
     <div class="row justify-content-center">
-      <div
-        class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3"
-      >
+      <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
         <span class="name">{{ group?.name }}</span>
 
         <div>
           <span><small class="text-shadow">Members</small></span>
           <div
-            class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap"
-          >
-            <router-link
-              :to="{ name: 'Profile', params: { id: g.accountId } }"
-              v-for="g in groupMember"
-              :key="g.id"
-            >
-              <img
-                :src="g.profile?.picture"
-                :alt="g.profile.name"
-                :title="g.profile.name"
-                height="45"
-                width="45"
-                class="rounded-circle box-shadow m-1 profile-img"
-              />
+            class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
+            <router-link :to="{ name: 'Profile', params: { id: g.accountId } }" v-for="g in groupMember" :key="g.id">
+              <img :src="g.profile?.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
+                class="rounded-circle box-shadow m-1 profile-img" />
             </router-link>
           </div>
         </div>
