@@ -9,17 +9,18 @@
     <Navbar class="animate__animated animate__fadeInDown d-md-none" />
     <Footer />
   </footer>
-  <GroupForm />
+ 
   <EditBanner />
   <EditName />
   <EditPic />
   <GoogleMapModal />
   <FAQModal />
   <GameNightForm/>
+  <GroupForm/>
 </template>
 
 <script>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { AppState } from './AppState';
 import Navbar from './components/Navbar.vue';
 import GroupForm from './components/GroupPage/GroupForm.vue';
@@ -32,6 +33,7 @@ import Footer from './components/FooterFooter.vue';
 import GoogleMapModal from './components/GoogleMapModal.vue';
 import FAQModal from './components/FAQModal.vue';
 import GameNightForm from "./components/GroupPage/GameNightForm.vue";
+
 
 
 
@@ -50,7 +52,6 @@ export default {
   },
   components: {
     Navbar,
-  
     EditBanner,
     EditName,
     EditPic,
@@ -58,7 +59,8 @@ export default {
     Footer,
     GoogleMapModal,
     FAQModal,
-    GameNightForm
+    GameNightForm,
+    GroupForm
 },
 };
 </script>

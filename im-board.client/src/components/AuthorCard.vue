@@ -1,5 +1,69 @@
 <template>
-  <div class="card box-shadow p-0 mx-1">
+  <div class="col-md-2 ">
+     <div class=" box-shadow p-0 mx-1 elevation-4">
+    <img src="../assets/img/Tung Le.2.jpg" alt="Tung Le " class="card-img " />
+
+    <div class="card-img-overly">
+      <div class="d-flex justify-content-around">
+        <i class="mdi mdi-github fs-2"></i>
+        <i class="mdi mdi-linkedin fs-2"></i>
+        <i class="mdi mdi-email fs-2"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+
+    <div class="col-md-2">
+     <div class="box-shadow p-0 mx-1">
+    <img src="../assets/img/TriPicture.jpg" alt="Tung Le " class="tri-card-img " />
+
+    <div class="card-img-overly">
+      <div class="d-flex justify-content-around">
+        <i class="mdi mdi-github fs-2"></i>
+        <i class="mdi mdi-linkedin fs-2"></i>
+        <i class="mdi mdi-email fs-2"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+
+  
+    <div class="col-md-2">
+     <div class=" box-shadow p-0 mx-1">
+    <img src="../assets/img/mollypicture.png" alt="Tung Le " class="card-img" />
+
+    <div class="card-img-overly">
+      <div class="d-flex justify-content-around">
+        <i class="mdi mdi-github fs-2"></i>
+        <i class="mdi mdi-linkedin fs-2"></i>
+        <i class="mdi mdi-email fs-2"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+  
+    <div class="col-md-2">
+     <div class="box-shadow p-0 mx-1">
+    <img src="../assets/img/TriPicture.jpg" alt="Tung Le " class="card-img" />
+
+    <div class="card-img-overly">
+      <div class="d-flex justify-content-around">
+        <i class="mdi mdi-github fs-2"></i>
+        <i class="mdi mdi-linkedin fs-2"></i>
+        <i class="mdi mdi-email fs-2"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+  
+    <div class="col-md-2">
+     <div class=" box-shadow p-0 mx-1">
     <img src="../assets/img/Tung Le.2.jpg" alt="Tung Le " class="card-img" />
 
     <div class="card-img-overly">
@@ -10,6 +74,8 @@
       </div>
     </div>
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -23,6 +89,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card-img{
+   height: 300px;
+  width: 300px;
+  object-fit: cover;
+
+}
+
+.tri-card-img{
+   height: 300px;
+  width: 300px;
+  object-fit: contain;
+
+
+}
+
 .nameText {
   font-weight: 700;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -30,10 +111,7 @@ export default {
 }
 
 .forcedImg {
-  height: 300px;
-  width: auto;
-  object-fit: cover;
-  filter: brightness(70%);
+ 
 }
 
 .profileImg {
