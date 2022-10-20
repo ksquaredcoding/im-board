@@ -34,7 +34,7 @@ class SocketProvider {
     attachHandlers(this.io, socket);
     socket.emit(SOCKET_EVENTS.connected, {
       socket: socket.id,
-      message: 'Successfully Connected',
+      message: 'Successfully Connected - Tung',
     });
   }
 

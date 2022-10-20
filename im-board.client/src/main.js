@@ -3,9 +3,9 @@ import "bootstrap";
 import { createApp } from "vue";
 // @ts-ignore
 import App from "./App.vue";
+import "./handlers/MemberHandler.js";
 import { registerGlobalComponents } from "./registerGlobalComponents";
 import { router } from "./router";
-import "./handlers/MemberHandler.js";
 
 const root = createApp(App);
 registerGlobalComponents(root);
