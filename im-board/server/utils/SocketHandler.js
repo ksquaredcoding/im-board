@@ -22,7 +22,7 @@ export class SocketHandler {
           return fn.call(this, payload)
         }
         if (!this.requiresAuth()) {
-          return this.socket.emit('error', { message: 'Unauthorized' })
+          return this.socket.emit('error', { message: 'Unauthorized-THIS IS THE CULPRIT (TUNG)' })
         }
         return fn.call(this, payload)
       } catch (e) {

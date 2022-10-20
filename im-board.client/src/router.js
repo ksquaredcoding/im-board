@@ -37,7 +37,7 @@ const routes = [
     path: '/groups/:id',
     name: 'Group',
     component: loadPage('GroupPage'),
-    beforeEnter: authGuard,
+    beforeEnter: authSettled,
   },
   {
     path: '/boardGame_Details/:id',
