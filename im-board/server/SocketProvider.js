@@ -15,7 +15,6 @@ class SocketProvider {
   /**
    * @type {Server}
    */
-  // @ts-ignore
   io = null;
   initialize(httpServer) {
     try {
@@ -51,7 +50,7 @@ class SocketProvider {
       logger.error('[SOCKET_ERROR] messageUser', e, {
         userId,
         eventName,
-        payload,
+        payload
       });
     }
   }
