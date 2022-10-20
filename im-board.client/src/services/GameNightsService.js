@@ -35,6 +35,8 @@ class GameNightsService {
   }
   async removeGameNight(gnId) {
     await api.delete(`api/gamenights/${gnId}`)
+
+    AppState.groupGameNights = AppState.groupGameNights.filter(g => g.id != gnId)
   }
 }
 export const gameNightsService = new GameNightsService();

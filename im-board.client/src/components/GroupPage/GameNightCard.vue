@@ -135,7 +135,7 @@ export default {
 
       async removeGameNight() {
         try {
-          const yes = await Pop.confirm('ruin this game night?')
+          const yes = await Pop.confirm('Cancel this gamenight??')
           if (!yes) {return}
             await gameNightsService.removeGameNight(props.gamenight.id)
           } catch (error) {
