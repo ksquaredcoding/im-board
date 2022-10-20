@@ -1,6 +1,6 @@
 <template>
   <div class="card box-shadow p-0 mx-1">
-    <img src="../assets/img/TungPicture.jpeg" alt="Tung Le " class="card-img" />
+    <img src="../assets/img/Tung Le.2.jpg" alt="Tung Le " class="card-img" />
 
     <div class="card-img-overly">
       <div class="d-flex justify-content-around">

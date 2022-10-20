@@ -171,6 +171,11 @@ export const AppState = reactive({
     },
   ],
 
+
+  authorImages:[
+{name: 'Tung', image: '../' }
+  ],
+
   skip: 0,
   nextPage: 0,
   previousPage: 0,
