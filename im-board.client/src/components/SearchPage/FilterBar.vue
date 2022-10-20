@@ -4,28 +4,15 @@
       <div class="row">
         <div class="col-md-4 d-flex">
           <div class="dropdown me-3" id="dropdown">
-            <button
-              class="dropdown-toggle collapsed button-50 p-2 focus"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+            <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Categories
             </button>
             <div class="row scrollableY p-2 dropdown-menu bg-dark">
               <div class="col-md-12">
-                <div
-                  class="dropdown-item inputBox d-flex text-light"
-                  v-for="c in categories"
-                  :key="c.id"
-                  id="CategoryDiv"
-                >
-                  <input
-                    class="checkBox"
-                    type="checkbox"
-                    :value="c.id"
-                    v-model="filters1"
-                  />
+                <div class="dropdown-item inputBox d-flex text-light" v-for="c in categories" :key="c.id"
+                  id="CategoryDiv">
+                  <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
                   <label for="card-game" class="ms-2">{{ c.name }}</label>
                 </div>
               </div>
@@ -33,27 +20,14 @@
           </div>
           <div class="dropdown" id="dropdown2">
             <div class="dropdown-item">
-              <button
-                class="dropdown-toggle collapsed button-50 p-2 focus"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Mechanics
               </button>
               <div class="row scrollableY p-2 dropdown-menu bg-dark">
                 <div class="col-md-12">
-                  <div
-                    class="dropdown-item inputBox d-flex text-light"
-                    v-for="m in mechanics"
-                    :key="m.id"
-                  >
-                    <input
-                      class="checkBox"
-                      type="checkbox"
-                      :value="m.id"
-                      v-model="filters2"
-                    />
+                  <div class="dropdown-item inputBox d-flex text-light" v-for="m in mechanics" :key="m.id">
+                    <input class="checkBox" type="checkbox" :value="m.id" v-model="filters2" />
                     <label for="card-game" class="ms-2">{{ m.name }}</label>
                   </div>
                 </div>
@@ -66,12 +40,8 @@
         <div class="col-md-5">
           <div class="d-flex">
             <p>player count</p>
-            <select
-              class="form-select me-3"
-              aria-label="Select Number of Players"
-              v-model="playerCount"
-              id="playerCount"
-            >
+            <select class="form-select me-3" aria-label="Select Number of Players" v-model="playerCount"
+              id="playerCount">
               <option selected></option>
 
               <option value="1">1</option>
@@ -86,12 +56,7 @@
               <option value="10">10+</option>
             </select>
             <p>play time</p>
-            <select
-              class="form-select"
-              aria-label="Select Number of Players"
-              v-model="playTime"
-              id="playerCount"
-            >
+            <select class="form-select" aria-label="Select Number of Players" v-model="playTime" id="playerCount">
               <option selected></option>
               <option value="10">10</option>
               <option value="15">15</option>
@@ -106,26 +71,8 @@
               <option value="60">60</option>
             </select>
 
-            <button
-              class="btn button-50 ms-2"
-              type="submit"
-              @click="newSearch()"
-            >
+            <button class="btn button-50 ms-2" type="submit" @click="newSearch()">
               SUBMIT
-            </button>
-            <button
-              class="btn btn-danger"
-              @click="incrementSkip('prev')"
-              type="submit"
-            >
-              Previous
-            </button>
-            <button
-              class="btn btn-primary"
-              @click="incrementSkip('next')"
-              type="submit"
-            >
-              Next
             </button>
           </div>
         </div>

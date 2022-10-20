@@ -24,7 +24,7 @@
           :disabled="boardGames.length <= 0 || boardGames.length < itsAMaybe - hopeItWorks">
           Next
         </button>
-        <div class="row mx-2" >
+        <div class="row mx-2">
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-2 mt-3" v-for="b in boardGames" :key="b.id">
@@ -92,6 +92,9 @@ export default {
         try {
           switch (x) {
             case 'next':
+              if (AppState.itsAMaybe == AppState.boardgames.length) {
+
+              }
               AppState.itsAMaybe += 12
               AppState.hopeItWorks += 12
               break;
