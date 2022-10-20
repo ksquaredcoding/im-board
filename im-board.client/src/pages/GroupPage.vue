@@ -7,6 +7,7 @@
     v-else
   >
     <div class="row justify-content-center">
+        <GroupForm/>
       <GroupBanner class="mt-2 rounded" :group="group" />
       <!-- ----------------Group CHAT -->
     </div>
@@ -48,6 +49,7 @@
       </div>
     </div>
   </div>
+    
 </template>
 
 <script>

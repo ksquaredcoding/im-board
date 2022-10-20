@@ -50,7 +50,7 @@ export default {
   },
   components: {
     Navbar,
-    GroupForm,
+  
     EditBanner,
     EditName,
     EditPic,
