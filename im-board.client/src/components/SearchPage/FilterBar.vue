@@ -42,8 +42,10 @@
             <p>player count</p>
             <select class="form-select me-3" aria-label="Select Number of Players" v-model="playerCount"
               id="playerCount">
-              <option selected> {{playerCount}}</option>
+              <option selected></option>
 
+
+              <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -56,7 +58,7 @@
             </select>
             <p>play time</p>
             <select class="form-select   " aria-label="Select Number of Players" v-model="playTime" id="playerCount">
-              <option selected> {{playTime}}</option>
+              <option selected></option>
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
@@ -79,6 +81,12 @@
             <button class="btn button-50 ms-2" type="submit" @click="newSearch()">
               SUBMIT
             </button>
+            <button class="btn btn-danger" @click="incrementSkip('prev')" type="submit">
+              Previous
+            </button>
+            <button class="btn btn-primary" @click="incrementSkip('next')" type="submit">
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -95,8 +103,8 @@ import { atlasGamesService } from '../../services/AtlasGamesService.js';
 
 export default {
   setup() {
-    const playerCount = ref('1');
-    const playTime = ref('10');
+    const playerCount = ref('');
+    const playTime = ref('');
 
     const filters1 = ref([]);
     const filters2 = ref([]);
@@ -118,7 +126,7 @@ export default {
       mechanics: computed(() => AppState.bgMechanics),
       async searchByCoolMethod() {
         try {
-          AppState.itsAMaybe = 12
+          AppState.itsAMaybe = 9
           AppState.hopeItWorks = 0
           let categoriesSearch = `categories=${filters1.value}`;
           let mechanicsSearch = `mechanics=${filters2.value}`;
