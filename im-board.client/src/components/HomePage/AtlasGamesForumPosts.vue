@@ -1,18 +1,13 @@
 <template>
   <a :href="forumPost?.postUrl" target="_blank">
     <div class="card bg-transparent border-0 my-2" v-if="forumPost">
-      <img
-        :src="forumPost?.images.small"
-        alt=""
-        class="forcedImg rounded"
-        @error="badImg"
-      />
+      <img :src="forumPost?.images.small" alt="" class="forcedImg rounded" @error="badImg" />
 
       <div class="card-body p-1 rounded-bottom">
         <p class="card-title d-flex justify-content-center">
-          <a class="text-dark" :href="forumPost.postUrl" target="_blank">
+          <a class="text-dark" :href="forumPost?.postUrl" target="_blank">
             <div class="text-wrap p-1">
-              <h6>{{ forumPost.title }}</h6>
+              <h6>{{ forumPost?.title }}</h6>
             </div>
           </a>
         </p>
@@ -33,7 +28,7 @@ export default {
     return {
       badImg(event) {
         event.target.src =
-          'https://scontent-fml2-1.xx.fbcdn.net/v/t39.30808-6/285341017_491972112936262_428169449585977605_n.png?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=luxW5EmZWc8AX_7Q3Ng&_nc_ht=scontent-fml2-1.xx&oh=00_AT_-9bi9Fn51koLGEax6amFRkok4JRe8L2X4z88qiPA4OA&oe=635181DB';
+          'https://cd1.boardgamesmaker.com/images/site/promos/FI_8637.jpg';
       },
     };
   },
