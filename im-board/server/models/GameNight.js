@@ -7,7 +7,7 @@ export const GameNightSchema = new Schema(
   {
     groupId: { type: ObjectId, ref: "Group", required: true },
     location: { type: String, required: true, minlength: 1, maxlength: 50 },
-    gameId: { type: Object, required: true, ref: "Game" },
+    game: { type: String, required: true },
     groupMemberIdsAttending: [
       { type: Object, ref: "GroupMember", required: false },
     ],
