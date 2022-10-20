@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-light pb-2 my-2 mx-3 mx-md-0 noborder bg-img rounded hover"
+  <div class="bg-light pb-2 my-2 mx-3 mx-md-3 noborder bg-img rounded hover"
     :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
     <div class="row">
       <div class="col-md-2 ms-1 text-danger">
@@ -105,6 +105,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.hover{
+  transition: all 0.5s ease;
+}
 .noborder {
   border: none;
 }
