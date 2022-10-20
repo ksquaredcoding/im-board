@@ -28,5 +28,8 @@ class GameNightsService {
     AppState.groupGameNights = [new GameNight(res.data), ...AppState.groupGameNights]
     // console.log(AppState.groupGameNights);
   }
+  async removeGameNight(gnId) {
+    await api.delete(`api/gamenights/${gnId}`)
+  }
 }
 export const gameNightsService = new GameNightsService();

@@ -3,6 +3,7 @@
   <div class="GameNightCard bg-dark card my-2 elevation-3">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
+        <i class="mdi mdi-close text-danger" @click="removeGameNight()"></i>
         <div class="d-flex justify-content-center mt-2 text-center">
           <h2>Upcoming Gamenight</h2>
         </div>
@@ -112,6 +113,17 @@ export default {
             return object1.id === object2.id;
           });
         });
+      },
+
+      async removeGameNight() {
+        try {
+          const yes = await Pop.confirm('ruin this game night?')
+          if (!yes) {return}
+            await gameNightsService.removeGameNight(props.gamenight.id)
+          } catch (error) {
+            console.error('[]',error)
+            Pop.error(error)
+          }
       },
 
       async addGameNight() {
