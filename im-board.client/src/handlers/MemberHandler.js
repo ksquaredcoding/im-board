@@ -16,7 +16,7 @@ function toggleMemberOnline(groupMember) {
   );
   active.isOnline = true;
   logger.log(active);
-  Pop.success(`${groupMember.email.split('@')[0]} is online`);
+  Pop.success(`${active.profile.name.split('@')[0]} is online`);
 }
 class MemberHandler {
   constructor() {
