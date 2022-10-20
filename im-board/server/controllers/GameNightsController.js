@@ -11,7 +11,8 @@ export class GameNightsController extends BaseController {
       .get("/upcoming/:gameNightId", this.getGameNightById)
       .post("", this.createGameNight)
       .put("/:gameNightId", this.attendGameNight)
-      .delete("/group/:groupId", this.removeGameNightsByGroup);
+      .delete("/group/:groupId", this.removeGameNightsByGroup)
+      .delete("/:gameNightId", this.removeGameNight)
   }
   async getGameNightsByGroupId(req, res, next) {
     try {
@@ -35,6 +36,7 @@ export class GameNightsController extends BaseController {
   }
   async createGameNight(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       const gameNight = await gameNightsService.createGameNight(
         req.body,
         req.userInfo.id
@@ -62,6 +64,16 @@ export class GameNightsController extends BaseController {
         req.params.groupId
       );
       res.send(nights);
+    } catch (error) {
+      next(error);
+    }
+  }
+  async removeGameNight(req, res, next) {
+    try {
+      const night = await gameNightsService.removeGameNight(
+        req.params.gameNightId, req.userInfo.id
+      );
+      res.send(night);
     } catch (error) {
       next(error);
     }

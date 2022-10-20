@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 export const GameNightSchema = new Schema(
   {
     groupId: { type: ObjectId, ref: "Group", required: true },
+    creatorId: { type: ObjectId, ref: "Account", required: true },
     location: { type: String, required: true, minlength: 1, maxlength: 50 },
     game: { type: String, required: true },
     groupMemberIdsAttending: [

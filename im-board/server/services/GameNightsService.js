@@ -10,6 +10,21 @@ class GameNightsService {
     let gameNights = await dbContext.GameNights.find({ groupId }).remove();
     return gameNights;
   }
+  async removeGameNight(gameNightId, accountId) {
+    const gameNight = await this.getGameNightById(gameNightId)
+    const group = await groupsService.getGroupById(gameNight.groupId)
+    const isCreator = gameNight.creatorId.toString() == accountId
+    const isOwner = group.creatorId.toString() == accountId
+    if (isCreator) {
+      await gameNight.remove()
+      return gameNight;
+    } else if (isOwner) {
+      await gameNight.remove()
+      return gameNight;
+    } else {
+      throw new Forbidden("You are not the gamenight creator or the group owner, you cannot delete this gamenight.")
+    }
+  }
   async attendGameNight(userId, gameNightId) {
     // debugger;
     const gameNight = await dbContext.GameNights.findById(gameNightId);
