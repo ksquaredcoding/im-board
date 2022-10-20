@@ -51,9 +51,9 @@
           <div class="p-2 bg-c2 text-center rounded-bottom" v-if="gamenight?.groupMemberIds">
             <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
               leaveActiveClass="animate__zoomOut animate__animated">
-              <router-link :to="{ name: 'Profile', params: { id: g.id } }" v-for="g in gamenight?.groupMemberIds"
+              <router-link :to="{ name: 'Profile', params: { id: g?.id } }" v-for="g in gamenight?.groupMemberIds"
                 :key="g.id">
-                <img :src="g.picture" :alt="g.name" :title="g.name" height="45" width="45"
+                <img :src="g?.picture" :alt="g?.name" :title="g?.name" height="45" width="45"
                   class="rounded-circle box-shadow m-1 profile-img" />
               </router-link>
             </TransitionGroup>
@@ -71,12 +71,8 @@
           <div class="gameImg p-2 rounded-bottom">
             <div class="d-flex justify-content-center">
               <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
-                <router-link class="text-center text-dark " :to="{
-                  name: 'BoardGameDetails',
-                  params: { id: gamenight?.gameId.id },
-                }" title="go to this games detail's page">
-                  <b class="namefont">{{ gamenight?.gameId.name }}</b>
-                </router-link>
+
+                <b class="namefont">{{ gamenight?.game }}</b>
               </div>
             </div>
           </div>

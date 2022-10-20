@@ -1,55 +1,43 @@
 <template>
- 
 
-    <div class="modal fade" id="gameNightForm" tabindex="-1" aria-labelledby="gameNightLabel" aria-hidden="true">
+
+  <div class="modal fade" id="gameNightForm" tabindex="-1" aria-labelledby="gameNightLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
-        <div class="gameNight container">
-    <div class="row">
-    
-        <form>
-          <div class="">
+          <div class="gameNight container">
+            <div class="row">
 
-          <div class="inputBox m-3">
-           <div>What game are you playing?</div>
-            <input
-              type="url"
-              class="form-control bg-dark"
-              v-model="editable.game"
-              name="game"
-            />
-          
-          </div>
-          <div class="inputBox m-3">
-            <div>Date and time?</div>
-            <input
-              type="datetime-local"
-              class="form-control bg-dark"
-              v-model="editable.StartDate"
-              name="time"
-            />
+              <form @submit.prevent="makeGameNight">
+                <div class="">
+
+                  <div class="inputBox m-3">
+                    <div>What game are you playing?</div>
+                    <input type="text" class="form-control bg-dark" v-model="editable.game" name="game" />
+
+                  </div>
+                  <div class="inputBox m-3">
+                    <div>Date and time?</div>
+                    <input type="datetime-local" class="form-control bg-dark" v-model="editable.startDate"
+                      name="time" />
+                  </div>
+
+                  <div class="inputBox m-3">
+                    <div>Location?</div>
+                    <input type="text" class="form-control bg-dark" v-model="editable.location" name="bio">
+                  </div>
+                  <div>
+                    <button type="submit" class="button-51 p-2 ms-3" data-bs-dismiss="modal">
+                      Create Game Night
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
           </div>
 
-          <div class="inputBox m-3">
-          <div>Location?</div>
-            <input
-              type="text"
-              class="form-control bg-dark"
-              v-model="editable.location"
-              name="bio">
-          </div>
-          <div>
-            <button type="submit" class="button-51 p-2 ms-3">
-              Create Game Night
-            </button>
-          </div></div>
-        </form>
-      </div>
- 
-  </div>
 
-         
         </div>
       </div>
     </div>
@@ -60,19 +48,33 @@
 
 <script>
 import { ref } from "vue";
+import { useRoute } from "vue-router";
+import { gameNightsService } from "../../services/GameNightsService.js";
+import Pop from "../../utils/Pop.js";
 
 export default {
   setup() {
     const editable = ref({});
+    const route = useRoute()
     return {
       editable,
+      async makeGameNight() {
+        try {
+          let id = route.params.id
+          editable.value.groupId = id
+          console.log(editable.value);
+          await gameNightsService.makeGameNight(editable.value)
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
+      }
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .inputBox {
   position: relative;
   width: 250px;
@@ -126,6 +128,4 @@ export default {
   background-position: center;
   box-shadow: 1px 1px 10px rgba(243, 236, 236, 0.308);
 }
-
-
 </style>

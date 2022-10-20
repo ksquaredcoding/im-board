@@ -10,7 +10,7 @@ class ListsService {
   }
   async getListsByGroupId(groupId) {
     const res = await api.get(`api/boardgames/${groupId}`);
-    console.log(res.data);
+    // console.log(res.data);
     AppState.bgLists = res.data.map((b) => new BGList(b));
 
     this.filterDuplicates(AppState.bgLists, AppState.groupFilteredLists);

@@ -47,7 +47,7 @@ class GroupsService {
     const res = await api.get(`api/groupmembers/${groupId}`);
     // console.log(res.data);
     AppState.groupMembers = res.data;
-    console.log("members", AppState.groupMembers);
+    // console.log("members", AppState.groupMembers);
   }
 
   async inviteMember(memberData) {
