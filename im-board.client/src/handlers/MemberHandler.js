@@ -1,19 +1,22 @@
 import { AppState } from "../AppState.js";
 import { socketService } from "../services/SocketService.js";
+import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 function toggleMemberOffline(groupMember) {
   const active = AppState.groupMembers.find(
     (m) => m.accountId == groupMember.id
   );
   active.isOnline = false;
-  Pop.toast(`${groupMember.name} is offline`, "warning");
+  logger.log(active);
+  Pop.toast(`${active.profile.name.split("@")[0]} is offline`, "warning");
 }
 function toggleMemberOnline(groupMember) {
   const active = AppState.groupMembers.find(
     (m) => m.accountId == groupMember.id
   );
   active.isOnline = true;
-  Pop.success(`${groupMember.name} is online`);
+  logger.log(active);
+  Pop.success(`${active.profile.name}} is online`);
 }
 class MemberHandler {
   constructor() {

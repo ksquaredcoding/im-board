@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
-const ObjectId = mongoose.Types.ObjectId
+const ObjectId = mongoose.Types.ObjectId;
 export const GroupMemberSchema = new Schema(
   {
     accountId: { type: ObjectId, ref: "Account", required: true },
     groupId: { type: ObjectId, ref: "Group", required: true },
+    isOnline: { type: Boolean, default: true },
   },
-  {timestamps: true, toJSON:{virtuals:true}}
+  { timestamps: true, toJSON: { virtuals: true } }
 );
 GroupMemberSchema.index({ groupId: 1, accountId: 1 }, { unique: true });
 
