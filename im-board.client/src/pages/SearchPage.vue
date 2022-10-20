@@ -93,7 +93,13 @@ export default {
           switch (x) {
             case 'next':
               if (AppState.itsAMaybe == AppState.boardgames.length) {
-
+                AppState.skip += 48
+                AppState.nextQueryFilter[AppState.nextQueryFilter.length - 1] = `skip=${AppState.skip}`
+                const nextSearch = AppState.nextQueryFilter.join('&')
+                console.log(nextSearch);
+                await atlasGamesService.getBoardGames(nextSearch);
+                AppState.itsAMaybe = 12
+                AppState.hopeItWorks = 0
               }
               AppState.itsAMaybe += 12
               AppState.hopeItWorks += 12

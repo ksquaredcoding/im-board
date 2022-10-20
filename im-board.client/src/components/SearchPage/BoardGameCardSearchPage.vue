@@ -1,15 +1,7 @@
 <template>
   <div class="bg-transparent card my-4 " v-if="boardGame">
-    <router-link
-      class="text-center"
-      :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"
-    >
-      <img
-        :src="boardGame?.coverImg"
-        alt=""
-        class="forcedImg rounded position-relative p-2"
-        @error="badImg"
-      />
+    <router-link class="text-center" :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }">
+      <img :src="boardGame?.coverImg" alt="" class="forcedImg rounded position-relative p-2" />
     </router-link>
 
     <div class="card-body p-1 mt-2 bg-grey rounded">
@@ -20,9 +12,7 @@
       </span>
 
       <div class="card-text d-flex justify-content-center align-items-center">
-        <div
-          class="player-Icon-And-Players d-flex justify-content-around align-items-center me-3"
-        >
+        <div class="player-Icon-And-Players d-flex justify-content-around align-items-center me-3">
           <i class="mdi mdi-account fs-5"></i>
           <p class="mb-0">{{ boardGame?.players }}</p>
         </div>
@@ -32,41 +22,26 @@
           <p class="mb-0">{{ boardGame?.playtime }}</p>
         </div>
       </div>
-      <div
-        class="card-text d-flex justify-content-center"
-        title="Average User Rating"
-      >
+      <div class="card-text d-flex justify-content-center" title="Average User Rating">
         <i class="mdi mdi-star text-warning"></i>
         {{ boardGame?.average_user_rating.toFixed(2) }}
       </div>
-      <div class="d-flex justify-content-center" v-if="boardGame.price > 0">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2178/2178616.png"
-          alt=""
-          height="15"
-        />
-        <p>${{ boardGame.price }}</p>
+      <div class="d-flex justify-content-center" v-if="boardGame?.price > 0">
+        <img src="https://cdn-icons-png.flaticon.com/512/2178/2178616.png" alt="" height="15" />
+        <p>${{ boardGame?.price }}</p>
         <small class="text-decoration-line-through  ms-3 me-1 revealOnHover">
-          {{ boardGame.retailPrice }}
+          {{ boardGame?.retailPrice }}
         </small>
         <small class="revealOnHover">retail price</small>
       </div>
       <div class="d-flex justify-content-center align-items-center" v-else>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/8634/8634777.png"
-          alt=""
-          height="40"
-          width="40"
-        />
+        <img src="https://cdn-icons-png.flaticon.com/512/8634/8634777.png" alt="" height="40" width="40" />
         <p class="mb-0">Currently unavailable</p>
       </div>
 
       <div class="d-flex justify-content-center"></div>
-      <div
-        class="d-flex justify-content-center discount"
-        v-if="boardGame.discount > 0"
-      >
-        {{ (boardGame.discount * 100).toFixed(0) }} <small>%off</small>
+      <div class="d-flex justify-content-center discount" v-if="boardGame?.discount > 0">
+        {{ (boardGame?.discount * 100).toFixed(0) }} <small>%off</small>
       </div>
     </div>
   </div>
@@ -100,9 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
-.revealOnHover{
+.revealOnHover {
   opacity: 0%;
   transition: all 0.5s ease;
 }
@@ -110,6 +83,7 @@ export default {
 .hvr-bob {
   transition: all 0.5s ease;
 }
+
 .discount {
   top: -5px;
   position: absolute;
@@ -118,6 +92,7 @@ export default {
   font-style: oblique;
   color: rgb(240, 69, 69);
 }
+
 .addToList {
   opacity: 0;
   transition: all 0.5s ease;
@@ -127,6 +102,7 @@ export default {
   opacity: 100%;
   transition: all 0.5s ease;
 }
+
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px salmon;
@@ -145,10 +121,10 @@ export default {
   border: none;
   transition: 0.5s ease;
 
-  .revealOnHover{
+  .revealOnHover {
     opacity: 0%;
     display: none;
-   transition: all 0.5s ease;
+    transition: all 0.5s ease;
   }
 }
 
@@ -160,8 +136,8 @@ export default {
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   transition: all 0.5s ease;
 
-  .revealOnHover{
-    
+  .revealOnHover {
+
     opacity: 75%;
     transition: all .5s ease;
     display: inline-block;

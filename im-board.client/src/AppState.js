@@ -63,15 +63,16 @@ export const AppState = reactive({
 
   /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */
   bgCategories: [],
-  
+
   /** @type {import('./models/BoardGame/BGCategories&Mechanics.js').BGCategories&Mechanics[]} */
   bgMechanics: [],
 
   queryFilter: [],
+  nextQueryFilter: [],
 
   activeCategoryFilters: [],
   activeMechanicsFilters: [],
-categoryNames:[],
+  categoryNames: [],
   homePageBannerUrls: [
     {
       url: 'https://biblio.uottawa.ca/sites/biblio.uottawa.ca/files/2019_-_game_collection.jpg',
