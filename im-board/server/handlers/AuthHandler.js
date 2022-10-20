@@ -2,6 +2,7 @@ import { Auth0Provider } from '@bcwdev/auth0provider'
 import { attachHandlers } from '../../Setup'
 import { dbContext } from "../db/DbContext.js"
 import { accountService } from '../services/AccountService'
+import { logger } from "../utils/Logger.js"
 import { SocketHandler } from '../utils/SocketHandler'
 
 export class AuthHandler extends SocketHandler {
@@ -36,6 +37,16 @@ export class AuthHandler extends SocketHandler {
   }
 
   async onDisconnect() {
-    this.io.emit('userDisconnected', this.profile)
+
+    try {
+     
+      this.io.emit('userDisconnected', this.profile)
+     await dbContext.GroupMembers.updateMany(
+       { accountId: this.profile.id },
+       { isOnline: false }
+     );
+    } catch (error) {
+      logger.error('ON DISCONNECT VIA SOCKETS',error)
+    }
   }
 }
