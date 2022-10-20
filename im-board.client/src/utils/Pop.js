@@ -10,10 +10,35 @@ export default class Pop {
    * @param {string} confirmButtonText The text of your confirm button.
    * @param {'success' | 'error' | 'info' | 'warning' | 'question'} icon Pop icon
    *
-   * {@link https://sweetalert2.github.io/#configuration|Check out Sweet Alerts}
+   * {@link https://sweetalert2.github.io/#configuration | Check out Sweet Alerts}
    */
   static async confirm(
     title = "Are you sure?",
+    text = "You won't be able to revert this!",
+    confirmButtonText = "Yes",
+    icon = "warning"
+  ) {
+    try {
+      const res = await Swal.fire({
+        title,
+        text,
+        icon,
+        confirmButtonText,
+        showCancelButton: true,
+        reverseButtons: true,
+        confirmButtonColor: "var(--bs-primary)",
+        cancelButtonColor: "var(--bs-secondary)",
+      });
+      if (res.isConfirmed) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      return false;
+    }
+  }
+  static async newOwner(
+    title = "Select Group Member as New Group Owner:",
     text = "You won't be able to revert this!",
     confirmButtonText = "Yes",
     icon = "warning"

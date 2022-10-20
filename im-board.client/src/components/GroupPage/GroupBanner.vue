@@ -114,15 +114,15 @@ export default {
       async leaveGroup() {
         try {
           if (props.group.creatorId == AppState.account.id) {
-            //  '634af7e7f42c4d3b48f7f0b9'
-
-            // await groupMembersService.leaveGroup(AppState.account.id);
-
-            Pop.error(
-              "Must Provide Another Members Info and Relinquish OwnerShip"
-            );
+            const yes = await Pop.confirm("Are you sure you want to leave? You'll have to choose a new group owner...")
+            if (!yes) {
+              return
+            }
           }
-          // console.log(this.memberId.id);
+          const yes = await Pop.confirm("Are you sure you want to leave?")
+          if (!yes) {
+            return
+          }
           await groupMembersService.leaveGroup(this.memberId.id);
           Pop.success(`Left ${props.group.name}`);
         } catch (error) {
