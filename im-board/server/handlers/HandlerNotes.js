@@ -1,7 +1,6 @@
-import { SocketHandler } from '../utils/SocketHandler'
+import { SocketHandler } from '../utils/SocketHandler';
 
-let lightIsOn=false
-
+let lightIsOn = false;
 
 //NOTE make sure to change the class name
 export class HandlerNotes extends SocketHandler {
@@ -12,14 +11,12 @@ export class HandlerNotes extends SocketHandler {
   constructor(io, socket) {
     super(io, socket); //NOTE STAYS THE SAME
     this.on('TOGGLE_LIGHT', this.toggleLight); //NOTE SOCKET_TEST MAGIC WORD, ANY WORD YOU CHOOSE
-    
   }
 
   async toggleLight() {
-   lightIsOn=!lightIsOn
-   this.socket.emit('LIGHT_STATE',lightIsOn) //NOTE sends the state of the light back to the client who toggled it
+    lightIsOn = !lightIsOn;
+    this.socket.emit('LIGHT_STATE', lightIsOn); //NOTE sends the state of the light back to the client who toggled it
   }
-
 }
 
 //NOTE On Client side create new folder named handlers and create a filer within ex.. LightHandler.js

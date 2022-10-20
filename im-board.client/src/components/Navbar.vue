@@ -32,17 +32,17 @@
     </div>
 
     <div class="col-md d-flex flex-row-reverse">
-      <!-- TODO make into component -->
       <div class="pe-3 d-flex d-none d-md-block">
 
         <!-- <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
         </router-link> -->
 
-        <div>
+        <!-- NOTE notification icon here -->
+        <!-- <div>
           <i class="bi bi-bell-fill selectable text-warning" v-if="account.inbox"></i>
           <i class="bi bi-bell-fill selectable"></i>
-        </div>
+        </div> -->
 
         <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
@@ -50,7 +50,6 @@
 
         <Login />
       </div>
-      <!-- TODO END -->
     </div>
 
     <!-- <div class="col-12 d-flex justify-content-between g-2 d-md-none">

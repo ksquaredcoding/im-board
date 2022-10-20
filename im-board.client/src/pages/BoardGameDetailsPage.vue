@@ -33,7 +33,7 @@
               <!-- <p class="ms-2">{{ boardGame?.categories.map(b => b.name.name) }}</p> -->
               <p class="ms-2">{{ categories.toString() }}</p>
             </div>
- <div class="d-flex flex-wrap text-wrap">
+            <div class="d-flex flex-wrap text-wrap">
               <b>Mechanics:</b>
               <!-- <p class="ms-2">{{ boardGame?.categories.map(b => b.name.name) }}</p> -->
               <p class="ms-2">{{ mechanics.toString() }}</p>
@@ -51,17 +51,19 @@
           </div>
           <div class="col-md-6">
             <div v-if="boardGame?.average_user_rating > 0">
-              
               <div class="d-flex">
-                
                 <b>Average User Rating:</b>
-                
+
                 <p class="ms-2">
                   {{ boardGame?.average_user_rating.toFixed(2) }} <b>/</b> 5
                 </p>
-                    <div class="d-flex" v-for="i in Math.round(boardGame?.average_user_rating)"><i class="mdi mdi-star text-warning list-group-item"></i></div>
+                <div
+                  class="d-flex"
+                  v-for="i in Math.round(boardGame?.average_user_rating)"
+                >
+                  <i class="mdi mdi-star text-warning list-group-item"></i>
+                </div>
               </div>
-             
             </div>
 
             <div v-if="boardGame?.average_learning_complexity > 0">
@@ -83,7 +85,7 @@
 
         <div class="col-md">
           <div class="p-4 rounded-5 desctext overflow-auto">
-            <p> {{ boardGame?.description_preview }}    </p>  
+            <p>{{ boardGame?.description_preview }}</p>
           </div>
         </div>
         <div class="text-center">
@@ -99,42 +101,33 @@
     <!-- SECTION end -->
 
     <div class="row game-images mt-3 ms-1 horizontal-scroll">
-
-<swiper
-    :slidesPerView="1"
-    :spaceBetween="10"
-    :pagination="{
-      clickable: true,
-    }"
-    :breakpoints="{
-      '640': {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      '768': {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-      '1024': {
-        slidesPerView: 5,
-        spaceBetween: 50,
-      },
-    }"
-    :modules="modules"
-    class="mySwiper"
-  >
-    <swiper-slide v-for="i in images" :key="i.id">
- <ActiveBoardGameImages :images="i"  />
-
-    </swiper-slide>
-  </swiper>
-
-
-
-
-
-
-     
+      <swiper
+        :slidesPerView="1"
+        :spaceBetween="10"
+        :pagination="{
+          clickable: true,
+        }"
+        :breakpoints="{
+          '640': {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          '768': {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          '1024': {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+        }"
+        :modules="modules"
+        class="mySwiper"
+      >
+        <swiper-slide v-for="i in images" :key="i.id">
+          <ActiveBoardGameImages :images="i" />
+        </swiper-slide>
+      </swiper>
     </div>
 
     <div>
@@ -192,28 +185,28 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-import { AppState } from '../AppState.js';
-import { atlasGamesService } from '../services/AtlasGamesService.js';
-import Pop from '../utils/Pop.js';
-import ActiveBoardGameImages from '../components/BoardGame/ActiveBoardGameImages.vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { computed } from "@vue/reactivity";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { AppState } from "../AppState.js";
+import { atlasGamesService } from "../services/AtlasGamesService.js";
+import Pop from "../utils/Pop.js";
+import ActiveBoardGameImages from "../components/BoardGame/ActiveBoardGameImages.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
-import 'swiper/css';
+import "swiper/css";
 
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation, FreeMode } from 'swiper';
-import { ActiveBoardGameImage } from '../models/BoardGame/ActiveBoardGameImage.js';
-import ActiveBoardGameVideos from '../components/BoardGame/ActiveBoardGameVideos.vue';
-import ABGReviews from '../components/BoardGame/ABGReviews.vue';
-import AddToList from '../components/BoardGame/AddToList.vue';
-import ABGPrices from '../components/BoardGame/ABGPrices.vue';
+import { Pagination, Navigation, FreeMode } from "swiper";
+import { ActiveBoardGameImage } from "../models/BoardGame/ActiveBoardGameImage.js";
+import ActiveBoardGameVideos from "../components/BoardGame/ActiveBoardGameVideos.vue";
+import ABGReviews from "../components/BoardGame/ABGReviews.vue";
+import AddToList from "../components/BoardGame/AddToList.vue";
+import ABGPrices from "../components/BoardGame/ABGPrices.vue";
 
 export default {
   setup() {
@@ -222,7 +215,7 @@ export default {
       try {
         await atlasGamesService.getBoardGameDetailsById(route.params.id);
       } catch (error) {
-        console.error('[getBoardGameDetailsById]', error);
+        console.error("[getBoardGameDetailsById]", error);
         Pop.error(error);
       }
     }
@@ -231,7 +224,7 @@ export default {
       try {
         await atlasGamesService.getBoardGameImagesByGameId(route.params.id);
       } catch (error) {
-        console.error('[getBoardGameImagesByGameId]', error);
+        console.error("[getBoardGameImagesByGameId]", error);
         Pop.error(error);
       }
     }
@@ -240,7 +233,7 @@ export default {
       try {
         await atlasGamesService.getBoardGamePricesByGameId(route.params.id);
       } catch (error) {
-        console.error('[getBoardGamePricedByGameId]', error);
+        console.error("[getBoardGamePricedByGameId]", error);
         Pop.error(error);
       }
     }
@@ -248,7 +241,7 @@ export default {
       try {
         await atlasGamesService.getBoardGameVideosByGameId(route.params.id);
       } catch (error) {
-        console.error('[getBoardGameVideosByGameId]', error);
+        console.error("[getBoardGameVideosByGameId]", error);
         Pop.error(error);
       }
     }
@@ -257,7 +250,7 @@ export default {
       try {
         await atlasGamesService.getBoardGameReviewsByGameId(route.params.id);
       } catch (error) {
-        console.error('[getBoardGameReviewsByGameId]', error);
+        console.error("[getBoardGameReviewsByGameId]", error);
         Pop.error(error);
       }
     }
@@ -265,18 +258,18 @@ export default {
       try {
         await atlasGamesService.getBoardGameCategoriesList();
       } catch (error) {
-        Pop.error(error, '[]');
+        Pop.error(error, "[]");
       }
     }
-        async function mechanicsList() {
+    async function mechanicsList() {
       try {
         await atlasGamesService.getBoardGameMechanicsList();
       } catch (error) {
-        Pop.error(error, '[]');
+        Pop.error(error, "[]");
       }
     }
     onMounted(() => {
-      mechanicsList()
+      mechanicsList();
       categoryList();
       getBoardGameDetailsById();
       getBoardGamePricesByGameId();
@@ -295,20 +288,22 @@ export default {
       categories: computed(() =>
         AppState.activeBoardGame.categories.map((x) => x.name.name)
       ),
-      mechanics: computed(()=> AppState.activeBoardGame.mechanics.map(x => x.name.name)),
+      mechanics: computed(() =>
+        AppState.activeBoardGame.mechanics.map((x) => x.name.name)
+      ),
 
       async nextSet() {
         try {
           await atlasGamesService.getBoardGameImagesByGameId();
         } catch (error) {
-          Pop.error(error, '[nextSetBGImages]');
+          Pop.error(error, "[nextSetBGImages]");
         }
       },
       async previousSet() {
         try {
           await atlasGamesService.getBoardGameImagesByGameId();
         } catch (error) {
-          Pop.error(error, '[previousSetBGImages]');
+          Pop.error(error, "[previousSetBGImages]");
         }
       },
     };
@@ -326,8 +321,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .customSize {
   height: 700px;
 
@@ -409,11 +402,10 @@ p {
 }
 
 * {
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
 }
 
 .desctext {
- 
   // letter-spacing: .06em;
   max-height: 40vh;
 }

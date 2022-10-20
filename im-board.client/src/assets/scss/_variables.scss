@@ -8,19 +8,18 @@ $danger: #ea0606;
 $light: #ffffff;
 $grey: #e4e4e4;
 
-
 $c1: #cff09e;
 $c2: #a8dba8;
 $c3: #79bd9a;
 $c4: #3b8686;
-$c5: #0B486B;
+$c5: #0b486b;
 $c6: #ffbb00;
 $c7: #ff5e00;
 $dark: #2c2c2f;
 
 $font-sans-serif: Open Sans;
-$font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-  'Courier New', monospace;
+$font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
 $gradient: linear-gradient(
   180deg,
   hsla(0, 0%, 100%, 0.15),
@@ -28,21 +27,21 @@ $gradient: linear-gradient(
 );
 
 $colors: (
-  'primary': $primary,
-  'secondary': $secondary,
-  'danger': $danger,
-  'success': $success,
-  'warning': $warning,
-  'info': $info,
-  'dark': $dark,
-  'grey': $grey,
-  'c1': $c1,
-  'c2': $c2,
-  'c3': $c3,
-  'c4': $c4,
-  'c5': $c5,
-  'c6': $c6,
-  'c7': $c7
+  "primary": $primary,
+  "secondary": $secondary,
+  "danger": $danger,
+  "success": $success,
+  "warning": $warning,
+  "info": $info,
+  "dark": $dark,
+  "grey": $grey,
+  "c1": $c1,
+  "c2": $c2,
+  "c3": $c3,
+  "c4": $c4,
+  "c5": $c5,
+  "c6": $c6,
+  "c7": $c7,
 );
 
 $color-ranges: (

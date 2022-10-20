@@ -1,18 +1,32 @@
 <template>
-  <div class="bg-light pb-2 my-2 mx-3 mx-md-3 noborder bg-img rounded hover"
-    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }" :title="boardGameList.listName">
+  <div
+    class="bg-light pb-2 my-2 mx-3 mx-md-3 noborder bg-img rounded hover"
+    :style="{ backgroundImage: `url(${boardGameList.imgUrl})` }"
+    :title="boardGameList.listName"
+  >
     <div class="row">
-      <div class="col-md-2 ms-1 text-c6 rounded-circle">
+      <div class="col-md-2 ms-1 text-c6 rounded-circle mt-1">
         <div class="btn-group" v-if="routeGroup">
-          <i data-bs-toggle="dropdown" aria-expanded="false"
-            class="mdi mdi-account-details fs-4 dropdown-toggle dropdown-toggle-split bg-grey rounded text-c7"></i>
+          <i
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            class="mdi mdi-account-details fs-4 dropdown-toggle dropdown-toggle-split bg-grey rounded text-c7"
+          ></i>
 
           <ul class="dropdown-menu" v-if="findGame">
             <div class="d-flex">
               <div v-for="f in findGame" :key="f.accountId">
-                <router-link :to="{ name: 'Profile', params: { id: f.accountId } }">
-                  <img :src="f.account?.picture" :alt="f.account.name" :title="f.account.name" height="30" width="30"
-                    class="rounded-circle box-shadow m-1 profile-img" />
+                <router-link
+                  :to="{ name: 'Profile', params: { id: f.accountId } }"
+                >
+                  <img
+                    :src="f.account?.picture"
+                    :alt="f.account.name"
+                    :title="f.account.name"
+                    height="30"
+                    width="30"
+                    class="rounded-circle box-shadow m-1 profile-img"
+                  />
                 </router-link>
               </div>
             </div>
@@ -22,17 +36,25 @@
 
       <div class="col-md-7 d-flex justify-content-center ms-2">
         <div class="titlebox rounded-1 text-center px-3 py-1 my-1">
-          <router-link class="text-center text-dark" :to="{
-            name: 'BoardGameDetails',
-            params: { id: boardGameList.gameId },
-          }" title="go to this games detail's page">
+          <router-link
+            class="text-center text-dark"
+            :to="{
+              name: 'BoardGameDetails',
+              params: { id: boardGameList.gameId },
+            }"
+            title="go to this games detail's page"
+          >
             <b class="namefont">{{ boardGameList.boardGameName }}</b>
           </router-link>
         </div>
       </div>
       <div class="col-md-2" v-if="route.name == 'Account'">
-        <i class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable" title="remove game from list"
-          @click="removeGameFromList()" v-if="account.id == boardGameList.accountId"></i>
+        <i
+          class="mdi mdi-close text-danger fs-3 text-end titlebox rounded selectable"
+          title="remove game from list"
+          @click="removeGameFromList()"
+          v-if="account.id == boardGameList.accountId"
+        ></i>
       </div>
     </div>
 
@@ -42,10 +64,10 @@
           <i class="mdi mdi-account-group fs-5" alt="" title=""></i>
           {{ boardGameList.players }}
         </div>
-<div>
-  <i class="mdi mdi-clock fs-5" alt="" title=""></i>
-  {{ boardGameList.playTime }} mins
-</div>
+        <div>
+          <i class="mdi mdi-clock fs-5" alt="" title=""></i>
+          {{ boardGameList.playTime }} mins
+        </div>
         <div>
           <i class="mdi mdi-star fs-5 text-c7" alt="" title=""></i>
           {{ boardGameList.rating.toFixed(2) }} <b>/</b> 5
@@ -74,8 +96,7 @@ export default {
   setup(props) {
     const route = useRoute();
     return {
-      routeGroup: computed(() => route
-        .name == 'Group'),
+      routeGroup: computed(() => route.name == "Group"),
       route,
 
       member: computed(() => AppState.groupMembers),
@@ -105,8 +126,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.hover{
+.hover {
   transition: all 0.5s ease;
 }
 .noborder {

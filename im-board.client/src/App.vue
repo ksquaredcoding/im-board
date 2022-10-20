@@ -15,37 +15,28 @@
   <EditPic />
   <GoogleMapModal />
   <FAQModal />
-  <GameNightForm/>
-  <GroupForm/>
+  <GameNightForm />
 </template>
 
 <script>
-import { computed } from 'vue';
-import { AppState } from './AppState';
-import Navbar from './components/Navbar.vue';
-import GroupForm from './components/GroupPage/GroupForm.vue';
-import EditBanner from './components/AccountProfilePage/EditAccountModal.vue';
-import EditName from './components/AccountProfilePage/EditName.vue';
-import EditPic from './components/AccountProfilePage/EditPic.vue';
-import Filters from './components/SearchPage/FiltersSideBar.vue';
-import { useRoute } from 'vue-router';
-import Footer from './components/FooterFooter.vue';
-import GoogleMapModal from './components/GoogleMapModal.vue';
-import FAQModal from './components/FAQModal.vue';
+import { computed, onMounted } from "vue";
+import { AppState } from "./AppState";
+import Navbar from "./components/Navbar.vue";
+import GroupForm from "./components/GroupPage/GroupForm.vue";
+import EditBanner from "./components/AccountProfilePage/EditAccountModal.vue";
+import EditName from "./components/AccountProfilePage/EditName.vue";
+import EditPic from "./components/AccountProfilePage/EditPic.vue";
+import Filters from "./components/SearchPage/FiltersSideBar.vue";
+import { useRoute } from "vue-router";
+import Footer from "./components/FooterFooter.vue";
+import GoogleMapModal from "./components/GoogleMapModal.vue";
+import FAQModal from "./components/FAQModal.vue";
 import GameNightForm from "./components/GroupPage/GameNightForm.vue";
-
-
-
-
-
 
 export default {
   setup() {
-
-
     const route = useRoute();
     return {
-    
       route,
       appState: computed(() => AppState),
     };
@@ -60,10 +51,9 @@ export default {
     GoogleMapModal,
     FAQModal,
     GameNightForm,
-    GroupForm
-},
+  },
 };
 </script>
 <style lang="scss">
-@import './assets/scss/main.scss';
+@import "./assets/scss/main.scss";
 </style>

@@ -1,5 +1,11 @@
 <template>
-  <div class="modal fade" id="inviteMemberForm" tabindex="-1" aria-labelledby="groupFormLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="inviteMemberForm"
+    tabindex="-1"
+    aria-labelledby="groupFormLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
@@ -8,15 +14,24 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <div class="font">User Email: </div>
-                  <input type="email" class="bg-grey  text-dark" v-model="editable" required aria-required="true" />
-
+                  <div class="font">User Email:</div>
+                  <input
+                    type="email"
+                    class="bg-grey text-dark"
+                    v-model="editable"
+                    required
+                    aria-required="true"
+                  />
                 </div>
               </div>
             </div>
 
             <div class="my-3">
-              <button class="btn button-51 selectable font" type="submit" data-bs-dismiss="modal">
+              <button
+                class="btn button-51 selectable font"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
                 Invite Member
               </button>
             </div>
@@ -25,8 +40,6 @@
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
@@ -52,7 +65,6 @@ export default {
           Pop.error(error, "[handleSubmit(inviteMember)]");
         }
       },
-
     };
   },
 };
@@ -108,7 +120,6 @@ export default {
   width: 250px;
 }
 
-
 .inputBox input {
   width: 100%;
   padding: 10px;
@@ -135,8 +146,8 @@ export default {
   transition: all 1s ease;
 }
 
-.inputBox input:valid~span,
-.inputBox input:focus~span {
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
   color: #27132a;
   transform: translateX(10px) translateY(-7px);
   padding: 0 10px;

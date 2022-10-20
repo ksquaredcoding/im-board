@@ -47,14 +47,14 @@ class GroupMembersService {
     const group = await groupsService.getGroupById(groupId);
     const isMember = await this.getMemberForGroup(groupId, accountId);
     if (isMember) {
-      throw new Forbidden("You cannot join a group more than once.")
+      throw new Forbidden("You cannot join a group more than once.");
     }
     const groupMember = await dbContext.GroupMembers.create({
       groupId,
       accountId,
     });
     await groupMember.populate("profile", "name picture");
-    let inList = group.groupMemberIds.find((m) => m.accountId == accountId)
+    let inList = group.groupMemberIds.find((m) => m.accountId == accountId);
     if (!inList) {
       group.groupMemberIds.push(groupMember);
     }

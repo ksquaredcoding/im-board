@@ -1,34 +1,30 @@
 <template>
- 
-  
-    <div class="col-md-12 mt-4">
-      <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
-        <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
-      </div>
+  <div class="col-md-12 mt-4">
+    <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
+      <h5 class="rowTitle p-1 pt-2">Editor's Choice Articles</h5>
     </div>
-    <div class="row horizontal-scrollable mb-4 mt-4">
-    <div class="col-md-3 mb-3" v-for="a in articles">
-    <a :href="a.url" target="_blank" class="text-dark ">
-      <div class="bg-transparent card my-2">
-        <img :src="a.coverImg" alt="" class="forcedImg rounded" />
-
-        <div class="card-body p-1  rounded text-wrap">
-          <h6 class="">{{ a.name }}</h6>
-
-          <small class="text-primary darken-10">{{ a.credit }}</small>
-        </div>
-      </div>
-    </a>
   </div>
+  <div class="row horizontal-scrollable mb-4 mt-4">
+    <div class="col-md-3 mb-3" v-for="a in articles">
+      <a :href="a.url" target="_blank" class="text-dark">
+        <div class="bg-transparent card my-2">
+          <img :src="a.coverImg" alt="" class="forcedImg rounded" />
 
+          <div class="card-body p-1 rounded text-wrap">
+            <h6 class="">{{ a.name }}</h6>
 
+            <small class="text-primary darken-10">{{ a.credit }}</small>
+          </div>
+        </div>
+      </a>
     </div>
+  </div>
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import { useRoute } from 'vue-router';
-import { AppState } from '../../AppState.js';
+import { computed } from "@vue/reactivity";
+import { useRoute } from "vue-router";
+import { AppState } from "../../AppState.js";
 
 export default {
   setup() {
@@ -82,6 +78,4 @@ export default {
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   transition: all 0.5s ease;
 }
-
-
 </style>

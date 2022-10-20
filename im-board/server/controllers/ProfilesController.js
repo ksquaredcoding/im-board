@@ -1,7 +1,7 @@
-import { boardGamesService } from '../services/BoardGamesService.js';
-import { groupsService } from '../services/GroupsService.js';
-import { profileService } from '../services/ProfileService.js'
-import BaseController from '../utils/BaseController'
+import { boardGamesService } from "../services/BoardGamesService.js";
+import { groupsService } from "../services/GroupsService.js";
+import { profileService } from "../services/ProfileService.js";
+import BaseController from "../utils/BaseController";
 
 export class ProfilesController extends BaseController {
   constructor() {

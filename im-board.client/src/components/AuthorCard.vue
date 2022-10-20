@@ -107,7 +107,7 @@ export default {
 
 .nameText {
   font-weight: 700;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   letter-spacing: 0.06em;
 }
 

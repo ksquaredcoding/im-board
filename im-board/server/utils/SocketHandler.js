@@ -5,35 +5,37 @@ export class SocketHandler {
    * @param {boolean | function():boolean} requiresAuth
    */
   constructor(io, socket, requiresAuth = false) {
-    this.io = io
-    this.socket = socket
-    this.user = null
-    this.profile = null
+    this.io = io;
+    this.socket = socket;
+    this.user = null;
+    this.profile = null;
     if (requiresAuth === true) {
-      requiresAuth = () => this.user
+      requiresAuth = () => this.user;
     }
-    this.requiresAuth = requiresAuth
+    this.requiresAuth = requiresAuth;
   }
 
   on(event, fn) {
     this.socket.on(event, (payload) => {
       try {
         if (!this.requiresAuth) {
-          return fn.call(this, payload)
+          return fn.call(this, payload);
         }
         if (!this.requiresAuth()) {
-          return this.socket.emit('error', { message: 'Unauthorized-THIS IS THE CULPRIT (TUNG)' })
+          return this.socket.emit('error', {
+            message: 'Unauthorized(SocketHandler[Line 26])',
+          });
         }
-        return fn.call(this, payload)
+        return fn.call(this, payload);
       } catch (e) {
-        this.socket.emit('error', { message: e.message })
+        this.socket.emit('error', { message: e.message });
       }
-    })
-    return this
+    });
+    return this;
   }
 
   attachUser(user, profile) {
-    this.user = user
-    this.profile = profile
+    this.user = user;
+    this.profile = profile;
   }
 }

@@ -11,7 +11,9 @@ export const BoardGameSchema = new Schema(
     type: {
       type: String,
       required: true,
-      enum: ["owned", "wish", "favorite", "custom"], default: 'favorite', lowercase: true
+      enum: ["owned", "wish", "favorite", "custom"],
+      default: "favorite",
+      lowercase: true,
     },
     imgUrl: { type: String, required: true },
     rating: { type: Number, required: true, min: 0, max: 5 },

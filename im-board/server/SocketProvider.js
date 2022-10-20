@@ -50,7 +50,7 @@ class SocketProvider {
       logger.error('[SOCKET_ERROR] messageUser', e, {
         userId,
         eventName,
-        payload
+        payload,
       });
     }
   }

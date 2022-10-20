@@ -5,7 +5,7 @@ import { groupMembersService } from "./GroupMembersService.js";
 class GroupChatService {
   async removeChatsByGroup(groupId) {
     // debugger;
-    let chats = await dbContext.GroupChats.find({groupId}).remove()
+    let chats = await dbContext.GroupChats.find({ groupId }).remove();
     //  chats = chats.filter((c) => c.groupId != groupId);
     //  await chats.save()
 

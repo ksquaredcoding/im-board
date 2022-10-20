@@ -5,10 +5,19 @@
   </div>
 
   <div class="account Page container-fluid" v-else>
-    <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${account.coverImg})` }">
+    <div
+      class="row bg-c5 banner eum-ipsum"
+      :style="{ backgroundImage: `url(${account.coverImg})` }"
+    >
       <div class="col-md-12 d-flex justify-content-center">
-        <img v-if="account?.picture" :src="account?.picture" alt="" height="150" width="150"
-          class="eum rounded-circle mt-2 icon forcedImg" />
+        <img
+          v-if="account?.picture"
+          :src="account?.picture"
+          alt=""
+          height="150"
+          width="150"
+          class="eum rounded-circle mt-2 icon forcedImg"
+        />
       </div>
     </div>
 
@@ -24,12 +33,19 @@
       </div>
       <div class="col-md d-flex justify-content-end">
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner">
-          <i class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
-            title="Edit Account"></i>
+          <i
+            class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1"
+            alt=""
+            title="Edit Account"
+          ></i>
         </button>
         <router-link :to="{ name: 'Profile', params: { id: user.id } }">
           <button class="btn rounded-circle editbtn">
-            <i class="ps-1 mdi mdi-account-check-outline fs-1" alt="" title="Save Changes"></i>
+            <i
+              class="ps-1 mdi mdi-account-check-outline fs-1"
+              alt=""
+              title="Save Changes"
+            ></i>
           </button>
         </router-link>
       </div>
@@ -40,8 +56,11 @@
           <div class="col-md d-flex justify-content-center pt-2">
             <h2 class="font">Groups</h2>
             <div>
-              <i class="mdi mdi-information-outline fs-5" alt=""
-                title="Groups only visisble to you, not other users."></i>
+              <i
+                class="mdi mdi-information-outline fs-5"
+                alt=""
+                title="Groups only visisble to you, not other users."
+              ></i>
             </div>
           </div>
         </div>
@@ -62,18 +81,37 @@
         <div class="row justify-content-center">
           <b class="mb-2 mt-2 d-flex justify-content-center">
             <div class="ms-3">
-              <input type="button" autofocus="true" class="button-50 py-2 filterbtn focus" id="Fave" name="Fave"
-                value="Favorites" @click="filterBg = 'favorite'" />
+              <input
+                type="button"
+                autofocus="true"
+                class="button-50 py-2 filterbtn focus"
+                id="Fave"
+                name="Fave"
+                value="Favorites"
+                @click="filterBg = 'favorite'"
+              />
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="Owned"
-                @click="filterBg = 'owned'" />
+              <input
+                type="button"
+                class="button-50 py-2 filterbtn"
+                id="Owned"
+                name="Owned"
+                value="Owned"
+                @click="filterBg = 'owned'"
+              />
               <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
             </div>
             <div class="ms-3">
-              <input type="button" class="button-50 py-2 filterbtn" id="Wishlist" name="Wishlist" value="Wishlist"
-                @click="filterBg = 'wish'" />
+              <input
+                type="button"
+                class="button-50 py-2 filterbtn"
+                id="Wishlist"
+                name="Wishlist"
+                value="Wishlist"
+                @click="filterBg = 'wish'"
+              />
               <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
             </div>
           </b>
@@ -86,53 +124,52 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { computed, onMounted, ref } from 'vue';
-import { AppState } from '../AppState';
-import { accountService } from '../services/AccountService.js';
+import { computed, onMounted, ref } from "vue";
+import { AppState } from "../AppState";
+import { accountService } from "../services/AccountService.js";
 
-import Pop from '../utils/Pop.js';
-import GroupCard from '../components/GroupPage/GroupCard.vue';
-import GroupForm from '../components/GroupPage/GroupForm.vue';
-import ListCard from '../components/AccountProfilePage/ListCard.vue';
-import GroupGamesCard from '../components/GroupPage/GroupGamesCard.vue';
-import EditBanner from '../components/AccountProfilePage/EditAccountModal.vue';
-import { Account } from '../models/Account.js';
-import EditName from '../components/AccountProfilePage/EditName.vue';
-import EditPic from '../components/AccountProfilePage/EditPic.vue';
+import Pop from "../utils/Pop.js";
+import GroupCard from "../components/GroupPage/GroupCard.vue";
+import GroupForm from "../components/GroupPage/GroupForm.vue";
+import ListCard from "../components/AccountProfilePage/ListCard.vue";
+import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
+import EditBanner from "../components/AccountProfilePage/EditAccountModal.vue";
+import { Account } from "../models/Account.js";
+import EditName from "../components/AccountProfilePage/EditName.vue";
+import EditPic from "../components/AccountProfilePage/EditPic.vue";
 export default {
   setup() {
-    const filterBg = ref('favorite');
+    const filterBg = ref("favorite");
     async function getMyGroups() {
       try {
         await accountService.getMyGroups();
       } catch (error) {
-        Pop.error(error, '[getMyGroups]');
+        Pop.error(error, "[getMyGroups]");
       }
     }
     async function getMyLists() {
       try {
         await accountService.getMyLists();
-        AppState.bgLists.filter((f) => f.listName == 'favorite')
+        AppState.bgLists.filter((f) => f.listName == "favorite");
       } catch (error) {
-        console.error('[get my lists]', error);
+        console.error("[get my lists]", error);
         Pop.error(error);
       }
     }
 
     function focus() {
-      document.getElementById('Fave').focus()
+      document.getElementById("Fave").focus();
     }
     onMounted(() => {
       getMyGroups();
       getMyLists();
-      focus()
+      focus();
     });
     return {
       filterBg,
@@ -200,7 +237,6 @@ export default {
   border: 3px solid white;
 }
 
-
 .eum-ipsum {
   position: relative;
 }
@@ -210,15 +246,14 @@ export default {
   bottom: -35%;
 }
 
-.font{
-  font-family: 'Baloo 2',
-    cursive;
-    font-weight: 700;
-    color: aliceblue;
-      text-shadow: 2px 2px #3b8686, 0px 0px 5px #79bd9a;
+.font {
+  font-family: "Baloo 2", cursive;
+  font-weight: 700;
+  color: aliceblue;
+  text-shadow: 2px 2px #3b8686, 0px 0px 5px #79bd9a;
 }
 .username {
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   font-weight: 600;
   font-size: 3rem;
 }
@@ -252,7 +287,7 @@ export default {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.07em;

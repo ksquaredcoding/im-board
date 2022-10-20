@@ -30,7 +30,7 @@ class GroupMembersService {
       );
     }
 
-    router.push({name: 'Account'})
+    router.push({ name: "Account" });
   }
 }
 export const groupMembersService = new GroupMembersService();

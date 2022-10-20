@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity';
-import { useRoute, useRouter } from 'vue-router';
-import { AppState } from '../AppState.js';
-import FAQModal from './FAQModal.vue';
+import { computed } from "@vue/reactivity";
+import { useRoute, useRouter } from "vue-router";
+import { AppState } from "../AppState.js";
+import FAQModal from "./FAQModal.vue";
 
 export default {
   props: {},
@@ -95,6 +95,6 @@ export default {
   text-align: center;
   font-size: 20px;
   font-weight: bolder;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
 }
 </style>

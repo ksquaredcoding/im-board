@@ -1,28 +1,31 @@
 <template>
   <router-link :to="{ name: 'Group', params: { id: group?.groupId } }">
-    <div class="card text-bg-dark my-2 elevation-3 groupCard mx-3 mx-md-2"
-      :style="{backgroundImage: `url(${group.group.coverImg})`}">
+    <div
+      class="card text-bg-dark my-2 elevation-3 groupCard mx-3 mx-md-2"
+      :style="{ backgroundImage: `url(${group.group.coverImg})` }"
+    >
       <!-- <img :src="group?.group.coverImg" class="card-img" alt="..." /> -->
       <div class="card-img-overlay text-shadow">
-        <h3 class="card-title p-1 text-center rounded-1 ">{{ group?.group.name }}</h3>
+        <h3 class="card-title p-1 text-center rounded-1">
+          {{ group?.group.name }}
+        </h3>
         <div class="card-title text-center p-1 rounded-1 elevation-3">
-
-          <div class="card-text">Owner: {{group.group.creator.name}}</div>
-          <div v-if="group.group.groupMemberIds.length == 1">{{group.group.groupMemberIds.length}}
+          <div class="card-text">Owner: {{ group.group.creator.name }}</div>
+          <div v-if="group.group.groupMemberIds.length == 1">
+            {{ group.group.groupMemberIds.length }}
             Member
           </div>
-          <div v-else>{{group.group.groupMemberIds.length}} Members</div>
+          <div v-else>{{ group.group.groupMemberIds.length }} Members</div>
         </div>
-        
       </div>
     </div>
   </router-link>
 </template>
 
 <script>
-import { AppState } from '../../AppState.js';
-import { GroupMemberShip } from '../../models/GroupsAndGameNight/GroupMembership.js';
-import { Group } from '../../models/GroupsAndGameNight/Group.js';
+import { AppState } from "../../AppState.js";
+import { GroupMemberShip } from "../../models/GroupsAndGameNight/GroupMembership.js";
+import { Group } from "../../models/GroupsAndGameNight/Group.js";
 export default {
   props: {
     group: { type: GroupMemberShip, required: true },
@@ -35,7 +38,7 @@ export default {
           (g) => g.groupId == props.group.groupId
         );
         AppState.activeGroup = group;
-        console.log('activeGroup-tung', AppState.activeGroup);
+        console.log("activeGroup-tung", AppState.activeGroup);
       },
     };
   },
@@ -59,7 +62,7 @@ export default {
 
 .groupCard {
   transition: all 0.55s ease;
- 
+
   min-height: 30vh;
   border: none;
   background-size: cover;
@@ -79,7 +82,6 @@ export default {
   overflow: hidden;
   max-width: auto;
   max-height: 16rem;
-
 }
 
 .card-title {
@@ -88,19 +90,13 @@ export default {
   font-weight: 700;
 }
 
-*{
+* {
   font-family: "Baloo 2", cursive;
 }
 @media (max-width: 576px) {
-  
-.groupCard {
-  
-  max-height: 30vh;
-  min-height: 30vh;
-
+  .groupCard {
+    max-height: 30vh;
+    min-height: 30vh;
+  }
 }
-
-
-  
- }
 </style>

@@ -45,7 +45,7 @@ export class AccountController extends BaseController {
   }
   async getAccountGroups(req, res, next) {
     try {
-      req.body.accountId = req.userInfo.id
+      req.body.accountId = req.userInfo.id;
       const groups = await groupsService.getMyGroups(req.body.accountId);
       res.send(groups);
     } catch (error) {
@@ -54,7 +54,7 @@ export class AccountController extends BaseController {
   }
 
   // TODO account boardGame
- 
+
   async editMyAccount(req, res, next) {
     try {
       const account = await accountService.updateAccount(

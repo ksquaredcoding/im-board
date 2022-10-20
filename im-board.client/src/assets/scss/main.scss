@@ -1,11 +1,11 @@
-@import './_variables.scss';
-@import 'bootstrap';
-@import './_overrides.scss';
-@import './utilities.scss';
-@import './loaders.scss';
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
-@import './secondary.scss';
+@import "./_variables.scss";
+@import "bootstrap";
+@import "./_overrides.scss";
+@import "./utilities.scss";
+@import "./loaders.scss";
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap");
+@import "./secondary.scss";
 
 :root {
   --animate-duration: 400ms;
@@ -16,7 +16,7 @@ body {
 }
 
 * {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 0.05em;
 }
 
@@ -40,11 +40,13 @@ input:placeholder-shown {
 }
 
 .gradient-box {
-  background: #79bd9a linear-gradient(22deg, #cff09e, #a8dba8, #79bd9a, #3b8686, #0b486b) fixed;
+  background: #79bd9a
+    linear-gradient(22deg, #cff09e, #a8dba8, #79bd9a, #3b8686, #0b486b) fixed;
 }
 
 .gradient-box2 {
-  background: #ffbb00 linear-gradient(22deg, #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006) fixed;
+  background: #ffbb00
+    linear-gradient(22deg, #fcff53, #f8ce14, #ffbb00, #ff5e00, #e04006) fixed;
 }
 
 .hover:hover {
@@ -158,13 +160,12 @@ select {
   }
 }
 
-form:invalid button[type='submit'] {
+form:invalid button[type="submit"] {
   filter: grayscale(1);
   pointer-events: none;
 }
 
 // -----------------------------------------SCROLLBAR STUFF----------------------------------------//
-
 
 *::-webkit-scrollbar {
   width: 13px;
@@ -173,8 +174,7 @@ form:invalid button[type='submit'] {
 *::-webkit-scrollbar-track {
   background-color: transparent;
   cursor: pointer;
-  border-radius: 100vw; 
-
+  border-radius: 100vw;
 }
 
 *::-webkit-scrollbar-track:hover {
@@ -217,7 +217,7 @@ form:invalid button[type='submit'] {
 }
 
 .loader::after {
-  content: '';
+  content: "";
   width: 75px;
   height: 75px;
   border: 15px solid #dddddd;
@@ -240,7 +240,7 @@ form:invalid button[type='submit'] {
   cursor: pointer;
   display: inline-block;
   // font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.07em;
@@ -277,7 +277,7 @@ form:invalid button[type='submit'] {
   cursor: pointer;
   display: inline-block;
   // font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.07em;
@@ -314,7 +314,7 @@ form:invalid button[type='submit'] {
   cursor: pointer;
   display: inline-block;
   // font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Baloo 2", cursive;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.07em;

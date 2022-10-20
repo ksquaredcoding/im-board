@@ -1,4 +1,4 @@
-import { Account } from '../Account.js';
+import { Account } from "../Account.js";
 import { Group } from "./Group.js";
 
 export class GroupMemberShip {
@@ -7,8 +7,8 @@ export class GroupMemberShip {
     this.createdAt = data.createdAt;
     // this.group = new Group(data.group)
 
-    this.group = new Group(data.group)
+    this.group = new Group(data.group);
 
-    this.groupId = data.groupId
+    this.groupId = data.groupId;
   }
 }

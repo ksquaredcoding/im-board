@@ -1,16 +1,19 @@
 <template>
   <div class="ABGReviews-card card gradient-box my-2 elevation-3">
     <div class="d-flex align-items-center">
-      <img :src="review.picture" alt="" class="rounded-circle forcedImg ms-4 mt-4">
-      <h4 class="ms-3 mt-3">{{review.name}}</h4>
+      <img
+        :src="review.picture"
+        alt=""
+        class="rounded-circle forcedImg ms-4 mt-4"
+      />
+      <h4 class="ms-3 mt-3">{{ review.name }}</h4>
     </div>
 
     <div class="bg-custom rounded m-1">
-      <p class="px-5 pt-2 mt-3">{{review.description}} </p>
+      <p class="px-5 pt-2 mt-3">{{ review.description }}</p>
     </div>
   </div>
 </template>
-
 
 <script>
 import { ABGReviews } from "../../models/BoardGame/ABGReviews.js";
@@ -18,15 +21,15 @@ import { ABGReviews } from "../../models/BoardGame/ABGReviews.js";
 export default {
   props: {
     review: {
-      type: ABGReviews, required: true
-    }
+      type: ABGReviews,
+      required: true,
+    },
   },
   setup(props) {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
-
 
 <style lang="scss" scoped>
 .bg-custom {

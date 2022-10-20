@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-const Schema = mongoose.Schema
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 export const AccountSchema = new Schema(
   {
@@ -9,9 +9,8 @@ export const AccountSchema = new Schema(
     picture: { type: String },
     coverImg: { type: String },
     inbox: { type: Boolean, default: false },
-    bio: { type: String }
+    bio: { type: String },
     // NOTE If you wish to add additional properties do so here
   },
   { timestamps: true, toJSON: { virtuals: true } }
-)
-
+);
