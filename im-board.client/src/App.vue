@@ -9,7 +9,7 @@
     <Navbar class="animate__animated animate__fadeInDown d-md-none" />
     <Footer />
   </footer>
- 
+ <GroupForm/>
   <EditBanner />
   <EditName />
   <EditPic />
@@ -22,7 +22,7 @@
 import { computed, onMounted } from "vue";
 import { AppState } from "./AppState";
 import Navbar from "./components/Navbar.vue";
-import GroupForm from "./components/GroupPage/GroupForm.vue";
+
 import EditBanner from "./components/AccountProfilePage/EditAccountModal.vue";
 import EditName from "./components/AccountProfilePage/EditName.vue";
 import EditPic from "./components/AccountProfilePage/EditPic.vue";
@@ -32,6 +32,7 @@ import Footer from "./components/FooterFooter.vue";
 import GoogleMapModal from "./components/GoogleMapModal.vue";
 import FAQModal from "./components/FAQModal.vue";
 import GameNightForm from "./components/GroupPage/GameNightForm.vue";
+import GroupForm from "./components/GroupPage/GroupForm.vue";
 
 export default {
   setup() {
@@ -51,7 +52,8 @@ export default {
     GoogleMapModal,
     FAQModal,
     GameNightForm,
-  },
+    GroupForm
+},
 };
 </script>
 <style lang="scss">
