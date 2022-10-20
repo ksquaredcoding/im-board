@@ -1,6 +1,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { groupChatsService } from "../services/GroupChatsService.js";
 import BaseController from "../utils/BaseController.js";
+import { socketProvider } from "../SocketProvider.js";
 
 export class GroupChatsController extends BaseController {
   constructor() {
@@ -37,6 +38,7 @@ export class GroupChatsController extends BaseController {
       // debugger
       req.body.creatorId = req.userInfo.id;
       const chat = await groupChatsService.addGroupChat(req.body);
+      socketProvider.messageRoom(req.body.groupId, "MESSAGE_ADDED", chat);
       res.send(chat);
     } catch (error) {
       next(error);
