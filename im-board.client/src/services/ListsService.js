@@ -13,19 +13,18 @@ class ListsService {
     console.log(res.data);
     AppState.bgLists = res.data.map((b) => new BGList(b));
 
-    const count = [];
-
-    AppState.bgLists.forEach((b) => {
-      if (count.find((c) => c.gameId == b.gameId)) {
-        let hi = count.findIndex((c) => c.gameId == b.gameId);
-        count.splice(hi, 1);
+    this.filterDuplicates(AppState.bgLists, AppState.groupFilteredLists);
+  }
+  filterDuplicates(arr1, arr2) {
+    arr1.forEach((i) => {
+      let found = arr2.find((f) => f.gameId == i.gameId);
+      if (!found) {
+        arr2.push(i);
       }
-      // delete b.accountId;
-      delete b.addedToListAt
-      count.push(b);
     });
-    AppState.groupFilteredLists = count;
-    // console.log(AppState.groupFilteredLists);
+    // NOTE change id to what you are filtering by
+    //array 1 is the full array
+    //array 2 an empty array || any other array to not have duplicate object properties in
   }
 
   async removeGameFromList(listId) {
