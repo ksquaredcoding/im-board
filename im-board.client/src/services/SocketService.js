@@ -1,6 +1,6 @@
 import { AppState } from '../AppState.js';
 import Pop from '../utils/Pop';
-import { SocketHandler } from '../utils/SocketHandler';
+import { SocketHandler } from '../utils/SocketHandler.js';
 
 class SocketService extends SocketHandler {
   constructor() {
