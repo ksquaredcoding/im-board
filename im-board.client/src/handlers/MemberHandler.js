@@ -7,7 +7,7 @@ function toggleMemberOffline(groupMember) {
     (m) => m.accountId == groupMember.id
   );
   active.isOnline = false;
-  logger.log(active);
+  // logger.log(active);
   Pop.toast(`${active.profile.name.split("@")[0]} is offline`, "warning");
 }
 function toggleMemberOnline(groupMember) {
@@ -15,7 +15,7 @@ function toggleMemberOnline(groupMember) {
     (m) => m.accountId == groupMember.id
   );
   active.isOnline = true;
-  logger.log(active);
+  // logger.log(active);
   Pop.success(`${active.profile.name.split('@')[0]} is online`);
 }
 class MemberHandler {
