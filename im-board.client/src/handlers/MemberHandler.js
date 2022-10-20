@@ -15,7 +15,7 @@ function toggleMemberOnline(groupMember) {
     (g) => g.accountId == groupMember.id
   );
   active.isOnline = true;
-  Pop.success(`${groupMember.email.split('@')[0]} is offline`);
+  Pop.success(`${groupMember.email.split('@')[0]} is online`);
 }
 
 class MemberHandler {
