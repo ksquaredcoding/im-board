@@ -10,6 +10,6 @@ export class BoardGameCategory {
   sortCategories(id) {
   
     let sort = AppState.bgCategories.find((e) => e.id == id);
-    return (sort.name);
+    return (sort);
   }
 }

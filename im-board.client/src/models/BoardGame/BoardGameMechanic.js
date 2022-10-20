@@ -9,6 +9,6 @@ export class BoardGameMechanic {
   }
   sortCategories(id) {
     let sort = AppState.bgMechanics.find((e) => e.id == id);
-    return sort.name;
+    return sort;
   }
 }
