@@ -177,6 +177,7 @@ export default {
 .bricks {
   columns: 2;
 }
+// 
 
 .groupchatbox {
   height: 80vh;
