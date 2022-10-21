@@ -66,6 +66,7 @@ import { gameNightsService } from '../services/GameNightsService.js';
 import GameNightForm from '../components/GroupPage/GameNightForm.vue';
 import { GroupHandler } from "../handlers/GroupHandler.js";
 import "../handlers/MemberHandler.js"
+
 export default {
   setup() {
     const route = useRoute();
@@ -116,6 +117,8 @@ export default {
     }
 
     onMounted(() => {
+
+    
       getGroupById();
       getGroupMembersByGroupId();
       getListsByGroupId();
@@ -127,6 +130,7 @@ export default {
 
 
     onBeforeRouteLeave(() => {
+    
       GroupHandler.LeaveGroup(route.params.id);
     });
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
