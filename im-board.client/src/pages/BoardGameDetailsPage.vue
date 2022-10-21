@@ -138,7 +138,7 @@
       </swiper>
     </div>
 
-    <div>
+    <div class="mt-4">
       <div v-if="reviews?.length > 0">
         <h1>Reviews:</h1>
         <div class="row review-row">
@@ -164,11 +164,11 @@
       </div>
 
       <div v-if="videos?.length > 0">
-        <div class="mt-5">
+        <div class="mt-3">
           <h1>Videos about this game:</h1>
         </div>
         <div class="row">
-          <div class="col-md-3" v-for="v in videos" :key="v.id">
+          <div class="col-md-3 mb-4" v-for="v in videos" :key="v.id">
             <ActiveBoardGameVideos :video="v" />
           </div>
         </div>
@@ -363,7 +363,7 @@ p {
 }
 
 .review-row {
-  height: 20rem;
+  height: 30rem;
   overflow: auto;
 }
 

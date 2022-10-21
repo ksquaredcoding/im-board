@@ -3,7 +3,7 @@
     <form @submit.prevent="handleSubmit()">
       <select
         v-model="editable"
-        class="form-select border-secondary"
+        class="form-select border-secondary bg-c1"
         aria-label="Default select example"
       >
         <option value="favorite">Favorite</option>
