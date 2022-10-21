@@ -40,7 +40,7 @@
         <span class="name">{{ group?.name }}</span>
 
         <div>
-          <span><small class="text-shadow">Members </small></span>
+          <span><div class="text-shadow fs-4">Members </div></span>
           <div
             class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
 
