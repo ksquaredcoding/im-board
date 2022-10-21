@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-2 ">
      <div class=" box-shadow p-0 mx-1 elevation-4">
-    <img src="../assets/img/Tung Le.2.jpg" alt="Tung Le " class="card-img " />
+    <img src="../assets/img/Tung Le.4.jpg" alt="Tung Le " class="card-img " />
 
     <div class="card-img-overly">
       <div class="d-flex justify-content-around">
@@ -16,7 +16,7 @@
 
     <div class="col-md-2">
      <div class="box-shadow p-0 mx-1">
-    <img src="../assets/img/TriPicture.jpg" alt="Tung Le " class="tri-card-img " />
+    <img src="" alt="Tung Le " class="tri-card-img " />
 
     <div class="card-img-overly">
       <div class="d-flex justify-content-around">
@@ -92,7 +92,7 @@ export default {
 <style lang="scss" scoped>
 .card-img{
    height: 300px;
-  width: 300px;
+  width: auto;
   object-fit: cover;
 
 }

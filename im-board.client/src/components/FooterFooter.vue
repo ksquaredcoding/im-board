@@ -26,15 +26,13 @@
         </li>
 
         <li class="nav-item">
-          <button
-            @click="open = true"
-            type="button"
-            class="btn footer-text text-muted"
-            data-bs-toggle="modal"
-            data-bs-target="#FAQ"
+          <a
+            href="#/faq"
+            class="nav-link px-2 text-muted footer-text"
+            @click="scrollToTop"
           >
             FAQ
-          </button>
+          </a>
         </li>
         <li class="nav-item">
           <a
