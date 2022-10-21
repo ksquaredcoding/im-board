@@ -4,7 +4,7 @@
       <div class="modal-content bg-dark">
         <div class="modal-body FORM">
           <!-- -------------------SECTION FORM----------------------------------- -->
-          <form @submit.prevent="handleSubmit" class="">
+          <form @submit.prevent="handleSubmitForEdit()" class="">
             <div class="row">
               <div class="col-md-6">
                 <div class="">
@@ -26,7 +26,7 @@
 
             <div class="my-3">
               <button class="btn button-51 selectable font" type="submit" data-bs-dismiss="modal">
-                Create Group
+               Edit Group
               </button>
             </div>
           </form>
@@ -38,7 +38,7 @@
 
 <script>
 import { computed } from "@vue/reactivity";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 
 import { groupsService } from "../../services/GroupsService.js";
 import Pop from "../../utils/Pop.js";
@@ -48,24 +48,21 @@ export default {
   setup() {
     const route = useRoute();
     const editable = ref({});
+     watchEffect(() => {
+      editable.value = { ...AppState.activeGroup};
+    });
     return {
       route,
       editable,
       group: computed(() => AppState.groups),
 
-      async handleSubmit() {
-        try {
-          await groupsService.createGroup(editable.value);
-          editable.value = {};
-        } catch (error) {
-          Pop.error(error, "[handleSubmit(createGroup)]");
-        }
-      },
+   
 
       async handleSubmitForEdit() {
         try {
-          await groupsService.editGroup(editable.value);
-          editable.value = {};
+
+          await groupsService.editGroup(route.params.id,editable.value);
+          // editable.value = {};
         } catch (error) {
           Pop.error(error, "[handleSubmit(createGroup)]");
         }

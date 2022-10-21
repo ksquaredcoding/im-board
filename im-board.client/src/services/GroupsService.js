@@ -37,10 +37,11 @@ class GroupsService {
     router.push({ name: "Account" });
   }
 
-  async editGroup(groupId) {
-    const res = await api.put(`api/groups/${groupId}`);
+  async editGroup(groupId,groupData) {
+    console.log(groupId);
+    const res = await api.put(`api/groups/${groupId}`,groupData);
     // console.log(res.data);
-    AppState.activeGroup = new GroupMemberShip(res.data);
+    AppState.activeGroup = new Group(res.data);
   }
 
   async getGroupMembers(groupId) {
