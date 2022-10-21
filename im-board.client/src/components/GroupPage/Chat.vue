@@ -8,7 +8,7 @@
         >
           <span class="mt-2 time">{{ chat.createdAt }}</span>
           <div
-            class="bg-primary rounded-3 p-2 max-width"
+            class="bg-c2 rounded-3 p-2 max-width"
             :class="!account ? 'bg-success' : 'bg-c1 '"
           >
             <span class="">{{ chat.body }}</span>
@@ -19,7 +19,7 @@
           class="d-flex gap-1 justify-content-start animate__animated animate__fadeInLeft"
           v-else
         >
-          <div class="bg-primary rounded p-2 my-2 max-width">
+          <div class="bg-c4 rounded p-2 my-2 max-width">
             <img
               :src="chat.creator.picture"
               :alt="chat.creator.name"
