@@ -9,7 +9,7 @@
           Leave Group
         </button>
         <button class="btn button-51 py-1 px-2 m-2" data-bs-toggle="modal" data-bs-target="#gameNightForm">
-          GAMENIGHT
+          Create Gamenight
         </button>
       </div>
 

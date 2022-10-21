@@ -2,13 +2,13 @@
   <div class="GameNightCard bg-dark card my-2 elevation-3">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-        <i
-          class="mdi mdi-close text-danger selectable"
+        
+        <div class="d-flex justify-content-center mt-2 text-center">
+          <h2>Upcoming Gamenight</h2><i title="Remove Game Night"
+          class="mdi mdi-close text-danger fs-4 selectable"
           @click="removeGameNight()"
           v-if="gameNightCreator || groupOwner"
         ></i>
-        <div class="d-flex justify-content-center mt-2 text-center">
-          <h2>Upcoming Gamenight</h2>
         </div>
         <div class="d-flex justify-content-center mb-2">
           <button
@@ -19,11 +19,11 @@
             I'm Attending <i class="bi bi-person-plus-fill"></i>
           </button>
           <button
-            class="btn button-52 animate__animated animate__fadeIn"
+            class="btn button-51 animate__animated animate__fadeIn"
             @click="attendGamenight(gamenight?.id)"
             v-else
           >
-            UnAttend <i class="bi bi-person-dash-fill"></i>
+            Unattend <i class="bi bi-person-dash-fill"></i>
           </button>
         </div>
         <div class="justify-content-center d-flex">
@@ -49,7 +49,7 @@
             </p>
           </span>
           <span>
-            <p>{{ gamenight?.location }}</p>
+            <p>At: {{ gamenight?.location }}</p>
           </span>
         </div>
       </div>
@@ -95,7 +95,7 @@
           </div>
           <div class="gameImg p-2 rounded-bottom">
             <div class="d-flex justify-content-center">
-              <div class="bg-c3 rounded-5 fs-5 text-center px-3 py-1 my-1">
+              <div class="col-md-5 bg-c2 rounded-1 fs-5 text-center px-3 py-1 my-1">
                 <b class="namefont">{{ gamenight?.game }}</b>
               </div>
             </div>
@@ -229,5 +229,9 @@ export default {
 .slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
+}
+
+* {
+  font-family: 'Baloo 2', cursive;
 }
 </style>
