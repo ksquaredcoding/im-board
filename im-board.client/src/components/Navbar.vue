@@ -42,13 +42,8 @@
 
         </button>
         <ul class="dropdown-menu">
-          <li class="dropdown-item">Hi</li>
-          <li class="dropdown-item">Hi</li>
-          <li class="dropdown-item">Hi</li>
-          <li class="dropdown-item">Hi</li>
-          <li class="dropdown-item">Hi</li>
-          <li class="dropdown-item">Hi</li>
-          <li class="dropdown-item">Hi</li>
+          <!-- <li class="dropdown-item" v-for="invite in invites" :key="invite.id">Hi</li> -->
+         
         </ul>
       </div>
     </div>
@@ -114,8 +109,16 @@ import { AuthService } from "../services/AuthService.js";
 import Login from './Login.vue';
 import GroupForm from "./GroupPage/GroupForm.vue";
 import Searchbar from "./SearchPage/Searchbar.vue";
+import { onMounted } from "vue";
 export default {
   setup() {
+    async function getInvites(){
+
+
+    }
+    onMounted(() => {
+      getInvites()
+    })
     return {
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),

@@ -1,8 +1,8 @@
 <template>
-  <header class="bg-dark" style="z-index: 10;">
+  <header class="bg-dark" style="z-index: 10">
     <Navbar class="animate__animated animate__fadeInDown d-none d-md-flex" />
   </header>
-  <main style="z-index: 9;">
+  <main style="z-index: 9">
     <router-view />
   </main>
   <footer class="p-2 bg-dark mt-1">
@@ -36,7 +36,6 @@ import FAQModal from "./components/FAQModal.vue";
 import GameNightForm from "./components/GroupPage/GameNightForm.vue";
 import GroupForm from "./components/GroupPage/GroupForm.vue";
 import EditGroupForm from "./components/GroupPage/EditGroupForm.vue";
-import InviteMemberForm from "./components/GroupPage/InviteMemberForm.vue";
 
 export default {
   setup() {
@@ -57,8 +56,7 @@ export default {
     FAQModal,
     GameNightForm,
     GroupForm,
-    EditGroupForm,
-    InviteMemberForm
+    EditGroupForm
   },
 };
 </script>
