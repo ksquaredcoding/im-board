@@ -1,61 +1,45 @@
 <template>
-  <div
-    class="container-fluid px-3 animate__animated animate__fadeInRight"
-    v-if="boardGames"
-  >
-    <div class="row justify-content-end g-md-0">
+  <div class="container-fluid px-3 animate__animated animate__fadeInRight" v-if="boardGames">
+    <div class="row justify-content-center g-md-0">
       <div class="col-md-12 border-secondary border-3 rounded-bottom">
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
           <h3 class="searchText pt-3 text-dark">Search for board games by name</h3>
           <p class="col-md-4">
             <Searchbar />
           </p>
-      <h5 class="text-dark"> Or search by..</h5>
+          <h5 class="text-dark"> Or search by..</h5>
         </div>
       </div>
 
-      <div
-        class="col-md-12 bg-dark lighten-10 rounded p-4"
-      >
+      <div class="col-md-10 d-flex bg-dark lighten-10 rounded p-3">
         <FilterBar />
       </div>
 
       <div class="col-md-12">
-        <button
-          class="btn btn-danger"
-          @click="incrementSkip('prev')"
-          type="button"
-          :disabled="hopeItWorks == 0"
-        >
-          Previous
-        </button>
-        <button
-          class="btn btn-primary"
-          @click="incrementSkip('next')"
-          type="button"
-          :disabled="
-            boardGames.length <= 0 ||
-            boardGames.length < itsAMaybe - hopeItWorks
-          "
-        >
-          Next
-        </button>
         <div class="row mx-2">
-          <TransitionGroup
-            name="custom-classes"
-            enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__zoomOut animate__animated"
-          >
+          <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
+            leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-2 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
           </TransitionGroup>
         </div>
         <!-- <div  class=" col-md-12 d-flex  flex-column justify-content-center align-items-center">
-          <h1>Currently no results Found</h1>
-          <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
-            height="400">
-        </div> -->
+        <h1>Currently no results Found</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
+        height="400">
+      </div> -->
+        <div class="d-flex justify-content-center my-2">
+          <button class="btn button-51 mx-1" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
+            Previous
+          </button>
+          <button class="btn button-52 mx-1" @click="incrementSkip('next')" type="button" :disabled="
+            boardGames.length <= 0 ||
+            boardGames.length < itsAMaybe - hopeItWorks
+          ">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -211,6 +195,11 @@ export default {
 
 .presetfilters {
   background-color: #2c2c2fe7;
+}
+
+.next-prev {
+  position: fixed;
+  bottom: 0px;
 }
 
 // @media screen AND (max-width: 768px){

@@ -1,125 +1,79 @@
 <template>
   <div class="container-fluid">
     <form @submit.prevent="searchByCoolMethod()">
-      <div class="row">
-        <div class="col-md-4 d-flex">
+      <div class="row justify-content-evenly align-items-center">
+        <div class="dropdown col-md-3 my-1" id="dropdown">
+          <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Categories
+          </button>
+          <div class="row scrollableY p-2 dropdown-menu bg-dark">
+            <div class="col-md-12">
+              <div class="dropdown-item inputBox d-flex text-light" v-for="c in categories" :key="c.id"
+                id="CategoryDiv">
+                <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
+                <label for="card-game" class="ms-2">{{ c.name }}</label>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="col-md">
-          <div class="d-flex">
-
-  <div class="dropdown me-3" id="dropdown">
-            <button
-              class="dropdown-toggle collapsed button-50 p-2 focus"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Categories
+        <div class="dropdown col-md-3 my-1" id="dropdown2">
+          <div class="dropdown-item">
+            <button class="dropdown-toggle collapsed button-50 p-2 focus" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Mechanics
             </button>
             <div class="row scrollableY p-2 dropdown-menu bg-dark">
               <div class="col-md-12">
-                <div
-                  class="dropdown-item inputBox d-flex text-light"
-                  v-for="c in categories"
-                  :key="c.id"
-                  id="CategoryDiv"
-                >
-                  <input
-                    class="checkBox"
-                    type="checkbox"
-                    :value="c.id"
-                    v-model="filters1"
-                  />
-                  <label for="card-game" class="ms-2">{{ c.name }}</label>
+                <div class="dropdown-item inputBox d-flex text-light" v-for="m in mechanics" :key="m.id">
+                  <input class="checkBox" type="checkbox" :value="m.id" v-model="filters2" />
+                  <label for="card-game" class="ms-2">{{ m.name }}</label>
                 </div>
               </div>
+              <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
             </div>
           </div>
-          <div class="dropdown me-3" id="dropdown2">
-            <div class="dropdown-item">
-              <button
-                class="dropdown-toggle collapsed button-50 p-2 focus"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Mechanics
-              </button>
-              <div class="row scrollableY p-2 dropdown-menu bg-dark">
-                <div class="col-md-12">
-                  <div
-                    class="dropdown-item inputBox d-flex text-light"
-                    v-for="m in mechanics"
-                    :key="m.id"
-                  >
-                    <input
-                      class="checkBox"
-                      type="checkbox"
-                      :value="m.id"
-                      v-model="filters2"
-                    />
-                    <label for="card-game" class="ms-2">{{ m.name }}</label>
-                  </div>
-                </div>
-                <!-- <button @click="getBoardGamesByCategories('eX8uuNlQkQ')">card-game</button> -->
-              </div>
-            </div>
-          </div>
-            
-          <div class="me-3">
-            <div>Player count</div>
-            <select
-              class="form-select"
-              aria-label="Select Number of Players"
-              v-model="playerCount"
-              id="playerCount"
-            >
-              <option selected></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10+</option>
-            </select>
-</div>
+        </div>
 
-<div class="">
-            <div>Play time</div>
-            <select
-              class="form-select"
-              aria-label="Select Number of Players"
-              v-model="playTime"
-              id="playerCount"
-            >
-              <option selected></option>
-              <option value="10">10 mins</option>
-              <option value="15">15 mins </option>
-              <option value="20">20 mins </option>
-              <option value="25">25 mins</option>
-              <option value="30">30 mins </option>
-              <option value="35">35 mins</option>
-              <option value="40">40 mins</option>
-              <option value="45">45 mins</option>
-              <option value="50">50 mins </option>
-              <option value="55">55 mins </option>
-              <option value="60">60+ mins</option>
-            </select></div>
+        <div class="col-md-2 my-1">
+          <div>Player count</div>
+          <select class="form-select" aria-label="Select Number of Players" v-model="playerCount" id="playerCount">
+            <option selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10+</option>
+          </select>
+        </div>
 
-            <div>
-            <button
-              class="btn button-50 ms-4"
-              type="submit"
-              @click="newSearch()"
-            >
-              SUBMIT
-            </button></div>
-          </div>
+        <div class="col-md-2 my-1">
+          <div>Play time</div>
+          <select class="form-select" aria-label="Select Number of Players" v-model="playTime" id="playerCount">
+            <option selected></option>
+            <option value="10">10 mins</option>
+            <option value="15">15 mins </option>
+            <option value="20">20 mins </option>
+            <option value="25">25 mins</option>
+            <option value="30">30 mins </option>
+            <option value="35">35 mins</option>
+            <option value="40">40 mins</option>
+            <option value="45">45 mins</option>
+            <option value="50">50 mins </option>
+            <option value="55">55 mins </option>
+            <option value="60">60+ mins</option>
+          </select>
+        </div>
+
+        <div class="col-md-1">
+          <button class="btn button-51" type="submit" @click="newSearch()">
+            SUBMIT
+          </button>
         </div>
 
 
