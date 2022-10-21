@@ -2,23 +2,17 @@
   <div class="GameNightCard bg-dark card my-2 elevation-3">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-        <i class="mdi mdi-close text-danger" @click="removeGameNight()"></i>
+        <i class="mdi mdi-close text-danger selectable" @click="removeGameNight()"></i>
         <div class="d-flex justify-content-center mt-2 text-center">
           <h2>Upcoming Gamenight</h2>
         </div>
         <div class="d-flex justify-content-center mb-2">
-          <button
-            class="btn button-51 animate__animated animate__fadeIn"
-            @click="attendGamenight(gamenight?.id)"
-            v-if="!attending"
-          >
+          <button class="btn button-51 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+            v-if="!attending">
             I'm Attending <i class="bi bi-person-plus-fill"></i>
           </button>
-          <button
-            class="btn button-52 animate__animated animate__fadeIn"
-            @click="attendGamenight(gamenight?.id)"
-            v-else
-          >
+          <button class="btn button-52 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+            v-else>
             UnAttend <i class="bi bi-person-dash-fill"></i>
           </button>
         </div>
@@ -26,21 +20,21 @@
           <span>
             <p>
               {{
-                new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-                  month: "short",
-                  day: "2-digit",
-                  year: "numeric",
-                })
+              new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+              month: "short",
+              day: "2-digit",
+              year: "numeric",
+              })
               }}
             </p>
           </span>
           <span class="mx-4">
             <p>
               {{
-                new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
+              new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+              hour: "2-digit",
+              minute: "2-digit",
+              })
               }}
             </p>
           </span>
@@ -54,28 +48,13 @@
           <div class="bg-c4 text-center rounded-top">
             <h5 class="mt-1">Attending:</h5>
           </div>
-          <div
-            class="p-2 bg-c2 text-center rounded-bottom"
-            v-if="gamenight?.groupMemberIds"
-          >
-            <TransitionGroup
-              name="custom-classes"
-              enterActiveClass="animate__zoomIn animate__animated"
-              leaveActiveClass="animate__zoomOut animate__animated"
-            >
-              <router-link
-                :to="{ name: 'Profile', params: { id: g?.id } }"
-                v-for="g in gamenight?.groupMemberIds"
-                :key="g.id"
-              >
-                <img
-                  :src="g?.picture"
-                  :alt="g?.name"
-                  :title="g?.name"
-                  height="45"
-                  width="45"
-                  class="rounded-circle box-shadow m-1 profile-img"
-                />
+          <div class="p-2 bg-c2 text-center rounded-bottom" v-if="gamenight?.groupMemberIds">
+            <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
+              leaveActiveClass="animate__zoomOut animate__animated">
+              <router-link :to="{ name: 'Profile', params: { id: g?.id } }" v-for="g in gamenight?.groupMemberIds"
+                :key="g.id">
+                <img :src="g?.picture" :alt="g?.name" :title="g?.name" height="45" width="45"
+                  class="rounded-circle box-shadow m-1 profile-img" />
               </router-link>
             </TransitionGroup>
 
@@ -106,12 +85,13 @@
 import { computed } from "@vue/reactivity";
 import { next } from "dom7";
 import { AppState } from "../../AppState.js";
+import { GameNight } from "../../models/GroupsAndGameNight/GameNight.js";
 import { gameNightsService } from "../../services/GameNightsService.js";
 import Pop from "../../utils/Pop.js";
 
 export default {
   props: {
-    gamenight: { type: Object, required: true },
+    gamenight: { type: GameNight, required: true },
   },
 
   setup(props) {
@@ -136,12 +116,12 @@ export default {
       async removeGameNight() {
         try {
           const yes = await Pop.confirm('Cancel this gamenight??')
-          if (!yes) {return}
-            await gameNightsService.removeGameNight(props.gamenight.id)
-          } catch (error) {
-            console.error('[]',error)
-            Pop.error(error)
-          }
+          if (!yes) { return }
+          await gameNightsService.removeGameNight(props.gamenight.id)
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
       },
 
       async addGameNight() {
