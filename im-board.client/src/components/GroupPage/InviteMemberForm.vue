@@ -14,11 +14,21 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <div class="font">User Email:</div>
+                  <div class="font">User: ID</div>
                   <input
-                    type="email"
+                    type="text"
                     class="bg-grey text-dark"
-                    v-model="editable"
+                    v-model="editable.toAccountId"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="mt-3 inputBox">
+                  <div class="font">send a message!</div>
+                  <input
+                    type="text"
+                    class="bg-grey text-dark"
+                    v-model="editable.description"
                     required
                     aria-required="true"
                   />
@@ -46,19 +56,28 @@
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
 
-import { groupsService } from "../../services/GroupsService.js";
+// import { groupsService } from "../../services/GroupsService.js";
 import Pop from "../../utils/Pop.js";
 import { AppState } from "../../AppState.js";
 import { useRoute } from "vue-router";
+import { groupsService } from "../../services/GroupsService.js";
+// import { group } from "console";
 export default {
   setup() {
     const editable = ref({});
+    // editable.description = ref(`${group.name}`);
+    const route = useRoute();
     return {
       editable,
-      group: computed(() => AppState.groups),
+      group: computed(() =>
+        AppState.groups.find((g) => g.id == route.params.id)
+      ),
 
       async handleSubmit() {
         try {
+          let id = route.params.id;
+          editable.value.groupId = id;
+          console.log(editable.value);
           await groupsService.inviteMember(editable.value);
           editable.value = {};
         } catch (error) {

@@ -37,9 +37,9 @@ class GroupsService {
     router.push({ name: "Account" });
   }
 
-  async editGroup(groupId,groupData) {
+  async editGroup(groupId, groupData) {
     console.log(groupId);
-    const res = await api.put(`api/groups/${groupId}`,groupData);
+    const res = await api.put(`api/groups/${groupId}`, groupData);
     // console.log(res.data);
     AppState.activeGroup = new Group(res.data);
   }
@@ -51,6 +51,9 @@ class GroupsService {
     // console.log("members", AppState.groupMembers);
   }
 
-  async inviteMember(memberData) {}
+  async inviteMember(memberData) { 
+    const res = await api.post('api/inbox' ,memberData)
+    console.log(res.data);
+  }
 }
 export const groupsService = new GroupsService();

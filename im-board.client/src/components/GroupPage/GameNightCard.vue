@@ -192,7 +192,9 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  transition: all 0.5s ease;
 }
+
 
 .bgc3 {
   background-color: rgba(0, 255, 157, 0.364);
@@ -247,5 +249,10 @@ export default {
 
 .card {
   background-size: cover;
+  transition: all 0.5s ease;
+}
+.card:hover{
+  transform: scale(1.01);
+  transition: all 0.5s ease;
 }
 </style>
