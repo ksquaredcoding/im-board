@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar  navbar-dark bg-dark px-3  " data-bs-target="#topOfPage">
+  <nav class="navbar  navbar-dark bg-dark px-md-3 justify-content-center  " data-bs-target="#topOfPage">
     <div class=" col-md d-flex">
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
@@ -19,7 +19,7 @@
       <!-- TODO END -->
     </div>
 
-    <div class="col-md d-flex justify-content-center align-items-center">
+    <div class="col-md d-flex justify-content-end align-items-center">
 
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center hover">
@@ -40,9 +40,13 @@
     
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+   <li>Hi</li>
+   <li>Hi</li>
+   <li>Hi</li>
+   <li>Hi</li>
+   <li>Hi</li>
+   <li>Hi</li>
+   <li>Hi</li>
   </ul>
 </div>
       </div>
@@ -62,10 +66,10 @@
         </router-link>
 
         <Login />
-      </div>
+     
     </div>
 
-
+<!-- -----------------FOR MOBILE VIEW------------------------- -->
     <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -195,6 +199,16 @@ article {
   animation:  spinMeRightRound 3.2s infinite;
 }
 
+.dropdown-content{
+z-index: 9999;
+}
+.dropdown{
+  
+float:right;
+}
+.dropdown-menu{
+  z-index: 9999;
+}
 
 
 </style>

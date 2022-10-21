@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import { computed } from "@vue/reactivity";
-import { AppState } from "../../AppState.js";
+import { computed } from '@vue/reactivity';
+import { AppState } from '../../AppState.js';
 
 export default {
   setup() {
@@ -72,8 +72,13 @@ export default {
 }
 @media screen and (max-width: 576px) {
   .card {
+    overflow: scroll;
     .card-title {
       font-size: 25pt;
+    }
+
+    .card-text {
+      text-overflow: ellipsis;
     }
   }
 }

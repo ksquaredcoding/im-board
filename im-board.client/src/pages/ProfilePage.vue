@@ -61,12 +61,12 @@
         </div>
       </div> -->
 
-      <div class="col-md mx-3 bg-grey">
-        <div class="bg-c3">
-          <div class="d-flex justify-content-center pt-2">
+      <div class="col-md mx-md-3 bg-grey rounded">
+      
+          <div class="d-flex justify-content-center pt-2 bg-c3 rounded">
             <h2 class="font">Game Lists</h2>
           </div>
-        </div>
+
         <div class="row justify-content-center">
           <b class="mb-2 mt-2 d-flex justify-content-center">
             <div class="ms-3">
