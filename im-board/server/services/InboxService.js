@@ -12,6 +12,7 @@ class InboxService {
       throw new BadRequest("no invite");
     }
     let accountInbox = await dbContext.Account.findById(body.toAccountId);
+    // @ts-ignore
     accountInbox.inbox.push(invite);
     await accountInbox.save();
     return invite;
