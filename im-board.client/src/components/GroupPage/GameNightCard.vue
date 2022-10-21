@@ -2,7 +2,8 @@
   <div class="GameNightCard bg-dark card my-2 elevation-3">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-        <i class="mdi mdi-close text-danger selectable" @click="removeGameNight()" v-if="gamenight.creatorId"></i>
+        <i class="mdi mdi-close text-danger selectable" @click="removeGameNight()"
+          v-if="gamenight.creatorId || group.creatorId"></i>
         <div class="d-flex justify-content-center mt-2 text-center">
           <h2>Upcoming Gamenight</h2>
         </div>
@@ -86,12 +87,14 @@ import { computed } from "@vue/reactivity";
 import { next } from "dom7";
 import { AppState } from "../../AppState.js";
 import { GameNight } from "../../models/GroupsAndGameNight/GameNight.js";
+import { Group } from "../../models/GroupsAndGameNight/Group.js";
 import { gameNightsService } from "../../services/GameNightsService.js";
 import Pop from "../../utils/Pop.js";
 
 export default {
   props: {
     gamenight: { type: GameNight, required: true },
+    group: { type: Group, required: true }
   },
 
   setup(props) {
