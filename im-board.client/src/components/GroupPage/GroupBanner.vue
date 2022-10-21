@@ -59,7 +59,7 @@ import { ref } from "vue";
 import { AppState } from "../../AppState.js";
 import { Account } from "../../models/Account.js";
 import { ActiveGroup } from "../../models/GroupsAndGameNight/ActiveGroup.js";
-import { GroupMemberShip } from "../../models/GroupsAndGameNight/GroupMembership.js";
+// import { GroupMemberShip } from "../../models/GroupsAndGameNight/GroupMembership.js";
 import { groupMembersService } from "../../services/GroupMembersService.js";
 import { groupsService } from "../../services/GroupsService.js";
 import Pop from "../../utils/Pop.js";

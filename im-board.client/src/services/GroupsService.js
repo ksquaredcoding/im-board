@@ -51,6 +51,9 @@ class GroupsService {
     // console.log("members", AppState.groupMembers);
   }
 
-  async inviteMember(memberData) { }
+  async inviteMember(memberData) { 
+    const res = await api.post('api/inbox' ,memberData)
+    console.log(res.data);
+  }
 }
 export const groupsService = new GroupsService();

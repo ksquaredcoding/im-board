@@ -19,7 +19,7 @@ class InboxService {
     return invite;
   }
   async sendInvite(body) {
-    debugger;
+    // debugger;
     if (body.creatorId == body.toAccountId) {
       throw new Forbidden("why are you inviting yourself");
     }

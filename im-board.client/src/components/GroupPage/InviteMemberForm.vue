@@ -60,6 +60,7 @@ import { ref } from "vue";
 import Pop from "../../utils/Pop.js";
 import { AppState } from "../../AppState.js";
 import { useRoute } from "vue-router";
+import { groupsService } from "../../services/GroupsService.js";
 // import { group } from "console";
 export default {
   setup() {
@@ -77,7 +78,7 @@ export default {
           let id = route.params.id;
           editable.value.groupId = id;
           console.log(editable.value);
-          // await groupsService.inviteMember(editable.value);
+          await groupsService.inviteMember(editable.value);
           editable.value = {};
         } catch (error) {
           Pop.error(error, "[handleSubmit(inviteMember)]");
