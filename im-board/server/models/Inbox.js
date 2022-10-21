@@ -7,7 +7,7 @@ export const InboxSchema = new Schema(
     groupId: { type: ObjectId, ref: "Group", required: true },
     creatorId: { type: ObjectId, ref: "Account", required: true },
     toAccountId: { type: ObjectId, ref: "Account", required: true },
-    invitation: { type: String, required: true, minlength: 1, maxlength: 500 },
+    description: { type: String, required: true, minlength: 1, maxlength: 500 },
   },
   SCHEMA_OPTIONS
 );

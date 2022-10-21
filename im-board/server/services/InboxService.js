@@ -1,22 +1,25 @@
+// @ts-nocheck
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 class InboxService {
   async deleteInvite(accountId, id) {
-    const invite = await dbContext.Inbox.find({ id });
+    // debugger;
+    const invite = await dbContext.Inbox.findById(id);
     // @ts-ignore
     const account = await dbContext.Account.findById(accountId);
-    if (invite.toAccountId !== account.id) {
+    if (invite.toAccountId.toString() !== account.id) {
       throw new BadRequest("not your invite");
     }
     await invite.remove();
 
-    await account.inbox.find((p) => p.id.toString() == id).remove();
+    let hello = await account.inbox.findIndex((p) => p.id == id);
+    account.inbox.splice(hello, 1);
     await account.save();
     return invite;
   }
   async sendInvite(body) {
-    debugger
+    debugger;
     if (body.creatorId == body.toAccountId) {
       throw new Forbidden("why are you inviting yourself");
     }
