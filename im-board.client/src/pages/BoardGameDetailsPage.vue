@@ -30,24 +30,29 @@
           <div class="col-md-6">
             <div class="d-flex flex-wrap text-wrap">
               <b>Categories:</b>
-              <!-- <p class="ms-2">{{ boardGame?.categories.map(b => b.name.name) }}</p> -->
               <p class="ms-2">{{ categories.toString() }}</p>
             </div>
+
+
+
             <div class="d-flex flex-wrap text-wrap">
-              <b>Mechanics:</b>
-              <!-- <p class="ms-2">{{ boardGame?.categories.map(b => b.name.name) }}</p> -->
-              <p class="ms-2">{{ mechanics.toString() }}</p>
+              <div class="dropdown">
+              <b class="dropbtn">Mechanics:</b>
+              <p class="ms-2 dropdown-content">{{ mechanics.toString() }}</p>
+              <b><i class="bi bi-search fs-5 ps-2 text-c5"></i></b> 
+            </div>
             </div>
 
-            <div class="d-flex">
-              <b>Ages:</b>
-              <p class="ms-2">{{ boardGame?.min_age }}+</p>
-            </div>
+<!-- 
+<div >
+<button class="">Mechanics:</button>
+<div class="">
+{{ mechanics.toString() }}
+</div>
+</div> -->
 
-            <div class="d-flex">
-              <b>Publisher:</b>
-              <p class="ms-2">{{ boardGame?.primary_publisher }}</p>
-            </div>
+
+            
           </div>
           <div class="col-md-6">
             <div v-if="boardGame?.average_user_rating > 0">
@@ -57,12 +62,12 @@
                 <p class="ms-2">
                   {{ boardGame?.average_user_rating.toFixed(2) }} <b>/</b> 5
                 </p>
-                <div
+                <!-- <div
                   class="d-flex"
                   v-for="i in Math.round(boardGame?.average_user_rating)"
                 >
-                  <i class="mdi mdi-star text-warning list-group-item"></i>
-                </div>
+                  <i class="mdi mdi-star text-c7 list-group-item"></i>
+                </div> -->
               </div>
             </div>
 
@@ -75,7 +80,10 @@
                 </p>
               </div>
             </div>
-
+              <div class="d-flex">
+              <b>Ages:</b>
+              <p class="ms-2">{{ boardGame?.min_age }}+</p>
+            </div>
             <div class="d-flex" v-if="boardGame?.rank < 100">
               <b>Ranking:</b>
               <p class="ms-2">#{{ boardGame?.rank }}</p>
@@ -409,4 +417,57 @@ p {
   // letter-spacing: .06em;
   max-height: 40vh;
 }
+
+
+
+
+
+/* Dropdown Button */
+// .dropbtn {
+//   background-color: #04AA6D;
+//   color: white;
+//   padding: 16px;
+//   font-size: 16px;
+//   border: none;
+// }
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 300px;
+  padding-left: 10%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+// .dropdown:hover .dropbtn {
+//   background-color: #3e8e41;
+// }
 </style>
