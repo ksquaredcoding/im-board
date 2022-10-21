@@ -8,7 +8,20 @@ export class InboxController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getInbox)
-      .post("", this.sendInvite);
+      .post("", this.sendInvite)
+      .delete("':inboxId", this.deleteInvite);
+  }
+
+  async deleteInvite(req, res, next) {
+    try {
+      const invite = await inboxService.deleteInvite(
+        req.userInfo.id,
+        req.params.inboxId
+      );
+      res.send(invite);
+    } catch (error) {
+      next(error);
+    }
   }
   async getInbox(req, res, next) {
     try {
