@@ -70,7 +70,8 @@ import { groupChatsService } from '../services/GroupChatsService.js';
 import Chat from '../components/GroupPage/Chat.vue';
 import { gameNightsService } from '../services/GameNightsService.js';
 import GameNightForm from '../components/GroupPage/GameNightForm.vue';
-import { GroupHandler } from '../assets/handlers/GroupHandler.js';
+import { GroupHandler } from "../handlers/GroupHandler.js";
+
 export default {
   setup() {
     const route = useRoute();
