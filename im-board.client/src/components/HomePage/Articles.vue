@@ -60,9 +60,10 @@ export default {
 }
 
 .forcedImg {
-  height: 170px;
+  height: 300px;
   width: auto;
   object-fit: cover;
+  transition: all 0.5s ease;
 }
 
 .card {
@@ -77,5 +78,8 @@ export default {
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   transition: all 0.5s ease;
+
+
+
 }
 </style>
