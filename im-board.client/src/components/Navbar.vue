@@ -110,9 +110,16 @@ import Login from './Login.vue';
 import GroupForm from "./GroupPage/GroupForm.vue";
 import Searchbar from "./SearchPage/Searchbar.vue";
 import { onMounted } from "vue";
+import Pop from "../utils/Pop.js";
+import { accountService } from "../services/AccountService.js";
 export default {
   setup() {
     async function getInvites(){
+      try {
+          await accountService.getInvites()
+        } catch (error) {
+          Pop.error(error)
+        }
 
 
     }
