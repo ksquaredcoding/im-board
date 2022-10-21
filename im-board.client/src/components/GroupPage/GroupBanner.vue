@@ -26,7 +26,7 @@
         </button>
       </div>
       <div v-if="groupOwner">
-        <button @click="inviteMember()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
+        <button  class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
           data-bs-target="#inviteMemberForm">
           Invite Member
         </button>
