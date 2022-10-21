@@ -23,7 +23,7 @@
 
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center hover">
-          <img alt="logo" src="src\assets\img\logonotext.png" height="45" id="gameLogo" class="bg-grey rounded-4  p-1" />
+          <img alt="logo" src="src\assets\img\logonotext.png" height="45" id="gameLogo" class="bg-grey rounded-4  p-1 " />
           <p class=" mb-0 mx-2 navbar-title justify-content-center">
           <article class="">I'm Game!</article>
           </p>
@@ -31,17 +31,31 @@
       </router-link>
     </div>
 
-    <div class="col-md d-flex flex-row-reverse">
+    <div class="col-md d-flex flex-row">
+      <div>
+        <div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="me-3" >
+       <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50" class="me-3 heart animate__animated animate_fadeIn">
+    
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+      </div>
       <div class="pe-3 d-flex d-none d-md-block">
 
      
 
         <!-- NOTE notification icon here -->
      
+     
+       
+  
       
-       <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="me-3" >
-       <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50" class="me-3 heart animate__animated animate_fadeIn">
-    
 
         <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
@@ -161,5 +175,26 @@ article {
 .heart {
   animation: animateHeart 1.2s infinite;
 }
+
+@keyframes spinMeRightRound{
+  0%{
+    transform: rotate(90deg);
+  }
+  25%{
+    transform: rotate(180deg);
+  }
+  50%{
+    transform: rotate(270);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.spinMeRightRound{
+  animation:  spinMeRightRound 3.2s infinite;
+}
+
+
 
 </style>
