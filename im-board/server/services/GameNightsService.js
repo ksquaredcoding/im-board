@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
+import { autoPopulate } from "../utils/MongooseHelper.js";
 import { groupMembersService } from "./GroupMembersService.js";
 import { groupsService } from "./GroupsService.js";
 import { profileService } from "./ProfileService.js";
@@ -82,7 +83,11 @@ class GameNightsService {
     return newGameNight;
   }
   async getGameNightsByGroupId(groupId) {
-    const gameNights = await dbContext.GameNights.find({ groupId });
+    const gameNights = await dbContext.GameNights.find({ groupId }).populate('group', 'creatorId')
+    // .populate({
+    //   path: "group",
+    //   populate: { path: "creator", select: "name picture" },
+    // });
     // TODO populate on anything???
     return gameNights;
   }
