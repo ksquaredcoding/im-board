@@ -1,28 +1,20 @@
 <template>
-  <div class="GameNightCard bg-dark card my-2 elevation-3">
+  <div class="GameNightCard bg-dark card my-2 elevation-3 position-relative">
     <div class="row justify-content-center">
-      <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-        
+      <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight ">
+
         <div class="d-flex justify-content-center mt-2 text-center">
           <h2>Upcoming Gamenight</h2><i title="Remove Game Night"
-          class="mdi mdi-close text-danger fs-4 selectable"
-          @click="removeGameNight()"
-          v-if="gameNightCreator || groupOwner"
-        ></i>
+            class="mdi mdi-close text-danger fs-4 selectable position-absolute rounded x" @click="removeGameNight()"
+            v-if="gameNightCreator || groupOwner"></i>
         </div>
         <div class="d-flex justify-content-center mb-2">
-          <button
-            class="btn button-51 animate__animated animate__fadeIn"
-            @click="attendGamenight(gamenight?.id)"
-            v-if="!attending"
-          >
+          <button class="btn button-51 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+            v-if="!attending">
             I'm Attending <i class="bi bi-person-plus-fill"></i>
           </button>
-          <button
-            class="btn button-51 animate__animated animate__fadeIn"
-            @click="attendGamenight(gamenight?.id)"
-            v-else
-          >
+          <button class="btn button-51 animate__animated animate__fadeIn" @click="attendGamenight(gamenight?.id)"
+            v-else>
             Unattend <i class="bi bi-person-dash-fill"></i>
           </button>
         </div>
@@ -30,21 +22,21 @@
           <span>
             <p>
               {{
-                new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-                  month: "short",
-                  day: "2-digit",
-                  year: "numeric",
-                })
+              new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+              month: "short",
+              day: "2-digit",
+              year: "numeric",
+              })
               }}
             </p>
           </span>
           <span class="mx-4">
             <p>
               {{
-                new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
+              new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+              hour: "2-digit",
+              minute: "2-digit",
+              })
               }}
             </p>
           </span>
@@ -58,28 +50,13 @@
           <div class="bg-c4 text-center rounded-top">
             <h5 class="mt-1">Attending:</h5>
           </div>
-          <div
-            class="p-2 bg-c2 text-center rounded-bottom"
-            v-if="gamenight?.groupMemberIds"
-          >
-            <TransitionGroup
-              name="custom-classes"
-              enterActiveClass="animate__zoomIn animate__animated"
-              leaveActiveClass="animate__zoomOut animate__animated"
-            >
-              <router-link
-                :to="{ name: 'Profile', params: { id: g?.id } }"
-                v-for="g in gamenight?.groupMemberIds"
-                :key="g.id"
-              >
-                <img
-                  :src="g?.picture"
-                  :alt="g?.name"
-                  :title="g?.name"
-                  height="45"
-                  width="45"
-                  class="rounded-circle box-shadow m-1 profile-img"
-                />
+          <div class="p-2 bg-c2 text-center rounded-bottom" v-if="gamenight?.groupMemberIds">
+            <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
+              leaveActiveClass="animate__zoomOut animate__animated">
+              <router-link :to="{ name: 'Profile', params: { id: g?.id } }" v-for="g in gamenight?.groupMemberIds"
+                :key="g.id">
+                <img :src="g?.picture" :alt="g?.name" :title="g?.name" height="45" width="45"
+                  class="rounded-circle box-shadow m-1 profile-img" />
               </router-link>
             </TransitionGroup>
 
@@ -126,10 +103,10 @@ export default {
     return {
       gameNightCreator: computed(
         () =>
-          props.gamenight.creatorId == AppState.account.id 
+          props.gamenight.creatorId == AppState.account.id
       ),
-      groupOwner:computed(() =>  
-          props.gamenight.groupCreator == AppState.account.id),
+      groupOwner: computed(() =>
+        props.gamenight.groupCreator == AppState.account.id),
 
       attending: computed(() =>
         props.gamenight.groupMemberIds.find((g) => g.id == AppState.account.id)
@@ -197,6 +174,11 @@ export default {
   background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F448%2F448821.jpg&f=1&nofb=1&ipt=c82f7488813551ce7475226bda34e557ed75955562a742824dae6d417ad79a5e&ipo=images);
   background-position: center;
   background-size: cover;
+}
+
+.x {
+  transform: translateX(15rem);
+  background-color: rgba(245, 245, 245, 0.538);
 }
 
 .text-shadow {
