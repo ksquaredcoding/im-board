@@ -37,7 +37,7 @@ class AccountService {
   }
   async getInvites() {
     const res = await api.get("/api/inbox");
-    console.log(res.data);
+    console.log(res.data, 'hello');
   }
 }
 

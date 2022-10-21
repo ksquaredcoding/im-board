@@ -109,7 +109,7 @@ import { AuthService } from "../services/AuthService.js";
 import Login from './Login.vue';
 import GroupForm from "./GroupPage/GroupForm.vue";
 import Searchbar from "./SearchPage/Searchbar.vue";
-import { onMounted } from "vue";
+import { onMounted, watchEffect } from "vue";
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
 export default {
@@ -123,7 +123,8 @@ export default {
 
 
     }
-    onMounted(() => {
+    watchEffect(() => {
+      AppState.account
       getInvites()
     })
     return {
