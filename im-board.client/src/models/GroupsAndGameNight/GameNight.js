@@ -4,7 +4,7 @@ export class GameNight {
   constructor(data) {
     this.id = data.id;
     this.groupId = data.groupId;
-    this.groupCreator = data.group.creatorId;
+    // this.groupCreator = data.group.creatorId;
     this.game = data.game;
     this.groupMemberIds = data.groupMemberIdsAttending
       .flat()
