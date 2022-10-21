@@ -1,8 +1,8 @@
 <template>
-  <header class="bg-dark">
+  <header class="bg-dark" style="z-index: 10;">
     <Navbar class="animate__animated animate__fadeInDown d-none d-md-flex" />
   </header>
-  <main>
+  <main style="z-index: 9;">
     <router-view />
   </main>
   <footer class="p-2 bg-dark mt-1">
