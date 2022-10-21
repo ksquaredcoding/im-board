@@ -3,6 +3,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 class InboxService {
   async sendInvite(body) {
+    debugger
     if (body.creatorId == body.toAccountId) {
       throw new Forbidden("why are you inviting yourself");
     }
@@ -10,7 +11,7 @@ class InboxService {
     if (!invite) {
       throw new BadRequest("no invite");
     }
-    let accountInbox = await dbContext.Account.find({ id: body.toAccountId });
+    let accountInbox = await dbContext.Account.findById(body.toAccountId);
     accountInbox.inbox.push(invite);
     await accountInbox.save();
     return invite;
