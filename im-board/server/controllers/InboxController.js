@@ -9,7 +9,7 @@ export class InboxController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getInbox)
       .post("", this.sendInvite)
-      .delete("':inboxId", this.deleteInvite);
+      .delete("/:inboxId", this.deleteInvite);
   }
 
   async deleteInvite(req, res, next) {
