@@ -1,8 +1,8 @@
 <template>
   <div class="component">
-    <input type="text width" :value="account?.id" />
+    <input type="text width" :value="account?.id" @focus="$event.target.select()" />
     <!-- <label for="" class="border">{{ account?.id }}</label> -->
-    <button class="btn btn-51">your Link</button>
+    <button class="btn button-51">your Link</button>
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.width{
+.width {
   min-width: 5rem;
-}</style>
+}
+</style>
