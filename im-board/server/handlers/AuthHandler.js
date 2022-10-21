@@ -31,7 +31,10 @@ export class AuthHandler extends SocketHandler {
       attachHandlers(this.io, this.socket, user, limitedProfile);
       this.socket.emit('authenticated', limitedProfile);
       this.io.emit('userConnected', limitedProfile);
-    
+      await dbContext.GroupMembers.updateMany(
+        { accountId: this.profile.id },
+        { isOnline: true }
+      );
     } catch (e) {
       this.socket.emit('error', e);
     }
@@ -40,7 +43,10 @@ export class AuthHandler extends SocketHandler {
   async onDisconnect() {
     try {
       this.io.emit('userDisconnected', this.profile);
-    
+      await dbContext.GroupMembers.updateMany(
+        { accountId: this.profile.id },
+        { isOnline: false }
+      );
     } catch (error) {
       logger.error('ON DISCONNECT VIA SOCKETS', error);
     }

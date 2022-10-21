@@ -1,14 +1,25 @@
-import Pop from "../utils/Pop";
-import { SocketHandler } from "../utils/SocketHandler.js";
+import { AppState } from '../AppState.js';
+import Pop from '../utils/Pop';
+import { SocketHandler } from '../utils/SocketHandler';
 
 class SocketService extends SocketHandler {
   constructor() {
     super(true);
-    this.on("error", this.onError);
+    this.on('error', this.onError).on('MESSAGE_ADDED', this.addMessage);
   }
 
   onError(e) {
-    Pop.toast(e.message, "error");
+    Pop.toast(e.message, 'error');
+  }
+
+  addMessage(message) {
+    addOrSkip(AppState.groupChats, message);
+  }
+}
+function addOrSkip(arr, item) {
+  let found = arr.find((i) => i.id == item.id);
+  if (!found) {
+    arr.push(item);
   }
 }
 
