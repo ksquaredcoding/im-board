@@ -5,7 +5,7 @@
         <i
           class="mdi mdi-close text-danger selectable"
           @click="removeGameNight()"
-          v-if="gameNightCreator"
+          v-if="gameNightCreator || groupOwner"
         ></i>
         <div class="d-flex justify-content-center mt-2 text-center">
           <h2>Upcoming Gamenight</h2>
@@ -126,10 +126,10 @@ export default {
     return {
       gameNightCreator: computed(
         () =>
-          props.gamenight.creatorId == AppState.account.id ||
-          props.gamenight.groupCreator == AppState.account.id
+          props.gamenight.creatorId == AppState.account.id 
       ),
-      // groupOWner:computed(() =>  props.gamenight.groupId),
+      groupOwner:computed(() =>  
+          props.gamenight.groupCreator == AppState.account.id),
 
       attending: computed(() =>
         props.gamenight.groupMemberIds.find((g) => g.id == AppState.account.id)

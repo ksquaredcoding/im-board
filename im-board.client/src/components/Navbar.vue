@@ -34,15 +34,14 @@
     <div class="col-md d-flex flex-row-reverse">
       <div class="pe-3 d-flex d-none d-md-block">
 
-        <!-- <router-link :to="{name: 'Profile', params:{id: user.id}}" v-if="user.isAuthenticated">
-          <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Profile</a>
-        </router-link> -->
+     
 
         <!-- NOTE notification icon here -->
-        <!-- <div>
-          <i class="bi bi-bell-fill selectable text-warning" v-if="account.inbox"></i>
-          <i class="bi bi-bell-fill selectable"></i>
-        </div> -->
+     
+      
+       <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="me-3" >
+       <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50" class="me-3 heart animate__animated animate_fadeIn">
+    
 
         <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
           <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
@@ -51,11 +50,6 @@
         <Login />
       </div>
     </div>
-
-    <!-- <div class="col-12 d-flex justify-content-between g-2 d-md-none">
-      <i class="mdi mdi-magnify fs-1" alt="search" title="search"></i>
-      <i class="mdi mdi-account-circle fs-1" alt="search" title="search"></i>
-    </div> -->
 
 
     <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -143,4 +137,29 @@ article {
   font-weight: bolder;
   font-family: 'Baloo 2', cursive;
 }
+
+@keyframes animateHeart {
+  0% {
+    transform: scale(0.8);
+  }
+  5% {
+    transform: scale(0.8);
+  }
+  10% {
+    transform: scale(0.85);
+  }
+  15% {
+    transform: scale(0.85);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+.heart {
+  animation: animateHeart 1.2s infinite;
+}
+
 </style>
