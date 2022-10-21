@@ -6,10 +6,11 @@
     <div class="row justify-content-end g-md-0">
       <div class="col-md-12 border-secondary border-3 rounded-bottom">
         <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
-          <h3 class="searchText pt-3 text-dark">Search for board games</h3>
+          <h3 class="searchText pt-3 text-dark">Search for board games by name</h3>
           <p class="col-md-4">
             <Searchbar />
           </p>
+      <h5 class="text-dark"> Or search by..</h5>
         </div>
       </div>
 
