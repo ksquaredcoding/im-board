@@ -39,12 +39,14 @@
         <span class="name">{{ group?.name }}</span>
 
         <div>
-          <span><small class="text-shadow">Members</small></span>
+          <span><small class="text-shadow">Members    </small></span>
           <div
             class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
+       
             <router-link :to="{ name: 'Profile', params: { id: g.accountId } }" v-for="g in groupMember" :key="g.id">
               <img :src="g.profile?.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
-                class="rounded-circle box-shadow m-1 profile-img" />
+                class="rounded-circle box-shadow m-1 profile-img" :class="g.isOnline? 'glow' : ''" />
+                {{g.isOnline}}
             </router-link>
           </div>
         </div>
@@ -174,5 +176,10 @@ export default {
 
 * {
   font-family: "Baloo 2", cursive;
+}
+
+.glow {
+  filter: drop-shadow(0 0 4px rgb(255, 0, 0)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
+  color: rgb(242, 242, 171);
 }
 </style>

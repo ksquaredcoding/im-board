@@ -17,6 +17,7 @@ enterGroup(groupId){
 }
 
 leaveGroup(groupId){
+  
   this.socket.leave(groupId)
 }
 }

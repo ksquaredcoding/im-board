@@ -70,6 +70,7 @@ export class SocketHandler {
   }
 
   emit(action, payload = undefined) {
+
     if (this.requiresAuth && !this.authenticated) {
       return this.enqueue(action, payload);
     }

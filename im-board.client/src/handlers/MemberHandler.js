@@ -1,5 +1,6 @@
 import { AppState } from '../AppState.js';
 import { socketService } from '../services/SocketService.js';
+import { logger } from "../utils/Logger.js";
 import Pop from '../utils/Pop.js';
 
 function toggleMemberOffline(member) {
@@ -16,6 +17,7 @@ function toggleMemberOnline(member) {
 
 class MemberHandler {
   constructor() {
+    logger.log('Created a member handler')
     socketService
       .on('userDisconnected', toggleMemberOffline)
       .on('userConnected', toggleMemberOnline);
