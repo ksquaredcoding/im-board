@@ -32,6 +32,7 @@
         </h1>
       </div>
       <div class="col-md d-flex justify-content-end">
+        <InviteLink :account="account"/>
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner">
           <i
             class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1"
@@ -53,7 +54,7 @@
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
       <div class="col-md-3 ms-md-3 bg-grey rounded">
         <div class="bg-c3 rounded">
-          <div class="col-md d-flex justify-content-center pt-2 ">
+          <div class="col-md d-flex justify-content-center pt-2">
             <h2 class="font">Groups</h2>
             <div>
               <i
@@ -140,9 +141,11 @@ import GroupForm from "../components/GroupPage/GroupForm.vue";
 import ListCard from "../components/AccountProfilePage/ListCard.vue";
 import GroupGamesCard from "../components/GroupPage/GroupGamesCard.vue";
 import EditBanner from "../components/AccountProfilePage/EditAccountModal.vue";
-import { Account } from "../models/Account.js";
+
 import EditName from "../components/AccountProfilePage/EditName.vue";
 import EditPic from "../components/AccountProfilePage/EditPic.vue";
+import InviteLink from "../components/socketStuff/InviteLink.vue";
+
 export default {
   setup() {
     const filterBg = ref("favorite");
@@ -201,7 +204,8 @@ export default {
     EditBanner,
     EditName,
     EditPic,
-  },
+    InviteLink
+},
 };
 </script>
 
@@ -305,11 +309,9 @@ export default {
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-
 @media (max-width: 576px) {
   .username {
     font-size: 2rem;
   }
 }
-
 </style>
