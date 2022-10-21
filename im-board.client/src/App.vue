@@ -17,6 +17,7 @@
   <GoogleMapModal />
   <FAQModal />
   <GameNightForm />
+  <InviteMemberForm />
 </template>
 
 <script>
@@ -35,6 +36,7 @@ import FAQModal from "./components/FAQModal.vue";
 import GameNightForm from "./components/GroupPage/GameNightForm.vue";
 import GroupForm from "./components/GroupPage/GroupForm.vue";
 import EditGroupForm from "./components/GroupPage/EditGroupForm.vue";
+import InviteMemberForm from "./components/GroupPage/InviteMemberForm.vue";
 
 export default {
   setup() {
@@ -55,7 +57,8 @@ export default {
     FAQModal,
     GameNightForm,
     GroupForm,
-    EditGroupForm
+    EditGroupForm,
+    InviteMemberForm
   },
 };
 </script>

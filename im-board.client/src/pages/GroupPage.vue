@@ -118,7 +118,7 @@ export default {
 
     onMounted(() => {
 
-    
+
       getGroupById();
       getGroupMembersByGroupId();
       getListsByGroupId();
@@ -130,7 +130,7 @@ export default {
 
 
     onBeforeRouteLeave(() => {
-    
+
       GroupHandler.LeaveGroup(route.params.id);
     });
     // ANCHOR this essentially works as an observer.. think 'AppState.on'
