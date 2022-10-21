@@ -17,7 +17,9 @@
           track of games in their own collection, collaborate with friends, and
           much more!<br /><br />
 
-          New to the app? Click here for instructions on how to navigate your
+          New to the app? Click <router-link :to="{name: 'Faq'}" >
+              <a name="" id="" class="text-c6" href="#" role="button">here</a>
+            </router-link> for instructions on how to navigate your
           experience!
         </p>
       </div>
