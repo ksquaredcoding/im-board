@@ -1,4 +1,4 @@
-import { socketService } from '../../services/SocketService.js';
+import { socketService } from '../services/SocketService.js';
 
 export class GroupHandler {
   static EnterGroup(groupId) {

@@ -1,6 +1,6 @@
-import { AppState } from '../../AppState.js';
-import { socketService } from '../../services/SocketService.js';
-import Pop from '../../utils/Pop.js';
+import { AppState } from '../AppState.js';
+import { socketService } from '../services/SocketService.js';
+import Pop from '../utils/Pop.js';
 
 function toggleMemberOffline(member) {
   const active = AppState.groupMembers.find((m) => m.accountId == member.id);
