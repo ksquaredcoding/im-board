@@ -2,8 +2,7 @@
   <div class="GameNightCard bg-dark card my-2 elevation-3">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight">
-        <i class="mdi mdi-close text-danger selectable" @click="removeGameNight()"
-           ></i>
+        <i class="mdi mdi-close text-danger selectable" @click="removeGameNight()" v-if="groupOwner"></i>
         <div class="d-flex justify-content-center mt-2 text-center">
           <h2>Upcoming Gamenight</h2>
         </div>
@@ -99,6 +98,8 @@ export default {
 
   setup(props) {
     return {
+      groupOwner: computed(() => props.group.creatorId == AppState.account.id && props.gamenight.creatorId == AppState.account.id),
+
       attending: computed(() =>
         props.gamenight.groupMemberIds.find((g) => g.id == AppState.account.id)
       ),
