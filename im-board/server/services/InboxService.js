@@ -2,6 +2,19 @@ import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 class InboxService {
+  async deleteInvite(accountId, id) {
+    const invite = await dbContext.Inbox.find({ id });
+    // @ts-ignore
+    const account = await dbContext.Account.findById(accountId);
+    if (invite.toAccountId !== account.id) {
+      throw new BadRequest("not your invite");
+    }
+    await invite.remove();
+
+    await account.inbox.find((p) => p.id.toString() == id).remove();
+    await account.save();
+    return invite;
+  }
   async sendInvite(body) {
     debugger
     if (body.creatorId == body.toAccountId) {
@@ -26,6 +39,7 @@ class InboxService {
     }
     return box;
   }
+
   //
 }
 export const inboxService = new InboxService();
