@@ -74,7 +74,7 @@
 
       <div class="col-md mx-md-3 mt-3 mt-md-0 rounded bg-grey">
      
-          <div class="col-md d-flex justify-content-center pt-2  roundedbg-c3">
+          <div class="col-md d-flex justify-content-center pt-2  rounded bg-c3">
             <h2 class="font">Game Lists</h2>
           </div>
      
