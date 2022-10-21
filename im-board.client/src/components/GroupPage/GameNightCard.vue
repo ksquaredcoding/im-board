@@ -95,7 +95,7 @@
           </div>
           <div class="gameImg p-2 rounded-bottom">
             <div class="d-flex justify-content-center">
-              <div class="col-md-5 bg-c2 rounded-1 fs-5 text-center px-3 py-1 my-1">
+              <div class="col-md- bg-c2 rounded-1 fs-5 text-center px-3 py-1 my-1">
                 <b class="namefont">{{ gamenight?.game }}</b>
               </div>
             </div>
