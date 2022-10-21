@@ -1,5 +1,5 @@
 import express from 'express';
-import { socketProvider } from './SocketProvider';
+import { socketProvider } from './SocketProvider.js';
 import { Startup } from './Startup';
 import { DbConnection } from './db/DbConfig';
 import { logger } from './utils/Logger';

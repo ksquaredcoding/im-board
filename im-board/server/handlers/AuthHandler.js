@@ -1,9 +1,9 @@
 import { Auth0Provider } from '@bcwdev/auth0provider';
 import { attachHandlers } from '../../Setup';
 import { dbContext } from '../db/DbContext.js';
-import { accountService } from '../services/AccountService';
+import { accountService } from '../services/AccountService.js';
 import { logger } from '../utils/Logger.js';
-import { SocketHandler } from '../utils/SocketHandler';
+import { SocketHandler } from '../utils/SocketHandler.js';
 
 export class AuthHandler extends SocketHandler {
   /**

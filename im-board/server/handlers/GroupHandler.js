@@ -1,4 +1,4 @@
-import { SocketHandler } from '../utils/SocketHandler';
+import { SocketHandler } from '../utils/SocketHandler.js';
 
 export class GroupHandler extends SocketHandler {
   /**
