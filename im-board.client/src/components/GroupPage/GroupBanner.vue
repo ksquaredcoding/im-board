@@ -21,10 +21,11 @@
       <!-- EDIT -->
       <div v-if="groupOwner">
         <button @click="editGroup()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
-          data-bs-target="#groupForm">
+          data-bs-target="#editForm">
           Edit group
         </button>
-        <GroupForm />
+
+
       </div>
       <!-- <div v-if="groupOwner">
         <button @click="inviteMember()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
@@ -39,14 +40,14 @@
         <span class="name">{{ group?.name }}</span>
 
         <div>
-          <span><small class="text-shadow">Members    </small></span>
+          <span><small class="text-shadow">Members </small></span>
           <div
             class="d-flex justify-content-center align-items-center bg-c1 p-2 rounded-5 mb-2 groupMemberBar flex-wrap">
-       
+
             <router-link :to="{ name: 'Profile', params: { id: g.accountId } }" v-for="g in groupMember" :key="g.id">
               <img :src="g.profile?.picture" :alt="g.profile.name" :title="g.profile.name" height="45" width="45"
-                class="rounded-circle box-shadow m-1 profile-img"  />
-                {{g.isOnline}}
+                class="rounded-circle box-shadow m-1 profile-img" />
+              {{g.isOnline}}
             </router-link>
           </div>
         </div>
@@ -65,7 +66,8 @@ import { GroupMemberShip } from "../../models/GroupsAndGameNight/GroupMembership
 import { groupMembersService } from "../../services/GroupMembersService.js";
 import { groupsService } from "../../services/GroupsService.js";
 import Pop from "../../utils/Pop.js";
-import GroupForm from "./GroupForm.vue";
+
+
 
 export default {
   props: {
@@ -139,7 +141,7 @@ export default {
       },
     };
   },
-  components: { GroupForm },
+
 };
 </script>
 <style lang="scss" scoped>

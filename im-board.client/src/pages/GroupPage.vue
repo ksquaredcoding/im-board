@@ -2,10 +2,7 @@
   <div v-if="!group" class="animate__animated animate__fadeOut">
     loading....
   </div>
-  <div
-    class="group-page animate__animated animate__fadeInRight container-fluid"
-    v-else
-  >
+  <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
     <div class="row justify-content-center">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <!-- ----------------Group CHAT -->
@@ -16,10 +13,7 @@
           <h4>Group Chat</h4>
         </div>
 
-        <div
-          class="overflow-auto groupchatbox bg-dark lighten-10 rounded"
-          id="chatbox"
-        >
+        <div class="overflow-auto groupchatbox bg-dark lighten-10 rounded" id="chatbox">
           <div class="col-md-12" v-for="c in chats" :key="c.id">
             <Chat :chat="c" />
           </div>
@@ -58,7 +52,7 @@ import GroupGamesCard from '../components/GroupPage/GroupGamesCard.vue';
 import Pop from '../utils/Pop.js';
 import { groupsService } from '../services/GroupsService.js';
 import { onMounted, watchEffect } from 'vue';
-import GroupForm from '../components/GroupPage/GroupForm.vue';
+
 
 import { AppState } from '../AppState.js';
 
@@ -165,7 +159,6 @@ export default {
     GameNightCard,
     GroupChatInput,
     GroupGamesCard,
-    GroupForm,
     Chat,
     GameNightForm,
   },
@@ -179,6 +172,7 @@ export default {
 .bricks {
   columns: 2;
 }
+
 // 
 
 .groupchatbox {

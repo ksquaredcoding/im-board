@@ -9,7 +9,8 @@
     <Navbar class="animate__animated animate__fadeInDown d-md-none" />
     <Footer />
   </footer>
- <GroupForm/>
+  <GroupForm />
+  <EditGroupForm />
   <EditBanner />
   <EditName />
   <EditPic />
@@ -33,6 +34,7 @@ import GoogleMapModal from "./components/GoogleMapModal.vue";
 import FAQModal from "./components/FAQModal.vue";
 import GameNightForm from "./components/GroupPage/GameNightForm.vue";
 import GroupForm from "./components/GroupPage/GroupForm.vue";
+import EditGroupForm from "./components/GroupPage/EditGroupForm.vue";
 
 export default {
   setup() {
@@ -52,8 +54,9 @@ export default {
     GoogleMapModal,
     FAQModal,
     GameNightForm,
-    GroupForm
-},
+    GroupForm,
+    EditGroupForm
+  },
 };
 </script>
 <style lang="scss">
