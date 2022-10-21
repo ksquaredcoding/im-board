@@ -1,5 +1,5 @@
 <template>
-  <div class="GameNightCard bg-dark card my-2 elevation-3 position-relative">
+  <div class="GameNightCard  card my-2 elevation-3 position-relative" :class="getRandomBg()">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight ">
 
@@ -100,6 +100,17 @@ export default {
   },
 
   setup(props) {
+
+    const bgs = [
+      'bg-c1',
+      'bg-c3',
+      'bg-c5',
+      'bg-c6',
+      'bg-c7',
+      'bg-info',
+      'bg-primary',
+    ]
+
     return {
       gameNightCreator: computed(
         () =>
@@ -117,6 +128,10 @@ export default {
           seeTheSame(props.gamenight.groupMemberIds, groupMembers),
         ];
       }),
+      getRandomBg() {
+        return bgs[Math.floor(bgs.length * Math.random())]
+      },
+
       seeTheSame(array1, array2) {
         return array1.filter((object1) => {
           return array2.some((object2) => {
