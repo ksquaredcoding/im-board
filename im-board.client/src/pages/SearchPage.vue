@@ -14,7 +14,7 @@
       </div>
 
       <div
-        class="col-md-12 d-flex bg-dark lighten-10 rounded p-4 d-flex justify-content-center"
+        class="col-md-12 bg-dark lighten-10 rounded p-4"
       >
         <FilterBar />
       </div>
