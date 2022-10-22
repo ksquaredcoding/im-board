@@ -8,35 +8,35 @@ class InboxService {
     const invite = await dbContext.Inbox.findById(id);
     // @ts-ignore
     const account = await dbContext.Account.findById(accountId);
-    if (invite.toAccountId.toString() !== account.id) {
+    if (invite.recipientId.toString() !== account.id) {
       throw new BadRequest("not your invite");
     }
     await invite.remove();
 
-    let hello = await account.inbox.findIndex((p) => p.id == id);
-    account.inbox.splice(hello, 1);
-    await account.save();
+    // let hello = await account.inbox.findIndex((p) => p.id == id);
+    // account.inbox.splice(hello, 1);
+    // await account.save();
     return invite;
   }
   async sendInvite(body) {
     // debugger;
-    if (body.creatorId == body.toAccountId) {
+    if (body.senderId == body.recipientId) {
       throw new Forbidden("why are you inviting yourself");
     }
     const invite = await dbContext.Inbox.create(body);
     if (!invite) {
       throw new BadRequest("no invite");
     }
-    let accountInbox = await dbContext.Account.findById(body.toAccountId);
-    // @ts-ignore
-    accountInbox.inbox.push(invite);
-    await accountInbox.save();
+    // let accountInbox = await dbContext.Account.findById(body.recipientId);
+    // // @ts-ignore
+    // accountInbox.inbox.push(invite);
+    // await accountInbox.save();
     return invite;
   }
   async getInbox(accountId) {
-    const box = await dbContext.Inbox.find({ toAccountId: accountId })
+    const box = await dbContext.Inbox.find({ recipientId: accountId })
       .populate("group", "name coverImg")
-      .populate("creator", "name picture");
+      .populate("sender", "name picture");
     if (!box) {
       throw new BadRequest("no inbox");
     }

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
+import { computed, onMounted, watchEffect } from "vue";
 import { AppState } from "./AppState";
 import Navbar from "./components/Navbar.vue";
 
@@ -37,10 +37,28 @@ import GameNightForm from "./components/GroupPage/GameNightForm.vue";
 import GroupForm from "./components/GroupPage/GroupForm.vue";
 import EditGroupForm from "./components/GroupPage/EditGroupForm.vue";
 import InviteMemberForm from "./components/GroupPage/InviteMemberForm.vue";
+import Pop from "./utils/Pop.js";
+import { accountService } from "./services/AccountService.js";
 
 export default {
   setup() {
     const route = useRoute();
+    async function getInvites() {
+      try {
+        await accountService.getInvites();
+      } catch (error) {
+        Pop.error(error);
+      }
+    }
+    onMounted(() =>
+    {
+      getInvites()
+    })
+    // watchEffect(() => {
+    //   if (AppState.account) {
+    //     getInvites();
+    //   }
+    // });
     return {
       route,
       appState: computed(() => AppState),

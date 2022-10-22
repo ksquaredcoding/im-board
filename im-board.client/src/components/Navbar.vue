@@ -42,11 +42,17 @@
             class="me-3 heart animate__animated animate_fadeIn">
 
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" v-if="invites">
           <li class="dropdown-item" v-for="invite in invites" :key="invite.id">
           <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}">
             {{invite.description}}
           </RouterLink>
+          </li>
+         
+        </ul>
+        <ul class="dropdown-menu" v-else>
+          <li class="dropdown-item">
+         nothing in your inbox
           </li>
          
         </ul>
@@ -118,28 +124,30 @@ import { onMounted, watchEffect } from "vue";
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
 import { useRoute } from "vue-router";
-import ColorChange from "./ColorChange.vue";
+
 import SearchProfiles from "./GroupPage/SearchProfiles.vue";
 export default {
   setup() {
-const route = useRoute()
-
-    async function getInvites(){
-      try {
-          await accountService.getInvites()
-        } catch (error) {
-          Pop.error(error)
-        }
-
-
-    }
-    watchEffect(() => {
-      if (AppState.account) {
-        getInvites()
-      }
-    })
+    // async function getInvites(){
+    //   try {
+    //       await accountService.getInvites()
+    //     } catch (error) {
+    //       Pop.error(error)
+    //     }
+    // }
+    // onMounted(() =>
+    // {
+    //   getInvites()
+    // })
+    // watchEffect(() => {
+    //   if (AuthService) {
+    //     getInvites()
+    //   }
+    // })
+    const route = useRoute()
     return {
       route,
+      
       invites:computed(() => AppState.inbox),
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
@@ -149,7 +157,7 @@ const route = useRoute()
       },
     };
   },
-  components: { Login, GroupForm, Searchbar, ColorChange, SearchProfiles },
+  components: { Login, GroupForm, Searchbar, SearchProfiles },
 };
 </script>
 

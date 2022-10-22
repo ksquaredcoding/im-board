@@ -18,7 +18,7 @@
                   <input
                     type="text"
                     class="bg-grey text-dark"
-                    v-model="editable.recipientId "
+                    v-model="editable.recipientId"
                     required
                     aria-required="true"
                   />

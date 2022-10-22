@@ -2,6 +2,7 @@ import { Auth0Provider } from "@bcwdev/auth0provider";
 import { accountService } from "../services/AccountService";
 import { boardGamesService } from "../services/BoardGamesService.js";
 import { groupsService } from "../services/GroupsService.js";
+import { inboxService } from "../services/InboxService.js";
 import { profileService } from "../services/ProfileService.js";
 import BaseController from "../utils/BaseController";
 
@@ -11,9 +12,18 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
+      .get('/inbox', this.getInbox)
       .get("/boardgames", this.getAccountLists)
       .get("/groups", this.getAccountGroups)
       .put("", this.editMyAccount);
+  }
+  async getInbox(req, res, next) {
+    try {
+      const inbox = await inboxService.getInbox(req.userInfo.id);
+      res.send(inbox);
+    } catch (error) {
+      next(error);
+    }
   }
 
   async getUserAccount(req, res, next) {
