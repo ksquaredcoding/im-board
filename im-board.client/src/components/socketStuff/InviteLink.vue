@@ -1,6 +1,6 @@
 <template>
-  <div class="component">
-    <input type="text width" :value="account?.id" @focus="$event.target.select()" />
+  <div class="component p-2">
+    <input type="text width " :value="account?.id" @focus="$event.target.select()" />
     <!-- <label for="" class="border">{{ account?.id }}</label> -->
     <button class="btn button-51">your Link</button>
   </div>

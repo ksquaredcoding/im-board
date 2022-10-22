@@ -32,6 +32,7 @@
         </h1>
       </div>
       <div class="col-md d-flex justify-content-end">
+        <!--------------- INVITE LINK HERE---------------- -->
         <InviteLink :account="account"/>
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner">
           <i
