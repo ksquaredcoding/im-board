@@ -7,7 +7,7 @@ export const AppState = reactive({
   account: {},
   /** @type {import('./models/Account.js').Account[]} */
   profiles: [],
-  profileIdToInviteBy:{},
+  profileIdToInviteBy:'',
   /** @type {import('./models/Account.js').Account | null} */
   activeProfile: null,
 

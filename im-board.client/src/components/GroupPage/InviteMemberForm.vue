@@ -14,14 +14,20 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <div class="font">User: ID</div>
+                  <div class="font" >User: ID</div>
                   <input
                     type="text"
                     class="bg-grey text-dark"
                     v-model="editable.recipientId"
                     required
                     aria-required="true"
+               
                   />
+                  <div >
+                     <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable">
+           <img :src="profileIdToInvite.picture" alt="" height="30" width="30" class="rounded-circle me-3">  {{profileIdToInvite.name.split('@')[0]}}
+        </div>
+                  </div>
                 </div>
                 <div class="mt-3 inputBox">
                   <div class="font">send a message!</div>
@@ -69,11 +75,11 @@ import SearchProfiles from "./SearchProfiles.vue";
 // import { group } from "console";
 export default {
     setup() {
-      // watchEffect(()=>{
-      //   if (AppState.profileIdToInviteBy) {
-      //     editable.value.recipientId = AppState.profileIdToInviteBy
-      //   }
-      // })
+      watchEffect(()=>{
+        if (AppState.profileIdToInviteBy) {
+  editable.value.recipientId = AppState.profileIdToInviteBy.id
+        }
+      })
         const editable = ref({});
         // editable.description = ref(`${group.name}`);
         const route = useRoute();

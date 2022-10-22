@@ -18,12 +18,14 @@
         <i class="mdi mdi-magnify mx-2" alt="" title="search By Name"></i>
       </button>
     </div>
-    <div class="d-flex justify-content-center">
-      <ul class="list-group mt-2 justify-content-center">
-        <li @click="inviteToGroup(p.id)" class="list-group-item   " v-for="p in profiles">
-          <img :src="p.picture" alt="" height="30" width="30" class="rounded-circle">   {{ p.name.split('@')[0] }}  
-        </li>
-      </ul>
+    <div class=" row  justify-content-center ">
+      <div class="col-md-4 my-2  animate__animated animate__fadeIn " v-for="p in profiles"  @click="inviteToGroup(p)">
+        <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable">
+           <img :src="p.picture" alt="" height="30" width="30" class="rounded-circle me-3">   {{ p.name.split('@')[0] }} 
+        </div>
+
+      </div>
+      
     </div>
   </form>
 </template>
@@ -45,17 +47,16 @@ export default {
       profiles: computed(() => AppState.profiles.filter(p => p.name.includes(editable.value.term))),
       async searchProfiles() {
         try {
-          console.log(editable.value.term);
+     
           await profilesService.getProfiles(editable.value.term);
-        
         } catch (error) {
           console.error('dfd', error);
         }
       },
 
 
-      async inviteToGroup(profileId){
-AppState.profileIdToInviteBy = profileId
+      async inviteToGroup(profile){
+AppState.profileIdToInviteBy = profile
 
 console.log(AppState.profileIdToInviteBy);
       }
@@ -68,4 +69,6 @@ console.log(AppState.profileIdToInviteBy);
 .phtext {
   font-size: 12px;
 }
+
+
 </style>
