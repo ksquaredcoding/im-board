@@ -24,7 +24,7 @@
                
                   />
                   <div >
-                     <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable">
+                     <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable" v-if="profileIdToInvite">
            <img :src="profileIdToInvite.picture" alt="" height="30" width="30" class="rounded-circle me-3">  {{profileIdToInvite.name.split('@')[0]}}
         </div>
                   </div>
