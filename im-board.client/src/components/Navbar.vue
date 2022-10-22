@@ -43,7 +43,11 @@
 
         </button>
         <ul class="dropdown-menu">
-          <!-- <li class="dropdown-item" v-for="invite in invites" :key="invite.id">Hi</li> -->
+          <li class="dropdown-item" v-for="invite in invites" :key="invite.id">
+          <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}">
+            {{invite.description}}
+          </RouterLink>
+          </li>
          
         </ul>
       </div>
@@ -129,11 +133,12 @@ const route = useRoute()
 
     }
     watchEffect(() => {
-      AppState.account
-      getInvites()
+      if (AppState.account) {
+        getInvites()
+      }
     })
     return {
-      route,
+      invites:computed(() => AppState.inbox),
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
