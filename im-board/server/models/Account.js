@@ -9,7 +9,7 @@ export const AccountSchema = new Schema(
     name: { type: String, required: true },
     picture: { type: String },
     coverImg: { type: String },
-    inbox: [{ type: Object, required: false, ref: 'Inbox' }],
+    // inbox: [{ type: Object, required: false, ref: 'Inbox' }],
     bio: { type: String },
     // NOTE If you wish to add additional properties do so here
   },
