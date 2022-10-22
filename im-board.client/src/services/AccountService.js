@@ -2,6 +2,7 @@ import { AppState } from "../AppState";
 import { Account } from "../models/Account.js";
 import { BGList } from "../models/BoardGame/BGList.js";
 import { GroupMemberShip } from "../models/GroupsAndGameNight/GroupMembership.js";
+import { Inbox } from "../models/Inbox.js";
 import { logger } from "../utils/Logger";
 import { api } from "./AxiosService";
 
@@ -37,7 +38,9 @@ class AccountService {
   }
   async getInvites() {
     const res = await api.get("/api/inbox");
-    console.log(res.data, 'hello');
+    // console.log(res.data, "hello");
+    AppState.inbox = res.data.map((i) => new Inbox(i));
+    console.log(AppState.inbox);
   }
 }
 
