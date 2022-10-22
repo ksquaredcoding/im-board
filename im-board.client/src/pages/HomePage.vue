@@ -67,7 +67,7 @@
         </div>
       
           <div class="col-md-12 d-flex justify-content-center">
-      <button @click="paginationDiscount('prev')" class="btn button-51 me-2">previous</button>
+      <button @click="paginationDiscount('prev')" class="btn button-51 me-2" :disabled="paginationForPopular <=0">previous</button>
       <button @click="paginationDiscount('next')" class="btn button-52">Next</button>
     </div>
       </div>
@@ -208,7 +208,8 @@ export default {
       editorsChoice: computed(() =>
         AppState.editorsChoiceGames.sort(() => Math.random() - 0.5)
       ),
-
+paginationForDiscount : computed(()=> AppState.paginationDiscount),
+paginationForPopular : computed(()=> AppState.nextSet),
 
 
       async pagination(x){

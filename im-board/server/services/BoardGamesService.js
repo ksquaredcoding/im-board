@@ -3,6 +3,7 @@ import { BadRequest, Forbidden } from "../utils/Errors";
 import { groupMembersService } from "./GroupMembersService.js";
 
 class BoardGamesService {
+
   async getListByGroupId(groupId) {
     const accounts = await groupMembersService.getGroupMembersByGroupId(
       groupId
@@ -14,6 +15,7 @@ class BoardGamesService {
     return lists;
     // return accounts;
   }
+  
   async getBoardGamesByAccountId(accountId) {
     const games = await dbContext.BoardGames.find({ accountId }).populate(
       "account"
