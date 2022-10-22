@@ -15,14 +15,7 @@
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
                   <div class="font" >User: ID</div>
-                  <input
-                    type="text"
-                    class="bg-grey text-dark"
-                    v-model="editable.recipientId"
-                    required
-                    aria-required="true"
-               
-                  />
+                 
                   <div >
                      <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable" v-if="profileIdToInvite">
            <img :src="profileIdToInvite.picture" alt="" height="30" width="30" class="rounded-circle me-3">  {{profileIdToInvite.name.split('@')[0]}}
@@ -91,9 +84,11 @@ export default {
                 try {
                     let id = route.params.id;
                     editable.value.groupId = id;
-                    console.log(editable.value);
+                    // console.log(editable.value);
+               
                     await groupsService.inviteMember(editable.value);
                     editable.value = {};
+                    Pop.success(`${AppState.profileIdToInviteBy.name.split('@')[0]} Invited`)
                 }
                 catch (error) {
                     Pop.error(error, "[handleSubmit(inviteMember)]");
