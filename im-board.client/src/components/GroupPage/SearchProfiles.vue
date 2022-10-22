@@ -54,8 +54,8 @@ export default {
       },
 
 
-      async inviteToGroup(profile){
-AppState.profileIdToInviteBy = profile
+      async inviteToGroup(profileId){
+AppState.profileIdToInviteBy = profileId
 
 console.log(AppState.profileIdToInviteBy);
       }

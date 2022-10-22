@@ -69,11 +69,11 @@ import SearchProfiles from "./SearchProfiles.vue";
 // import { group } from "console";
 export default {
     setup() {
-      watchEffect(()=>{
-        if (AppState.profileIdToInviteBy) {
-          editable.value.recipientId = AppState.profileIdToInviteBy
-        }
-      })
+      // watchEffect(()=>{
+      //   if (AppState.profileIdToInviteBy) {
+      //     editable.value.recipientId = AppState.profileIdToInviteBy
+      //   }
+      // })
         const editable = ref({});
         // editable.description = ref(`${group.name}`);
         const route = useRoute();
