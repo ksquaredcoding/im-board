@@ -35,6 +35,14 @@
     </div>
       </div>
 
+      <div class="mt-5 d-flex justify-content-center">
+        <!-- <RowSeperate class="mt-5" /> -->
+        <hr class="shine" />
+      </div>
+
+
+
+
     <!-- SECTION  -->
       <div class="col-md-12 pt-5">
         <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
@@ -65,6 +73,10 @@
       </div>
 
 
+      <div class="mt-5 d-flex justify-content-center">
+        <!-- <RowSeperate class="mt-5" /> -->
+        <hr class="shine" />
+      </div>
 
 
 
@@ -111,6 +123,8 @@
         </a>
       </div>
 
+      
+
       <div class="row horizontal-scrollable mt-4">
         <div class="col-md-3 mt-2" v-for="f in forumPosts" :key="f.id">
           <ForumPosts :forumPost="f" />
@@ -118,7 +132,10 @@
       </div>
     </div>
 
-    <div class="pt-5 mb-5"><Articles /></div>
+    
+    <div class="pt-5 mb-5">
+      
+      <Articles /></div>
   </div>
 </template>
 

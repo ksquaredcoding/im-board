@@ -1,4 +1,5 @@
 <template>
+  
   <div class="col-md-12 mt-4">
     <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
       <h5 class="rowTitle p-1 pt-2"> <b>Editor's Choice Articles</b></h5>
