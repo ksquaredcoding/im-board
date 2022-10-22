@@ -3,6 +3,14 @@ import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 class InboxService {
+  // await account.save();
+  async clearInbox(recipientId) {
+    const inbox = await dbContext.Inbox.find({ recipientId }).remove();
+    if (!inbox) {
+      throw new BadRequest("your inbox is empty");
+    }
+    return "inbox cleared";
+  }
   async deleteInvite(accountId, id) {
     // debugger;
     const invite = await dbContext.Inbox.findById(id);
