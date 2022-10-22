@@ -119,6 +119,7 @@ import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
 import { useRoute } from "vue-router";
 import ColorChange from "./ColorChange.vue";
+import SearchProfiles from "./GroupPage/SearchProfiles.vue";
 export default {
   setup() {
 const route = useRoute()
@@ -138,6 +139,7 @@ const route = useRoute()
       }
     })
     return {
+      route,
       invites:computed(() => AppState.inbox),
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
@@ -147,7 +149,7 @@ const route = useRoute()
       },
     };
   },
-  components: { Login, GroupForm, Searchbar, ColorChange },
+  components: { Login, GroupForm, Searchbar, ColorChange, SearchProfiles },
 };
 </script>
 

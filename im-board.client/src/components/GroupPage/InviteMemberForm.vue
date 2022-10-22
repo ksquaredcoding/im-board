@@ -46,6 +46,10 @@
               </button>
             </div>
           </form>
+
+          <div>
+          <SearchProfiles />
+          </div>
         </div>
       </div>
     </div>
@@ -61,31 +65,31 @@ import Pop from "../../utils/Pop.js";
 import { AppState } from "../../AppState.js";
 import { useRoute } from "vue-router";
 import { groupsService } from "../../services/GroupsService.js";
+import SearchProfiles from "./SearchProfiles.vue";
 // import { group } from "console";
 export default {
-  setup() {
-    const editable = ref({});
-    // editable.description = ref(`${group.name}`);
-    const route = useRoute();
-    return {
-      editable,
-      group: computed(() =>
-        AppState.groups.find((g) => g.id == route.params.id)
-      ),
-
-      async handleSubmit() {
-        try {
-          let id = route.params.id;
-          editable.value.groupId = id;
-          console.log(editable.value);
-          await groupsService.inviteMember(editable.value);
-          editable.value = {};
-        } catch (error) {
-          Pop.error(error, "[handleSubmit(inviteMember)]");
-        }
-      },
-    };
-  },
+    setup() {
+        const editable = ref({});
+        // editable.description = ref(`${group.name}`);
+        const route = useRoute();
+        return {
+            editable,
+            group: computed(() => AppState.groups.find((g) => g.id == route.params.id)),
+            async handleSubmit() {
+                try {
+                    let id = route.params.id;
+                    editable.value.groupId = id;
+                    console.log(editable.value);
+                    await groupsService.inviteMember(editable.value);
+                    editable.value = {};
+                }
+                catch (error) {
+                    Pop.error(error, "[handleSubmit(inviteMember)]");
+                }
+            },
+        };
+    },
+    components: { SearchProfiles }
 };
 </script>
 

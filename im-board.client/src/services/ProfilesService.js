@@ -28,5 +28,18 @@ class ProfilesService {
     AppState.activeProfile = new Account(res.data);
     // console.log(AppState.activeProfile);
   }
+
+  async getProfiles(term){
+    AppState.profiles =[]
+        const res = await api.get(`/profiles`,{
+          params: {
+            query:term
+          }
+        });
+    // console.log(res.data);
+    AppState.profiles = res.data.map(p => new Account(p))
+    console.log(AppState.profiles);
+    
+  }
 }
 export const profilesService = new ProfilesService();
