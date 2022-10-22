@@ -182,7 +182,12 @@ export default {
 }
 
 .glow {
-  filter: drop-shadow(0 0 4px rgb(255, 0, 0)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
+  filter: drop-shadow(0 0 4px rgb(0, 255, 183)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
+  color: rgb(242, 242, 171);
+}
+
+.profile-img:hover{
+   filter: drop-shadow(0 0 4px rgb(255, 170, 0)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
   color: rgb(242, 242, 171);
 }
 </style>
