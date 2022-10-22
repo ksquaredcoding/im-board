@@ -124,7 +124,7 @@ import { onMounted, watchEffect } from "vue";
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
 import { useRoute } from "vue-router";
-import ColorChange from "./ColorChange.vue";
+
 import SearchProfiles from "./GroupPage/SearchProfiles.vue";
 export default {
   setup() {
@@ -144,8 +144,10 @@ export default {
     //     getInvites()
     //   }
     // })
+    const route = useRoute()
     return {
       route,
+      
       invites:computed(() => AppState.inbox),
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
@@ -155,7 +157,7 @@ export default {
       },
     };
   },
-  components: { Login, GroupForm, Searchbar, ColorChange, SearchProfiles },
+  components: { Login, GroupForm, Searchbar, SearchProfiles },
 };
 </script>
 

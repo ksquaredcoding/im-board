@@ -50,15 +50,15 @@ export default {
         Pop.error(error);
       }
     }
-    // onMounted(() =>
-    // {
-    //   getInvites()
-    // })
-    watchEffect(() => {
-      if (AppState.account) {
-        getInvites();
-      }
-    });
+    onMounted(() =>
+    {
+      getInvites()
+    })
+    // watchEffect(() => {
+    //   if (AppState.account) {
+    //     getInvites();
+    //   }
+    // });
     return {
       route,
       appState: computed(() => AppState),
