@@ -21,7 +21,7 @@
     <div class="d-flex justify-content-center">
       <ul class="list-group mt-2 justify-content-center">
         <li @click="inviteToGroup(p.id)" class="list-group-item   " v-for="p in profiles">
-          <img :src="p.picture" alt="" height="30" width="30" class="rounded-circle">   {{ p.name.split('@')[0] }}  {{p.id}}
+          <img :src="p.picture" alt="" height="30" width="30" class="rounded-circle">   {{ p.name.split('@')[0] }}  
         </li>
       </ul>
     </div>
@@ -37,9 +37,7 @@ import { computed } from '@vue/reactivity';
 import { AppState } from '../../AppState.js';
 export default {
   setup() {
-    onMounted(() => {
-      // searchProfiles()
-    });
+  
     const editable = ref({});
 
     return {

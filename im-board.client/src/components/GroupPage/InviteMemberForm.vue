@@ -18,7 +18,7 @@
                   <input
                     type="text"
                     class="bg-grey text-dark"
-                    v-model="editable.toAccountId"
+                    v-model="editable.recipientId "
                     required
                     aria-required="true"
                   />
@@ -58,7 +58,7 @@
 
 <script>
 import { computed } from "@vue/reactivity";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 
 // import { groupsService } from "../../services/GroupsService.js";
 import Pop from "../../utils/Pop.js";
@@ -69,12 +69,18 @@ import SearchProfiles from "./SearchProfiles.vue";
 // import { group } from "console";
 export default {
     setup() {
+      watchEffect(()=>{
+        if (AppState.profileIdToInviteBy) {
+          editable.value.recipientId = AppState.profileIdToInviteBy
+        }
+      })
         const editable = ref({});
         // editable.description = ref(`${group.name}`);
         const route = useRoute();
         return {
             editable,
             group: computed(() => AppState.groups.find((g) => g.id == route.params.id)),
+            profileIdToInvite: computed(()=> AppState.profileIdToInviteBy),
             async handleSubmit() {
                 try {
                     let id = route.params.id;
