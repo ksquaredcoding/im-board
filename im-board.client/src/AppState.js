@@ -178,4 +178,8 @@ export const AppState = reactive({
   previousPage: 0,
   itsAMaybe: 12,
   hopeItWorks: 0,
+  // --------------------//
+  nextSet:0,
+
+paginationDiscount:0
 });

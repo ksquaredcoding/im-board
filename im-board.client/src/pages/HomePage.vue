@@ -13,21 +13,60 @@
           <h5 class="rowTitle p-1 mt-1">Popular Board Games</h5>
         </div>
       </div>
-      <div class="row mx-2 horizontal-scrollable mt-3">
-        <TransitionGroup
+      <div class="row mx-2  mt-3">
+        <div class="col-md-12 d-flex justify-content-center">
+    <TransitionGroup
           name="custom-classes"
-          enterActiveClass="animate__zoomIn animate__animated"
-          leaveActiveClass="animate__zoomOut animate__animated"
+          enterActiveClass="animate__fadeIn animate__animated"
+          leaveActiveClass="animate__fadeOut animate__animated"
         >
           <div
             class="col-md-2 mt-3 mb-2"
             v-for="p in popularBoardGames"
             :key="p.id"
           >
-            <BoardGameCard :boardGame="p" />
+            <BoardGameCard :boardGame="p" class="mx-2" />
           </div>
         </TransitionGroup>
+        </div>
+    <div class="col-md-12 d-flex justify-content-center">
+      <button @click="pagination('prev')" class="btn button-51 me-2 ">previous</button>
+      <button @click="pagination('next')" class="btn button-52">Next</button>
+    </div>
       </div>
+
+    <!-- SECTION  -->
+      <div class="col-md-12 pt-5">
+        <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
+          <h5 class="rowTitle p-1 mt-1">Games On Discount</h5>
+        </div>
+      </div>
+      <div class="row mx-2  mt-3">
+        <div class="col-md-12 d-flex justify-content-center">
+  <TransitionGroup
+          name="custom-classes"
+          enterActiveClass="animate__fadeIn animate__animated"
+          leaveActiveClass="animate__fadeOut animate__animated"
+        >
+          <div
+            class="col-md-2 mt-5 mb-2"
+            v-for="d in discountBoardGames"
+            :key="d.id"
+          >
+            <BoardGameCard :boardGame="d" class="mx-2" />
+          </div>
+        </TransitionGroup>
+        </div>
+      
+          <div class="col-md-12 d-flex justify-content-center">
+      <button @click="paginationDiscount('prev')" class="btn button-51 me-2">previous</button>
+      <button @click="paginationDiscount('next')" class="btn button-52">Next</button>
+    </div>
+      </div>
+
+
+
+
 
       <div class="col-md-12 pt-5">
         <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
@@ -50,28 +89,7 @@
         </TransitionGroup>
       </div>
 
-      <!-- SECTION  -->
-      <div class="col-md-12 pt-5">
-        <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
-          <h5 class="rowTitle p-1 mt-1">Games On Discount</h5>
-        </div>
-      </div>
-      <div class="row mx-2 horizontal-scrollable mt-3">
-        <TransitionGroup
-          name="custom-classes"
-          enterActiveClass="animate__zoomIn animate__animated"
-          leaveActiveClass="animate__zoomOut animate__animated"
-        >
-          <div
-            class="col-md-2 mt-5 mb-2"
-            v-for="d in discountBoardGames"
-            :key="d.id"
-          >
-            <BoardGameCard :boardGame="d" />
-          </div>
-        </TransitionGroup>
-      </div>
-
+  
       <div class="mt-5 d-flex justify-content-center">
         <!-- <RowSeperate class="mt-5" /> -->
         <hr class="shine" />
@@ -173,6 +191,39 @@ export default {
       editorsChoice: computed(() =>
         AppState.editorsChoiceGames.sort(() => Math.random() - 0.5)
       ),
+
+
+
+      async pagination(x){
+        try {
+          if (x == 'prev') {
+            AppState.nextSet -= 6
+              await atlasGamesService.getBoardGamesByPopularity()
+          
+          } else{
+             AppState.nextSet += 6
+            await atlasGamesService.getBoardGamesByPopularity()
+          }
+         
+          } catch (error) {
+            Pop.error(error,'[pagination]')
+          }
+      },
+           async paginationDiscount(x){
+        try {
+          if (x == 'prev') {
+            AppState.paginationDiscount -= 6
+              await atlasGamesService.getBoardGamesByDiscount()
+          
+          } else{
+             AppState.paginationDiscount += 6
+            await atlasGamesService.getBoardGamesByDiscount()
+          }
+         
+          } catch (error) {
+            Pop.error(error,'[pagination]')
+          }
+      }
     };
   },
   components: {

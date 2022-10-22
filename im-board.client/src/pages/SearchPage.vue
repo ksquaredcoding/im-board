@@ -2,21 +2,28 @@
   <div class="container-fluid px-3 animate__animated animate__fadeInRight" v-if="boardGames">
     <div class="row justify-content-center g-md-0">
       <div class="col-md-12 border-secondary border-3 rounded-bottom">
-        <div class="d-flex flex-column align-items-center" id="topOfSearchPage">
-          <h3 class="searchText pt-3 text-dark">Search for board games by name</h3>
-          <p class="col-md-4">
+        <div class="d-flex flex-column align-items-center" >
+          <!-- <h6 class="searchText pt-3 text-dark">Search for board games by name</h6> -->
+          <div class=" col-md-4 my-3">
             <Searchbar />
-          </p>
+          </div>
           <h5 class="text-dark"> Or search by..</h5>
         </div>
       </div>
 
-      <div class="col-md-10 d-flex bg-dark lighten-10 rounded p-3">
+      <div class="col-md-11 d-flex bg-dark lighten-10 rounded p-3">
         <FilterBar />
       </div>
 
-      <div class="col-md-12">
+
+
+      <div class="col-md-2">
+        <FiltersSideBar/>
+      </div>
+      <div class="col-md-10">
+      
         <div class="row mx-2">
+
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
             <div class="col-md-2 mt-3" v-for="b in boardGames" :key="b.id">
@@ -29,7 +36,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
         height="400">
       </div> -->
-        <div class="d-flex justify-content-center my-2">
+        <div class=" d-flex justify-content-center my-2">
           <button class="btn button-51 mx-1" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
             Previous
           </button>
@@ -40,6 +47,16 @@
             Next
           </button>
         </div>
+        <!--  -->
+          <!-- <div class=" d-flex justify-content-center my-2">
+          <button class="btn button-51 mx-1" type="button" @click="previousSet()" >
+            Previous
+          </button>
+          <button class="btn button-52 mx-1" @click="nextSet()"  type="button" 
+          >
+            Next
+          </button>
+        </div> -->
       </div>
     </div>
   </div>
@@ -92,6 +109,8 @@ export default {
       skip: computed(() => AppState.skip),
       hopeItWorks: computed(() => AppState.hopeItWorks),
       itsAMaybe: computed(() => AppState.itsAMaybe),
+
+        
       async incrementSkip(x) {
         try {
           switch (x) {
@@ -128,6 +147,26 @@ export default {
           Pop.error("[INCREMENT SKIP]", error);
         }
       },
+
+      async nextSet(){
+try {
+   AppState.nextSet +=25
+   await atlasGamesService.getBoardGamesByOrder_By()
+   console.log(AppState.nextSet);
+  } catch (error) {
+    Pop.error(error,'[nextSet]')
+  }
+      },
+      async previousSet(){
+try {
+AppState.nextSet -=25
+   await atlasGamesService.getBoardGamesByOrder_By()
+
+console.log(AppState.nextSet);
+  } catch (error) {
+    Pop.error(error,'[previousSet]')
+  }
+      }
     };
   },
   components: {
@@ -144,7 +183,7 @@ export default {
 
 <style scoped lang="scss">
 .searchText {
-  font-size: 40px;
+
   font-weight: 900;
 }
 

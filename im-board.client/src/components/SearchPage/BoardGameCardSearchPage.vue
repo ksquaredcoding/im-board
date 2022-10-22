@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-transparent card my-4" v-if="boardGame">
+  <div class="bg-transparent card my-4 w-75  " v-if="boardGame">
     <router-link
       class="text-center"
       :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"

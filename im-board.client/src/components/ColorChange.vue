@@ -1,0 +1,57 @@
+<script setup lang="ts">
+import { useColorMode, useCycleList } from '@vueuse/core';
+const mode = useColorMode({
+  emitAuto: true,
+  modes: {
+    contrast: 'dark contrast',
+    cafe: 'cafe',
+  },
+});
+const { next } = useCycleList(['dark', 'light', 'cafe', ], {
+  initialValue: mode,
+});
+</script>
+
+<template>
+  <button @click="next()">
+    <i
+      v-if="mode === 'dark'"
+      i-carbon-moon
+      inline-block
+      align-middle
+      class="align-middle"
+    />
+    <i
+      v-if="mode === 'light'"
+      i-carbon-sun
+      inline-block
+      align-middle
+      class="align-middle"
+    />
+    <i
+      v-if="mode === 'cafe'"
+      i-carbon-cafe
+      inline-block
+      align-middle
+      class="align-middle"
+    />
+
+
+    <span class="ml-2 capitalize">{{ mode }}</span>
+  </button>
+
+  <span class="p-4 opacity-50">← Click to change the color mode</span>
+</template>
+
+<style>
+html.cafe {
+  filter: sepia(0.5) hue-rotate(315deg) brightness(1);
+}
+html.contrast {
+  filter: contrast(1);
+}
+
+.html.dark{
+
+}
+</style>

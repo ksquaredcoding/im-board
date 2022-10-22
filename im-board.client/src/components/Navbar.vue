@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar  navbar-dark bg-dark px-md-3 justify-content-center  " data-bs-target="#topOfPage">
     <div class=" col-md d-flex">
+
       <!-- TODO make into component. -->
       <div class="ps-3 d-none d-sm-block">
 
@@ -14,7 +15,7 @@
 
       </div>
       <div class="ps-4">
-        <Searchbar class="d-none d-md-block" />
+        <Searchbar class="d-none d-md-block" v-if="route.name != 'Search' " />
       </div>
       <!-- TODO END -->
     </div>
@@ -112,8 +113,12 @@ import Searchbar from "./SearchPage/Searchbar.vue";
 import { onMounted, watchEffect } from "vue";
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
+import { useRoute } from "vue-router";
+import ColorChange from "./ColorChange.vue";
 export default {
   setup() {
+const route = useRoute()
+
     async function getInvites(){
       try {
           await accountService.getInvites()
@@ -128,6 +133,7 @@ export default {
       getInvites()
     })
     return {
+      route,
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
@@ -136,7 +142,7 @@ export default {
       },
     };
   },
-  components: { Login, GroupForm, Searchbar },
+  components: { Login, GroupForm, Searchbar, ColorChange },
 };
 </script>
 
