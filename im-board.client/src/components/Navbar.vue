@@ -37,9 +37,9 @@
 
       <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="me-3">
+          <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="">
           <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50"
-            class="me-3 heart animate__animated animate_fadeIn">
+            class="">
 
         </button>
         <ul class="dropdown-menu" v-if="invites">

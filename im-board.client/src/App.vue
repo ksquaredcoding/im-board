@@ -43,22 +43,7 @@ import { accountService } from "./services/AccountService.js";
 export default {
   setup() {
     const route = useRoute();
-    async function getInvites() {
-      try {
-        await accountService.getInvites();
-      } catch (error) {
-        Pop.error(error);
-      }
-    }
-    onMounted(() =>
-    {
-      getInvites()
-    })
-    // watchEffect(() => {
-    //   if (AppState.account) {
-    //     getInvites();
-    //   }
-    // });
+
     return {
       route,
       appState: computed(() => AppState),
