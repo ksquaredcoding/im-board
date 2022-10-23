@@ -4,10 +4,13 @@ import { api } from "./AxiosService.js";
 
 class InboxService {
   async getInvites() {
-    const res = await api.get("/account/inbox");
-    console.log(res.data, "hello");
-    AppState.inbox = res.data.map((i) => new Inbox(i));
-    console.log(AppState.inbox);
+    if (AppState.user.isAuthenticated) {
+        const res = await api.get('/account/inbox');
+        console.log(res.data, 'hello');
+        AppState.inbox = res.data.map((i) => new Inbox(i));
+        console.log(AppState.inbox);
+    }
+  
   }
   async deleteInvite(id) {
     const res = await api.delete(`/api/inbox/${id}`);
