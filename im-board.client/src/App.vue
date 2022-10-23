@@ -1,6 +1,9 @@
 <template>
   <header class="bg-dark" style="z-index: 10">
-    <Navbar class="animate__animated animate__fadeInDown d-none d-md-flex" />
+    <Navbar
+      class="animate__animated animate__fadeInDown d-none d-md-flex"
+      v-if="user"
+    />
   </header>
   <main style="z-index: 9">
     <router-view />
@@ -39,6 +42,7 @@ import EditGroupForm from "./components/GroupPage/EditGroupForm.vue";
 import InviteMemberForm from "./components/GroupPage/InviteMemberForm.vue";
 import Pop from "./utils/Pop.js";
 import { accountService } from "./services/AccountService.js";
+import { AuthService } from "./services/AuthService.js";
 
 export default {
   setup() {
@@ -46,6 +50,7 @@ export default {
 
     return {
       route,
+      user: computed(() => AppState.inbox),
       appState: computed(() => AppState),
     };
   },

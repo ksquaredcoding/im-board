@@ -155,6 +155,7 @@ import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
 import { router } from "../router.js";
 import RowSeperator from "../components/HomePage/RowSeperate.vue";
 import RowSeperate from "../components/HomePage/RowSeperate.vue";
+import { inboxService } from "../services/InboxService.js";
 
 export default {
   setup() {
@@ -190,12 +191,24 @@ export default {
         Pop.error(error, "[getForumPosts]");
       }
     }
+     async function getInvites(){
+      try {
+       
+        await inboxService.getInvites()
+        console.log('getting invites');
+        // setTimeout(1000)
+        // getInvites()
+        } catch (error) {
+          Pop.error(error)
+        }
+    }
 
     onMounted(() => {
       getBoardGamesByPopularity();
       getBoardGamesByDiscount();
       editorsChoiceGames();
       getForumPosts();
+      getInvites()
     });
 
     return {
@@ -211,6 +224,8 @@ export default {
       ),
 paginationForDiscount : computed(()=> AppState.paginationDiscount),
 paginationForPopular : computed(()=> AppState.nextSet),
+
+
 
 
       async pagination(x){

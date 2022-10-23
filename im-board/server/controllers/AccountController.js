@@ -4,22 +4,27 @@ import { boardGamesService } from "../services/BoardGamesService.js";
 import { groupsService } from "../services/GroupsService.js";
 import { inboxService } from "../services/InboxService.js";
 import { profileService } from "../services/ProfileService.js";
+import { AccountValidator } from "../utils/AccountValidator.js";
 import BaseController from "../utils/BaseController";
 
 export class AccountController extends BaseController {
   constructor() {
     super("/account");
     this.router
-    .get('/inbox', this.getInbox)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get("", this.getUserAccount)
       .get("/boardgames", this.getAccountLists)
       .get("/groups", this.getAccountGroups)
-      .put("", this.editMyAccount);
+      .put("", this.editMyAccount)
+      .get("/inbox", this.getInbox);
   }
   async getInbox(req, res, next) {
     try {
+      // let hi = await Auth0Provider.getAuthorizedUserInfo
+      // debugger;
+
       const inbox = await inboxService.getInbox(req.userInfo.id);
+
       res.send(inbox);
     } catch (error) {
       next(error);

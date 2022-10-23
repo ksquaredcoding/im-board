@@ -127,7 +127,7 @@ import Searchbar from "./SearchPage/Searchbar.vue";
 import { onMounted, watchEffect } from "vue";
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
-import { useRoute } from "vue-router";
+import { onBeforeRouteUpdate, useRoute } from "vue-router";
 import { inboxService } from "../services/InboxService.js";
 
 import SearchProfiles from "./GroupPage/SearchProfiles.vue";
@@ -141,24 +141,22 @@ export default {
     async function getInvites(){
       try {
        
-        await inboxService.getInvites()
+        const inbox = await inboxService.getInvites()
+        console.log('getting invites', inbox);
         // setTimeout(1000)
         // getInvites()
         } catch (error) {
           Pop.error(error)
         }
     }
-    onMounted(() =>
-    {
+    onMounted(()=> 
       getInvites()
-    })
+    )
+ 
     // watchEffect(() => {
-    //   let hello =  AuthService.isAuthenticated
-
-    //   if (hello) {
-    //     console.log('authed');
-    //     getInvites()
-    //   }
+    //   let hello = AppState.account.isAuthenticated
+    //   console.log('hi');
+      
     // })
     const route = useRoute()
     return {
