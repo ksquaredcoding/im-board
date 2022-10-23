@@ -177,13 +177,14 @@ export default {
        
         },
         async getGroupDetails(id){
+          // console.log(id);
 try {
   router.push({name:'Group' ,params:{id: id}})
-    await groupsService.getGroupById(route.params.id)
+    await groupsService.getGroupById(id)
 
-    await groupsService.getGroupMembers(route.params.id)
-    await listsService.getListsByGroupId(route.params.id)
-    await gameNightsService.getGroupGameNights(route.params.id)
+    await groupsService.getGroupMembers(id)
+    await listsService.getListsByGroupId(id)
+    await gameNightsService.getGroupGameNights(id)
     // await groupsService.
   } catch (error) {
     Pop.error(error)
