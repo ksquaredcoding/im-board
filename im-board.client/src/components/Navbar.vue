@@ -47,9 +47,9 @@
         </button>
         <ul class="dropdown-menu" v-if="invites">
           <li class="dropdown-item  d-flex justify-content-between" v-for="invite in invites" :key="invite.id">
-          <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}" @click="getGroupDetails()">
+          <button @click="getGroupDetails(invite.groupId)">
             {{invite.description}}
-          </RouterLink>
+          </button>
           <i class="mdi mdi-delete-forever selectable " @click="deleteInvite(`${invite.id}`)" ></i>
           </li>
          
@@ -135,6 +135,7 @@ import SearchProfiles from "./GroupPage/SearchProfiles.vue";
 import { groupsService } from "../services/GroupsService.js";
 import { listsService } from "../services/ListsService.js";
 import { gameNightsService } from "../services/GameNightsService.js";
+import { router } from "../router.js";
 
 export default {
   setup() {
@@ -175,8 +176,9 @@ export default {
           }
        
         },
-        async getGroupDetails(){
+        async getGroupDetails(id){
 try {
+  router.push({name:'Group' ,params:{id: id}})
     await groupsService.getGroupById(route.params.id)
 
     await groupsService.getGroupMembers(route.params.id)

@@ -2,7 +2,7 @@ import { Account } from "../Account.js";
 
 export class ActiveGroup {
   constructor(data) {
-    this.id = data.id;
+    this.id = data.id || data._id
     this.coverImg = data.coverImg;
     this.creatorId = data.creatorId;
     this.name = data.name;

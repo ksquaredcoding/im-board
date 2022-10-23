@@ -5,8 +5,8 @@ export class GroupsController extends BaseController {
   constructor() {
     super("/api/groups");
     this.router
+    .get("/:groupId", this.getGroupById)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .get("/:groupId", this.getGroupById)
       .post("", this.createGroup)
       .put("/:groupId", this.editGroup)
       .delete("/:groupId", this.removeGroup);
