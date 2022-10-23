@@ -64,7 +64,7 @@
 import { computed } from '@vue/reactivity';
 import { useRoute, useRouter } from 'vue-router';
 import { AppState } from '../AppState.js';
-import FAQModal from './FAQModal.vue';
+
 
 export default {
   props: {},
@@ -80,7 +80,7 @@ export default {
       },
     };
   },
-  components: { FAQModal },
+  components: {  },
 };
 </script>
 

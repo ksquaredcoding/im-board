@@ -42,7 +42,7 @@
 
             <div class="col-md-8">
               <img
-                src="../assets/img/FAQ1.png"
+                src=""
                 alt=""
                 class="img-fluid rounded"
               />
@@ -56,7 +56,7 @@
             </div>
             <div class="col-md-4">
               <img
-                src="../assets/img/FAQ2.png"
+                src=""
                 alt=""
                 class="img-fluid rounded border-2 border-light"
               />
