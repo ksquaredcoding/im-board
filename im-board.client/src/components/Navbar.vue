@@ -43,10 +43,11 @@
 
         </button>
         <ul class="dropdown-menu" v-if="invites">
-          <li class="dropdown-item" v-for="invite in invites" :key="invite.id">
+          <li class="dropdown-item  d-flex justify-content-between" v-for="invite in invites" :key="invite.id">
           <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}">
             {{invite.description}}
           </RouterLink>
+          <i class="mdi mdi-delete-forever selectable" @click="deleteInvite(`${invite.id}`)" ></i>
           </li>
          
         </ul>
