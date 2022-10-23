@@ -15,10 +15,12 @@ import Pop from '../utils/Pop.js';
 class AtlasGamesService {
   //MAIN ONE USED ON SEARCH PAGE
   async getBoardGames(query = '') {
+    let nextSet = AppState.nextSet
     const res = await atlasApi.get(`api/search?${query}`, {
       params: {
         client_id: '2I6DeypMLL',
         limit: 48,
+        skip : nextSet
       },
     });
     console.log(res.data);

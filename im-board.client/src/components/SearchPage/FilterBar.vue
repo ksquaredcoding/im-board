@@ -116,13 +116,13 @@ export default {
         try {
           AppState.itsAMaybe = 12;
           AppState.hopeItWorks = 0;
-          AppState.skip = 0;
+          // AppState.skip = 0;
           let categoriesSearch = `categories=${filters1.value}`;
           let mechanicsSearch = `mechanics=${filters2.value}`;
 
           let search = `gt_max_players=${playerCount.value}`;
           let search2 = `lt_max_playtime=${playTime.value}`;
-          let skipQuery = `skip=${AppState.skip}`;
+          // let skipQuery = `skip=${AppState.skip}`;
 
           AppState.queryFilter = [
             ...AppState.queryFilter,
@@ -131,12 +131,13 @@ export default {
 
             categoriesSearch,
             mechanicsSearch,
-            skipQuery,
+            // skipQuery,
           ];
           const arrToUse = AppState.queryFilter;
           AppState.nextQueryFilter = AppState.queryFilter;
           let finalSearch = arrToUse.join("&");
           console.log(AppState.queryFilter.join("&"));
+          AppState.activeSearchQuery = arrToUse
           await atlasGamesService.getBoardGames(finalSearch);
           if (AppState.boardgames <= 0) {
             Pop.toast("Refine your search please");
