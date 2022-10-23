@@ -14,6 +14,7 @@ export class GroupHandler extends SocketHandler {
 
 enterGroup(groupId){
   this.socket.join(groupId)
+  // this.socket.
 }
 
 leaveGroup(groupId){
