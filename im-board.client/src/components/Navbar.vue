@@ -36,7 +36,7 @@
     <div class="col-md d-flex flex-row justify-content-end">
 
       <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" :disabled="!invite" aria-expanded="false">
           <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="" v-if="invites.length <=0">
           <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50"
             class="animate__animated animate__fadeIn" v-else>
