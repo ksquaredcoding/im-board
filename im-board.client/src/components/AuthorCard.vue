@@ -1,81 +1,17 @@
 <template>
-  <div class="col-md-2 ">
-     <div class="  p-0 mx-1  text-center">
-    <img src="../assets/img/Tung Le.4.jpg" alt="Tung Le " class="card-img " />
-
-
-      <div class="d-flex justify-content-around rounded">
+ <div class="col-md-3">
+<div class="card text-bg-dark">
+  <img src="../assets/img/Tung Le.4.jpg" class="card-img" alt="Tung Le photo">
+  <div class="card-img-overlay">
+ <div class="d-flex flex-column align-items-end rounded">
         <i class="mdi mdi-github fs-2"></i>
         <i class="mdi mdi-linkedin fs-2"></i>
         <i class="mdi mdi-email fs-2"></i>
       </div>
 
   </div>
-  </div>
- 
-
-    <div class="col-md-2">
-     <div class="box-shadow p-0 mx-1 text-center">
-    <img src="../assets/img/Tri Lie.jpg" alt="Tri Le portrait " class="card-img " />
-
-    <div class="card-img-overly">
-      <div class="d-flex justify-content-around">
-        <i class="mdi mdi-github fs-2"></i>
-        <i class="mdi mdi-linkedin fs-2"></i>
-        <i class="mdi mdi-email fs-2"></i>
-      </div>
-    </div>
-  </div>
-  </div>
- 
-
-  
-    <div class="col-md-2">
-     <div class=" box-shadow p-0 mx-1">
-    <img src="../assets/img/molly.png" alt="Molly Nettleton portrait " class="card-img" />
-
-    <div class="card-img-overly ">
-      <div class="d-flex justify-content-around">
-        <i class="mdi mdi-github fs-2"></i>
-        <i class="mdi mdi-linkedin fs-2"></i>
-        <i class="mdi mdi-email fs-2"></i>
-      </div>
-      <!--  -->
-    </div>
-  </div>
-  </div>
-
-  
-  
-    <div class="col-md-2">
-     <div class="box-shadow p-0 mx-1">
-    <img src="../assets/img/TriPicture.jpg" alt="Tri le portrait" class="card-img" />
-
-    <div class="card-img-overly">
-      <div class="d-flex justify-content-around">
-        <i class="mdi mdi-github fs-2"></i>
-        <i class="mdi mdi-linkedin fs-2"></i>
-        <i class="mdi mdi-email fs-2"></i>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  
-  
-    <div class="col-md-2">
-     <div class=" box-shadow p-0 mx-1">
-    <img src="../assets/img/Tung Le.2.jpg" alt="Tung Le " class="card-img" />
-
-    <div class="card-img-overly">
-      <div class="d-flex justify-content-around">
-        <i class="mdi mdi-github fs-2"></i>
-        <i class="mdi mdi-linkedin fs-2"></i>
-        <i class="mdi mdi-email fs-2"></i>
-      </div>
-    </div>
-  </div>
-  </div>
+</div>
+ </div>
 
 </template>
 
@@ -92,8 +28,9 @@ export default {
 <style lang="scss" scoped>
 .card-img{
    height: 300px;
-  width: auto;
+
   object-fit: cover;
+  object-position: top;
 
 }
 .tri-card-img{

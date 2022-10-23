@@ -45,7 +45,7 @@ export default {
 
 <style scoped lang="scss">
 .backgroundImage {
-  height: 90vh;
+
   background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.wallpapersden.com%2Fimage%2Fdownload%2Ftriangle-pattern-design_a2lra2uUmZqaraWkpJRnZW1orWdlbWg.jpg&f=1&nofb=1&ipt=a6e8dbdcc6ffdc85a55b0550ebea68628a737df04e362b865af232d8d4fcaf5a&ipo=images');
   background-position: center;
   background-size: cover;
