@@ -36,10 +36,13 @@
     <div class="col-md d-flex flex-row justify-content-end">
 
       <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" :disabled="invites.length <=0" aria-expanded="false">
-          <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="" v-if="invites.length <=0">
-          <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50"
-            class="animate__animated animate__fadeIn" v-else>
+        <button class="btn dropdown-toggle text-warning" type="button" data-bs-toggle="dropdown" :disabled="invites.length <=0" aria-expanded="false">
+          <i class="mdi mdi-bell-badge fs-1 position-relative">
+            <div class="rounded-circle bg-danger circle fs-6 position-absolute heart">{{invites.length}}</div>
+          </i>
+          <!-- <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="" v-if="invites.length <=0"> -->
+          <!-- <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50" -->
+            <!-- class="animate__animated animate__fadeIn" > -->
 
         </button>
         <ul class="dropdown-menu" v-if="invites">
@@ -47,7 +50,7 @@
           <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}">
             {{invite.description}}
           </RouterLink>
-          <i class="mdi mdi-delete-forever selectable" @click="deleteInvite(`${invite.id}`)" ></i>
+          <i class="mdi mdi-delete-forever selectable " @click="deleteInvite(`${invite.id}`)" ></i>
           </li>
          
         </ul>
@@ -173,6 +176,13 @@ export default {
 </script>
 
 <style scoped>
+.circle{
+  width: 20px;
+  height: 20px;
+top: 1.5px;
+  left:21px
+
+}
 a:hover {
   text-decoration: none;
 }
