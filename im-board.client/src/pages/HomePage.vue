@@ -1,14 +1,14 @@
 <template>
   <div
     class="container-fluid px-4 homepage animate__animated animate__fadeInLeft"
-    v-if="boardGames"
+
   >
     <div class="row justify-content-center">
       <div class="col-md-12 my-2">
         <HomePageBanner />
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-12 pt-5" >
         <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
           <h5 class="rowTitle p-1 mt-1">Popular Board Games</h5>
         </div>
@@ -21,11 +21,11 @@
           leaveActiveClass="animate__fadeOutLeft animate__animated"
         >
           <div
-            class="col-md-2 mt-3 mb-2"
-            v-for="p in popularBoardGames"
-            :key="p.id"
+            class="col-md-2 mt-5 mb-2"
+            v-for="pop in popularBoardGames"
+            :key="pop.id"
           >
-            <BoardGameCard :boardGame="p" class="mx-2" />
+            <BoardGameCard :boardGame="pop" class="mx-2" />
           </div>
         </TransitionGroup>
         </div>

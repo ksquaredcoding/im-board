@@ -13,12 +13,12 @@
     </router-link>
 
     <div class="card-body p-1 mt-2 bg-grey rounded">
-      <span class="text-center" title="Game title">
+      <span class="text-center" :title="boardGame?.name">
         <router-link
           class="text-center"
           :to="{ name: 'BoardGameDetails', params: { id: boardGame?.id } }"
         >
-          <p class="text-decoration-underline text-wrap text-dark">
+          <p class="text-decoration-underline text-truncate text-dark">
             {{ boardGame?.name }}
           </p>
         </router-link>
