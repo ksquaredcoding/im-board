@@ -214,6 +214,7 @@ export default {
 
     return {
       editable,
+      
       popularBoardGames: computed(() => AppState.popularBoardGames),
       boardGames: computed(() => AppState.boardgames),
       forumPosts: computed(() =>

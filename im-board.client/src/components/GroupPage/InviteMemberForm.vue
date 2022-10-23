@@ -14,11 +14,12 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mt-3 inputBox">
-                  <div class="font" >User: ID</div>
+                  <div class="font" >User</div>
                  
                   <div >
-                     <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable" v-if="profileIdToInvite">
-           <img :src="profileIdToInvite.picture" alt="" height="30" width="30" class="rounded-circle me-3">  {{profileIdToInvite.name.split('@')[0]}}
+                     <div class="d-flex align-items-center bg-success rounded p-2  hover hoverable " :title="profileIdToInvite.name" v-if="profileIdToInvite">
+           <img :src="profileIdToInvite.picture" alt="" height="30" width="30" class="rounded-circle me-3"> 
+           <p class="mb-0 text-truncate"> {{profileIdToInvite.name.split('@')[0]}}</p>
         </div>
                   </div>
                 </div>

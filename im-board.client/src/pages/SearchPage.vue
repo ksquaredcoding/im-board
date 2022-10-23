@@ -37,10 +37,10 @@
         height="400">
       </div>
         <div class=" d-flex justify-content-center my-2">
-          <button class="btn button-51 mx-1" @click="paginationAttempt2('prev')" type="button" :disabled="hopeItWorks == 0">
+          <button class="btn button-51 mx-1" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
             Previous
           </button>
-          <button class="btn button-52 mx-1" @click="paginationAttempt2('next')" type="button" :disabled="
+          <button class="btn button-52 mx-1" @click="incrementSkip('next')" type="button" :disabled="
             boardGames.length <= 0 ||
             boardGames.length < itsAMaybe - hopeItWorks
           ">

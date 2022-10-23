@@ -38,7 +38,7 @@ class ProfilesService {
         });
     // console.log(res.data);
     AppState.profiles = res.data.map(p => new Account(p))
-    console.log(AppState.profiles);
+    // console.log(AppState.profiles);
     
   }
 }

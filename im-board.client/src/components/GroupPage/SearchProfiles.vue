@@ -21,7 +21,10 @@
     <div class=" row  justify-content-center ">
       <div class="col-md-4 my-2  animate__animated animate__fadeIn " v-for="p in profiles"  @click="inviteToGroup(p)">
         <div class="d-flex align-items-center bg-dark rounded p-2 hover hoverable">
-           <img :src="p.picture" alt="" height="30" width="30" class="rounded-circle me-3">   {{ p.name.split('@')[0] }} 
+           <img :src="p.picture" alt="" height="30" width="30" class="rounded-circle me-3">  
+           <p class="mb-0 text-truncate">
+            {{ p.name.split('@')[0] }} 
+           </p> 
         </div>
 
       </div>
@@ -44,13 +47,13 @@ export default {
 
     return {
       editable,
-      profiles: computed(() => AppState.profiles.filter(p => p.name.includes(editable.value.term))),
+      profiles: computed(() => AppState.profiles.filter(p => p.name.toUpperCase().includes(editable.value.term.toUpperCase()))),
       async searchProfiles() {
         try {
      
           await profilesService.getProfiles(editable.value.term);
         } catch (error) {
-          console.error('dfd', error);
+          console.error('searchProfiles', error);
         }
       },
 

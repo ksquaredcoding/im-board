@@ -184,6 +184,10 @@ export default {
           filterBg.value ? b.listName == filterBg.value : true
         )
       ),
+
+
+
+      
     };
   },
   components: { GroupCard, GroupForm, ListCard, GroupGamesCard },
