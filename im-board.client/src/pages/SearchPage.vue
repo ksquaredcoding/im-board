@@ -152,7 +152,7 @@ export default {
 
       async paginationAttempt2(prevOrNext){
 try {
-  const activeSearchQuery = AppState.activeSearchQuery
+  const activeSearchQuery = AppState.activeSearchQuery.join('&')
   console.log(activeSearchQuery);
   if (prevOrNext == 'prev') {
     AppState.nextSet +=25
