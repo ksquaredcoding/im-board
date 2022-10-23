@@ -47,7 +47,7 @@
         </button>
         <ul class="dropdown-menu" v-if="invites">
           <li class="dropdown-item  d-flex justify-content-between" v-for="invite in invites" :key="invite.id">
-          <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}">
+          <RouterLink :to="{name: 'Group', params: {id: invite.groupId}}" @click="getGroupDetails()">
             {{invite.description}}
           </RouterLink>
           <i class="mdi mdi-delete-forever selectable " @click="deleteInvite(`${invite.id}`)" ></i>
@@ -131,6 +131,11 @@ import { useRoute } from "vue-router";
 import { inboxService } from "../services/InboxService.js";
 
 import SearchProfiles from "./GroupPage/SearchProfiles.vue";
+
+import { groupsService } from "../services/GroupsService.js";
+import { listsService } from "../services/ListsService.js";
+import { gameNightsService } from "../services/GameNightsService.js";
+
 export default {
   setup() {
     // async function getInvites(){
@@ -166,6 +171,18 @@ export default {
           }
        
         },
+        async getGroupDetails(){
+try {
+    await groupsService.getGroupById(route.params.id)
+
+    await groupsService.getGroupMembers(route.params.id)
+    await listsService.getListsByGroupId(route.params.id)
+    await gameNightsService.getGroupGameNights(route.params.id)
+    // await groupsService.
+  } catch (error) {
+    Pop.error(error)
+  }
+        },
       async login() {
         AuthService.loginWithPopup()
       },
@@ -180,7 +197,7 @@ export default {
   width: 20px;
   height: 20px;
 top: 1.5px;
-  left:21px
+  left:19px
 
 }
 a:hover {
