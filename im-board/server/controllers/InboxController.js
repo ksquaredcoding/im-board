@@ -7,15 +7,29 @@ export class InboxController extends BaseController {
     super("/api/inbox");
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get("/:id", this.getInbox)
       .delete("/account", this.clearInbox)
       .post("", this.sendInvite)
       .delete("/:inboxId", this.deleteInvite);
+  }
+  async getInbox(req, res, next) {
+    try {
+      // debugger;
+      // let hello = req.userInfo;
+      const inbox = await inboxService.getInbox(
+        // req.account.id,
+        req.params.id
+      );
+      res.send(inbox);
+    } catch (error) {
+      next(error);
+    }
   }
   async clearInbox(req, res, next) {
     try {
       const inbox = await inboxService.clearInbox(req.userInfo.id);
       res.send(inbox);
-    }catch (error) {
+    } catch (error) {
       next(error);
     }
   }

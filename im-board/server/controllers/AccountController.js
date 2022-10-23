@@ -12,18 +12,22 @@ export class AccountController extends BaseController {
     super("/account");
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get("/inbox", this.getInbox)
       .get("", this.getUserAccount)
       .get("/boardgames", this.getAccountLists)
       .get("/groups", this.getAccountGroups)
-      .put("", this.editMyAccount)
-      .get("/inbox", this.getInbox);
+      .put("", this.editMyAccount);
   }
   async getInbox(req, res, next) {
     try {
       // let hi = await Auth0Provider.getAuthorizedUserInfo
-      // debugger;
+      debugger;
 
       const inbox = await inboxService.getInbox(req.userInfo.id);
+      if (!inbox) {
+        res.send("empty");
+        return;
+      }
 
       res.send(inbox);
     } catch (error) {

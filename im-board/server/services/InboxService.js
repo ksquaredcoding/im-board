@@ -42,8 +42,9 @@ class InboxService {
     return invite;
   }
   async getInbox(accountId) {
-  
-    const box = await dbContext.Inbox.find({ recipientId :accountId })
+    // debugger;
+
+    const box = await dbContext.Inbox.find({ recipientId: accountId })
       .populate("group", "name coverImg")
       .populate("sender", "name picture");
 
