@@ -1,13 +1,13 @@
-import { AppState } from "../AppState.js";
-import { Inbox } from "../models/Inbox.js";
-import { api } from "./AxiosService.js";
+import { AppState } from '../AppState.js';
+import { Inbox } from '../models/Inbox.js';
+
+import { api } from './AxiosService.js';
 
 class InboxService {
-  async getInvites() {
-    let id = AppState.account.id;
+  async getInvites(id) {
     console.log(id);
     const res = await api.get(`/api/inbox/${id}`);
-    console.log(res.data, "hello");
+    console.log(res.data, 'hello');
     AppState.inbox = res.data.map((i) => new Inbox(i));
     console.log(AppState.inbox);
     // return AppState.inbox;

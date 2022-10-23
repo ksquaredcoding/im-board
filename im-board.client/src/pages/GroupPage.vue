@@ -65,7 +65,7 @@ import Chat from '../components/GroupPage/Chat.vue';
 import { gameNightsService } from '../services/GameNightsService.js';
 import GameNightForm from '../components/GroupPage/GameNightForm.vue';
 import { GroupHandler } from "../handlers/GroupHandler.js";
-import "../handlers/MemberHandler.js"
+
 
 export default {
   setup() {

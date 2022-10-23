@@ -16,6 +16,7 @@ class SocketProvider {
    * @type {Server}
    */
 
+  // @ts-ignore
   io = null;
   initialize(httpServer) {
     try {

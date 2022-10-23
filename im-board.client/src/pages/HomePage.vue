@@ -152,8 +152,7 @@ import { AppState } from "../AppState.js";
 import ForumPosts from "../components/HomePage/AtlasGamesForumPosts.vue";
 import Articles from "../components/HomePage/Articles.vue";
 import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
-import { router } from "../router.js";
-import RowSeperator from "../components/HomePage/RowSeperate.vue";
+
 import RowSeperate from "../components/HomePage/RowSeperate.vue";
 import { inboxService } from "../services/InboxService.js";
 
@@ -193,9 +192,11 @@ export default {
     }
      async function getInvites(){
       try {
+     
+        
+         await inboxService.getInvites()
        
-        await inboxService.getInvites()
-        console.log('getting invites');
+        // console.log('getting invites');
         // setTimeout(1000)
         // getInvites()
         } catch (error) {
