@@ -17,8 +17,8 @@
         <div class="col-md-12 d-flex justify-content-center">
     <TransitionGroup
           name="custom-classes"
-          enterActiveClass="animate__fadeIn animate__animated"
-          leaveActiveClass="animate__fadeOut animate__animated"
+          enterActiveClass="animate__fadeInRight animate__animated"
+          leaveActiveClass="animate__fadeOutLeft animate__animated"
         >
           <div
             class="col-md-2 mt-3 mb-2"
@@ -54,8 +54,8 @@
         <div class="col-md-12 d-flex justify-content-center">
   <TransitionGroup
           name="custom-classes"
-          enterActiveClass="animate__fadeIn animate__animated"
-          leaveActiveClass="animate__fadeOut animate__animated"
+          enterActiveClass="animate__fadeInRight animate__animated"
+          leaveActiveClass="animate__fadeOutLeft animate__animated"
         >
           <div
             class="col-md-2 mt-5 mb-2"
@@ -89,8 +89,8 @@
       <div class="row mx-2 horizontal-scrollable mt-3">
         <TransitionGroup
           name="custom-classes"
-          enterActiveClass="animate__zoomIn animate__animated"
-          leaveActiveClass="animate__zoomOut animate__animated"
+          enterActiveClass="animate__fadeInRight animate__animated"
+          leaveActiveClass="animate__fadeOutLeft animate__animated"
         >
           <div
             class="col-md-2 mt-3 mb-2"
@@ -216,10 +216,12 @@ paginationForPopular : computed(()=> AppState.nextSet),
       async pagination(x){
         try {
           if (x == 'prev') {
+            // AppState.popularBoardGames = []
             AppState.nextSet -= 6
               await atlasGamesService.getBoardGamesByPopularity()
           
           } else{
+                // AppState.popularBoardGames = []
              AppState.nextSet += 6
             await atlasGamesService.getBoardGamesByPopularity()
           }
@@ -231,10 +233,12 @@ paginationForPopular : computed(()=> AppState.nextSet),
            async paginationDiscount(x){
         try {
           if (x == 'prev') {
+             AppState.discountBoardGames = []
             AppState.paginationDiscount -= 6
               await atlasGamesService.getBoardGamesByDiscount()
           
           } else{
+             AppState.discountBoardGames = []
              AppState.paginationDiscount += 6
             await atlasGamesService.getBoardGamesByDiscount()
           }

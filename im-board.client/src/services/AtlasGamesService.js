@@ -45,6 +45,7 @@ order_by:x,
 
   // SECTION ---------------- FOR HOME PAGE---------------------
   async getBoardGamesByDiscount() {
+   
     let nextSet = AppState.paginationDiscount;
     const res = await atlasApi.get('/api/search', {
       params: {
@@ -60,6 +61,7 @@ order_by:x,
   }
 
   async getBoardGamesByPopularity() {
+ 
     let nextSet = AppState.nextSet;
     const res = await atlasApi.get('/api/search', {
       params: {
