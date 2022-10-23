@@ -21,6 +21,7 @@
   <FAQModal />
   <GameNightForm />
   <InviteMemberForm />
+  <LegalModal/>
 </template>
 
 <script>
@@ -43,6 +44,7 @@ import InviteMemberForm from "./components/GroupPage/InviteMemberForm.vue";
 import Pop from "./utils/Pop.js";
 import { accountService } from "./services/AccountService.js";
 import { AuthService } from "./services/AuthService.js";
+import LegalModal from "./components/LegalModal.vue";
 
 export default {
   setup() {
@@ -67,7 +69,8 @@ export default {
     GroupForm,
     EditGroupForm,
     InviteMemberForm,
-  },
+    LegalModal
+},
 };
 </script>
 <style lang="scss">

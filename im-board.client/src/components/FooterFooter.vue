@@ -1,9 +1,20 @@
 <template>
   <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center">
-      <p class="col-md-4 mb-0 text-muted footer-text fs-5">
-        © 2022 I'm Game, Inc
-      </p>
+      <div class="d-flex justify-content-center align-items-center">
+ <button
+        type="button"
+        class="btn bg-transparent"
+        data-bs-toggle="modal"
+        data-bs-target="#CopyRightModal"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3146/3146182.png"
+          alt=" copyright Icon"
+          height="40"
+          width="40"
+        />
+      </button>
 
       <i
         class="mdi mdi-google-maps text-warning selectable fs-1"
@@ -11,6 +22,8 @@
         data-bs-target="#googleMapModal"
         title="support your local game stores!"
       ></i>
+      </div>
+     
 
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item">
@@ -48,10 +61,10 @@
 </template>
 
 <script>
-import { computed } from "@vue/reactivity";
-import { useRoute, useRouter } from "vue-router";
-import { AppState } from "../AppState.js";
-import FAQModal from "./FAQModal.vue";
+import { computed } from '@vue/reactivity';
+import { useRoute, useRouter } from 'vue-router';
+import { AppState } from '../AppState.js';
+import FAQModal from './FAQModal.vue';
 
 export default {
   props: {},
@@ -93,6 +106,6 @@ export default {
   text-align: center;
   font-size: 20px;
   font-weight: bolder;
-  font-family: "Baloo 2", cursive;
+  font-family: 'Baloo 2', cursive;
 }
 </style>
