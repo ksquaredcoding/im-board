@@ -138,20 +138,20 @@ import { gameNightsService } from "../services/GameNightsService.js";
 
 export default {
   setup() {
-    async function getInvites(){
-      try {
+    // async function getInvites(){
+    //   try {
        
-        const inbox = await inboxService.getInvites()
-        console.log('getting invites', inbox);
-        // setTimeout(1000)
-        // getInvites()
-        } catch (error) {
-          Pop.error(error)
-        }
-    }
-    onMounted(()=> 
-      getInvites()
-    )
+    //     const inbox = await inboxService.getInvites()
+    //     console.log('getting invites', inbox);
+    //     // setTimeout(1000)
+    //     // getInvites()
+    //     } catch (error) {
+    //       Pop.error(error)
+    //     }
+    // }
+    // onMounted(()=> 
+    //   getInvites()
+    // )
  
     // watchEffect(() => {
     //   let hello = AppState.account.isAuthenticated

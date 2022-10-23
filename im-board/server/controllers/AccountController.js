@@ -20,14 +20,11 @@ export class AccountController extends BaseController {
   }
   async getInbox(req, res, next) {
     try {
-      // let hi = await Auth0Provider.getAuthorizedUserInfo
+     
       debugger;
 
       const inbox = await inboxService.getInbox(req.userInfo.id);
-      if (!inbox) {
-        res.send("empty");
-        return;
-      }
+      
 
       res.send(inbox);
     } catch (error) {

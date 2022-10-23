@@ -32,7 +32,6 @@
         </h1>
       </div>
       <div class="col-md d-flex justify-content-end">
-      
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner">
           <i
             class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1"
@@ -74,11 +73,10 @@
       </div>
 
       <div class="col-md mx-md-3 mt-3 mt-md-0 rounded bg-grey">
-     
-          <div class="col-md d-flex justify-content-center pt-2  rounded bg-c3">
-            <h2 class="font">Game Lists</h2>
-          </div>
-     
+        <div class="col-md d-flex justify-content-center pt-2 rounded bg-c3">
+          <h2 class="font">Game Lists</h2>
+        </div>
+
         <div class="row justify-content-center">
           <b class="mb-2 mt-2 d-flex justify-content-center">
             <div class="ms-3">
@@ -145,10 +143,12 @@ import EditBanner from "../components/AccountProfilePage/EditAccountModal.vue";
 import EditName from "../components/AccountProfilePage/EditName.vue";
 import EditPic from "../components/AccountProfilePage/EditPic.vue";
 import InviteLink from "../components/socketStuff/InviteLink.vue";
+import { inboxService } from "../services/InboxService.js";
 
 export default {
   setup() {
     const filterBg = ref("favorite");
+
     async function getMyGroups() {
       try {
         await accountService.getMyGroups();
@@ -169,10 +169,23 @@ export default {
     function focus() {
       document.getElementById("Fave").focus();
     }
+
+    async function getInvites() {
+      try {
+        const inbox = await inboxService.getInvites();
+        console.log("getting invites", inbox);
+        // setTimeout(1000)
+        // getInvites()
+      } catch (error) {
+        Pop.error(error);
+      }
+    }
+
     onMounted(() => {
       getMyGroups();
       getMyLists();
       focus();
+      getInvites();
     });
     return {
       filterBg,
@@ -204,8 +217,8 @@ export default {
     EditBanner,
     EditName,
     EditPic,
-    InviteLink
-},
+    InviteLink,
+  },
 };
 </script>
 
