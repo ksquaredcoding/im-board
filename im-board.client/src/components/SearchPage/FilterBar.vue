@@ -9,9 +9,9 @@
           </button>
           <div class="row scrollableY p-2 dropdown-menu bg-dark">
             <div class="col-md-12">
-              <div class="dropdown-item inputBox d-flex text-light" v-for="c in categories" :key="c.id"
+              <div class="dropdown-item  inputBox d-flex text-light" v-for="c in categories" :key="c.id"
                 id="CategoryDiv">
-                <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
+                <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1"   />
                 <label for="card-game" class="ms-2">{{ c.name }}</label>
               </div>
             </div>

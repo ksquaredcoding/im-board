@@ -28,15 +28,15 @@ class AtlasGamesService {
   }
 
   //NOTE - FOR FILTER SIDE BAR
-  async getBoardGamesByOrder_By() {
-    let nextSet = AppState.nextSet
- 
+  async getBoardGamesByOrder_By(x) {
+    let nextSet = AppState.nextSet;
+// console.log(x);
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
-    
-        limit:25,
-        skip:nextSet
+order_by:x,
+        limit: 25,
+        skip: nextSet,
       },
     });
     console.log(res.data.games);
@@ -45,13 +45,14 @@ class AtlasGamesService {
 
   // SECTION ---------------- FOR HOME PAGE---------------------
   async getBoardGamesByDiscount() {
-       let nextSet = AppState.paginationDiscount
+    let nextSet = AppState.paginationDiscount;
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
+
         limit: 6,
         gt_discount: 0.5,
-        skip :nextSet
+        skip: nextSet,
       },
     });
 
@@ -59,16 +60,43 @@ class AtlasGamesService {
   }
 
   async getBoardGamesByPopularity() {
-    let nextSet = AppState.nextSet
+    let nextSet = AppState.nextSet;
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
         limit: 6,
-        skip:nextSet
+        skip: nextSet,
       },
     });
     AppState.popularBoardGames = res.data.games.map((b) => new BoardGame(b));
   }
+
+  async getBoardGamesByPrice() {
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+        lt_price: 20,
+      },
+    });
+
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+  }
+
+  async filterBoardGamesByDiscount() {
+  
+    const res = await atlasApi.get('/api/search', {
+      params: {
+        client_id: '2I6DeypMLL',
+
+       limit:25,
+        gt_discount: 0.5,
+    
+      },
+    });
+console.log(res.data.games);
+    AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
+  }
+
   async getBoardGamesByIds() {
     const res = await atlasApi.get('/api/search', {
       params: {

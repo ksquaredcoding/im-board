@@ -26,16 +26,16 @@
 
           <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
             leaveActiveClass="animate__zoomOut animate__animated">
-            <div class="col-md-2 mt-3" v-for="b in boardGames" :key="b.id">
+            <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>
           </TransitionGroup>
         </div>
-        <!-- <div  class=" col-md-12 d-flex  flex-column justify-content-center align-items-center">
+        <div  class=" col-md-12 d-flex  flex-column justify-content-center align-items-center" v-if="boardGames.length <=0">
         <h1>Currently no results Found</h1>
         <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
         height="400">
-      </div> -->
+      </div>
         <div class=" d-flex justify-content-center my-2">
           <button class="btn button-51 mx-1" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
             Previous

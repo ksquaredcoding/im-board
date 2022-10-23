@@ -5,6 +5,9 @@
     <h4>Filter By</h4>
 
     <button @click="filterByOrderBy('')" class="btn bg-transparent"><h6>Most Popular</h6></button>
+    <button @click="filterByOrderBy('year_published')" class="btn bg-transparent"><h6>Year Published</h6></button>
+    <button @click="filterByPrice()" class="btn bg-transparent"><h6>Under $20</h6></button>
+    <button @click="filterByDiscounts()" class="btn bg-transparent"><h6>Over 50% Off</h6></button>
   
   </div>
 </template>
@@ -22,13 +25,33 @@ export default {
     return {
       editable,
 
-      async filterByOrderBy() {
+      async filterByOrderBy(x) {
         try {
-          await atlasGamesService.getBoardGamesByOrder_By(editable.value);
+          if (x == 'year_published') {
+            console.log(x);
+            await atlasGamesService.getBoardGamesByOrder_By(x);
+          } else
+          await atlasGamesService.getBoardGamesByOrder_By();
         } catch (error) {
           Pop.error(error, '[searchByOrderBy]');
         }
       },
+      async filterByDiscounts(){
+  try {
+   
+          await atlasGamesService.filterBoardGamesByDiscount();
+        } catch (error) {
+          Pop.error(error, '[searchByOrderBy]');
+        }
+      },
+      async filterByPrice(){
+  try {
+ 
+          await atlasGamesService.getBoardGamesByPrice();
+        } catch (error) {
+          Pop.error(error, '[searchByOrderBy]');
+        }
+      }
     };
   },
 };

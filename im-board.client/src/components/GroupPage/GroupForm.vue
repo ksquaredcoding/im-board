@@ -15,7 +15,7 @@
               <div class="col-md-6">
                 <div class="">
                   <img
-                    :src="editable.coverImg"
+                    :src="editable.coverImg || 'https://rlv.zcache.com/template_blank_add_your_image_text_here_classic_round_sticker-r64216cd6594f4f23bdad64fee876a3a1_v9waf_8byvr_512.jpg'"
                     alt=""
                     class="forcedImg smallerImg mt-2 Img1 bg-grey"
                   />
