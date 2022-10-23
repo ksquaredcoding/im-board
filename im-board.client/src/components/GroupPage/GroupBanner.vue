@@ -1,6 +1,14 @@
 <template v-if="group">
   <div class="col-md-12 rounded-0 banner elevation-3" :style="{ backgroundImage: `url(${group?.coverImg})` }">
-    <div class="logicButtons d-flex">
+   <div class="d-flex">
+ <button class="btn  text-light" type="button" data-bs-toggle="collapse" data-bs-target="#groupButtons" aria-expanded="false" aria-controls="collapseWidthExample">
+   <i class="mdi mdi-dots-horizontal fs-1"></i>
+  </button>
+
+
+  <div class="collapse " id="groupButtons">
+ 
+         <div class="logicButtons d-flex">
       <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group
       </button>
@@ -32,6 +40,12 @@
         </button>
       </div>
     </div>
+
+  
+</div>
+   </div>
+ 
+
     <div class="row justify-content-center">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
         <span class="name">{{ group?.name }}</span>
