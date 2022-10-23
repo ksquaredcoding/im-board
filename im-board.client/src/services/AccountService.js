@@ -36,12 +36,7 @@ class AccountService {
     const res = await api.put("/account", formData);
     AppState.account = new Account(res.data);
   }
-  async getInvites() {
-    const res = await api.get("/account/inbox");
-    console.log(res.data, "hello");
-    AppState.inbox = res.data.map((i) => new Inbox(i));
-    console.log(AppState.inbox);
-  }
+  
 }
 
 export const accountService = new AccountService();

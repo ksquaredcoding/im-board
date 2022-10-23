@@ -1,11 +1,11 @@
-import { initialize } from '@bcwdev/auth0provider-client';
-import { AppState } from '../AppState';
-import { audience, clientId, domain } from '../env';
-import { router } from '../router';
-import { accountService } from './AccountService';
-import { api } from './AxiosService';
+import { initialize } from "@bcwdev/auth0provider-client";
+import { AppState } from "../AppState";
+import { audience, clientId, domain } from "../env";
+import { router } from "../router";
+import { accountService } from "./AccountService";
+import { api } from "./AxiosService";
+import { inboxService } from "./InboxService.js";
 import { socketService } from "./SocketService.js";
-
 
 export const AuthService = initialize({
   domain,
@@ -28,7 +28,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
   await accountService.getAccount();
   socketService.authenticate(AuthService.bearer);
   // NOTE if there is something you want to do once the user is authenticated, place that here
-  await accountService.getInvites()
+  await inboxService.getInvites();
 });
 
 async function refreshAuthToken(config) {

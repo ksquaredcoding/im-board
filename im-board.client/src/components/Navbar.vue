@@ -125,6 +125,7 @@ import { onMounted, watchEffect } from "vue";
 import Pop from "../utils/Pop.js";
 import { accountService } from "../services/AccountService.js";
 import { useRoute } from "vue-router";
+import { inboxService } from "../services/InboxService.js";
 
 import SearchProfiles from "./GroupPage/SearchProfiles.vue";
 export default {
@@ -153,6 +154,15 @@ export default {
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
+       async deleteInvite (id){
+        try {
+            await inboxService.deleteInvite(id)
+          } catch (error) {
+            console.error('[]',error)
+            Pop.error(error)
+          }
+       
+        },
       async login() {
         AuthService.loginWithPopup()
       },
