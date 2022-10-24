@@ -33,7 +33,7 @@
           </TransitionGroup>
         </div>
         <div  class=" col-md-12 d-flex  flex-column justify-content-center align-items-center" v-if="boardGames.length <=0">
-        <h1>Currently no results Found</h1>
+        <h1>Currently no results </h1>
         <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
         height="400">
       </div>

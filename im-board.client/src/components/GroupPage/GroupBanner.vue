@@ -4,23 +4,25 @@
  <button class="btn  text-light" type="button" data-bs-toggle="collapse" data-bs-target="#groupButtons" aria-expanded="false" aria-controls="collapseWidthExample">
    <i class="mdi mdi-dots-horizontal fs-1"></i>
   </button>
-
-
-  <div class="collapse " id="groupButtons">
- 
-         <div class="logicButtons d-flex">
-      <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
+<div class="d-flex">
+  <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
         Join Group
       </button>
       <div v-else>
         <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2">
           Leave Group
         </button>
-        <button class="btn button-51 py-1 px-2 m-2" data-bs-toggle="modal" data-bs-target="#gameNightForm">
+       
+      </div>
+</div>
+
+  <div class="collapse " id="groupButtons">
+ 
+         <div class="logicButtons d-flex">
+    
+ <button class="btn button-51 py-1 px-2 m-2" data-bs-toggle="modal" data-bs-target="#gameNightForm">
           Create Gamenight
         </button>
-      </div>
-
       <!-- ------------ -->
       <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
         Delete Group

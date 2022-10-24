@@ -12,7 +12,7 @@ class GroupChatsService {
   async addGroupChat(chatData) {
     const res = await api.post(`api/groupchats/`, chatData);
     // console.log(res.data);
-    AppState.groupChats = [...AppState.groupChats, new GroupChat(res.data)];
+    // AppState.groupChats = [...AppState.groupChats, new GroupChat(res.data)];
     // console.log(AppState.groupChats);
   }
 }
