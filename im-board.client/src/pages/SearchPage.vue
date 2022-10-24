@@ -5,6 +5,7 @@
         <div class="d-flex flex-column align-items-center" >
           <!-- <h6 class="searchText pt-3 text-dark">Search for board games by name</h6> -->
           <div class=" col-md-4 my-3">
+           
             <Searchbar />
           </div>
           <h5 class="text-dark"> Or search by..</h5>
@@ -24,8 +25,8 @@
       
         <div class="row mx-2">
 
-          <TransitionGroup name="custom-classes" enterActiveClass="animate__zoomIn animate__animated"
-            leaveActiveClass="animate__zoomOut animate__animated">
+          <TransitionGroup name="custom-classes" enterActiveClass="animate__fadeIn animate__animated"
+            leaveActiveClass="animate__fadeOut animate__animated">
             <div class="col-md-3 mt-3" v-for="b in boardGames" :key="b.id">
               <BoardGameCardSearchPage :boardGame="b" />
             </div>

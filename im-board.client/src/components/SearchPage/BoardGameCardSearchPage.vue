@@ -1,4 +1,5 @@
 <template>
+  
   <div class="bg-transparent card my-4   " v-if="boardGame">
     <router-link
       class="text-center"
@@ -12,9 +13,9 @@
       />
     </router-link>
 
-    <div class="card-body p-1 mt-2 bg-grey rounded">
+    <div class="card-body p-1 mt-2 bg-grey rounded" >
       <span class="text-center">
-        <h6 class="text-decoration-underline text-wrap">
+        <h6 class="text-decoration-underline text-truncate" :title="boardGame?.name">
           {{ boardGame?.name }}
         </h6>
       </span>
@@ -46,10 +47,10 @@
           height="15"
         />
         <p>${{ boardGame?.price }}</p>
-        <small class="text-decoration-line-through ms-3 me-1 revealOnHover">
+        <small class="text-decoration-line-through ms-3 me-1 revealOnHover animate__animated animate__fadeInLeft">
           {{ boardGame?.retailPrice }}
         </small>
-        <small class="revealOnHover">rp</small>
+        <small class="revealOnHover animate__animated animate__fadeInLeft">rp</small>
       </div>
       <div class="d-flex justify-content-center align-items-center" v-else>
         <img
@@ -70,7 +71,8 @@
       </div>
     </div>
   </div>
-  <div v-else>🦆</div>
+  <div v-else><div class="skeleton-load card"></div></div>
+
 </template>
 
 <script>
@@ -155,7 +157,7 @@ export default {
 
 .card:hover {
   transform: scale(1.04);
-  filter: brightness(110%);
+  filter: brightness(101%);
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;

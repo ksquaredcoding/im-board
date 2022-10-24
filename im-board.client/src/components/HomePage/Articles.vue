@@ -61,9 +61,11 @@ export default {
 }
 
 .forcedImg {
-  height: 300px;
+  height: 200px;
   width: auto;
   object-fit: cover;
+  object-position: center;
+  
   transition: all 0.5s ease;
 }
 
@@ -73,8 +75,8 @@ export default {
 }
 
 .card:hover {
-  transform: scale(1.04);
-  filter: brightness(110%);
+  transform: scale(1.01);
+  filter: brightness(105%);
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;

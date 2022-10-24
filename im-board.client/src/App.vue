@@ -22,6 +22,20 @@
   <GameNightForm />
   <InviteMemberForm />
   <LegalModal/>
+    <!-- MODAL -->
+  <div
+    class="modal fade"
+    id="activeImage"
+    tabindex="-1"
+    aria-labelledby="activeImageLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <img :src="modalImage" alt="" class="rounded elevation-2 customSize"  v-if="modalImage"/>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -53,6 +67,7 @@ export default {
       route,
       user: computed(() => AppState.inbox),
       appState: computed(() => AppState),
+         modalImage: computed(() => AppState.activeImage),
     };
   },
   components: {

@@ -20,8 +20,8 @@
       <div
         class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
       >
-        <img :src="boardGame?.large" alt="boardGameImg" class="img-fluid rounded animate__animated animate__fadeIn" />
-        
+        <img :src="boardGame?.large" alt="boardGameImg" class="img-fluid rounded animate__animated animate__fadeIn"  v-if="boardGame?.large"/>
+        <img src="" alt="" class="skeleton-loader img-fluid"  v-else>
       </div>
 
       <div
@@ -177,20 +177,7 @@
     </div>
   </div>
 
-  <!-- MODAL -->
-  <div
-    class="modal fade"
-    id="activeImage"
-    tabindex="-1"
-    aria-labelledby="activeImageLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <img :src="modalImage" alt="" class="rounded elevation-2 customSize" />
-      </div>
-    </div>
-  </div>
+
 </template>
 
 <script>
@@ -293,7 +280,7 @@ export default {
       videos: computed(() => AppState.activeBoardGameVideos),
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
-      modalImage: computed(() => AppState.activeImage),
+   
       categories: computed(() =>
         AppState.activeBoardGame.categories.map((x) => x.name.name)
       ),

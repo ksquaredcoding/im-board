@@ -35,7 +35,7 @@ export default {
     return {
       setActiveImage() {
         AppState.activeImage = props.images.original;
-        console.log(AppState.activeImage);
+        // console.log(AppState.activeImage);
       },
     };
   },

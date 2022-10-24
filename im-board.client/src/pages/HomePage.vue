@@ -23,10 +23,12 @@
           <div
             class="col-md-2 mt-5 mb-2"
             v-for="pop in popularBoardGames"
-            :key="pop.id"
+            :key="pop.id "
           >
-            <BoardGameCard :boardGame="pop" class="mx-2" />
+<BoardGameCardSearchPage  :boardGame="pop" class="mx-2"/>
+            <!-- <BoardGameCard :boardGame="pop" class="mx-2" /> -->
           </div>
+    
         </TransitionGroup>
         </div>
     <div class="col-md-12 d-flex justify-content-center">
@@ -62,7 +64,7 @@
             v-for="d in discountBoardGames"
             :key="d.id"
           >
-            <BoardGameCard :boardGame="d" class="mx-2" />
+            <BoardGameCardSearchPage :boardGame="d" class="mx-2" />
           </div>
         </TransitionGroup>
         </div>
@@ -97,7 +99,7 @@
             v-for="e in editorsChoice"
             :key="e.id"
           >
-            <BoardGameCard :boardGame="e" />
+            <BoardGameCardSearchPage :boardGame="e" />
           </div>
         </TransitionGroup>
       </div>
@@ -155,6 +157,7 @@ import HomePageBanner from "../components/HomePage/HomePageBanner.vue";
 
 import RowSeperate from "../components/HomePage/RowSeperate.vue";
 import { inboxService } from "../services/InboxService.js";
+import BoardGameCardSearchPage from "../components/SearchPage/BoardGameCardSearchPage.vue";
 
 export default {
   setup() {
@@ -273,9 +276,9 @@ paginationForPopular : computed(()=> AppState.nextSet),
     ForumPosts,
     Articles,
     HomePageBanner,
-
     RowSeperate,
-  },
+    BoardGameCardSearchPage
+},
 };
 </script>
 

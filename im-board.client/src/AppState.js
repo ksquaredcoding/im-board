@@ -190,4 +190,5 @@ export const AppState = reactive({
   nextSet: 0,
 
   paginationDiscount: 0,
+  paginationForumPosts:0
 });
