@@ -190,26 +190,26 @@ export default {
         Pop.error(error, "[getForumPosts]");
       }
     }
-     async function getInvites(){
-      try {
+    //  async function getInvites(){
+    //   try {
      
         
-         await inboxService.getInvites()
+    //      await inboxService.getInvites()
        
-        // console.log('getting invites');
-        // setTimeout(1000)
-        // getInvites()
-        } catch (error) {
-          Pop.error(error)
-        }
-    }
+    //     // console.log('getting invites');
+    //     // setTimeout(1000)
+    //     // getInvites()
+    //     } catch (error) {
+    //       Pop.error(error)
+    //     }
+    // }
 
     onMounted(() => {
       getBoardGamesByPopularity();
       getBoardGamesByDiscount();
       editorsChoiceGames();
       getForumPosts();
-      getInvites()
+      // getInvites()
     });
 
     return {
