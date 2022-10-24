@@ -63,7 +63,6 @@ order_by:x,
   }
 
   async getBoardGamesByPopularity() {
- 
     let nextSet = AppState.nextSet;
     const res = await atlasApi.get('/api/search', {
       params: {
@@ -72,6 +71,7 @@ order_by:x,
         skip: nextSet,
       },
     });
+    AppState.popularBoardGames = []
     AppState.popularBoardGames = res.data.games.map((b) => new BoardGame(b));
   }
 
@@ -249,11 +249,13 @@ console.log(res.data.games);
   // SECTION FORUM POSTS ---------------------------!SECTION
 
   async getForumPosts() {
+    let next = AppState.paginationForumPosts
     const res = await atlasApi.get('api/forum', {
       params: {
         client_id: '2I6DeypMLL',
-       
+       limit:100,
         news: true,
+        skip:next
       },
     });
     // console.log(res.data);

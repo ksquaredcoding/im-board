@@ -23,19 +23,20 @@
       <div class="card-text d-flex justify-content-center align-items-center">
         <div
           class="player-Icon-And-Players d-flex justify-content-around align-items-center me-3"
+          :title="boardGame?.players + ' recommended Players'"
         >
           <i class="mdi mdi-account fs-5"></i>
           <p class="mb-0">{{ boardGame?.players }}</p>
         </div>
 
-        <div class="d-flex justify-content-around align-items-center">
+        <div class="d-flex justify-content-around align-items-center" :title="boardGame?.playtime + ' minute average playtime'">
           <i class="mdi mdi-clock fs-5"></i>
           <p class="mb-0">{{ boardGame?.playtime }}</p>
         </div>
       </div>
       <div
         class="card-text d-flex justify-content-center"
-        title="Average User Rating"
+        :title=" boardGame?.average_user_rating .toFixed(2)+' Average User Rating'"
       >
         <i class="mdi mdi-star text-warning"></i>
         {{ boardGame?.average_user_rating.toFixed(2) }}
@@ -47,7 +48,7 @@
           height="15"
         />
         <p>${{ boardGame?.price }}</p>
-        <small class="text-decoration-line-through ms-3 me-1 revealOnHover animate__animated animate__fadeInLeft">
+        <small class="text-decoration-line-through ms-3 me-1 revealOnHover animate__animated animate__fadeInLeft" :title="boardGame?.retailPrice + ' Retail Price'">
           {{ boardGame?.retailPrice }}
         </small>
         <small class="revealOnHover animate__animated animate__fadeInLeft">rp</small>
@@ -156,7 +157,7 @@ export default {
 }
 
 .card:hover {
-  transform: scale(1.04);
+  transform: scale(1.01);
   filter: brightness(101%);
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,

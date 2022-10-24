@@ -1,5 +1,5 @@
 <template>
-  
+    
   <div class="col-md-12 mt-4">
     <div class="hvr-sweep-to-left rounded-1 p-2 bg-c5">
       <h5 class="rowTitle p-1 pt-2"> <b>Editor's Choice Articles</b></h5>
@@ -42,6 +42,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+
+.shine {
+  height: 20px;
+  width: 90%;
+  background-image: radial-gradient(
+    farthest-side at 50% -50%,
+    hsla(0, 0%, 0%, 0.5),
+    hsla(0, 0%, 0%, 0)
+  );
+  position: relative;
+}
+
+.shine::before {
+  height: 1px;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0.75) 50%,
+    hsla(0, 0%, 0%, 0)
+  );
+}
+
 .addToList {
   opacity: 0;
   transition: all 0.5s ease;

@@ -38,12 +38,6 @@
     </div>
       </div>
 
-      <div class="mt-5 d-flex justify-content-center">
-        <!-- <RowSeperate class="mt-5" /> -->
-        <hr class="shine" />
-      </div>
-
-
 
 
     <!-- SECTION  -->
@@ -76,12 +70,6 @@
       </div>
 
 
-      <div class="mt-5 d-flex justify-content-center">
-        <!-- <RowSeperate class="mt-5" /> -->
-        <hr class="shine" />
-      </div>
-
-
 
       <div class="col-md-12 pt-5">
         <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
@@ -105,7 +93,7 @@
       </div>
 
   
-      <div class="mt-5 d-flex justify-content-center">
+      <div class="my-5 d-flex justify-content-center">
         <!-- <RowSeperate class="mt-5" /> -->
         <hr class="shine" />
       </div>
@@ -134,7 +122,7 @@
         </div>
       </div>
     </div>
-
+  
     
     <div class="pt-5 mb-5">
       

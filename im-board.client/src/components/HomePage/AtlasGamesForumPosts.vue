@@ -56,10 +56,6 @@ export default {
   transition: object-fit 0.5s ease;
 }
 
-.forcedImg:hover{
-  object-fit: contain;
-  transition:  object-fit 3.5s ease;
-}
 .card {
   border: none;
   transition: 0.5s ease;
