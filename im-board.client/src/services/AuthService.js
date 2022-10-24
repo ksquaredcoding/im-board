@@ -29,7 +29,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function () {
   await accountService.getAccount();
   // NOTE if there is something you want to do once the user is authenticated, place that here
   console.log(new Date());
-  await inboxService.getInvites();
+  // await inboxService.getInvites();
 });
 
 async function refreshAuthToken(config) {
