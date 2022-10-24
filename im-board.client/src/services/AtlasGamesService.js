@@ -252,7 +252,7 @@ console.log(res.data.games);
     const res = await atlasApi.get('api/forum', {
       params: {
         client_id: '2I6DeypMLL',
-        limit: 10,
+       
         news: true,
       },
     });
