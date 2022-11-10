@@ -7,7 +7,7 @@
     />
     <div class="card-img-overlay">
       <div class="d-flex">
-        <h5 class="card-title p-2 rounded-1">Fall In Love With Board Games</h5>
+        <h5 class="card-title p-2 rounded-1">Find the board game that speaks to you!</h5>
       </div>
       <div class="d-flex">
         <p class="card-text col-md-5 p-4 rounded-4">

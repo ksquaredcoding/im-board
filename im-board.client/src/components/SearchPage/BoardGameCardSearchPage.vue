@@ -13,7 +13,7 @@
       />
     </router-link>
 
-    <div class="card-body p-1 mt-2 bg-grey rounded" >
+    <div class="card-body p-1 mt-2 bg-grey rounded-bottom" >
       <span class="text-center">
         <h6 class="text-decoration-underline text-truncate" :title="boardGame?.name">
           {{ boardGame?.name }}
@@ -119,6 +119,7 @@ export default {
   font-size: 16pt;
   font-style: oblique;
   color: rgb(240, 69, 69);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .addToList {
@@ -148,7 +149,7 @@ export default {
 .card {
   border: none;
   transition: 0.5s ease;
-
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   .revealOnHover {
     opacity: 0%;
     display: none;

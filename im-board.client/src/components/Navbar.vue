@@ -36,7 +36,9 @@
     <div class="col-md d-flex flex-row justify-content-end">
 
       <div class="dropdown" v-if="user.isAuthenticated">
-        <button class="btn dropdown-toggle text-warning" type="button" data-bs-toggle="dropdown" :disabled="invites.length <=0" aria-expanded="false">
+        <button 
+        v-if="invites.length >=0"
+        class="btn border-0 dropdown-toggle text-warning" type="button" data-bs-toggle="dropdown" :disabled="invites.length <=0" aria-expanded="false">
           <i class="mdi mdi-bell-badge fs-1 position-relative">
             <div class="rounded-circle bg-danger circle fs-6 position-absolute heart">{{invites.length}}</div>
           </i>

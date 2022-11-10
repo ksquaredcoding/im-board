@@ -115,6 +115,7 @@ export default {
   font-size: 20pt;
   font-style: oblique;
   color: rgb(240, 69, 69);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .addToList {

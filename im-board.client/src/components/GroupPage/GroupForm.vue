@@ -15,7 +15,7 @@
               <div class="col-md-6">
                 <div class="">
                   <img
-                    :src="editable.coverImg || 'https://rlv.zcache.com/template_blank_add_your_image_text_here_classic_round_sticker-r64216cd6594f4f23bdad64fee876a3a1_v9waf_8byvr_512.jpg'"
+                    :src="editable.coverImg || 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/de21a5f9-3a24-4435-beb3-f9181069f021/dbbwcc6-984bfd6d-a4a2-45a6-b75b-96b9605394dd.png/v1/fill/w_1023,h_548,q_80,strp/critical_role__bye_bye_by_kairuiz_dbbwcc6-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQ4IiwicGF0aCI6IlwvZlwvZGUyMWE1ZjktM2EyNC00NDM1LWJlYjMtZjkxODEwNjlmMDIxXC9kYmJ3Y2M2LTk4NGJmZDZkLWE0YTItNDVhNi1iNzViLTk2Yjk2MDUzOTRkZC5wbmciLCJ3aWR0aCI6Ijw9MTAyMyJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.B83G0UDsVxd9yHYXRbgnqjBrqQh5HcMk5BkhhuHtpnU'"
                     alt=""
                     class="forcedImg smallerImg mt-2 Img1 bg-grey"
                   />

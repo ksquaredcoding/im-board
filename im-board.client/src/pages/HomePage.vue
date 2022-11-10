@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container-fluid px-4 homepage animate__animated animate__fadeInLeft"
+    class="container px-4 homepage animate__animated animate__fadeInLeft"
 
   >
     <div class="row justify-content-center">
@@ -31,10 +31,10 @@
     
         </TransitionGroup>
         </div>
-    <div class="col-md-12 d-flex justify-content-center">
+    <div class="col-md-12 d-flex justify-content-center ">
      
-      <button @click="pagination('prev')" class="btn button-51 me-2 " :disabled="paginationForPopular <=0">Previous  </button>
-      <button @click="pagination('next')" class="btn button-52">Next</button>
+      <button @click="pagination('prev')" class="btn button-51 me-2 pt-0" :disabled="paginationForPopular <=0">Previous </button>
+      <button @click="pagination('next')" class="btn button-52 pt-0">Next</button>
     </div>
       </div>
 
@@ -64,8 +64,8 @@
         </div>
       
           <div class="col-md-12 d-flex justify-content-center">
-      <button @click="paginationDiscount('prev')" class="btn button-51 me-2" :disabled="paginationForDiscount <=0">previous</button>
-      <button @click="paginationDiscount('next')" class="btn button-52">Next</button>
+      <button @click="paginationDiscount('prev')" class="btn button-51 me-2 pt-0" :disabled="paginationForDiscount <=0">previous</button>
+      <button @click="paginationDiscount('next')" class="btn button-52 pt-0">Next</button>
     </div>
       </div>
 

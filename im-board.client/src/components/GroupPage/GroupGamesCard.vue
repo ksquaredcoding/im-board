@@ -13,7 +13,7 @@
             class="mdi mdi-account-details fs-4 dropdown-toggle dropdown-toggle-split bg-grey rounded text-c7"
           ></i>
 
-          <ul class="dropdown-menu bg-dark" v-if="findGame">
+          <ul class="dropdown-menu" v-if="findGame">
             <div class="d-flex">
               <div v-for="f in findGame" :key="f.accountId">
                 <router-link

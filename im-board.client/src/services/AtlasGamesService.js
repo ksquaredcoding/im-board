@@ -64,6 +64,7 @@ order_by:x,
 
   async getBoardGamesByPopularity() {
     let nextSet = AppState.nextSet;
+    // AppState.popularBoardGames = []
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
@@ -71,7 +72,6 @@ order_by:x,
         skip: nextSet,
       },
     });
-    AppState.popularBoardGames = []
     AppState.popularBoardGames = res.data.games.map((b) => new BoardGame(b));
   }
 

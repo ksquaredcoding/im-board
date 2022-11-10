@@ -4,7 +4,7 @@
       <img
         :src="review.picture"
         alt=""
-        class="rounded-circle forcedImg ms-4 mt-4"
+        class="rounded-circle forcedImg ms-4 my-2"
       />
       <h4 class="ms-3 mt-3">{{ review.name }}</h4>
     </div>

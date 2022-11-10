@@ -8,10 +8,10 @@
         <div class="font">{{ boardGame?.name }}</div>
         <h6>
           <b class="fs-4"
-            >{{ boardGame?.year_published }} ·
+            >{{ boardGame?.year_published }} <small class="mx-2">      ·</small>
             <i class="bi bi-people-fill fs-4"></i> {{ boardGame?.players }}
-            ·
-            <i class="bi bi-clock-fill fs-5"></i>
+            <small class="mx-2">      ·</small>
+            <i class="bi bi-clock-fill fs-5 me-1"></i>
             {{ boardGame?.playtime }} mins</b
           >
         </h6>
@@ -39,7 +39,7 @@
             <div class="d-flex flex-wrap text-wrap">
               <div class="dropdown">
               <b class="dropbtn">Mechanics:</b>
-              <p class="ms-2 dropdown-content">{{ mechanics.toString() }}</p>
+              <p class="ms-2 dropdown-content p-2">{{ mechanics.toString() }}</p>
               <b><i class="bi bi-search fs-5 ps-2 text-c5"></i></b> 
             </div>
             </div>
@@ -92,12 +92,12 @@
           </div>
         </div>
 
-        <div class="col-md">
+        <div class="col-md-12 ">
           <div class="p-4 rounded-5 desctext overflow-auto">
             <p>{{ boardGame?.description_preview }}</p>
           </div>
         </div>
-        <div class="text-center">
+        <div class="text-center mt-5">
           <b>Add to list</b>
         </div>
         <div class="d-flex justify-content-center my-3 my-md-0">
@@ -447,11 +447,14 @@ p {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ddd;
+
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+
+  border-radius: 4px;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */

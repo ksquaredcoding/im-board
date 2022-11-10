@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
-      <div class="col-md-3 ms-md-3 bg-grey rounded">
+      <div class="col-md-3 ms-md-3 bg-grey rounded px-0">
         <div class="bg-c3 rounded">
           <div class="col-md d-flex justify-content-center pt-2">
             <h2 class="font">Groups</h2>
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div class="col-md mx-md-3 mt-3 mt-md-0 rounded bg-grey">
+      <div class="col-md mx-md-3 mt-3 mt-md-0 rounded bg-grey px-0">
         <div class="col-md d-flex justify-content-center pt-2 rounded bg-c3">
           <h2 class="font">Game Lists</h2>
         </div>

@@ -1,5 +1,5 @@
 <template v-if="group">
-  <div class="col-md-12 rounded-0 banner elevation-3" :style="{ backgroundImage: `url(${group?.coverImg})` }">
+  <div class="col-md-11 rounded  banner elevation-3 " :style="{ backgroundImage: `url(${group?.coverImg})` }">
    <div class="d-flex">
  <button class="btn  text-light" type="button" data-bs-toggle="collapse" data-bs-target="#groupButtons" aria-expanded="false" aria-controls="collapseWidthExample">
    <i class="mdi mdi-dots-horizontal fs-1"></i>
