@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid backgroundImage">
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
       <div class="col-md-4 d-flex justify-content-end align-items-center">
         <p class="t1 text-dark text-shadow3d border-1">
           Who <br />
@@ -23,8 +23,8 @@
           memories, and bring more joy and laughter to their lives.
         </h5>
       </div>
-    </div>
-    <div class="row justify-content-center">
+    </div> -->
+    <div class="row justify-content-center mt-2">
      
         <AuthorCard />
   

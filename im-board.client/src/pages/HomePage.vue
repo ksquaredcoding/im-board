@@ -32,10 +32,15 @@
         </TransitionGroup>
         </div>
     <div class="col-md-12 d-flex justify-content-center ">
-     
+   <router-link :to="{name: 'Search', params:{ }}" @click="getPopularGames()"> 
+   <p>See More</p>
+   </router-link>
+<!--      
       <button @click="pagination('prev')" class="btn button-51 me-2 pt-0" :disabled="paginationForPopular <=0">Previous </button>
-      <button @click="pagination('next')" class="btn button-52 pt-0">Next</button>
+      <button @click="pagination('next')" class="btn button-52 pt-0">Next</button> -->
     </div>
+
+
       </div>
 
 
@@ -253,6 +258,13 @@ paginationForPopular : computed(()=> AppState.nextSet),
          
           } catch (error) {
             Pop.error(error,'[pagination]')
+          }
+      },
+      async getPopularGames(){
+        try {
+            await atlasGamesService.getBoardGamesByPopularity()
+          } catch (error) {
+            Pop.error(error,'[]')
           }
       }
     };

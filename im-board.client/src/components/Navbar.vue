@@ -47,12 +47,14 @@
             <!-- class="animate__animated animate__fadeIn" > -->
 
         </button>
-        <ul class="dropdown-menu" v-if="invites">
+        <ul class="dropdown-menu p-0 rounded" v-if="invites">
+          <li class="bg-grey rounded-top"><small class="ms-2 text-primary">clear Inbox</small></li>
           <li class="dropdown-item  d-flex justify-content-between" v-for="invite in invites" :key="invite.id">
-          <button class="btn" @click="getGroupDetails(invite.groupId)">
+          <button class="btn d-flex align-items-center" @click="getGroupDetails(invite.groupId)">
+            <i class="mdi mdi-link-box-variant fs-3 d-flex align-items-center me-2 text-warning "></i>
             {{invite.description}}
           </button>
-          <i class="mdi mdi-delete-forever selectable " @click="deleteInvite(`${invite.id}`)" ></i>
+          <i class="mdi mdi-delete-forever selectable rounded text-danger" @click="deleteInvite(`${invite.id}`)" ></i>
           </li>
          
         </ul>

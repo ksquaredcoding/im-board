@@ -1,7 +1,7 @@
 <template>
  <div class="col-md-3">
-<div class="card text-bg-dark">
-  <img src="../assets/img/Tung Le.4.jpg" class="card-img" alt="Tung Le photo">
+<div class="card text-bg-dark border-0 ">
+  <img src="../assets/img/Tung Le.4.jpg" class="card-img " alt="Tung Le photo">
   <div class="card-img-overlay">
  <div class="d-flex flex-column align-items-end rounded">
         <i class="mdi mdi-github fs-2"></i>

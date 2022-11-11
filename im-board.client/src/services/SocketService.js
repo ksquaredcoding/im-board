@@ -19,7 +19,7 @@ class SocketService extends SocketHandler {
   }
 
   updateInbox(message) {
-    AppState.account.inbox, message;
+   
   }
 }
 function addOrSkip(arr, item) {
