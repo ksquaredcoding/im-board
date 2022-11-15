@@ -2,10 +2,10 @@
   <div class="container-fluid px-3 animate__animated animate__fadeInRight" v-if="boardGames">
     <div class="row justify-content-center g-md-0">
       <div class="col-md-12 border-secondary border-3 rounded-bottom">
-        <div class="d-flex flex-column align-items-center" >
+        <div class="d-flex flex-column align-items-center">
           <!-- <h6 class="searchText pt-3 text-dark">Search for board games by name</h6> -->
           <div class=" col-md-4 my-3">
-           
+
             <Searchbar />
           </div>
           <h5 class="text-dark"> Or search by..</h5>
@@ -19,10 +19,10 @@
 
 
       <div class="col-md-2">
-        <FiltersSideBar/>
+        <FiltersSideBar />
       </div>
       <div class="col-md-10">
-      
+
         <div class="row mx-2">
 
           <TransitionGroup name="custom-classes" enterActiveClass="animate__fadeIn animate__animated"
@@ -32,24 +32,25 @@
             </div>
           </TransitionGroup>
         </div>
-        <div  class=" col-md-12 d-flex  flex-column justify-content-center align-items-center" v-if="boardGames.length <=0">
-        <h1>Currently no results </h1>
-        <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
-        height="400">
-      </div>
+        <div class=" col-md-12 d-flex  flex-column justify-content-center align-items-center"
+          v-if="boardGames.length <= 0">
+          <h1>Currently no results </h1>
+          <img src="https://cdn-icons-png.flaticon.com/512/2621/2621165.png" alt="no results found" width="400"
+            height="400">
+        </div>
         <div class=" d-flex justify-content-center my-2">
           <button class="btn button-51 mx-1" @click="incrementSkip('prev')" type="button" :disabled="hopeItWorks == 0">
             Previous
           </button>
           <button class="btn button-52 mx-1" @click="incrementSkip('next')" type="button" :disabled="
-            boardGames.length <= 0 ||
-            boardGames.length < itsAMaybe - hopeItWorks
+  boardGames.length <= 0 ||
+  boardGames.length < itsAMaybe - hopeItWorks
           ">
             Next
           </button>
         </div>
         <!--  -->
-          <!-- <div class=" d-flex justify-content-center my-2">
+        <!-- <div class=" d-flex justify-content-center my-2">
           <button class="btn button-51 mx-1" type="button" @click="previousSet()" >
             Previous
           </button>
@@ -111,7 +112,7 @@ export default {
       hopeItWorks: computed(() => AppState.hopeItWorks),
       itsAMaybe: computed(() => AppState.itsAMaybe),
 
-        
+
       async incrementSkip(x) {
         try {
           switch (x) {
@@ -122,7 +123,7 @@ export default {
                   AppState.nextQueryFilter.length - 1
                 ] = `skip=${AppState.skip}`;
                 const nextSearch = AppState.nextQueryFilter.join("&");
-                console.log(nextSearch);
+                // console.log(nextSearch);
                 await atlasGamesService.getBoardGames(nextSearch);
                 AppState.itsAMaybe = 12;
                 AppState.hopeItWorks = 0;
@@ -151,38 +152,38 @@ export default {
 
 
 
-      async paginationAttempt2(prevOrNext){
-try {
-  const activeSearchQuery = AppState.activeSearchQuery.join('&')
-  console.log(activeSearchQuery);
-  if (prevOrNext == 'prev') {
-    AppState.nextSet +=25
-    await atlasGamesService.getBoardGames(activeSearchQuery)
-  }else
-  AppState.nextSet -= 25
-    await atlasGamesService.getBoardGames(activeSearchQuery)
-  } catch (error) {
-    Pop.error(error,'[paginationAttempt2]')
-  }
+      async paginationAttempt2(prevOrNext) {
+        try {
+          const activeSearchQuery = AppState.activeSearchQuery.join('&')
+          // console.log(activeSearchQuery);
+          if (prevOrNext == 'prev') {
+            AppState.nextSet += 25
+            await atlasGamesService.getBoardGames(activeSearchQuery)
+          } else
+            AppState.nextSet -= 25
+          await atlasGamesService.getBoardGames(activeSearchQuery)
+        } catch (error) {
+          Pop.error(error, '[paginationAttempt2]')
+        }
       },
-      async nextSet(){
-try {
-   AppState.nextSet +=25
-   await atlasGamesService.getBoardGamesByOrder_By()
-   console.log(AppState.nextSet);
-  } catch (error) {
-    Pop.error(error,'[nextSet]')
-  }
+      async nextSet() {
+        try {
+          AppState.nextSet += 25
+          await atlasGamesService.getBoardGamesByOrder_By()
+          //  console.log(AppState.nextSet);
+        } catch (error) {
+          Pop.error(error, '[nextSet]')
+        }
       },
-      async previousSet(){
-try {
-AppState.nextSet -=25
-   await atlasGamesService.getBoardGamesByOrder_By()
+      async previousSet() {
+        try {
+          AppState.nextSet -= 25
+          await atlasGamesService.getBoardGamesByOrder_By()
 
-console.log(AppState.nextSet);
-  } catch (error) {
-    Pop.error(error,'[previousSet]')
-  }
+          // console.log(AppState.nextSet);
+        } catch (error) {
+          Pop.error(error, '[previousSet]')
+        }
       }
     };
   },

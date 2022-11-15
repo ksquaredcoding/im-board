@@ -1,9 +1,7 @@
 <template>
   <router-link :to="{ name: 'Group', params: { id: group?.groupId } }">
-    <div
-      class="card text-bg-dark my-2 elevation-3 groupCard mx-3 mx-md-2 "
-      :style="{ backgroundImage: `url(${group.group.coverImg})` }"
-    >
+    <div class="card text-bg-dark my-2 elevation-3 groupCard mx-3 mx-md-2 "
+      :style="{ backgroundImage: `url(${group.group.coverImg})` }">
       <!-- <img :src="group?.group.coverImg" class="card-img" alt="..." /> -->
       <div class="card-img-overlay text-shadow d-flex flex-column justify-content-between">
         <h3 class="card-title p-1 text-center rounded-1">
@@ -38,7 +36,7 @@ export default {
           (g) => g.groupId == props.group.groupId
         );
         AppState.activeGroup = group;
-        console.log("activeGroup-tung", AppState.activeGroup);
+        // console.log("activeGroup-tung", AppState.activeGroup);
       },
     };
   },
@@ -46,9 +44,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card{
+.card {}
 
-}
 .text-shadow {
   color: aliceblue;
   text-shadow: 1px 1px black, 0px 0px 5px #79bd9a;
@@ -65,7 +62,7 @@ export default {
 
 .groupCard {
   transition: all 0.55s ease;
-filter: brightness(85%);
+  filter: brightness(85%);
   min-height: 30vh;
   border: none;
   background-size: cover;
@@ -95,6 +92,7 @@ filter: brightness(85%);
 * {
   font-family: "Baloo 2", cursive;
 }
+
 @media (max-width: 576px) {
   .groupCard {
     max-height: 30vh;

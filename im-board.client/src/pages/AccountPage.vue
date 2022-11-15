@@ -5,19 +5,10 @@
   </div>
 
   <div class="account Page container-fluid" v-else>
-    <div
-      class="row bg-c5 banner eum-ipsum"
-      :style="{ backgroundImage: `url(${account.coverImg})` }"
-    >
+    <div class="row bg-c5 banner eum-ipsum" :style="{ backgroundImage: `url(${account.coverImg})` }">
       <div class="col-md-12 d-flex justify-content-center">
-        <img
-          v-if="account?.picture"
-          :src="account?.picture"
-          alt=""
-          height="150"
-          width="150"
-          class="eum rounded-circle mt-2 icon forcedImg"
-        />
+        <img v-if="account?.picture" :src="account?.picture" alt="" height="150" width="150"
+          class="eum rounded-circle mt-2 icon forcedImg" />
       </div>
     </div>
 
@@ -33,19 +24,12 @@
       </div>
       <div class="col-md d-flex justify-content-end">
         <button class="btn" data-bs-toggle="modal" data-bs-target="#editBanner">
-          <i
-            class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1"
-            alt=""
-            title="Edit Account"
-          ></i>
+          <i class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
+            title="Edit Account"></i>
         </button>
         <router-link :to="{ name: 'Profile', params: { id: user.id } }">
           <button class="btn rounded-circle editbtn">
-            <i
-              class="ps-1 mdi mdi-account-check-outline fs-1"
-              alt=""
-              title="Profile Page"
-            ></i>
+            <i class="ps-1 mdi mdi-account-check-outline fs-1" alt="" title="Profile Page"></i>
           </button>
         </router-link>
       </div>
@@ -56,11 +40,8 @@
           <div class="col-md d-flex justify-content-center pt-2">
             <h2 class="font">Groups</h2>
             <div>
-              <i
-                class="mdi mdi-information-outline fs-5"
-                alt=""
-                title="Groups only visisble to you, not other users."
-              ></i>
+              <i class="mdi mdi-information-outline fs-5" alt=""
+                title="Groups only visisble to you, not other users."></i>
             </div>
           </div>
         </div>
@@ -80,37 +61,18 @@
         <div class="row justify-content-center">
           <b class="mb-2 mt-2 d-flex justify-content-center">
             <div class="ms-3">
-              <input
-                type="button"
-                autofocus="true"
-                class="button-50 py-2 filterbtn focus"
-                id="Fave"
-                name="Fave"
-                value="Favorites"
-                @click="filterBg = 'favorite'"
-              />
+              <input type="button" autofocus="true" class="button-50 py-2 filterbtn focus" id="Fave" name="Fave"
+                value="Favorites" @click="filterBg = 'favorite'" />
               <!-- <label for="vehicle1" class="ms-1">Fave</label> -->
             </div>
             <div class="ms-3">
-              <input
-                type="button"
-                class="button-50 py-2 filterbtn"
-                id="Owned"
-                name="Owned"
-                value="Owned"
-                @click="filterBg = 'owned'"
-              />
+              <input type="button" class="button-50 py-2 filterbtn" id="Owned" name="Owned" value="Owned"
+                @click="filterBg = 'owned'" />
               <!-- <label for="vehicle3" class="ms-1">Owned</label> -->
             </div>
             <div class="ms-3">
-              <input
-                type="button"
-                class="button-50 py-2 filterbtn"
-                id="Wishlist"
-                name="Wishlist"
-                value="Wishlist"
-                @click="filterBg = 'wish'"
-              />
+              <input type="button" class="button-50 py-2 filterbtn" id="Wishlist" name="Wishlist" value="Wishlist"
+                @click="filterBg = 'wish'" />
               <!-- <label for="vehicle2" class="ms-1">Wishlist</label> -->
             </div>
           </b>
@@ -173,7 +135,7 @@ export default {
     async function getInvites() {
       try {
         const inbox = await inboxService.getInvites();
-        console.log("getting invites", inbox);
+        // console.log("getting invites", inbox);
         // setTimeout(1000)
         // getInvites()
       } catch (error) {
@@ -269,6 +231,7 @@ export default {
   color: aliceblue;
   text-shadow: 2px 2px #3b8686, 0px 0px 5px #79bd9a;
 }
+
 .username {
   font-family: "Baloo 2", cursive;
   font-weight: 600;

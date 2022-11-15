@@ -10,7 +10,7 @@ import { api } from "./AxiosService.js";
 class GroupsService {
   async getGroupById(groupId) {
     const res = await api.get(`/api/groups/${groupId}`);
-    console.log('resData', res.data);
+    // console.log('resData', res.data);
     AppState.activeGroup = new ActiveGroup(res.data);
     // console.log('appState', AppState.activeGroup);
   }
@@ -38,7 +38,7 @@ class GroupsService {
   }
 
   async editGroup(groupId, groupData) {
-    console.log(groupId);
+    // console.log(groupId);
     const res = await api.put(`api/groups/${groupId}`, groupData);
     // console.log(res.data);
     AppState.activeGroup = new Group(res.data);
@@ -51,9 +51,9 @@ class GroupsService {
     // console.log("members", AppState.groupMembers);
   }
 
-  async inviteMember(memberData) { 
-    const res = await api.post('api/inbox' ,memberData)
-    console.log(res.data);
+  async inviteMember(memberData) {
+    const res = await api.post('api/inbox', memberData)
+    // console.log(res.data);
   }
 }
 export const groupsService = new GroupsService();

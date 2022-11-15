@@ -11,7 +11,7 @@
             <div class="col-md-12">
               <div class="dropdown-item  inputBox d-flex text-light" v-for="c in categories" :key="c.id"
                 id="CategoryDiv">
-                <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1"   />
+                <input class="checkBox" type="checkbox" :value="c.id" v-model="filters1" />
                 <label for="card-game" class="ms-2">{{ c.name }}</label>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default {
           const arrToUse = AppState.queryFilter;
           AppState.nextQueryFilter = AppState.queryFilter;
           let finalSearch = arrToUse.join("&");
-          console.log(AppState.queryFilter.join("&"));
+          // console.log(AppState.queryFilter.join("&"));
           AppState.activeSearchQuery = arrToUse
           await atlasGamesService.getBoardGames(finalSearch);
           if (AppState.boardgames <= 0) {
@@ -166,7 +166,7 @@ export default {
             default:
               break;
           }
-          console.log(AppState.skip);
+          // console.log(AppState.skip);
         } catch (error) {
           Pop.error("[INCREMENT SKIP]", error);
         }
