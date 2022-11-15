@@ -1,17 +1,18 @@
 <template>
- <div class="col-md-3">
-<div class="card text-bg-dark border-0 ">
-  <img src="../assets/img/Tung Le.4.jpg" class="card-img " alt="Tung Le photo">
-  <div class="card-img-overlay">
- <div class="d-flex flex-column align-items-end rounded">
-        <i class="mdi mdi-github fs-2"></i>
-        <i class="mdi mdi-linkedin fs-2"></i>
-        <i class="mdi mdi-email fs-2"></i>
-      </div>
+  <div class="col-md-3">
+    <div class="card text-bg-dark border-0 ">
+      <img src="/source/codeworks/im-board/im-board.client/src/assets/img/TungLe4.jpg" class="card-img "
+        alt="Tung Le photo">
+      <div class="card-img-overlay">
+        <div class="d-flex flex-column align-items-end rounded">
+          <i class="mdi mdi-github fs-2"></i>
+          <i class="mdi mdi-linkedin fs-2"></i>
+          <i class="mdi mdi-email fs-2"></i>
+        </div>
 
+      </div>
+    </div>
   </div>
-</div>
- </div>
 
 </template>
 
@@ -26,15 +27,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-img{
-   height: 300px;
+.card-img {
+  height: 300px;
 
   object-fit: cover;
   object-position: top;
 
 }
-.tri-card-img{
-   height: 300px;
+
+.tri-card-img {
+  height: 300px;
   width: 300px;
   object-fit: contain;
 
@@ -47,9 +49,7 @@ export default {
   letter-spacing: 0.06em;
 }
 
-.forcedImg {
- 
-}
+.forcedImg {}
 
 .profileImg {
   height: 150px;

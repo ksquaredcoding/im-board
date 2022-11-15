@@ -15,7 +15,7 @@
 
       </div>
       <div class="ps-4">
-        <Searchbar class="d-none d-md-block" v-if="route.name != 'Search' " />
+        <Searchbar class="d-none d-md-block" v-if="route.name != 'Search'" />
       </div>
       <!-- TODO END -->
     </div>
@@ -24,8 +24,8 @@
 
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center hover">
-          <img alt="logo" src="src\assets\img\logonotext.png" height="45" id="gameLogo"
-            class="bg-grey rounded-4  p-1 " />
+          <img alt="logo" src="C:\source\codeworks\im-board\im-board.client\src\assets\img\logonotext.png" height="45"
+            id="gameLogo" class="bg-grey rounded-4  p-1 " />
           <p class=" mb-0 mx-2 navbar-title justify-content-center">
           <article class="">I'm Game!</article>
           </p>
@@ -36,33 +36,32 @@
     <div class="col-md d-flex flex-row justify-content-end">
 
       <div class="dropdown" v-if="user.isAuthenticated">
-        <button 
-        v-if="invites.length >=0"
-        class="btn border-0 dropdown-toggle text-warning" type="button" data-bs-toggle="dropdown" :disabled="invites.length <=0" aria-expanded="false">
+        <button v-if="invites.length >= 0" class="btn border-0 dropdown-toggle text-warning" type="button"
+          data-bs-toggle="dropdown" :disabled="invites.length <= 0" aria-expanded="false">
           <i class="mdi mdi-bell-badge fs-1 position-relative">
-            <div class="rounded-circle bg-danger circle fs-6 position-absolute heart">{{invites.length}}</div>
+            <div class="rounded-circle bg-danger circle fs-6 position-absolute heart">{{ invites.length }}</div>
           </i>
           <!-- <img src="https://cdn-icons-png.flaticon.com/512/1156/1156949.png" alt="" width="30" height="30" class="" v-if="invites.length <=0"> -->
           <!-- <img src="https://cdn-icons-png.flaticon.com/512/1182/1182769.png" alt="" width="50" height="50" -->
-            <!-- class="animate__animated animate__fadeIn" > -->
+          <!-- class="animate__animated animate__fadeIn" > -->
 
         </button>
         <ul class="dropdown-menu p-0 rounded" v-if="invites">
           <li class="bg-grey rounded-top"><small class="ms-2 text-primary">clear Inbox</small></li>
           <li class="dropdown-item  d-flex justify-content-between" v-for="invite in invites" :key="invite.id">
-          <button class="btn d-flex align-items-center" @click="getGroupDetails(invite.groupId)">
-            <i class="mdi mdi-link-box-variant fs-3 d-flex align-items-center me-2 text-warning "></i>
-            {{invite.description}}
-          </button>
-          <i class="mdi mdi-delete-forever selectable rounded text-danger" @click="deleteInvite(`${invite.id}`)" ></i>
+            <button class="btn d-flex align-items-center" @click="getGroupDetails(invite.groupId)">
+              <i class="mdi mdi-link-box-variant fs-3 d-flex align-items-center me-2 text-warning "></i>
+              {{ invite.description }}
+            </button>
+            <i class="mdi mdi-delete-forever selectable rounded text-danger" @click="deleteInvite(`${invite.id}`)"></i>
           </li>
-         
+
         </ul>
         <ul class="dropdown-menu" v-else>
           <li class="dropdown-item">
-         nothing in your inbox
+            nothing in your inbox
           </li>
-         
+
         </ul>
       </div>
     </div>
@@ -77,7 +76,7 @@
 
 
 
-      <router-link :to="{name: 'Account'}" v-if="user.isAuthenticated">
+      <router-link :to="{ name: 'Account' }" v-if="user.isAuthenticated">
         <a name="" id="" class="btn button-50 py-1 px-2 mx-2" href="#" role="button">Account</a>
       </router-link>
 
@@ -145,7 +144,7 @@ export default {
   setup() {
     // async function getInvites(){
     //   try {
-       
+
     //     const inbox = await inboxService.getInvites()
     //     console.log('getting invites', inbox);
     //     // setTimeout(1000)
@@ -157,43 +156,43 @@ export default {
     // onMounted(()=> 
     //   getInvites()
     // )
- 
+
     // watchEffect(() => {
     //   let hello = AppState.account.isAuthenticated
     //   console.log('hi');
-      
+
     // })
     const route = useRoute()
     return {
       route,
-      
-      invites:computed(() => AppState.inbox),
+
+      invites: computed(() => AppState.inbox),
       groups: computed(() => AppState.groups),
       user: computed(() => AppState.user),
       account: computed(() => AppState.account),
-       async deleteInvite (id){
+      async deleteInvite(id) {
         try {
-            await inboxService.deleteInvite(id)
-          } catch (error) {
-            console.error('[]',error)
-            Pop.error(error)
-          }
-       
-        },
-        async getGroupDetails(id){
-          // console.log(id);
-try {
-  router.push({name:'Group' ,params:{id: id}})
-    await groupsService.getGroupById(id)
+          await inboxService.deleteInvite(id)
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
 
-    await groupsService.getGroupMembers(id)
-    await listsService.getListsByGroupId(id)
-    await gameNightsService.getGroupGameNights(id)
-    // await groupsService.
-  } catch (error) {
-    Pop.error(error)
-  }
-        },
+      },
+      async getGroupDetails(id) {
+        // console.log(id);
+        try {
+          router.push({ name: 'Group', params: { id: id } })
+          await groupsService.getGroupById(id)
+
+          await groupsService.getGroupMembers(id)
+          await listsService.getListsByGroupId(id)
+          await gameNightsService.getGroupGameNights(id)
+          // await groupsService.
+        } catch (error) {
+          Pop.error(error)
+        }
+      },
       async login() {
         AuthService.loginWithPopup()
       },
@@ -204,13 +203,13 @@ try {
 </script>
 
 <style scoped>
-.circle{
+.circle {
   width: 20px;
   height: 20px;
-top: 1.5px;
-  left:19px
-
+  top: 1.5px;
+  left: 19px
 }
+
 a:hover {
   text-decoration: none;
 }
