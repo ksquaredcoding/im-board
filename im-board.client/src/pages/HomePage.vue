@@ -5,15 +5,15 @@
   >
     <div class="row justify-content-center">
       <div class="col-md-12 my-2">
-        <HomePageBanner />
+        <HomePageBanner class="mt-4" />
       </div>
 
       <div class="col-md-12 pt-5" >
-        <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2 mt-3">
+        <div class="hvr-sweep-to-right bg-c4 rounded-1 p-2">
           <h5 class="rowTitle p-1 mt-1">Popular Board Games</h5>
         </div>
       </div>
-      <div class="row mx-2  mt-3">
+      <div class="row mx-2">
         <div class="col-md-12 d-flex justify-content-center">
     <TransitionGroup
           name="custom-classes"
@@ -21,7 +21,7 @@
           leaveActiveClass="animate__fadeOutLeft animate__animated"
         >
           <div
-            class="col-md-2 mt-5 mb-2"
+            class="col-md-2 mt-3"
             v-for="pop in popularBoardGames"
             :key="pop.id "
           >
@@ -46,12 +46,12 @@
 
 
     <!-- SECTION  -->
-      <div class="col-md-12 pt-5">
+      <div class="col-md-12 pt-2">
         <div class="hvr-sweep-to-right rounded-1 p-2 bg-c4 mt-4">
           <h5 class="rowTitle p-1 mt-1">Games On Discount</h5>
         </div>
       </div>
-      <div class="row mx-2  mt-3">
+      <div class="row mx-2">
         <div class="col-md-12 d-flex justify-content-center">
   <TransitionGroup
           name="custom-classes"
@@ -59,7 +59,7 @@
           leaveActiveClass="animate__fadeOutLeft animate__animated"
         >
           <div
-            class="col-md-2 mt-5 mb-2"
+            class="col-md-2 mt-3 mb-2"
             v-for="d in discountBoardGames"
             :key="d.id"
           >

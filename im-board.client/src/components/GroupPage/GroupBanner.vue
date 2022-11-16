@@ -48,11 +48,11 @@
    </div>
  
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-3">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
         <span class="name">{{ group?.name }}</span>
 
-        <div>
+        <div class="mb-3">
           <span>
             <div class="text-shadow fs-4">Members</div>
           </span>

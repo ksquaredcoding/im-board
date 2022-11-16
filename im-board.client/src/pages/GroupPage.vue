@@ -3,7 +3,7 @@
     loading....
   </div>
   <div class="group-page animate__animated animate__fadeInRight container-fluid" v-else>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4 mt-2">
       <GroupBanner class="mt-2 rounded" :group="group" />
       <!-- ----------------Group CHAT -->
     </div>

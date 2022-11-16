@@ -27,11 +27,11 @@
           <i class="mdi mdi-circle-edit-outline fs-3 rounded-circle editbtn ps-2 pe-2 py-1" alt=""
             title="Edit Account"></i>
         </button>
-        <router-link :to="{ name: 'Profile', params: { id: user.id } }">
+        <!-- <router-link :to="{ name: 'Profile', params: { id: user.id } }">
           <button class="btn rounded-circle editbtn">
             <i class="ps-1 mdi mdi-account-check-outline fs-1" alt="" title="Profile Page"></i>
           </button>
-        </router-link>
+        </router-link> -->
       </div>
     </div>
     <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
@@ -41,7 +41,7 @@
             <h2 class="font">Groups</h2>
             <div>
               <i class="mdi mdi-information-outline fs-5" alt=""
-                title="Groups only visisble to you, not other users."></i>
+                title="Groups only visible to you, not other users."></i>
             </div>
           </div>
         </div>

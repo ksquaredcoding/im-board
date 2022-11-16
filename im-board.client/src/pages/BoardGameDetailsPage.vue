@@ -3,30 +3,24 @@
     <!-- SECTION start game info -->
     <div class="row justify-content-center">
       <div
-        class="col-10 col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3"
-      >
+        class="col-10 col-md-12 gradient-box text-center my-3 py-3 rounded animate__animated animate__fadeInDown elevation-3">
         <div class="font">{{ boardGame?.name }}</div>
         <h6>
-          <b class="fs-4"
-            >{{ boardGame?.year_published }} <small class="mx-2">      ·</small>
+          <b class="fs-4">{{ boardGame?.year_published }} <small class="mx-2"> ·</small>
             <i class="bi bi-people-fill fs-4"></i> {{ boardGame?.players }}
-            <small class="mx-2">      ·</small>
+            <small class="mx-2"> ·</small>
             <i class="bi bi-clock-fill fs-5 me-1"></i>
-            {{ boardGame?.playtime }} mins</b
-          >
+            {{ boardGame?.playtime }} mins</b>
         </h6>
       </div>
 
-      <div
-        class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft"
-      >
-        <img :src="boardGame?.large" alt="boardGameImg" class="img-fluid rounded animate__animated animate__fadeIn"  v-if="boardGame?.large"/>
-        <img src="" alt="" class="skeleton-loader img-fluid"  v-else>
+      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInLeft">
+        <img :src="boardGame?.large" alt="boardGameImg" class="img-fluid rounded animate__animated animate__fadeIn"
+          v-if="boardGame?.large" />
+        <img src="" alt="" class="skeleton-loader img-fluid" v-else>
       </div>
 
-      <div
-        class="col-md-6 p-3 mt-4 mt-md-0 animate__animated animate__fadeInRight info rounded elevation-3"
-      >
+      <div class="col-md-6 p-3 mt-4 mt-md-0 animate__animated animate__fadeInRight info rounded elevation-3">
         <div class="row">
           <div class="col-md-6">
             <div class="d-flex flex-wrap text-wrap">
@@ -38,13 +32,13 @@
 
             <div class="d-flex flex-wrap text-wrap">
               <div class="dropdown">
-              <b class="dropbtn">Mechanics:</b>
-              <p class="ms-2 dropdown-content p-2">{{ mechanics.toString() }}</p>
-              <b><i class="bi bi-search fs-5 ps-2 text-c5"></i></b> 
-            </div>
+                <b class="dropbtn">Mechanics:</b>
+                <p class="ms-2 dropdown-content p-2">{{ mechanics.toString() }}</p>
+                <b><i class="bi bi-search fs-5 ps-2 text-c5"></i></b>
+              </div>
             </div>
 
-<!-- 
+            <!-- 
 <div >
 <button class="">Mechanics:</button>
 <div class="">
@@ -53,7 +47,7 @@
 </div> -->
 
 
-            
+
           </div>
           <div class="col-md-6">
             <div v-if="boardGame?.average_user_rating > 0">
@@ -81,7 +75,7 @@
                 </p>
               </div>
             </div>
-              <div class="d-flex">
+            <div class="d-flex">
               <b>Ages:</b>
               <p class="ms-2">{{ boardGame?.min_age }}+</p>
             </div>
@@ -110,29 +104,22 @@
     <!-- SECTION end -->
 
     <div class="row game-images mt-3 ms-1 horizontal-scroll">
-      <swiper
-        :slidesPerView="1"
-        :spaceBetween="10"
-        :pagination="{
-          clickable: true,
-        }"
-        :breakpoints="{
-          '640': {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          '768': {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
-          '1024': {
-            slidesPerView: 5,
-            spaceBetween: 50,
-          },
-        }"
-        :modules="modules"
-        class="mySwiper"
-      >
+      <swiper :slidesPerView="1" :spaceBetween="10" :pagination="{
+        clickable: true,
+      }" :breakpoints="{
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  '768': {
+    slidesPerView: 4,
+    spaceBetween: 40,
+  },
+  '1024': {
+    slidesPerView: 5,
+    spaceBetween: 50,
+  },
+}" :modules="modules" class="mySwiper">
         <swiper-slide v-for="i in images" :key="i.id">
           <ActiveBoardGameImages :images="i" />
         </swiper-slide>
@@ -154,9 +141,7 @@
           <div class="mt-5">
             <h1>Purchase game at:</h1>
           </div>
-          <div
-            class="row justify-content-center prices gradient-box text-dark mb-5 rounded"
-          >
+          <div class="row justify-content-center prices gradient-box text-dark mb-5 rounded">
             <div v-for="p in prices" :key="p.id" class="col-md-6">
               <ABGPrices :price="p" />
             </div>
@@ -280,7 +265,7 @@ export default {
       videos: computed(() => AppState.activeBoardGameVideos),
       reviews: computed(() => AppState.activeBoardGameReviews),
       prices: computed(() => AppState.activeBoardGamePrices),
-   
+
       categories: computed(() =>
         AppState.activeBoardGame.categories.map((x) => x.name.name)
       ),

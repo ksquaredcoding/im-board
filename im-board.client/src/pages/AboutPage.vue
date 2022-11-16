@@ -25,10 +25,10 @@
       </div>
     </div> -->
     <div class="row justify-content-center mt-2">
-     
-        <AuthorCard />
-  
-   
+
+      <AuthorCard />
+
+
     </div>
   </div>
 </template>
@@ -44,9 +44,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.backgroundImage {
+.backgroundImage {}
 
-}
 .message {
   letter-spacing: 0.07em;
   line-height: 2.5em;
