@@ -130,8 +130,8 @@
   
     
     <div class="pt-5 mb-5">
-      
-      <Articles /></div>
+      <div class="rounded-3">
+      <Articles /></div></div>
   </div>
 </template>
 

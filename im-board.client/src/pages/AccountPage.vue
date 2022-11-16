@@ -34,10 +34,10 @@
         </router-link> -->
       </div>
     </div>
-    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
+    <div class="row flex-wrap justify-content-between pt-4 pb-3">
       <div class="col-md-3 ms-md-3 bg-grey rounded px-0">
-        <div class="bg-c3 rounded">
-          <div class="col-md d-flex justify-content-center pt-2">
+        <div class="bg-c3 rounded elevation-3">
+          <div class="col-md d-flex justify-content-center pt-2 ">
             <h2 class="font">Groups</h2>
             <div>
               <i class="mdi mdi-information-outline fs-5" alt=""
@@ -46,7 +46,7 @@
           </div>
         </div>
 
-        <div class="cardholder">
+        <div class="cardholder ">
           <div v-for="g in groups" :key="g.id">
             <GroupCard :group="g" />
           </div>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="col-md mx-md-3 mt-3 mt-md-0 rounded bg-grey px-0">
-        <div class="col-md d-flex justify-content-center pt-2 rounded bg-c3">
+        <div class="col-md d-flex justify-content-center pt-2 rounded bg-c3 elevation-3">
           <h2 class="font">Game Lists</h2>
         </div>
 
@@ -81,7 +81,7 @@
         <div class="cardholder">
           <div class="row">
             <div class="col-md-4 px-4" v-for="g in bgLists" :key="g.id">
-              <GroupGamesCard :boardGameList="g" />
+              <GroupGamesCard :boardGameList="g" class="elevation-5" />
             </div>
           </div>
         </div>

@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="row bg-dark flex-wrap justify-content-between pt-4 pb-3">
+    <div class="row flex-wrap justify-content-between pt-4 pb-3">
       <!-- <div class="col-md-3  bg-grey  ms-md-3" v-if="account?.id == profile?.id">
         <div class="bg-c3">
           <div class="col-md d-flex justify-content-center pt-2">
@@ -63,7 +63,7 @@
 
       <div class="col-md mx-md-3 bg-grey rounded">
       
-          <div class="d-flex justify-content-center pt-2 bg-c3 rounded">
+          <div class="d-flex justify-content-center pt-2 bg-c3 rounded elevation-4">
             <h2 class="font">Game Lists</h2>
           </div>
 
@@ -106,7 +106,7 @@
         <div class="cardholder">
           <div class="row">
             <div class="col-md-4 px-4" v-for="g in bgLists" :key="g.id">
-              <GroupGamesCard :boardGameList="g" />
+              <GroupGamesCard :boardGameList="g" class="elevation-5" />
             </div>
           </div>
         </div>
