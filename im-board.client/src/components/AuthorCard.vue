@@ -4,9 +4,18 @@
   <img src="../assets/img/Tung Le.4.jpg" class="card-img " alt="Tung Le photo">
   <div class="card-img-overlay">
  <div class="d-flex flex-column align-items-end rounded">
-        <i class="mdi mdi-github fs-2"></i>
-        <i class="mdi mdi-linkedin fs-2"></i>
-        <i class="mdi mdi-email fs-2"></i>
+  <a href="https://github.com/TungLe0319">
+
+    <i class="mdi mdi-github fs-2"></i>
+  </a>
+  <a href="www.linkedin.com/in/tung-le0319
+">
+<i class="mdi mdi-linkedin fs-2"></i>
+</a>
+<a href="mailto:tung.le0319@gmail.com">
+
+  <i class="mdi mdi-email fs-2"></i>
+</a>
       </div>
 
   </div>
