@@ -7,7 +7,7 @@
         class="card-img"
         alt="Tung Le photo"
       />
-      <div class="card-img-overlay">
+      <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
           <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
             <i class="mdi mdi-github fs-2 "></i>
@@ -24,94 +24,111 @@
             <i class="mdi mdi-email fs-2 "></i>
           </a>
         </div>
+        <div class="d-flex align-items-end">
+          <h4 class="authorName">Tung Le</h4>
+        </div>
       </div>
     </div>
   </div>
   <!-- !Tung -->
   <!-- Tri -->
-  <div class="col-md-3">
-    <div class="card text-bg-dark border-0">
+    <div class="col-md-3">
+    <div class="card text-bg-dark border-0 authorCard">
       <img
-        src="../assets/img/TungLe4.jpg"
+        src="../assets/img/Tri Lie.jpg"
         class="card-img"
         alt="Tung Le photo"
       />
-      <div class="card-img-overlay">
+      <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github">
-            <i class="mdi mdi-github fs-2 text-light"></i>
+          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
+            <i class="mdi mdi-github fs-2 "></i>
           </a>
           <a
             href="www.linkedin.com/in/tung-le0319
 "
             title="LinkedIn"
+            class="authorIcons"
           >
-            <i class="mdi mdi-linkedin fs-2 text-light"></i>
+            <i class="mdi mdi-linkedin fs-2 "></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email">
-            <i class="mdi mdi-email fs-2 text-light"></i>
+          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
+            <i class="mdi mdi-email fs-2 "></i>
           </a>
+        </div>
+        <div class="d-flex align-items-end">
+          <h4 class="authorName">Tung Le</h4>
         </div>
       </div>
     </div>
   </div>
   <!-- !Tri -->
   <!-- Molly -->
-  <div class="col-md-3">
-    <div class="card text-bg-dark border-0">
+     <div class="col-md-3">
+    <div class="card text-bg-dark border-0 authorCard">
       <img
-        src="../assets/img/TungLe4.jpg"
+        src="../assets/img/molly.png"
         class="card-img"
         alt="Tung Le photo"
       />
-      <div class="card-img-overlay">
+      <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github">
-            <i class="mdi mdi-github fs-2 text-light"></i>
+          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
+            <i class="mdi mdi-github fs-2 "></i>
           </a>
           <a
             href="www.linkedin.com/in/tung-le0319
 "
             title="LinkedIn"
+            class="authorIcons"
           >
-            <i class="mdi mdi-linkedin fs-2 text-light"></i>
+            <i class="mdi mdi-linkedin fs-2 "></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email">
-            <i class="mdi mdi-email fs-2 text-light"></i>
+          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
+            <i class="mdi mdi-email fs-2 "></i>
           </a>
+        </div>
+        <div class="d-flex align-items-end">
+          <h4 class="authorName">Tung Le</h4>
         </div>
       </div>
     </div>
   </div>
   <!-- !Molly -->
   <!-- Daniel -->
-  <div class="col-md-3">
-    <div class="card text-bg-dark border-0">
+     <div class="col-md-3">
+    <div class="card text-bg-dark border-0 authorCard">
       <img
-        src="../assets/img/TungLe4.jpg"
+        src="../assets/img/Daniel Le.1.jpg"
         class="card-img"
         alt="Tung Le photo"
       />
-      <div class="card-img-overlay">
+      <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github">
-            <i class="mdi mdi-github fs-2 text-light"></i>
+          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
+            <i class="mdi mdi-github fs-2 "></i>
           </a>
           <a
             href="www.linkedin.com/in/tung-le0319
 "
             title="LinkedIn"
+            class="authorIcons"
           >
-            <i class="mdi mdi-linkedin fs-2 text-light"></i>
+            <i class="mdi mdi-linkedin fs-2 "></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email">
-            <i class="mdi mdi-email fs-2 text-light"></i>
+          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
+            <i class="mdi mdi-email fs-2 "></i>
           </a>
+        </div>
+        <div class="d-flex align-items-end">
+          <h4 class="authorName">Tung Le</h4>
         </div>
       </div>
     </div>
   </div>
   <!-- !Daniel -->
+  <!-- Kevin -->
+  <!-- !Kevin -->
 </template>
 
 <script>
@@ -125,6 +142,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.authorName{
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    font-family: "Roboto Condensed", sans-serif;
+}
 .card-img {
   height: 300px;
 
