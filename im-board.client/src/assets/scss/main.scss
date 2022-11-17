@@ -27,6 +27,26 @@ body {
   background-color: #ffffff;
 }
 
+.authorCard{
+transition: all 0.5s ease;
+}
+.authorCard:hover {
+  transform: scale(1.01);
+  transition: all 0.50s ease;
+  filter: saturate(110%);
+  filter: brightness(105%);
+}
+.authorIcons{
+  transition: all 0.25s ease;
+  color: rgb(255, 255, 255);
+}
+.authorIcons:hover {
+  transform: scale(1.14);
+  transition: all 0.25s ease;
+  // filter: saturate(120%);
+  // filter: brightness(80%);
+  color: #f6713c;
+}
 main {
   flex-grow: 1;
 }

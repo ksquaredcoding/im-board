@@ -1,27 +1,117 @@
 <template>
- <div class="col-md-3">
-<div class="card text-bg-dark border-0 ">
-  <img src="../assets/img/TungLe4.jpg" class="card-img " alt="Tung Le photo">
-  <div class="card-img-overlay">
- <div class="d-flex flex-column align-items-end rounded">
-  <a href="https://github.com/TungLe0319">
-
-    <i class="mdi mdi-github fs-2"></i>
-  </a>
-  <a href="www.linkedin.com/in/tung-le0319
-">
-<i class="mdi mdi-linkedin fs-2"></i>
-</a>
-<a href="mailto:tung.le0319@gmail.com">
-
-  <i class="mdi mdi-email fs-2"></i>
-</a>
+  <!-- Tung -->
+  <div class="col-md-3">
+    <div class="card text-bg-dark border-0 authorCard">
+      <img
+        src="../assets/img/TungLe4.jpg"
+        class="card-img"
+        alt="Tung Le photo"
+      />
+      <div class="card-img-overlay">
+        <div class="d-flex flex-column align-items-end rounded">
+          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
+            <i class="mdi mdi-github fs-2 "></i>
+          </a>
+          <a
+            href="www.linkedin.com/in/tung-le0319
+"
+            title="LinkedIn"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-linkedin fs-2 "></i>
+          </a>
+          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
+            <i class="mdi mdi-email fs-2 "></i>
+          </a>
+        </div>
       </div>
-
+    </div>
   </div>
-</div>
- </div>
-
+  <!-- !Tung -->
+  <!-- Tri -->
+  <div class="col-md-3">
+    <div class="card text-bg-dark border-0">
+      <img
+        src="../assets/img/TungLe4.jpg"
+        class="card-img"
+        alt="Tung Le photo"
+      />
+      <div class="card-img-overlay">
+        <div class="d-flex flex-column align-items-end rounded">
+          <a href="https://github.com/TungLe0319 " title="Github">
+            <i class="mdi mdi-github fs-2 text-light"></i>
+          </a>
+          <a
+            href="www.linkedin.com/in/tung-le0319
+"
+            title="LinkedIn"
+          >
+            <i class="mdi mdi-linkedin fs-2 text-light"></i>
+          </a>
+          <a href="mailto:tung.le0319@gmail.com" title="Email">
+            <i class="mdi mdi-email fs-2 text-light"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- !Tri -->
+  <!-- Molly -->
+  <div class="col-md-3">
+    <div class="card text-bg-dark border-0">
+      <img
+        src="../assets/img/TungLe4.jpg"
+        class="card-img"
+        alt="Tung Le photo"
+      />
+      <div class="card-img-overlay">
+        <div class="d-flex flex-column align-items-end rounded">
+          <a href="https://github.com/TungLe0319 " title="Github">
+            <i class="mdi mdi-github fs-2 text-light"></i>
+          </a>
+          <a
+            href="www.linkedin.com/in/tung-le0319
+"
+            title="LinkedIn"
+          >
+            <i class="mdi mdi-linkedin fs-2 text-light"></i>
+          </a>
+          <a href="mailto:tung.le0319@gmail.com" title="Email">
+            <i class="mdi mdi-email fs-2 text-light"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- !Molly -->
+  <!-- Daniel -->
+  <div class="col-md-3">
+    <div class="card text-bg-dark border-0">
+      <img
+        src="../assets/img/TungLe4.jpg"
+        class="card-img"
+        alt="Tung Le photo"
+      />
+      <div class="card-img-overlay">
+        <div class="d-flex flex-column align-items-end rounded">
+          <a href="https://github.com/TungLe0319 " title="Github">
+            <i class="mdi mdi-github fs-2 text-light"></i>
+          </a>
+          <a
+            href="www.linkedin.com/in/tung-le0319
+"
+            title="LinkedIn"
+          >
+            <i class="mdi mdi-linkedin fs-2 text-light"></i>
+          </a>
+          <a href="mailto:tung.le0319@gmail.com" title="Email">
+            <i class="mdi mdi-email fs-2 text-light"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- !Daniel -->
 </template>
 
 <script>
@@ -35,14 +125,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-img{
-   height: 300px;
+.card-img {
+  height: 300px;
 
   object-fit: cover;
   object-position: top;
 }
-.tri-card-img{
-   height: 300px;
+.tri-card-img {
+  height: 300px;
   width: 300px;
   object-fit: contain;
 }
@@ -54,7 +144,6 @@ export default {
 }
 
 .forcedImg {
- 
 }
 
 .profileImg {

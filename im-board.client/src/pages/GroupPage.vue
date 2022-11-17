@@ -145,7 +145,7 @@ export default {
       group: computed(() => AppState.activeGroup),
       lists: computed(() => AppState.groupFilteredLists),
       account: computed(() => AppState.account),
-      gamenights: computed(() => AppState.groupGameNights),
+      gamenights: computed(() => AppState.groupGameNights.reverse()),
       groupOwner: computed(
         () => AppState.activeGroup.creatorId == AppState.account.id
       ),
