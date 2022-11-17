@@ -1,5 +1,5 @@
 <template>
-  <div class="GameNightCard  card my-2 elevation-3 position-relative " :style="{backgroundImage: getRandomBg()}">
+  <div class="GameNightCard  card my-2 elevation-3 position-relative " :style="{ backgroundImage: getRandomBg() }">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight ">
 
@@ -22,21 +22,21 @@
           <span>
             <p>
               {{
-              new Date(gamenight?.startDate).toLocaleDateString("en-us", {
-              month: "short",
-              day: "2-digit",
-              year: "numeric",
-              })
+                  new Date(gamenight?.startDate).toLocaleDateString("en-us", {
+                    month: "short",
+                    day: "2-digit",
+                    year: "numeric",
+                  })
               }}
             </p>
           </span>
           <span class="mx-4">
             <p>
               {{
-              new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
-              hour: "2-digit",
-              minute: "2-digit",
-              })
+                  new Date(gamenight?.startDate).toLocaleTimeString("en-us", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
               }}
             </p>
           </span>
@@ -102,25 +102,19 @@ export default {
   setup(props) {
 
     const bgs = [
-      'url(https://images.unsplash.com/photo-1500995617113-cf789362a3e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)',
+      'url(https://images.unsplash.com/photo-1500995617113-cf789362a3e1)',
 
-      'url(https://images.unsplash.com/photo-1611891487122-207579d67d98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGdhbWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60)',
+      'url(https://images.unsplash.com/photo-1611891487122-207579d67d98)',
 
-      
+      'url(https://images.unsplash.com/photo-1547638375-ebf04735d792)',
 
-      'url(https://images.unsplash.com/photo-1547638375-ebf04735d792?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fGdhbWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60)',
+      'url(https://images.unsplash.com/photo-1606503153255-59d8b8b82176)',
 
-      'url(https://images.unsplash.com/photo-1606503153255-59d8b8b82176?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGdhbWVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60)',
+      'url(https://images.unsplash.com/photo-1561079028-f20597c34f21)',
 
+      'url(https://images.unsplash.com/photo-1606559497615-e4787c3c75a1)',
 
-
-      'url(https://images.unsplash.com/photo-1561079028-f20597c34f21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjgxfHxnYW1lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60)',
-
-      'url(https://images.unsplash.com/photo-1606559497615-e4787c3c75a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzIxfHxnYW1lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60)',
-
-      'url(https://images.unsplash.com/photo-1632833157919-32a1fdc249fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fGJvYXJkJTIwZ2FtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60)',
-
-      'url(https://images.unsplash.com/photo-1563811771046-ba984ff30900?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzR8fGJvYXJkJTIwZ2FtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60)',
+      'url(https://images.unsplash.com/photo-1563811771046-ba984ff30900)',
 
     ]
 
@@ -187,23 +181,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gameNightBg {
-  background-image: url(https://img.freepik.com/free-vector/board-game-astronauts-in-space-boardgame-strategy-kid-cartoon-template_33099-186.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  transition: all 0.5s ease;
-}
-
 
 .bgc3 {
   background-color: rgba(0, 255, 157, 0.364);
-}
-
-.gameImg {
-  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages8.alphacoders.com%2F448%2F448821.jpg&f=1&nofb=1&ipt=c82f7488813551ce7475226bda34e557ed75955562a742824dae6d417ad79a5e&ipo=images);
-  background-position: center;
-  background-size: cover;
 }
 
 .x {
@@ -251,7 +231,8 @@ export default {
   background-size: cover;
   transition: all 0.5s ease;
 }
-.card:hover{
+
+.card:hover {
   transform: scale(1.01);
   transition: all 0.5s ease;
 }

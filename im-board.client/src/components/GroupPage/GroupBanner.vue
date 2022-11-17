@@ -1,52 +1,53 @@
 <template v-if="group">
   <div class="col-md-11 rounded  banner elevation-3 " :style="{ backgroundImage: `url(${group?.coverImg})` }">
-   <div class="d-flex">
- <button class="btn  text-light" type="button" data-bs-toggle="collapse" data-bs-target="#groupButtons" aria-expanded="false" aria-controls="collapseWidthExample">
-   <i class="mdi mdi-dots-horizontal fs-1"></i>
-  </button>
-<div class="d-flex">
-  <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
-        Join Group
+   
+    <div class="d-flex">
+      <button class="btn text-light hover rounded-circle " type="button" data-bs-toggle="collapse" data-bs-target="#groupButtons"
+        aria-expanded="false" aria-controls="collapseWidthExample">
+        <i class="mdi mdi-dots-horizontal fs-1 text-white hover rounded-5 dropdownbtn"></i>
       </button>
-      <div v-else>
-        <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2">
-          Leave Group
-        </button>
-       
-      </div>
-</div>
 
-  <div class="collapse " id="groupButtons">
- 
-         <div class="logicButtons d-flex">
-    
- <button class="btn button-51 py-1 px-2 m-2" data-bs-toggle="modal" data-bs-target="#gameNightForm">
-          Create Gamenight
-        </button>
-      <!-- ------------ -->
-      <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
-        Delete Group
-      </button>
-      <div v-else></div>
-      <!-- EDIT -->
-      <div v-if="groupOwner">
-        <button @click="editGroup()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
-          data-bs-target="#editForm">
-          Edit group
-        </button>
-      </div>
-      <div v-if="groupOwner">
-        <button  class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
-          data-bs-target="#inviteMemberForm">
-          Invite Member
-        </button>
+      <div class="collapse" id="groupButtons">
+        <div class="logicButtons d-flex">
+
+          <div v-if="groupOwner">
+            <button class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
+              data-bs-target="#inviteMemberForm">
+              Invite Member
+            </button>
+          </div>
+
+          <button class="btn button-51 py-1 px-2 m-2" data-bs-toggle="modal" data-bs-target="#gameNightForm">
+            Create Gamenight
+          </button>
+
+          <div v-if="groupOwner">
+            <button @click="editGroup()" class="btn btn-warning button-51 py-1 px-2 m-2" data-bs-toggle="modal"
+              data-bs-target="#editForm">
+              Edit group
+            </button>
+          </div>
+
+          <button @click="addGroupMember()" class="btn button-50 py-1 px-2 m-2" v-if="!alreadyAMember">
+            Join Group
+          </button>
+          <div v-else>
+            <button @click="leaveGroup()" class="btn button-51 py-1 px-2 m-2">
+              Leave Group
+            </button>
+          </div>
+
+          <button @click="removeGroup()" class="btn btn-danger button-51 py-1 px-2 m-2" v-if="groupOwner">
+            Delete Group
+          </button>
+          <div v-else></div>
+
+        </div>
+
+
       </div>
     </div>
 
-  
-</div>
-   </div>
- 
 
     <div class="row justify-content-center mb-3">
       <div class="col-md-6 text-center bannerBg my-2 rounded text-light elevation-3">
@@ -61,7 +62,8 @@
             <router-link :to="{ name: 'Profile', params: { id: g?.accountId } }" v-for="g in groupMember" :key="g?.id">
               <img :src="g.profile?.picture" :alt="g.profile?.name" :title="g.profile?.name" height="45" width="45"
                 class="rounded-circle box-shadow m-1 profile-img position-relative" />
-                <span class="rounded-circle onlineThing  bg-success position-absolute end-50 glow2"  v-if="g.profile.isOnline"> </span>
+              <span class="rounded-circle onlineThing  bg-success position-absolute end-50 glow2"
+                v-if="g.profile.isOnline"> </span>
             </router-link>
           </div>
         </div>
@@ -165,10 +167,11 @@ export default {
 <style lang="scss" scoped>
 /* CSS */
 
-.onlineThing{
+.onlineThing {
   height: 20px;
   width: 20px;
 }
+
 .groupMemberBar {
   // box-shadow: inset 0 2px 5px 0 #082f46e8;;
   transition: 1s ease;
@@ -206,13 +209,14 @@ export default {
   filter: drop-shadow(0 0 4px rgb(0, 255, 183)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
   color: rgb(242, 242, 171);
 }
+
 .glow2 {
-  filter: drop-shadow(0 0 4px rgb(0, 255, 183)) ;
+  filter: drop-shadow(0 0 4px rgb(0, 255, 183));
   color: rgb(242, 242, 171);
 }
 
-.profile-img:hover{
-   filter: drop-shadow(0 0 4px rgb(255, 170, 0)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
+.profile-img:hover {
+  filter: drop-shadow(0 0 4px rgb(255, 170, 0)) drop-shadow(0 0 20px rgb(255, 255, 225)) drop-shadow(0 0 40px rgba(255, 255, 225, 0.524));
   color: rgb(242, 242, 171);
 }
 </style>
