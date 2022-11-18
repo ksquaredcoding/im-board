@@ -159,17 +159,36 @@
   <!-- Kevin -->
   <div class="col-md-3 mt-3">
     <div class="card text-bg-dark border-0 authorCard">
-      <img src="../assets/img/kevin.jpg" class="card-img" alt="daniel le photo" />
+      <img
+        src="../assets/img/kevin.jpg"
+        class="card-img"
+        alt="daniel le photo"
+      />
       <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://www.linkedin.com/in/kevin-kelley2022/" target="_blank" title="Github" class="authorIcons ">
-            <i class="mdi mdi-github fs-2 "></i>
+          <a
+            href="https://www.linkedin.com/in/kevin-kelley2022/"
+            target="_blank"
+            title="Github"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-github fs-2"></i>
           </a>
-          <a href="https://github.com/ksquaredcoding
-  " target="_blank" title="LinkedIn" class="authorIcons">
+          <a
+            href="https://github.com/ksquaredcoding
+  "
+            target="_blank"
+            title="LinkedIn"
+            class="authorIcons"
+          >
             <i class="mdi mdi-linkedin fs-2"></i>
           </a>
-          <a href="https://www.ksquaredcoding.com/#/" title="Email" class="authorIcons" target="_blank">
+          <a
+            href="https://www.ksquaredcoding.com/#/"
+            title="Email"
+            class="authorIcons"
+            target="_blank"
+          >
             <!-- <i class="mdi mdi-email fs-2"></i> -->
           </a>
         </div>
