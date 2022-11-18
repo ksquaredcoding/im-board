@@ -18,7 +18,7 @@
             <i class="mdi mdi-github fs-2"></i>
           </a>
           <a
-            href="www.linkedin.com/in/tung-le0319
+            href="https://www.linkedin.com/in/tung-le0319
 "
             target="_blank"
             title="LinkedIn"
@@ -60,7 +60,7 @@
             <i class="mdi mdi-github fs-2"></i>
           </a>
           <a
-            href="www.linkedin.com/in/tri-le1122
+            href="https://www.linkedin.com/in/tri-le1122
 "
             target="_blank"
             title="LinkedIn"
@@ -94,7 +94,7 @@
             <i class="mdi mdi-github fs-2"></i>
           </a>
           <a
-            href="www.linkedin.com/in/molly-nettleton
+            href="https://www.linkedin.com/in/molly-nettleton
 "
             target="_blank"
             title="LinkedIn"
