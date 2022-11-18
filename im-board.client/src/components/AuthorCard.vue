@@ -2,18 +2,36 @@
   <!-- Tung -->
   <div class="col-md-3">
     <div class="card text-bg-dark border-0 authorCard">
-      <img src="../assets/img/TungLe4.jpg" class="card-img" alt="Tung Le photo" />
+      <img
+        src="../assets/img/TungLe4.jpg"
+        class="card-img"
+        alt="Tung Le photo"
+      />
       <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
-            <i class="mdi mdi-github fs-2 "></i>
+          <a
+            href="https://github.com/TungLe0319 "
+            target="_blank"
+            title="Github"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-github fs-2"></i>
           </a>
-          <a href="www.linkedin.com/in/tung-le0319
-" title="LinkedIn" class="authorIcons">
-            <i class="mdi mdi-linkedin fs-2 "></i>
+          <a
+            href="www.linkedin.com/in/tung-le0319
+"
+            target="_blank"
+            title="LinkedIn"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-linkedin fs-2"></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
-            <i class="mdi mdi-email fs-2 "></i>
+          <a
+            href="mailto:tung.le0319@gmail.com"
+            title="Email"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-email fs-2"></i>
           </a>
         </div>
         <div class="d-flex align-items-end">
@@ -26,18 +44,32 @@
   <!-- Tri -->
   <div class="col-md-3">
     <div class="card text-bg-dark border-0 authorCard">
-      <img src="../assets/img/tri-le.jpg" class="card-img" alt="Tung Le photo" />
+      <img
+        src="../assets/img/tri-le.jpg"
+        class="card-img"
+        alt="Tung Le photo"
+      />
       <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
-            <i class="mdi mdi-github fs-2 "></i>
+          <a
+            href="https://github.com/TriLe1122"
+            target="_blank"
+            title="Github"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-github fs-2"></i>
           </a>
-          <a href="www.linkedin.com/in/tung-le0319
-" title="LinkedIn" class="authorIcons">
-            <i class="mdi mdi-linkedin fs-2 "></i>
+          <a
+            href="www.linkedin.com/in/tri-le1122
+"
+            target="_blank"
+            title="LinkedIn"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-linkedin fs-2"></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
-            <i class="mdi mdi-email fs-2 "></i>
+          <a href="" title="Email" class="authorIcons">
+            <i class="mdi mdi-email fs-2"></i>
           </a>
         </div>
         <div class="d-flex align-items-end">
@@ -53,19 +85,29 @@
       <img src="../assets/img/molly.png" class="card-img" alt="Tung Le photo" />
       <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
-            <i class="mdi mdi-github fs-2 "></i>
+          <a
+            href="https://github.com/molly-nettleton"
+            target="_blank"
+            title="Github"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-github fs-2"></i>
           </a>
-          <a href="www.linkedin.com/in/tung-le0319
-" title="LinkedIn" class="authorIcons">
-            <i class="mdi mdi-linkedin fs-2 "></i>
+          <a
+            href="www.linkedin.com/in/molly-nettleton
+"
+            target="_blank"
+            title="LinkedIn"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-linkedin fs-2"></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
-            <i class="mdi mdi-email fs-2 "></i>
+          <a href="" title="Email" class="authorIcons">
+            <i class="mdi mdi-email fs-2"></i>
           </a>
         </div>
         <div class="d-flex align-items-end">
-          <h4 class="authorName">Tung Le</h4>
+          <h4 class="authorName">Molly Nettleton</h4>
         </div>
       </div>
     </div>
@@ -74,22 +116,40 @@
   <!-- Daniel -->
   <div class="col-md-3">
     <div class="card text-bg-dark border-0 authorCard">
-      <img src="../assets/img/daniel-le.jpg" class="card-img" alt="Tung Le photo" />
+      <img
+        src="../assets/img/daniel-le.jpg"
+        class="card-img"
+        alt="daniel le photo"
+      />
       <div class="card-img-overlay d-flex flex-column justify-content-between">
         <div class="d-flex flex-column align-items-end rounded">
-          <a href="https://github.com/TungLe0319 " title="Github" class="authorIcons">
-            <i class="mdi mdi-github fs-2 "></i>
+          <a
+            href="https://github.com/daniel-le97"
+            target="_blank"
+            title="Github"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-github fs-2"></i>
           </a>
-          <a href="www.linkedin.com/in/tung-le0319
-" title="LinkedIn" class="authorIcons">
-            <i class="mdi mdi-linkedin fs-2 "></i>
+          <a
+            href="https://www.linkedin.com/in/daniel-le97/
+"
+            target="_blank"
+            title="LinkedIn"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-linkedin fs-2"></i>
           </a>
-          <a href="mailto:tung.le0319@gmail.com" title="Email" class="authorIcons">
-            <i class="mdi mdi-email fs-2 "></i>
+          <a
+            href="mailto:daniel97.le@gmail.com"
+            title="Email"
+            class="authorIcons"
+          >
+            <i class="mdi mdi-email fs-2"></i>
           </a>
         </div>
         <div class="d-flex align-items-end">
-          <h4 class="authorName">Tung Le</h4>
+          <h4 class="authorName">Daniel Le</h4>
         </div>
       </div>
     </div>
@@ -134,7 +194,8 @@ export default {
   letter-spacing: 0.06em;
 }
 
-.forcedImg {}
+.forcedImg {
+}
 
 .profileImg {
   height: 150px;
