@@ -24,8 +24,7 @@
 
       <router-link class="navbar-brand d-flex justify-content-center" :to="{ name: 'Home' }">
         <div class="d-flex align-items-center justify-content-center hover">
-          <img alt="logo" src="src\assets\img\logonotext.png" height="45"
-            id="gameLogo" class="bg-grey rounded-4  p-2" />
+          <img alt="logo" src="..\assets\img\logonotext.png" height="45" id="gameLogo" class="bg-grey rounded-4  p-2" />
           <p class=" mb-0 mx-2 navbar-title justify-content-center">
           <article class="">I'm Game!</article>
           </p>
