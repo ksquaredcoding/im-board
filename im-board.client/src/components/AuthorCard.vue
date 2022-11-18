@@ -57,7 +57,7 @@
           </a>
         </div>
         <div class="d-flex align-items-end">
-          <h4 class="authorName">Tung Le</h4>
+          <h4 class="authorName">Tri Le</h4>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
           </a>
         </div>
         <div class="d-flex align-items-end">
-          <h4 class="authorName">Tung Le</h4>
+          <h4 class="authorName">Molly Nettleton</h4>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
           </a>
         </div>
         <div class="d-flex align-items-end">
-          <h4 class="authorName">Tung Le</h4>
+          <h4 class="authorName">Daniel Le</h4>
         </div>
       </div>
     </div>
