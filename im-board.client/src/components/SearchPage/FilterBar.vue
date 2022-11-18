@@ -141,6 +141,8 @@ export default {
           await atlasGamesService.getBoardGames(finalSearch);
           if (AppState.boardgames <= 0) {
             Pop.toast("Refine your search...");
+            AppState.queryFilter = [];
+
           } else {
             AppState.queryFilter = [];
             
