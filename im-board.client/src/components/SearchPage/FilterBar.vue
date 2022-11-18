@@ -140,9 +140,10 @@ export default {
           AppState.activeSearchQuery = arrToUse
           await atlasGamesService.getBoardGames(finalSearch);
           if (AppState.boardgames <= 0) {
-            Pop.toast("Refine your search please");
+            Pop.toast("Refine your search...");
           } else {
             AppState.queryFilter = [];
+            
           }
         } catch (error) {
           Pop.error(error, "[Cool Search Method]");

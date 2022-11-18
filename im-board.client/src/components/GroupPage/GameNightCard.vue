@@ -1,5 +1,7 @@
 <template>
-  <div class="GameNightCard  card my-2 elevation-3 position-relative " :style="{ backgroundImage: getRandomBg() }">
+  <div 
+  :class=" new Date(gamenight?.startDate) <= Date.now()? 'test disabled' : ''"
+  class="GameNightCard  card my-2 elevation-3 position-relative " :style="{ backgroundImage: getRandomBg() }">
     <div class="row justify-content-center">
       <div class="col-7 col-md-8 rounded bg-c4 m-2 upcomingGameNight ">
 
@@ -42,6 +44,7 @@
           </span>
           <span>
             <p>At: {{ gamenight?.location }}</p>
+            <p>  </p>
           </span>
         </div>
       </div>
@@ -181,6 +184,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.test{
+  filter: grayscale(100%);
+}
 
 .bgc3 {
   background-color: rgba(0, 255, 157, 0.364);
