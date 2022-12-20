@@ -191,8 +191,8 @@ export default {
       getBoardGamesByPopularity();
       getBoardGamesByDiscount();
       editorsChoiceGames();
-      getForumPosts();
-      // getInvites()
+      // getForumPosts();
+      // getInvitee()
     });
 
     return {
