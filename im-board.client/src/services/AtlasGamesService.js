@@ -23,16 +23,16 @@ class AtlasGamesService {
         skip: nextSet
       },
     });
-    // console.log(res.data);
+  
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
 
-    // console.log(AppState.boardgames);
+    
   }
 
   //NOTE - FOR FILTER SIDE BAR
   async getBoardGamesByOrder_By(x) {
     let nextSet = AppState.nextSet;
-    // console.log(x);
+  
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
@@ -41,7 +41,7 @@ class AtlasGamesService {
         skip: nextSet,
       },
     });
-    // console.log(res.data.games);
+
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
@@ -97,7 +97,7 @@ class AtlasGamesService {
 
       },
     });
-    // console.log(res.data.games);
+  
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
@@ -116,7 +116,7 @@ class AtlasGamesService {
   //-----------------------------!SECTION-----------------------------------------------------------
 
   async getBoardGamesByQuery(name = '') {
-    // console.log(name);
+  
     router.push({ name: 'Search' });
     const res = await atlasApi.get('/api/search', {
       params: {
@@ -126,16 +126,13 @@ class AtlasGamesService {
         limit: 48,
       },
     });
-    // console.log(res.data.games);
+ 
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    // AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
-    // console.log(res.data);
 
-    // console.log(AppState.boardgames);
   }
 
   async getBoardGamesByMechanics(mechanics = '') {
-    // console.log(mechanics);
+
     const res = await atlasApi.get('/api/search', {
       params: {
         client_id: '2I6DeypMLL',
@@ -143,7 +140,7 @@ class AtlasGamesService {
         limit: 60,
       },
     });
-    // console.log(res.data.games);
+
     AppState.boardgames = res.data.games.map((b) => new BoardGame(b));
   }
 
@@ -155,9 +152,9 @@ class AtlasGamesService {
         ids: id,
       },
     });
-    // console.log(res.data.games);
+
     AppState.activeBoardGame = new BoardGame(res.data.games[0]);
-    // console.log(AppState.activeBoardGame);
+   
   }
 
   async getBoardGameImagesByGameId(id) {
@@ -167,11 +164,11 @@ class AtlasGamesService {
         game_id: id,
       },
     });
-    // console.log(res.data.images);
+   
     AppState.activeBoardGameImages = res.data.images.map(
       (a) => new ActiveBoardGameImage(a)
     );
-    // console.log(AppState.activeBoardGameImages);
+  
   }
   async getBoardGamePricesByGameId(id) {
     const res = await atlasApi.get('api/game/prices?', {
@@ -180,11 +177,11 @@ class AtlasGamesService {
         game_id: id,
       },
     });
-    // console.log(res.data.gameWithPrices.us);
+  
     AppState.activeBoardGamePrices = res.data.gameWithPrices.us.map(
       (p) => new ActiveBoardGamePrice(p)
     );
-    // console.log(AppState.activeBoardGamePrices);
+   
   }
   async getBoardGameVideosByGameId(id) {
     const res = await atlasApi.get('api/game/videos?', {
@@ -193,11 +190,11 @@ class AtlasGamesService {
         game_id: id,
       },
     });
-    // console.log(res.data.videos);
+    
     AppState.activeBoardGameVideos = res.data.videos.map(
       (a) => new ActiveBoardGameVideo(a)
     );
-    // console.log(AppState.activeBoardGameVideos);
+   
   }
 
   async getBoardGameReviewsByGameId(id) {
@@ -210,12 +207,12 @@ class AtlasGamesService {
       },
     });
 
-    // console.log(res.data.critics.reviews);
+ 
 
     AppState.activeBoardGameReviews = res.data.critics.reviews.map(
       (r) => new ABGReviews(r)
     );
-    // console.log(AppState.activeBoardGameReviews);
+ 
   }
 
   async getBoardGameCategoriesList() {
@@ -224,13 +221,11 @@ class AtlasGamesService {
         client_id: '2I6DeypMLL',
       },
     });
-    // console.log(res.data);
+   
     AppState.bgCategories = res.data.categories.map(
       (b) => new BGCategoriesAndMechanics(b)
     );
-    // AppState.categoryNames = res.data.categories.map(b=> b)
-    // console.log(AppState.bgCategories);
-    // console.log(AppState.categoryNames);
+
   }
 
   async getBoardGameMechanicsList() {
@@ -239,11 +234,11 @@ class AtlasGamesService {
         client_id: '2I6DeypMLL',
       },
     });
-    // console.log(res.data);
+   
     AppState.bgMechanics = res.data.mechanics.map(
       (b) => new BGCategoriesAndMechanics(b)
     );
-    // console.log(AppState.bgMechanics);
+   
   }
 
   // SECTION FORUM POSTS ---------------------------!SECTION
@@ -258,9 +253,9 @@ class AtlasGamesService {
         skip: next
       },
     });
-    // console.log(res.data);
+
     AppState.forumPosts = res.data.posts.map((f) => new ForumPost(f));
-    // console.log(AppState.forumPosts);
+  
   }
 }
 

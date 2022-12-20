@@ -16,20 +16,16 @@ class AccountService {
 
   async getMyGroups() {
     const res = await api.get(`/account/groups`);
-    // console.log('getMyGroups', res.data);
-    // console.log(AppState.account.id);
-    AppState.groupMemberShips = res.data.map((g) => new GroupMemberShip(g));
-    // AppState.groups = res.data.map((g) => new Group(g));
 
-    // console.log(AppState.groupMemberShips);
+    AppState.groupMemberShips = res.data.map((g) => new GroupMemberShip(g));
+
   }
 
   async getMyLists() {
     const res = await api.get(`/account/boardgames/`);
-    // console.log(res.data, 'getting my lists');
+
     AppState.bgLists = res.data.map((b) => new BGList(b));
-    // AppState.bgLists = AppState.bgLists.filter(b => b.listName == "favorite")
-    // console.log(AppState.bgLists);
+
   }
 
   async editAccount(formData) {

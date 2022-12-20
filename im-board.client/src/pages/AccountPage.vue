@@ -123,7 +123,6 @@ export default {
         await accountService.getMyLists();
         AppState.bgLists.filter((f) => f.listName == "favorite");
       } catch (error) {
-        console.error("[get my lists]", error);
         Pop.error(error);
       }
     }
@@ -135,9 +134,6 @@ export default {
     async function getInvites() {
       try {
         const inbox = await inboxService.getInvites();
-        // console.log("getting invites", inbox);
-        // setTimeout(1000)
-        // getInvites()
       } catch (error) {
         Pop.error(error);
       }
@@ -154,16 +150,6 @@ export default {
       account: computed(() => AppState.account),
       user: computed(() => AppState.user),
       groups: computed(() => AppState.groupMemberShips),
-      // bgLists: computed(() => AppState.bgLists),
-      // wishList: computed(() =>
-      //   AppState.bgLists.filter((w) => w.listName == 'wish')
-      // ),
-      // favList: computed(() =>
-      //   AppState.bgLists.filter((f) => f.listName == 'favorite')
-      // ),
-      // ownedList: computed(() =>
-      //   AppState.bgLists.filter((o) => o.listName == 'owned')
-      // ),
       bgLists: computed(() =>
         AppState.bgLists.filter((b) =>
           filterBg.value ? b.listName == filterBg.value : true

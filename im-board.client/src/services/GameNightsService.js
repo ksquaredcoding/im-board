@@ -6,9 +6,9 @@ import { api } from "./AxiosService.js";
 class GameNightsService {
   async getGroupGameNights(id) {
     const res = await api.get(`/api/gamenights/${id}`);
-    // console.log(res.data);
+ 
     AppState.groupGameNights = res.data.map((n) => new GameNight(n));
-    // console.log(AppState.groupGameNights);
+   
   }
   async attendGamenight(gamenightId) {
     const gamenight = AppState.groupGameNights.find((g) => g.id == gamenightId);
@@ -26,12 +26,12 @@ class GameNightsService {
 
   async makeGameNight(gameNightData) {
     const res = await api.post(`api/gamenights/`, gameNightData);
-    // console.log(res.data);
+
     AppState.groupGameNights = [
       new GameNight(res.data),
       ...AppState.groupGameNights,
     ];
-    // console.log(AppState.groupGameNights);
+ 
   }
   async removeGameNight(gnId) {
     await api.delete(`api/gamenights/${gnId}`);

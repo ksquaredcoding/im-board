@@ -186,19 +186,6 @@ export default {
         Pop.error(error, "[getForumPosts]");
       }
     }
-    //  async function getInvites(){
-    //   try {
-     
-        
-    //      await inboxService.getInvites()
-       
-    //     // console.log('getting invites');
-    //     // setTimeout(1000)
-    //     // getInvites()
-    //     } catch (error) {
-    //       Pop.error(error)
-    //     }
-    // }
 
     onMounted(() => {
       getBoardGamesByPopularity();

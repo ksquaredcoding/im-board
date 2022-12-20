@@ -34,7 +34,6 @@ export default {
       async filterByOrderBy(x) {
         try {
           if (x == 'year_published') {
-            // console.log(x);
             await atlasGamesService.getBoardGamesByOrder_By(x);
           } else
             await atlasGamesService.getBoardGamesByOrder_By();

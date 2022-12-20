@@ -12,7 +12,7 @@ class GroupMembersService {
       new GroupMembers(res.data),
       ...AppState.groupMembers,
     ];
-    // console.log(AppState.groupMembers);
+   
   }
 
   async leaveGroup(groupMemberId, newAccountId) {
@@ -24,7 +24,7 @@ class GroupMembersService {
       res = await api.delete(`api/groupmembers/${groupMemberId}`, newAccountId);
     } else {
       res = await api.delete(`api/groupmembers/${groupMemberId}`);
-      // console.log(res.data);
+     
       AppState.groupMembers = AppState.groupMembers.filter(
         (g) => g.id !== groupMemberId
       );

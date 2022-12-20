@@ -66,7 +66,7 @@ import { AppState } from "../../AppState.js";
 import { useRoute } from "vue-router";
 import { groupsService } from "../../services/GroupsService.js";
 import SearchProfiles from "./SearchProfiles.vue";
-// import { group } from "console";
+
 export default {
     setup() {
       watchEffect(()=>{
@@ -85,7 +85,6 @@ export default {
                 try {
                     let id = route.params.id;
                     editable.value.groupId = id;
-                    // console.log(editable.value);
                
                     await groupsService.inviteMember(editable.value);
                     editable.value = {};

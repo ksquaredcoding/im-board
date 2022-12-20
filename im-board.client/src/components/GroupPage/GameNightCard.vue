@@ -158,7 +158,6 @@ export default {
           }
           await gameNightsService.removeGameNight(props.gamenight.id);
         } catch (error) {
-          console.error("[]", error);
           Pop.error(error);
         }
       },
@@ -174,7 +173,6 @@ export default {
         try {
           await gameNightsService.attendGamenight(gamenightId);
         } catch (error) {
-          console.error(error);
           Pop.error(error.message);
         }
       },

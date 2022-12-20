@@ -113,10 +113,8 @@ export default {
           if (!yes) {
             return;
           }
-          // console.log(props.boardGameList.gameId, props.boardGameList.listId);
           await listsService.removeGameFromList(props.boardGameList.listId);
         } catch (error) {
-          console.error("[RemoveGame]", error);
           Pop.error(error);
         }
       },

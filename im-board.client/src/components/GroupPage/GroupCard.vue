@@ -36,7 +36,6 @@ export default {
           (g) => g.groupId == props.group.groupId
         );
         AppState.activeGroup = group;
-        // console.log("activeGroup-tung", AppState.activeGroup);
       },
     };
   },

@@ -138,29 +138,10 @@ import { groupsService } from "../services/GroupsService.js";
 import { listsService } from "../services/ListsService.js";
 import { gameNightsService } from "../services/GameNightsService.js";
 import { router } from "../router.js";
+import { logger } from "../utils/Logger";
 
 export default {
   setup() {
-    // async function getInvites(){
-    //   try {
-
-    //     const inbox = await inboxService.getInvites()
-    //     console.log('getting invites', inbox);
-    //     // setTimeout(1000)
-    //     // getInvites()
-    //     } catch (error) {
-    //       Pop.error(error)
-    //     }
-    // }
-    // onMounted(()=> 
-    //   getInvites()
-    // )
-
-    // watchEffect(() => {
-    //   let hello = AppState.account.isAuthenticated
-    //   console.log('hi');
-
-    // })
     const route = useRoute()
     return {
       route,
@@ -173,13 +154,12 @@ export default {
         try {
           await inboxService.deleteInvite(id)
         } catch (error) {
-          console.error('[]', error)
+          logger.error('[]', error)
           Pop.error(error)
         }
 
       },
       async getGroupDetails(id) {
-        // console.log(id);
         try {
           router.push({ name: 'Group', params: { id: id } })
           await groupsService.getGroupById(id)

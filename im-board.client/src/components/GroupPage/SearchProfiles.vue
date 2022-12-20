@@ -42,7 +42,6 @@ export default {
 
           await profilesService.getProfiles(editable.value.term);
         } catch (error) {
-          console.error('searchProfiles', error);
         }
       },
 
@@ -50,7 +49,6 @@ export default {
       async inviteToGroup(profile) {
         AppState.profileIdToInviteBy = profile
 
-        // console.log(AppState.profileIdToInviteBy);
       }
     };
   },

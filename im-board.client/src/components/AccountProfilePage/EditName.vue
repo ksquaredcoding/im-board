@@ -59,7 +59,6 @@ export default {
         try {
           await accountService.editAccount(editable.value);
         } catch (error) {
-          console.error(error);
           Pop.error(error, "[EditBanner]");
         }
       },

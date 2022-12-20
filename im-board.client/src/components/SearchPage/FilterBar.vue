@@ -136,7 +136,6 @@ export default {
           const arrToUse = AppState.queryFilter;
           AppState.nextQueryFilter = AppState.queryFilter;
           let finalSearch = arrToUse.join("&");
-          // console.log(AppState.queryFilter.join("&"));
           AppState.activeSearchQuery = arrToUse
           await atlasGamesService.getBoardGames(finalSearch);
           if (AppState.boardgames <= 0) {
@@ -169,7 +168,6 @@ export default {
             default:
               break;
           }
-          // console.log(AppState.skip);
         } catch (error) {
           Pop.error("[INCREMENT SKIP]", error);
         }

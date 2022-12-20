@@ -52,10 +52,8 @@ export default {
         try {
           let id = route.params.id;
           editable.value.groupId = id;
-          // console.log(editable.value);
           await gameNightsService.makeGameNight(editable.value);
         } catch (error) {
-          console.error("[]", error);
           Pop.error(error);
         }
       },

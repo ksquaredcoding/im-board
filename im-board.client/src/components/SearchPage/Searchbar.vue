@@ -36,7 +36,6 @@ export default {
           await atlasGamesService.getBoardGamesByQuery(editable.value);
           editable.value = "";
         } catch (error) {
-          console.error("dfd", error);
         }
       },
     };

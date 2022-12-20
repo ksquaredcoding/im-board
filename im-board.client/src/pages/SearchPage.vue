@@ -123,7 +123,7 @@ export default {
                   AppState.nextQueryFilter.length - 1
                 ] = `skip=${AppState.skip}`;
                 const nextSearch = AppState.nextQueryFilter.join("&");
-                // console.log(nextSearch);
+          
                 await atlasGamesService.getBoardGames(nextSearch);
                 AppState.itsAMaybe = 12;
                 AppState.hopeItWorks = 0;
@@ -155,7 +155,7 @@ export default {
       async paginationAttempt2(prevOrNext) {
         try {
           const activeSearchQuery = AppState.activeSearchQuery.join('&')
-          // console.log(activeSearchQuery);
+
           if (prevOrNext == 'prev') {
             AppState.nextSet += 25
             await atlasGamesService.getBoardGames(activeSearchQuery)
@@ -170,7 +170,7 @@ export default {
         try {
           AppState.nextSet += 25
           await atlasGamesService.getBoardGamesByOrder_By()
-          //  console.log(AppState.nextSet);
+       
         } catch (error) {
           Pop.error(error, '[nextSet]')
         }
@@ -180,7 +180,7 @@ export default {
           AppState.nextSet -= 25
           await atlasGamesService.getBoardGamesByOrder_By()
 
-          // console.log(AppState.nextSet);
+     
         } catch (error) {
           Pop.error(error, '[previousSet]')
         }
