@@ -9,7 +9,6 @@ function getElem(id) {
       throw new Error(`Invalid element Id ${id}`)
     }
   } catch (error) {
-    console.error('[ATTEMPTING_TO_SET_HTML]', id)
     Pop.error(error)
   }
 }
