@@ -2,7 +2,7 @@ FROM node:16 AS build-env
 
 WORKDIR /app
 # replace with your projects name
-COPY ./im-board/package*.json ./
+COPY ./package*.json ./
 RUN npm install 
 RUN ls
 COPY ./ ./
